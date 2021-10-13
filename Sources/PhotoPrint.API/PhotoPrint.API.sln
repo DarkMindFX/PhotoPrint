@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Common", "PhotoPrint.Common\PhotoPrint.Common.csproj", "{F0238ADA-9D26-4F20-AF10-CF24EBB8AA3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{812EC8C4-DF64-4E7E-93BC-FA8CF25A095A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2820586E-CE98-444F-AD08-12F2E4CA835B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.DTO", "PhotoPrint.DTO\PhotoPrint.DTO.csproj", "{242244DE-FCCA-4226-9F9A-E6FCD9EEA125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0238ADA-9D26-4F20-AF10-CF24EBB8AA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0238ADA-9D26-4F20-AF10-CF24EBB8AA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0238ADA-9D26-4F20-AF10-CF24EBB8AA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0238ADA-9D26-4F20-AF10-CF24EBB8AA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242244DE-FCCA-4226-9F9A-E6FCD9EEA125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242244DE-FCCA-4226-9F9A-E6FCD9EEA125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242244DE-FCCA-4226-9F9A-E6FCD9EEA125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242244DE-FCCA-4226-9F9A-E6FCD9EEA125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCC25D44-E0EE-4AA8-BD23-47C384963292}
+	EndGlobalSection
+EndGlobal
