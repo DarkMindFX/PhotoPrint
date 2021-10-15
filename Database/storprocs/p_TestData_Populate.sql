@@ -49,14 +49,13 @@ BEGIN
 	SELECT 14, 'Image', 'Image.csv', 1								UNION
 	SELECT 15, 'ImageCategory', 'ImageCategory.csv', 0				UNION
 	SELECT 16, 'ImageRelated', 'ImageRelated.csv', 0				UNION
-	SELECT 17, 'PrintingHouseAddress', 'PrintingHouseAddress.csv', 0	UNION
-	SELECT 18, 'PrintingHouseContact', 'PrintingHouseContact.csv', 0	
-								
+	SELECT 17, 'ImageThumbnail', 'ImageThumbnail.csv', 1			UNION
+	SELECT 18, 'PrintingHouseAddress', 'PrintingHouseAddress.csv', 0	UNION
+	SELECT 19, 'PrintingHouseContact', 'PrintingHouseContact.csv', 0	
 
 
 	DECLARE paramsCursor CURSOR FOR
 	SELECT [File], [Table], [HasIdentity] FROM @tblParams ORDER BY [Order]
-
 	
 	DECLARE @Path AS NVARCHAR(MAX)
 	DECLARE @sql AS NVARCHAR(MAX)

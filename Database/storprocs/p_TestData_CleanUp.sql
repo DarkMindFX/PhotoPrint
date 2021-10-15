@@ -49,6 +49,7 @@ BEGIN
 	SELECT 15, 'MountingType', 'MountingType.csv'		UNION
 	SELECT 16, 'PrintingHouse', 'PrintingHouse.csv'		UNION
 	SELECT 17, 'ImageRelated', 'ImageRelated.csv'		UNION
+	SELECT 17, 'ImageThumbnail', 'ImageThumbnail.csv'	UNION
 	SELECT 18, 'Image', 'Image.csv'						UNION
 	SELECT 99, 'User', 'User.csv'						
 
