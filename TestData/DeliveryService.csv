@@ -1,0 +1,11 @@
+ID,DeliveryServiceName,Description,IsDeleted,CreatedDate,CreatedByID,ModifiedDate,ModifiedByID
+100001,DHL,,0,10/1/2021,100001,,
+100002,UPS,,0,10/1/2021,100001,,
+100003,Poczta Polska,,0,10/1/2021,100001,,
+100004,Nova Pochta,,0,10/1/2021,100001,,
+100005,Deutsche Poste,,0,10/1/2021,100001,,
+100006,FedEx,,0,10/1/2021,100001,,
+100007,Portugese Delivery,,0,10/1/2021,100001,,
+100008,Spainish Postoffice,,0,10/1/2021,100001,,
+100009,Miist Express,,0,10/1/2021,100001,,
+100010,ACME Delivery,,0,10/1/2021,100001,,

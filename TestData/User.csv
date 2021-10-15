@@ -1,0 +1,12 @@
+ID,Login,PwdHash,Salt,FirstName,MiddleName,LastName,FriendlyName,UserStatusID,UserTypeID,CreatedDate,ModifiedDate,ModifiedByID
+100001,System,#System==,123SALT123BCD,SystemF,,SystemL,System,2,4,10/1/2021 0:00,,
+100002,Admin,#Admin==,567SALT567WQA,AdminF,,AdminL,Admin,2,3,10/1/2021 0:00,,
+100003,LindonJ,#LindonJ==,567SALT567WQA,Lindon,,Johnson,LindyJ,2,1,10/1/2021 0:00,,
+100004,JohnK,#JohnK==,ETERTERTR,John,,Kennedy,JohnnyK,2,1,10/1/2021 0:00,,
+100005,FranklinR,#FranklinR==,5656GHRED,Franklin,,Roosevelt,Franklin,2,1,10/1/2021 0:00,,
+100006,ManagerBill,#ManagerBill==,567SALT567WQA,Bill,,Murrey,Billy,2,2,10/1/2021 0:00,,
+100007,ManagerTed,#ManagerTed==,ETERTERTR,Teddy,,Atlas,Teddy,2,2,10/1/2021 0:00,,
+100008,ManagerSam,#ManagerSam==,5656GHRED,Sammy,,Schields,Sammy,2,2,10/1/2021 0:00,,
+100009,PrinterBill,#PrinterBill==,567SALT567WQA,Billy,,Ayliesh,Billy,2,5,10/1/2021 0:00,,
+100010,PrinterTed,#PrinterTed==,ETERTERTR,Ted,,Turner,Teddy,2,5,10/1/2021 0:00,,
+100011,PrinterSam,#PrinterSam==,5656GHRED,Sam,,Smith,Sam,2,5,10/1/2021 0:00,,

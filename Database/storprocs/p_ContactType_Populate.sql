@@ -4,40 +4,41 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_UserType_Populate'))
-   DROP PROC dbo.p_UserType_Populate
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_ContactType_Populate'))
+   DROP PROC dbo.p_ContactType_Populate
 GO
 
-CREATE PROCEDURE dbo.p_UserType_Populate 
+CREATE PROCEDURE dbo.p_ContactType_Populate 
 	
 AS
 BEGIN
 
-	DECLARE @tblUserType AS TABLE (
+	DECLARE @tblContactType AS TABLE (
 		[ID] [bigint] NOT NULL,
-		[UserTypeName] [nvarchar](50) NOT NULL
+		[ContactTypeName] [nvarchar](50) NOT NULL
 	)
 
-	INSERT INTO @tblUserType
-	SELECT 1, 'Customer'	UNION 
-	SELECT 2, 'Manager'		UNION
-	SELECT 3, 'Admin'		UNION
-	SELECT 4, 'System'		UNION
-	SELECT 5, 'Partner'		
+	INSERT INTO @tblContactType
+	SELECT 1, 'Email'	UNION 
+	SELECT 2, 'Phone'		UNION
+	SELECT 3, 'WhatsApp'		UNION
+	SELECT 4, 'Viber'		UNION
+	SELECT 5, 'Skype'	UNION
+	SELECT 6, 'Telegram'
 
-	SET IDENTITY_INSERT dbo.UserType ON;
+	SET IDENTITY_INSERT dbo.ContactType ON;
 
-	MERGE dbo.UserType AS t
-	USING @tblUserType AS s
+	MERGE dbo.ContactType AS t
+	USING @tblContactType AS s
 	ON (t.ID = s.ID)
 	WHEN MATCHED THEN
-		UPDATE SET t.[UserTypeName] = s.[UserTypeName]
+		UPDATE SET t.[ContactTypeName] = s.[ContactTypeName]
 	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID],[UserTypeName]) VALUES (s.[ID], s.[UserTypeName])
+		INSERT ([ID],[ContactTypeName]) VALUES (s.[ID], s.[ContactTypeName])
 	WHEN NOT MATCHED BY SOURCE THEN
 		DELETE
 	;
-	SET IDENTITY_INSERT dbo.UserType OFF;
+	SET IDENTITY_INSERT dbo.ContactType OFF;
 	
 	SET NOCOUNT ON;
 END

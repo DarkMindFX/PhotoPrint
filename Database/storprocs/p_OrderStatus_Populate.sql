@@ -20,15 +20,16 @@ BEGIN
 
 	INSERT INTO @tblOrderStatus
 	SELECT 1,	'New' UNION
-	SELECT 2,	'InProduction' UNION
-	SELECT 3,	'Produced' UNION
-	SELECT 4,	'PreparingDelivery' UNION
-	SELECT 5,	'InDelivery' UNION
-	SELECT 6,	'Delivered' UNION
-	SELECT 7,	'Cancelled' UNION
-	SELECT 8,	'Completed' UNION
-	SELECT 9,	'PendingPayment' UNION
-	SELECT 10,	'SentToProduction'
+	SELECT 2,	'ProductionReady' UNION
+	SELECT 3,	'SentToProduction' UNION
+	SELECT 4,	'InProduction' UNION
+	SELECT 5,	'Produced' UNION
+	SELECT 6,	'SentToOffice' UNION
+	SELECT 7,	'PrepareDelivery' UNION
+	SELECT 8,	'AwaitSending' UNION
+	SELECT 9,	'Sent' UNION
+	SELECT 10,	'Received' UNION
+	SELECT 11,	'Cancelled'
 
 	SET IDENTITY_INSERT dbo.OrderStatus ON;
 
