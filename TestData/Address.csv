@@ -13,3 +13,5 @@ ID,AddressTypeID,Title,CityID,Street,BuildingNo,ApartmentNo,Comment,CreatedByID,
 100012,5,PrinterTed Prod Address,2,ul.I.Franka,34,,,100001,9/1/2021 12:00,,,0
 100013,4,PrinterSam Office Address,4,ul.Rozovaja,11,,,100001,9/1/2021 12:00,,,0
 100014,5,PrinterSam Prod Address,5,ul.Rozovaja,12,,,100001,9/1/2021 12:00,,,0
+100015,1,Ukraine Print Main Address,1,ul.Pushkina,12,,,100001,9/1/2021 12:00,,,0
+100016,1,Poland Print Main Address,10,al. Joanna Pawla II,47A,,,100001,9/1/2021 12:00,,,0

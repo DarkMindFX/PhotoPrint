@@ -40,7 +40,19 @@ BEGIN
 	SELECT 6, 'Contact', 'Contact.csv', 1							UNION
 	SELECT 7, 'UserContact', 'UserContact.csv', 0					UNION
 	SELECT 8, 'Size', 'Size.csv', 1									UNION
-	SELECT 9, 'Category', 'Category.csv', 1				
+	SELECT 9, 'Category', 'Category.csv', 1							UNION
+	SELECT 10, 'FrameType', 'FrameType.csv', 1						UNION
+	SELECT 11, 'Mat', 'Mat.csv', 1									UNION
+	SELECT 12, 'MaterialType', 'MaterialType.csv', 1				UNION
+	SELECT 12, 'MountingType', 'MountingType.csv', 1				UNION
+	SELECT 13, 'PrintingHouse', 'PrintingHouse.csv', 1				UNION
+	SELECT 14, 'Image', 'Image.csv', 1								UNION
+	SELECT 15, 'ImageCategory', 'ImageCategory.csv', 0				UNION
+	SELECT 16, 'ImageRelated', 'ImageRelated.csv', 0				UNION
+	SELECT 17, 'PrintingHouseAddress', 'PrintingHouseAddress.csv', 0	UNION
+	SELECT 18, 'PrintingHouseContact', 'PrintingHouseContact.csv', 0	
+								
+
 
 	DECLARE paramsCursor CURSOR FOR
 	SELECT [File], [Table], [HasIdentity] FROM @tblParams ORDER BY [Order]
@@ -78,7 +90,7 @@ BEGIN
 			FIRSTROW = 2,
 			FIELDTERMINATOR = '','',
 			ROWTERMINATOR=''\n'',
-			BATCHSIZE=250000);'
+			BATCHSIZE=2500000);'
 
 			PRINT(@sql)
 			EXEC(@sql)

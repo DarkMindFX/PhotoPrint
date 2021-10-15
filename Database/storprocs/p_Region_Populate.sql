@@ -25,7 +25,12 @@ BEGIN
 	SELECT 2, 'Kyivska obl.', 222		UNION
 	SELECT 3, 'Dniprovska obl.', 222 UNION
 	SELECT 4, 'Rivnenska obl.', 222 UNION
-	SELECT 5, 'Zhytomyrska obl.', 222 
+	SELECT 5, 'Zhytomyrska obl.', 222 UNION
+	SELECT 6, 'All Ukraine', 222 UNION
+	-- POLAND
+	SELECT 7, 'All Poland', 176 UNION
+	SELECT 8, 'Pomorske voevodship', 176 UNION
+	SELECT 9, 'Mazowieckie voevodship', 176
 
 	SET IDENTITY_INSERT dbo.Region ON;
 

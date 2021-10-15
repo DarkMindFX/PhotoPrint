@@ -31,7 +31,12 @@ BEGIN
 	-- UKRAINE Rivnenska obl
 	SELECT 6, 'Rivne', 4 UNION
 	-- UKRAINE Zhytomyrska obl
-	SELECT 7, 'Zhytomyr', 5 
+	SELECT 7, 'Zhytomyr', 5 UNION
+	-- POLAND Pomorskie
+	SELECT 8, 'Gdansk', 8 UNION
+	SELECT 9, 'Gdynia', 8 UNION
+	-- POLAND MAzowieckie
+	SELECT 10, 'Warszawa', 9
 
 	SET IDENTITY_INSERT dbo.City ON;
 

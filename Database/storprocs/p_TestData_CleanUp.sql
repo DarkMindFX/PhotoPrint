@@ -30,18 +30,27 @@ BEGIN
 	INSERT INTO @tblParams	
 	
 
-	SELECT 1, 'Category', 'Category.csv'				UNION
-	SELECT 2, 'Contact', 'Contact.csv'					UNION
-	SELECT 3, 'DeliveryServiceCity', 'DeliveryServiceCity.csv'	UNION
-	SELECT 4, 'DeliveryService', 'DeliveryService.csv'	UNION
-	SELECT 5, 'UserContact', 'UserContact.csv'			UNION
-	SELECT 6, 'UserAddress', 'UserAddress.csv'			UNION
-	SELECT 7, 'Address', 'Address.csv'					UNION
-	SELECT 8, 'Size', 'Size.csv'						UNION
-	SELECT 9, 'User', 'User.csv'						
-		
-					
 	
+	
+	SELECT 1, 'DeliveryServiceCity', 'DeliveryServiceCity.csv'	UNION
+	SELECT 2, 'DeliveryService', 'DeliveryService.csv'	UNION
+	SELECT 3, 'UserContact', 'UserContact.csv'			UNION
+	SELECT 4, 'UserAddress', 'UserAddress.csv'			UNION
+	SELECT 5, 'PrintingHouseAddress', 'PrintingHouseAddresss.csv'		UNION
+	SELECT 6, 'PrintingHouseContact', 'PrintingHouseContact.csv'		UNION
+	SELECT 7, 'Address', 'Address.csv'					UNION
+	SELECT 8, 'Contact', 'Contact.csv'					UNION
+	SELECT 9, 'Size', 'Size.csv'						UNION
+	SELECT 10, 'ImageCategory', 'ImageCategory.csv'		UNION
+	SELECT 11, 'Category', 'Category.csv'				UNION	
+	SELECT 12, 'FrameType', 'FrameType.csv'				UNION	
+	SELECT 13, 'Mat', 'Mat.csv'							UNION
+	SELECT 14, 'MaterialType', 'MaterialType.csv'		UNION
+	SELECT 15, 'MountingType', 'MountingType.csv'		UNION
+	SELECT 16, 'PrintingHouse', 'PrintingHouse.csv'		UNION
+	SELECT 17, 'ImageRelated', 'ImageRelated.csv'		UNION
+	SELECT 18, 'Image', 'Image.csv'						UNION
+	SELECT 99, 'User', 'User.csv'						
 
 	DECLARE paramsCursor CURSOR FOR
 	SELECT [File], [Table] FROM @tblParams ORDER BY [Order]
