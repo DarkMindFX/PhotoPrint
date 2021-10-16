@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Helpers\EntityToDtoConvertor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="0nf5ky13.4eb~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\PhotoPrint.Common\PhotoPrint.Common.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Utils\PhotoPrint.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dal\Interfaces\" />
+  </ItemGroup>
+
+
+</Project>

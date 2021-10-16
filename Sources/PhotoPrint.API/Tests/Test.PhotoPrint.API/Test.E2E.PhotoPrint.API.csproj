@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <AssemblyName>Test.E2E.PhotoPrint.API</AssemblyName>
+
+    <RootNamespace>Test.E2E.PhotoPrint.API</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.16" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="3.1.16" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="coverlet.collector" Version="3.0.2" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Services\PhotoPrint.API\PhotoPrint.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\V1\" />
+  </ItemGroup>
+
+</Project>
