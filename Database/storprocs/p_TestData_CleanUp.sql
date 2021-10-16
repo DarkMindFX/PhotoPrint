@@ -30,8 +30,9 @@ BEGIN
 	INSERT INTO @tblParams	
 	
 
-	
-	
+	SELECT -1, 'OrderPaymentDetails', 'OrderPaymentDetails.csv'				UNION
+	SELECT -1, 'OrderItem', 'OrderItem.csv'				UNION
+	SELECT 0, 'Order', 'Order.csv'						UNION
 	SELECT 1, 'DeliveryServiceCity', 'DeliveryServiceCity.csv'	UNION
 	SELECT 2, 'DeliveryService', 'DeliveryService.csv'	UNION
 	SELECT 3, 'UserContact', 'UserContact.csv'			UNION

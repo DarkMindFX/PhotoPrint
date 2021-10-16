@@ -31,7 +31,7 @@ BEGIN
 	DECLARE @hasIdentity AS BIT 
 
 	INSERT INTO @tblParams
-
+	
 	SELECT 1, 'DeliveryService', 'DeliveryService.csv', 1			UNION
 	SELECT 2, 'DeliveryServiceCity', 'DeliveryServiceCity.csv', 0	UNION
 	SELECT 3, 'User', 'User.csv', 1									UNION
@@ -51,7 +51,10 @@ BEGIN
 	SELECT 16, 'ImageRelated', 'ImageRelated.csv', 0				UNION
 	SELECT 17, 'ImageThumbnail', 'ImageThumbnail.csv', 1			UNION
 	SELECT 18, 'PrintingHouseAddress', 'PrintingHouseAddress.csv', 0	UNION
-	SELECT 19, 'PrintingHouseContact', 'PrintingHouseContact.csv', 0	
+	SELECT 19, 'PrintingHouseContact', 'PrintingHouseContact.csv', 0	UNION
+	SELECT 20, 'Order', 'Order.csv', 1								UNION
+	SELECT 21, 'OrderItem', 'OrderItem.csv', 1						UNION
+	SELECT 22, 'OrderPaymentDetails', 'OrderPaymentDetails.csv', 1	
 
 
 	DECLARE paramsCursor CURSOR FOR
