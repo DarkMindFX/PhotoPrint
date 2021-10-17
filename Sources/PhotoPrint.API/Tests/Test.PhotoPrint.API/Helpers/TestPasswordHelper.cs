@@ -1,10 +1,10 @@
-﻿using PhotoPrint.HiringTracker.API.Helpers;
+﻿using PhotoPrint.API.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace Test.E2E.HiringTracker.API.Helpers
+namespace PhotoPrint.Test.E2E.Helpers
 {
     public class TestPasswordHelper
     {

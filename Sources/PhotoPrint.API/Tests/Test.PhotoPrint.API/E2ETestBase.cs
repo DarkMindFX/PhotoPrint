@@ -14,7 +14,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
-namespace Test.E2E.HiringTracker.API
+namespace PhotoPrint.Test.E2E.API
 {
     public abstract class E2ETestBase
     {
@@ -32,10 +32,10 @@ namespace Test.E2E.HiringTracker.API
             }
         }
 
-        protected readonly WebApplicationFactory<PhotoPrint.HiringTracker.API.Startup> _factory;
+        protected readonly WebApplicationFactory<PPT.PhotoPrint.API.Startup> _factory;
         protected TestParams _testParams;
 
-        public E2ETestBase(WebApplicationFactory<PhotoPrint.HiringTracker.API.Startup> factory)
+        public E2ETestBase(WebApplicationFactory<PPT.PhotoPrint.API.Startup> factory)
         {
             this._factory = factory;
         }

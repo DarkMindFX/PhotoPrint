@@ -9,7 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace Test.PhotoPrint.DAL.MSSQL
+namespace PhotoPrint.Test.DAL.MSSQL
 {
     public class TestBase
     {

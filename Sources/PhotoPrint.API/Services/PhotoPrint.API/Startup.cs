@@ -22,7 +22,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
-namespace PhotoPrint.API
+namespace PPT.PhotoPrint.API
 {
     public class Startup
     {
