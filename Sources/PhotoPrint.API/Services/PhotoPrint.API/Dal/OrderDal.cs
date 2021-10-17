@@ -17,12 +17,12 @@ namespace PPT.PhotoPrint.API.Dal
 
         public Order Get(System.Int64? ID)
         {
-            return _dalImpl.Get(            ID);
+            return _dalImpl.Get(ID);
         }
 
         public bool Delete(System.Int64? ID)
         {
-            return _dalImpl.Delete(            ID);
+            return _dalImpl.Delete(ID);
         }
 
         public IList<Order> GetByManagerID(System.Int64? ManagerID)
@@ -45,10 +45,6 @@ namespace PPT.PhotoPrint.API.Dal
         {
             return _dalImpl.GetByDeliveryServiceID(DeliveryServiceID);
         }
-        public IList<Order> GetByStatusID(System.Int64 StatusID)
-        {
-            return _dalImpl.GetByStatusID(StatusID);
-        }
         public IList<Order> GetByCreatedByID(System.Int64 CreatedByID)
         {
             return _dalImpl.GetByCreatedByID(CreatedByID);
@@ -57,5 +53,5 @@ namespace PPT.PhotoPrint.API.Dal
         {
             return _dalImpl.GetByModifiedByID(ModifiedByID);
         }
-            }
+    }
 }

@@ -1,0 +1,92 @@
+
+
+-- original values --
+DECLARE @ID BIGINT = NULL
+DECLARE @ManagerID BIGINT = 100006
+DECLARE @UserID BIGINT = 100001
+DECLARE @ContactID BIGINT = 100016
+DECLARE @DeliveryAddressID BIGINT = 100007
+DECLARE @DeliveryServiceID BIGINT = 100002
+DECLARE @Comments NVARCHAR(1000) = 'Comments 4b58403cb47d4dddb12d32655b7efe8a'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedDate DATETIME = '7/7/2024 1:28:42 PM'
+DECLARE @CreatedByID BIGINT = 100004
+DECLARE @ModifiedDate DATETIME = '11/24/2021 11:14:42 PM'
+DECLARE @ModifiedByID BIGINT = 100003
+ 
+-- updated values --
+
+DECLARE @updID BIGINT = NULL
+DECLARE @updManagerID BIGINT = 100001
+DECLARE @updUserID BIGINT = 100002
+DECLARE @updContactID BIGINT = 100004
+DECLARE @updDeliveryAddressID BIGINT = 100014
+DECLARE @updDeliveryServiceID BIGINT = 100002
+DECLARE @updComments NVARCHAR(1000) = 'Comments 7a3be9c7dcbb4ce58b77fd74cbd976de'
+DECLARE @updIsDeleted BIT = 1
+DECLARE @updCreatedDate DATETIME = '7/13/2019 7:15:42 PM'
+DECLARE @updCreatedByID BIGINT = 100008
+DECLARE @updModifiedDate DATETIME = '7/13/2019 7:15:42 PM'
+DECLARE @updModifiedByID BIGINT = 100004
+ 
+
+DECLARE @Fail AS BIT = 0
+
+IF(NOT EXISTS(SELECT 1 FROM 
+				[dbo].[Order]
+				WHERE 
+	(CASE WHEN @updManagerID IS NOT NULL THEN (CASE WHEN [ManagerID] = @updManagerID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updUserID IS NOT NULL THEN (CASE WHEN [UserID] = @updUserID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updContactID IS NOT NULL THEN (CASE WHEN [ContactID] = @updContactID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updDeliveryAddressID IS NOT NULL THEN (CASE WHEN [DeliveryAddressID] = @updDeliveryAddressID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updDeliveryServiceID IS NOT NULL THEN (CASE WHEN [DeliveryServiceID] = @updDeliveryServiceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updComments IS NOT NULL THEN (CASE WHEN [Comments] = @updComments THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updIsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @updIsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedDate IS NOT NULL THEN (CASE WHEN [CreatedDate] = @updCreatedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedByID IS NOT NULL THEN (CASE WHEN [CreatedByID] = @updCreatedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedDate IS NOT NULL THEN (CASE WHEN [ModifiedDate] = @updModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedByID IS NOT NULL THEN (CASE WHEN [ModifiedByID] = @updModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+
+DELETE FROM 
+	[dbo].[Order]
+	WHERE 
+	(CASE WHEN @ManagerID IS NOT NULL THEN (CASE WHEN [ManagerID] = @ManagerID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @UserID IS NOT NULL THEN (CASE WHEN [UserID] = @UserID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ContactID IS NOT NULL THEN (CASE WHEN [ContactID] = @ContactID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @DeliveryAddressID IS NOT NULL THEN (CASE WHEN [DeliveryAddressID] = @DeliveryAddressID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @DeliveryServiceID IS NOT NULL THEN (CASE WHEN [DeliveryServiceID] = @DeliveryServiceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Comments IS NOT NULL THEN (CASE WHEN [Comments] = @Comments THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @CreatedDate IS NOT NULL THEN (CASE WHEN [CreatedDate] = @CreatedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @CreatedByID IS NOT NULL THEN (CASE WHEN [CreatedByID] = @CreatedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ModifiedDate IS NOT NULL THEN (CASE WHEN [ModifiedDate] = @ModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN [ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+	SET @Fail = 1
+END
+ELSE
+BEGIN
+DELETE FROM 
+	[dbo].[Order]
+	WHERE 
+	(CASE WHEN @updManagerID IS NOT NULL THEN (CASE WHEN [ManagerID] = @updManagerID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updUserID IS NOT NULL THEN (CASE WHEN [UserID] = @updUserID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updContactID IS NOT NULL THEN (CASE WHEN [ContactID] = @updContactID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updDeliveryAddressID IS NOT NULL THEN (CASE WHEN [DeliveryAddressID] = @updDeliveryAddressID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updDeliveryServiceID IS NOT NULL THEN (CASE WHEN [DeliveryServiceID] = @updDeliveryServiceID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updComments IS NOT NULL THEN (CASE WHEN [Comments] = @updComments THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updIsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @updIsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedDate IS NOT NULL THEN (CASE WHEN [CreatedDate] = @updCreatedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedByID IS NOT NULL THEN (CASE WHEN [CreatedByID] = @updCreatedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedDate IS NOT NULL THEN (CASE WHEN [ModifiedDate] = @updModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedByID IS NOT NULL THEN (CASE WHEN [ModifiedByID] = @updModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+END
+
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'Order was not updated', 1
+END

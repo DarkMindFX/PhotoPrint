@@ -19,7 +19,18 @@ FROM
 	dbo.[Order] o
 INNER JOIN dbo.[User] client		ON client.ID = o.UserID
 LEFT JOIN dbo.[User] manager		ON manager.ID = o.ManagerID
-INNER JOIN dbo.[OrderStatus] status ON status.ID = o.StatusID
+INNER JOIN 
+(
+SELECT 
+	tracking.OrderID,
+	tracking.OrderStatusID,
+	tracking.SetDate
+FROM
+	dbo.[OrderTracking] tracking
+WHERE tracking.SetDate IN (SELECT MAX(SetDate) FROM dbo.[OrderTracking] GROUP BY OrderID)
+)
+ot	ON ot.OrderID = o.ID
+INNER JOIN dbo.[OrderStatus] status ON status.ID = ot.OrderStatusID
 INNER JOIN dbo.[DeliveryService] ds ON ds.ID = o.DeliveryServiceID
 INNER JOIN dbo.[OrderPaymentDetails] opd ON opd.OrderID = o.ID
 INNER JOIN dbo.[PaymentMethod] pm		ON pm.ID = opd.PaymentMethodID

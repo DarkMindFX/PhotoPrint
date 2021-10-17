@@ -1,0 +1,12 @@
+
+
+DECLARE @ImageID BIGINT = 100014
+DECLARE @CategoryID BIGINT = 100011
+ 
+
+DELETE FROM [ImageCategory]
+FROM 
+	[dbo].[ImageCategory] e
+WHERE
+	(CASE WHEN @ImageID IS NOT NULL THEN (CASE WHEN [ImageID] = @ImageID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @CategoryID IS NOT NULL THEN (CASE WHEN [CategoryID] = @CategoryID THEN 1 ELSE 0 END) ELSE 1 END) = 1 

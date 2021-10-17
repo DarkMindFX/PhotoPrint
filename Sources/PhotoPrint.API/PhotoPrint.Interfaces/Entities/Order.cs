@@ -22,8 +22,6 @@ namespace PPT.Interfaces.Entities
 
 				public System.Int64 DeliveryServiceID { get; set; }
 
-				public System.Int64 StatusID { get; set; }
-
 				public System.String Comments { get; set; }
 
 				public System.Boolean IsDeleted { get; set; }

@@ -1,0 +1,22 @@
+
+
+DECLARE @FromStatusID BIGINT = 8
+DECLARE @ToStatusID BIGINT = 1
+ 
+
+
+IF(EXISTS(SELECT 1 FROM 
+					[dbo].[OrderStatusFlow]
+				WHERE 
+	(CASE WHEN @FromStatusID IS NOT NULL THEN (CASE WHEN [FromStatusID] = @FromStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ToStatusID IS NOT NULL THEN (CASE WHEN [ToStatusID] = @ToStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+
+DELETE FROM [dbo].[OrderStatusFlow]
+WHERE 
+	(CASE WHEN @FromStatusID IS NOT NULL THEN (CASE WHEN [FromStatusID] = @FromStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ToStatusID IS NOT NULL THEN (CASE WHEN [ToStatusID] = @ToStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+END

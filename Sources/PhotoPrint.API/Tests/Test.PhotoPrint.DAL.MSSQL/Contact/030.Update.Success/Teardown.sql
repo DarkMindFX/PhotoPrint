@@ -1,0 +1,82 @@
+
+
+-- original values --
+DECLARE @ID BIGINT = NULL
+DECLARE @ContactTypeID BIGINT = 6
+DECLARE @Title NVARCHAR(50) = 'Title d1281a09346844c4bf2070c7d5ab42a6'
+DECLARE @Comment NVARCHAR(250) = 'Comment d1281a09346844c4bf2070c7d5ab42a6'
+DECLARE @Value NVARCHAR(1000) = 'Value d1281a09346844c4bf2070c7d5ab42a6'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedByID BIGINT = 100003
+DECLARE @CreatedDate DATETIME = '6/30/2023 10:50:48 AM'
+DECLARE @ModifiedByID BIGINT = 100004
+DECLARE @ModifiedDate DATETIME = '11/16/2020 11:16:48 AM'
+ 
+-- updated values --
+
+DECLARE @updID BIGINT = NULL
+DECLARE @updContactTypeID BIGINT = 5
+DECLARE @updTitle NVARCHAR(50) = 'Title 9f81915be9064f03a027e72b8b51dc29'
+DECLARE @updComment NVARCHAR(250) = 'Comment 9f81915be9064f03a027e72b8b51dc29'
+DECLARE @updValue NVARCHAR(1000) = 'Value 9f81915be9064f03a027e72b8b51dc29'
+DECLARE @updIsDeleted BIT = 1
+DECLARE @updCreatedByID BIGINT = 100009
+DECLARE @updCreatedDate DATETIME = '9/26/2023 9:03:48 PM'
+DECLARE @updModifiedByID BIGINT = 100004
+DECLARE @updModifiedDate DATETIME = '9/26/2023 9:03:48 PM'
+ 
+
+DECLARE @Fail AS BIT = 0
+
+IF(NOT EXISTS(SELECT 1 FROM 
+				[dbo].[Contact]
+				WHERE 
+	(CASE WHEN @updContactTypeID IS NOT NULL THEN (CASE WHEN [ContactTypeID] = @updContactTypeID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updTitle IS NOT NULL THEN (CASE WHEN [Title] = @updTitle THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updComment IS NOT NULL THEN (CASE WHEN [Comment] = @updComment THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updValue IS NOT NULL THEN (CASE WHEN [Value] = @updValue THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updIsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @updIsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedByID IS NOT NULL THEN (CASE WHEN [CreatedByID] = @updCreatedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedDate IS NOT NULL THEN (CASE WHEN [CreatedDate] = @updCreatedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedByID IS NOT NULL THEN (CASE WHEN [ModifiedByID] = @updModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedDate IS NOT NULL THEN (CASE WHEN [ModifiedDate] = @updModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+
+DELETE FROM 
+	[dbo].[Contact]
+	WHERE 
+	(CASE WHEN @ContactTypeID IS NOT NULL THEN (CASE WHEN [ContactTypeID] = @ContactTypeID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Title IS NOT NULL THEN (CASE WHEN [Title] = @Title THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Comment IS NOT NULL THEN (CASE WHEN [Comment] = @Comment THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Value IS NOT NULL THEN (CASE WHEN [Value] = @Value THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @CreatedByID IS NOT NULL THEN (CASE WHEN [CreatedByID] = @CreatedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @CreatedDate IS NOT NULL THEN (CASE WHEN [CreatedDate] = @CreatedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN [ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ModifiedDate IS NOT NULL THEN (CASE WHEN [ModifiedDate] = @ModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+	SET @Fail = 1
+END
+ELSE
+BEGIN
+DELETE FROM 
+	[dbo].[Contact]
+	WHERE 
+	(CASE WHEN @updContactTypeID IS NOT NULL THEN (CASE WHEN [ContactTypeID] = @updContactTypeID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updTitle IS NOT NULL THEN (CASE WHEN [Title] = @updTitle THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updComment IS NOT NULL THEN (CASE WHEN [Comment] = @updComment THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updValue IS NOT NULL THEN (CASE WHEN [Value] = @updValue THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updIsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @updIsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedByID IS NOT NULL THEN (CASE WHEN [CreatedByID] = @updCreatedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updCreatedDate IS NOT NULL THEN (CASE WHEN [CreatedDate] = @updCreatedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedByID IS NOT NULL THEN (CASE WHEN [ModifiedByID] = @updModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @updModifiedDate IS NOT NULL THEN (CASE WHEN [ModifiedDate] = @updModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+END
+
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'Contact was not updated', 1
+END

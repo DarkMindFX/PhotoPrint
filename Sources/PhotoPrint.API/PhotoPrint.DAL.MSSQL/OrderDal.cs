@@ -106,12 +106,6 @@ namespace PPT.DAL.MSSQL
 
             return entitiesOut;
         }
-                public IList<Order> GetByStatusID(System.Int64 StatusID)
-        {
-            var entitiesOut = base.GetBy<Order, System.Int64>("p_Order_GetByStatusID", StatusID, "@StatusID", SqlDbType.BigInt, 0, OrderFromRow);
-
-            return entitiesOut;
-        }
                 public IList<Order> GetByCreatedByID(System.Int64 CreatedByID)
         {
             var entitiesOut = base.GetBy<Order, System.Int64>("p_Order_GetByCreatedByID", CreatedByID, "@CreatedByID", SqlDbType.BigInt, 0, OrderFromRow);
@@ -154,7 +148,6 @@ namespace PPT.DAL.MSSQL
                 SqlParameter pContactID = new SqlParameter("@ContactID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "ContactID", DataRowVersion.Current, (object)entity.ContactID != null ? (object)entity.ContactID : DBNull.Value);   cmd.Parameters.Add(pContactID); 
                 SqlParameter pDeliveryAddressID = new SqlParameter("@DeliveryAddressID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "DeliveryAddressID", DataRowVersion.Current, (object)entity.DeliveryAddressID != null ? (object)entity.DeliveryAddressID : DBNull.Value);   cmd.Parameters.Add(pDeliveryAddressID); 
                 SqlParameter pDeliveryServiceID = new SqlParameter("@DeliveryServiceID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "DeliveryServiceID", DataRowVersion.Current, (object)entity.DeliveryServiceID != null ? (object)entity.DeliveryServiceID : DBNull.Value);   cmd.Parameters.Add(pDeliveryServiceID); 
-                SqlParameter pStatusID = new SqlParameter("@StatusID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "StatusID", DataRowVersion.Current, (object)entity.StatusID != null ? (object)entity.StatusID : DBNull.Value);   cmd.Parameters.Add(pStatusID); 
                 SqlParameter pComments = new SqlParameter("@Comments", System.Data.SqlDbType.NVarChar, 1000, ParameterDirection.Input, false, 0, 0, "Comments", DataRowVersion.Current, (object)entity.Comments != null ? (object)entity.Comments : DBNull.Value);   cmd.Parameters.Add(pComments); 
                 SqlParameter pIsDeleted = new SqlParameter("@IsDeleted", System.Data.SqlDbType.Bit, 0, ParameterDirection.Input, false, 0, 0, "IsDeleted", DataRowVersion.Current, (object)entity.IsDeleted != null ? (object)entity.IsDeleted : DBNull.Value);   cmd.Parameters.Add(pIsDeleted); 
                 SqlParameter pCreatedDate = new SqlParameter("@CreatedDate", System.Data.SqlDbType.DateTime, 0, ParameterDirection.Input, false, 0, 0, "CreatedDate", DataRowVersion.Current, (object)entity.CreatedDate != null ? (object)entity.CreatedDate : DBNull.Value);   cmd.Parameters.Add(pCreatedDate); 
@@ -175,7 +168,6 @@ namespace PPT.DAL.MSSQL
                     entity.ContactID = !DBNull.Value.Equals(row["ContactID"]) ? (System.Int64)row["ContactID"] : default(System.Int64);
                     entity.DeliveryAddressID = !DBNull.Value.Equals(row["DeliveryAddressID"]) ? (System.Int64)row["DeliveryAddressID"] : default(System.Int64);
                     entity.DeliveryServiceID = !DBNull.Value.Equals(row["DeliveryServiceID"]) ? (System.Int64)row["DeliveryServiceID"] : default(System.Int64);
-                    entity.StatusID = !DBNull.Value.Equals(row["StatusID"]) ? (System.Int64)row["StatusID"] : default(System.Int64);
                     entity.Comments = !DBNull.Value.Equals(row["Comments"]) ? (System.String)row["Comments"] : default(System.String);
                     entity.IsDeleted = !DBNull.Value.Equals(row["IsDeleted"]) ? (System.Boolean)row["IsDeleted"] : default(System.Boolean);
                     entity.CreatedDate = !DBNull.Value.Equals(row["CreatedDate"]) ? (System.DateTime)row["CreatedDate"] : default(System.DateTime);

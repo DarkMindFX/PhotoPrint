@@ -26,8 +26,6 @@ namespace PPT.Utils.Convertors
 
 				        DeliveryServiceID = entity.DeliveryServiceID,
 
-				        StatusID = entity.StatusID,
-
 				        Comments = entity.Comments,
 
 				        IsDeleted = entity.IsDeleted,
@@ -70,8 +68,6 @@ namespace PPT.Utils.Convertors
 				        DeliveryAddressID = dto.DeliveryAddressID,
 
 				        DeliveryServiceID = dto.DeliveryServiceID,
-
-				        StatusID = dto.StatusID,
 
 				        Comments = dto.Comments,
 

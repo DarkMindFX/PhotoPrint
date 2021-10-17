@@ -24,9 +24,6 @@ namespace PPT.DTO
 				[JsonPropertyName("DeliveryServiceID")]
 		public System.Int64 DeliveryServiceID { get; set; }
 
-				[JsonPropertyName("StatusID")]
-		public System.Int64 StatusID { get; set; }
-
 				[JsonPropertyName("Comments")]
 		public System.String Comments { get; set; }
 

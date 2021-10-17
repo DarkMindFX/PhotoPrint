@@ -1,0 +1,34 @@
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @CountryName NVARCHAR(50) = 'CountryName fa9d3e7d4af549eeb6245a2376ef5f73'
+DECLARE @ISO NVARCHAR(5) = 'ISO f'
+DECLARE @IsDeleted BIT = 1
+ 
+DECLARE @Fail AS BIT = 0
+
+IF(EXISTS(SELECT 1 FROM 
+				[dbo].[Country]
+				WHERE 
+	IsDeleted = 0 AND
+
+	(CASE WHEN @CountryName IS NOT NULL THEN (CASE WHEN [CountryName] = @CountryName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ISO IS NOT NULL THEN (CASE WHEN [ISO] = @ISO THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+	SET @Fail = 1
+END
+
+DELETE FROM 
+	[dbo].[Country]
+	WHERE 
+	(CASE WHEN @CountryName IS NOT NULL THEN (CASE WHEN [CountryName] = @CountryName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ISO IS NOT NULL THEN (CASE WHEN [ISO] = @ISO THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+IF(@Fail = 1) 
+BEGIN
+	THROW 51001, 'Country was not deleted', 1
+END

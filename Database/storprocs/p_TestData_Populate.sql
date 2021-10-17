@@ -54,7 +54,9 @@ BEGIN
 	SELECT 19, 'PrintingHouseContact', 'PrintingHouseContact.csv', 0	UNION
 	SELECT 20, 'Order', 'Order.csv', 1								UNION
 	SELECT 21, 'OrderItem', 'OrderItem.csv', 1						UNION
-	SELECT 22, 'OrderPaymentDetails', 'OrderPaymentDetails.csv', 1	
+	SELECT 22, 'OrderPaymentDetails', 'OrderPaymentDetails.csv', 1	UNION
+	SELECT 23, 'OrderStatusFlow', 'OrderStatusFlow.csv', 0			UNION
+	SELECT 24, 'OrderTracking', 'OrderTracking.csv', 1					
 
 
 	DECLARE paramsCursor CURSOR FOR

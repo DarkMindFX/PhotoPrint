@@ -1,0 +1,12 @@
+
+
+DECLARE @FromStatusID BIGINT = 10
+DECLARE @ToStatusID BIGINT = 4
+ 
+
+DELETE FROM [OrderStatusFlow]
+FROM 
+	[dbo].[OrderStatusFlow] e
+WHERE
+	(CASE WHEN @FromStatusID IS NOT NULL THEN (CASE WHEN [FromStatusID] = @FromStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @ToStatusID IS NOT NULL THEN (CASE WHEN [ToStatusID] = @ToStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 

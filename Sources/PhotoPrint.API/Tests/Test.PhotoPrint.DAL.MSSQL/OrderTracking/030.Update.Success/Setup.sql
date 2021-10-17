@@ -1,0 +1,51 @@
+
+
+DECLARE @ID BIGINT = NULL
+DECLARE @OrderID BIGINT = 100007
+DECLARE @OrderStatusID BIGINT = 10
+DECLARE @SetDate DATETIME = '3/8/2024 10:28:49 AM'
+DECLARE @SetByID BIGINT = 100004
+DECLARE @Comment NVARCHAR(1000) = 'Comment 84dbb81e22c941f7bbc5642df6715595'
+ 
+
+
+IF(NOT EXISTS(SELECT 1 FROM 
+					[dbo].[OrderTracking]
+				WHERE 
+	(CASE WHEN @OrderID IS NOT NULL THEN (CASE WHEN [OrderID] = @OrderID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @OrderStatusID IS NOT NULL THEN (CASE WHEN [OrderStatusID] = @OrderStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @SetDate IS NOT NULL THEN (CASE WHEN [SetDate] = @SetDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @SetByID IS NOT NULL THEN (CASE WHEN [SetByID] = @SetByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Comment IS NOT NULL THEN (CASE WHEN [Comment] = @Comment THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+ ))
+					
+BEGIN
+	INSERT INTO [dbo].[OrderTracking]
+		(
+	 [OrderID],
+	 [OrderStatusID],
+	 [SetDate],
+	 [SetByID],
+	 [Comment]
+		)
+	SELECT 		
+			 @OrderID,
+	 @OrderStatusID,
+	 @SetDate,
+	 @SetByID,
+	 @Comment
+END
+
+SELECT TOP 1 
+	@ID = [ID]
+FROM 
+	[dbo].[OrderTracking] e
+WHERE
+	(CASE WHEN @OrderID IS NOT NULL THEN (CASE WHEN [OrderID] = @OrderID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @OrderStatusID IS NOT NULL THEN (CASE WHEN [OrderStatusID] = @OrderStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @SetDate IS NOT NULL THEN (CASE WHEN [SetDate] = @SetDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @SetByID IS NOT NULL THEN (CASE WHEN [SetByID] = @SetByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
+	(CASE WHEN @Comment IS NOT NULL THEN (CASE WHEN [Comment] = @Comment THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+
+SELECT 
+	@ID
