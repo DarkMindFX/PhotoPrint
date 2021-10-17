@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PhotoPrint.Interfaces.Entities;
+using PPT.Interfaces.Entities;
+using PPT.Interfaces;
 
-namespace PhotoPrint.Interfaces
+namespace PPT.Interfaces
 {
     public interface IPrintingHouseContactDal : IDalBase<PrintingHouseContact>
     {

@@ -1,5 +1,5 @@
-﻿using PhotoPrint.DAL.MSSQL;
-using PhotoPrint.Interfaces;
+﻿using PPT.DAL.MSSQL;
+using PPT.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -9,7 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace PhotoPrint.Test.DAL.MSSQL
+namespace Test.PPT.DAL.MSSQL
 {
     public class TestBase
     {

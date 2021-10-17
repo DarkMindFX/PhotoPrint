@@ -40,11 +40,11 @@ namespace PhotoPrint.Test.E2E.API
             this._factory = factory;
         }
 
-        protected PhotoPrint.DTO.LoginResponse Login(string login, string password)
+        protected PPT.DTO.LoginResponse Login(string login, string password)
         {
             using (var client = _factory.CreateClient())
             {
-                var dtoLogin = new PhotoPrint.DTO.LoginRequest()
+                var dtoLogin = new PPT.DTO.LoginRequest()
                 {
                     Login = login,
                     Password = password
@@ -53,7 +53,7 @@ namespace PhotoPrint.Test.E2E.API
 
                 var respLogin = client.PostAsync($"/api/v1/users/login/", content);
 
-                var dtoResponse = ExtractContentJson<PhotoPrint.DTO.LoginResponse>(respLogin.Result.Content);
+                var dtoResponse = ExtractContentJson<PPT.DTO.LoginResponse>(respLogin.Result.Content);
 
                 return dtoResponse;
             }

@@ -1,8 +1,8 @@
-﻿using PhotoPrint.Interfaces;
+﻿using PPT.Interfaces;
 using System.Collections.Generic;
 
 
-namespace PhotoPrint.DAL.MSSQL
+namespace PPT.DAL.MSSQL
 {
     public class InitParamsImpl : IInitParams
     {

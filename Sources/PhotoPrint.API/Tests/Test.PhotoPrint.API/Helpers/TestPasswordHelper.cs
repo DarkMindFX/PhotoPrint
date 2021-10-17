@@ -1,10 +1,10 @@
-﻿using PhotoPrint.API.Helpers;
+﻿using PPT.PhotoPrint.API.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace PhotoPrint.Test.E2E.Helpers
+namespace Test.PPT.E2E.Helpers
 {
     public class TestPasswordHelper
     {

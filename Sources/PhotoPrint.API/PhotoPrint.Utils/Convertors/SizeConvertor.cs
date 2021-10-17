@@ -6,7 +6,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace PhotoPrint.Utils.Convertors
+namespace PPT.Utils.Convertors
 {
     public class SizeConvertor
     {

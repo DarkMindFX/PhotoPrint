@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Data;
 using System.Data.SqlClient;
-using PhotoPrint.Common;
-using PhotoPrint.DAL.MSSQL;
-using PhotoPrint.Interfaces;
-using PhotoPrint.Interfaces.Entities;
+using PPT.Common;
+using PPT.DAL.MSSQL;
+using PPT.Interfaces;
+using PPT.Interfaces.Entities;
 
-namespace PhotoPrint.DAL.MSSQL 
+namespace PPT.DAL.MSSQL 
 {
     class AddressDalInitParams : InitParamsImpl
     {

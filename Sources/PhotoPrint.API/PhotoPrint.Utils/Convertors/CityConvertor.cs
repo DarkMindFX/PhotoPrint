@@ -6,7 +6,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace PhotoPrint.Utils.Convertors
+namespace PPT.Utils.Convertors
 {
     public class CityConvertor
     {
@@ -14,21 +14,21 @@ namespace PhotoPrint.Utils.Convertors
         {
             var dto = new DTO.City()
             {
-                ID = entity.ID,
+        		        ID = entity.ID,
 
-                CityName = entity.CityName,
+				        CityName = entity.CityName,
 
-                RegionID = entity.RegionID,
+				        RegionID = entity.RegionID,
 
-                IsDeleted = entity.IsDeleted,
+				        IsDeleted = entity.IsDeleted,
 
-
+				
             };
 
-            if (url != null)
+                        if(url != null)
             {
-                dto.Links.Add(new DTO.Link(url.Action("GetCity", "cities", new { id = dto.ID }), "self", "GET"));
-                dto.Links.Add(new DTO.Link(url.Action("DeleteCity", "cities", new { id = dto.ID }), "delete_city", "DELETE"));
+                dto.Links.Add(new DTO.Link(url.Action("GetCity", "cities", new { id = dto.ID  }), "self", "GET"));
+                dto.Links.Add(new DTO.Link(url.Action("DeleteCity", "cities", new { id = dto.ID  }), "delete_city", "DELETE"));
                 dto.Links.Add(new DTO.Link(url.Action("InsertCity", "cities"), "insert_city", "POST"));
                 dto.Links.Add(new DTO.Link(url.Action("UpdateCity", "cities"), "update_city", "PUT"));
             }
@@ -40,17 +40,17 @@ namespace PhotoPrint.Utils.Convertors
         {
             var entity = new Interfaces.Entities.City()
             {
+                
+        		        ID = dto.ID,
 
-                ID = dto.ID,
+				        CityName = dto.CityName,
 
-                CityName = dto.CityName,
+				        RegionID = dto.RegionID,
 
-                RegionID = dto.RegionID,
+				        IsDeleted = dto.IsDeleted,
 
-                IsDeleted = dto.IsDeleted,
-
-
-
+				
+     
             };
 
             return entity;

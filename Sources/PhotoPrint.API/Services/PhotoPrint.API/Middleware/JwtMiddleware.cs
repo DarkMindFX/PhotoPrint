@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using PhotoPrint.Interfaces;
-using PhotoPrint.API.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,8 +8,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PPT.PhotoPrint.API.Helpers;
+using PPT.PhotoPrint.API.Dal;
 
-namespace PhotoPrint.API.MiddleWare
+namespace PPT.PhotoPrint.API.MiddleWare
 {
     public class JwtMiddleware
     {

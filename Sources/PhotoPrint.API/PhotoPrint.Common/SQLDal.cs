@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 
-namespace PhotoPrint.Common
+namespace PPT.Common
 {
     public abstract class SQLDal
     {

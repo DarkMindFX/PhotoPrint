@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhotoPrint.Interfaces.Entities
+namespace PPT.Interfaces.Entities
 {
     public class OrderStatusFlow 
     {

@@ -7,7 +7,7 @@
 
     <AssemblyName>Test.E2E.PhotoPrint.API</AssemblyName>
 
-    <RootNamespace>Test.E2E.PhotoPrint.API</RootNamespace>
+    <RootNamespace>Test.E2E.PPT.API</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

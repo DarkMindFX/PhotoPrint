@@ -6,7 +6,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace PhotoPrint.Utils.Convertors
+namespace PPT.Utils.Convertors
 {
     public class AddressConvertor
     {
@@ -14,39 +14,39 @@ namespace PhotoPrint.Utils.Convertors
         {
             var dto = new DTO.Address()
             {
-                ID = entity.ID,
+        		        ID = entity.ID,
 
-                AddressTypeID = entity.AddressTypeID,
+				        AddressTypeID = entity.AddressTypeID,
 
-                Title = entity.Title,
+				        Title = entity.Title,
 
-                CityID = entity.CityID,
+				        CityID = entity.CityID,
 
-                Street = entity.Street,
+				        Street = entity.Street,
 
-                BuildingNo = entity.BuildingNo,
+				        BuildingNo = entity.BuildingNo,
 
-                ApartmentNo = entity.ApartmentNo,
+				        ApartmentNo = entity.ApartmentNo,
 
-                Comment = entity.Comment,
+				        Comment = entity.Comment,
 
-                CreatedByID = entity.CreatedByID,
+				        CreatedByID = entity.CreatedByID,
 
-                CreatedDate = entity.CreatedDate,
+				        CreatedDate = entity.CreatedDate,
 
-                ModifiedByID = entity.ModifiedByID,
+				        ModifiedByID = entity.ModifiedByID,
 
-                ModifiedDate = entity.ModifiedDate,
+				        ModifiedDate = entity.ModifiedDate,
 
-                IsDeleted = entity.IsDeleted,
+				        IsDeleted = entity.IsDeleted,
 
-
+				
             };
 
-            if (url != null)
+                        if(url != null)
             {
-                dto.Links.Add(new DTO.Link(url.Action("GetAddress", "addresses", new { id = dto.ID }), "self", "GET"));
-                dto.Links.Add(new DTO.Link(url.Action("DeleteAddress", "addresses", new { id = dto.ID }), "delete_address", "DELETE"));
+                dto.Links.Add(new DTO.Link(url.Action("GetAddress", "addresses", new { id = dto.ID  }), "self", "GET"));
+                dto.Links.Add(new DTO.Link(url.Action("DeleteAddress", "addresses", new { id = dto.ID  }), "delete_address", "DELETE"));
                 dto.Links.Add(new DTO.Link(url.Action("InsertAddress", "addresses"), "insert_address", "POST"));
                 dto.Links.Add(new DTO.Link(url.Action("UpdateAddress", "addresses"), "update_address", "PUT"));
             }
@@ -58,35 +58,35 @@ namespace PhotoPrint.Utils.Convertors
         {
             var entity = new Interfaces.Entities.Address()
             {
+                
+        		        ID = dto.ID,
 
-                ID = dto.ID,
+				        AddressTypeID = dto.AddressTypeID,
 
-                AddressTypeID = dto.AddressTypeID,
+				        Title = dto.Title,
 
-                Title = dto.Title,
+				        CityID = dto.CityID,
 
-                CityID = dto.CityID,
+				        Street = dto.Street,
 
-                Street = dto.Street,
+				        BuildingNo = dto.BuildingNo,
 
-                BuildingNo = dto.BuildingNo,
+				        ApartmentNo = dto.ApartmentNo,
 
-                ApartmentNo = dto.ApartmentNo,
+				        Comment = dto.Comment,
 
-                Comment = dto.Comment,
+				        CreatedByID = dto.CreatedByID,
 
-                CreatedByID = dto.CreatedByID,
+				        CreatedDate = dto.CreatedDate,
 
-                CreatedDate = dto.CreatedDate,
+				        ModifiedByID = dto.ModifiedByID,
 
-                ModifiedByID = dto.ModifiedByID,
+				        ModifiedDate = dto.ModifiedDate,
 
-                ModifiedDate = dto.ModifiedDate,
+				        IsDeleted = dto.IsDeleted,
 
-                IsDeleted = dto.IsDeleted,
-
-
-
+				
+     
             };
 
             return entity;

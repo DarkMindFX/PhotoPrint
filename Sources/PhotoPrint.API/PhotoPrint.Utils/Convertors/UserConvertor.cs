@@ -6,7 +6,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace PhotoPrint.Utils.Convertors
+namespace PPT.Utils.Convertors
 {
     public class UserConvertor
     {
@@ -17,6 +17,8 @@ namespace PhotoPrint.Utils.Convertors
         		        ID = entity.ID,
 
 				        Login = entity.Login,
+
+				        PwdHash = entity.PwdHash,
 
 				        Salt = entity.Salt,
 
@@ -60,6 +62,8 @@ namespace PhotoPrint.Utils.Convertors
         		        ID = dto.ID,
 
 				        Login = dto.Login,
+
+				        PwdHash = dto.PwdHash,
 
 				        Salt = dto.Salt,
 

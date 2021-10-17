@@ -6,7 +6,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace PhotoPrint.Utils.Convertors
+namespace PPT.Utils.Convertors
 {
     public class CategoryConvertor
     {
@@ -14,31 +14,31 @@ namespace PhotoPrint.Utils.Convertors
         {
             var dto = new DTO.Category()
             {
-                ID = entity.ID,
+        		        ID = entity.ID,
 
-                CategoryName = entity.CategoryName,
+				        CategoryName = entity.CategoryName,
 
-                Description = entity.Description,
+				        Description = entity.Description,
 
-                ParentID = entity.ParentID,
+				        ParentID = entity.ParentID,
 
-                IsDeleted = entity.IsDeleted,
+				        IsDeleted = entity.IsDeleted,
 
-                CreatedDate = entity.CreatedDate,
+				        CreatedDate = entity.CreatedDate,
 
-                CreatedByID = entity.CreatedByID,
+				        CreatedByID = entity.CreatedByID,
 
-                ModifiedDate = entity.ModifiedDate,
+				        ModifiedDate = entity.ModifiedDate,
 
-                ModifiedByID = entity.ModifiedByID,
+				        ModifiedByID = entity.ModifiedByID,
 
-
+				
             };
 
-            if (url != null)
+                        if(url != null)
             {
-                dto.Links.Add(new DTO.Link(url.Action("GetCategory", "categories", new { id = dto.ID }), "self", "GET"));
-                dto.Links.Add(new DTO.Link(url.Action("DeleteCategory", "categories", new { id = dto.ID }), "delete_category", "DELETE"));
+                dto.Links.Add(new DTO.Link(url.Action("GetCategory", "categories", new { id = dto.ID  }), "self", "GET"));
+                dto.Links.Add(new DTO.Link(url.Action("DeleteCategory", "categories", new { id = dto.ID  }), "delete_category", "DELETE"));
                 dto.Links.Add(new DTO.Link(url.Action("InsertCategory", "categories"), "insert_category", "POST"));
                 dto.Links.Add(new DTO.Link(url.Action("UpdateCategory", "categories"), "update_category", "PUT"));
             }
@@ -50,27 +50,27 @@ namespace PhotoPrint.Utils.Convertors
         {
             var entity = new Interfaces.Entities.Category()
             {
+                
+        		        ID = dto.ID,
 
-                ID = dto.ID,
+				        CategoryName = dto.CategoryName,
 
-                CategoryName = dto.CategoryName,
+				        Description = dto.Description,
 
-                Description = dto.Description,
+				        ParentID = dto.ParentID,
 
-                ParentID = dto.ParentID,
+				        IsDeleted = dto.IsDeleted,
 
-                IsDeleted = dto.IsDeleted,
+				        CreatedDate = dto.CreatedDate,
 
-                CreatedDate = dto.CreatedDate,
+				        CreatedByID = dto.CreatedByID,
 
-                CreatedByID = dto.CreatedByID,
+				        ModifiedDate = dto.ModifiedDate,
 
-                ModifiedDate = dto.ModifiedDate,
+				        ModifiedByID = dto.ModifiedByID,
 
-                ModifiedByID = dto.ModifiedByID,
-
-
-
+				
+     
             };
 
             return entity;

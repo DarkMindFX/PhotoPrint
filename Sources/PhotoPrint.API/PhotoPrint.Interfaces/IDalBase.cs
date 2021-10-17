@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PhotoPrint.Interfaces
+namespace PPT.Interfaces
 {
     public interface IDalBase<TEntity> : IInitializable
     {

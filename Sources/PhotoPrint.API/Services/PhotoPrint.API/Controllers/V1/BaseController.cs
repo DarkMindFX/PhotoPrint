@@ -1,11 +1,11 @@
-﻿using PhotoPrint.Interfaces.Entities;
+﻿using PPT.Interfaces.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhotoPrint.API.Controllers.V1
+namespace PPT.PhotoPrint.API.Controllers.V1
 {
     public class BaseController : ControllerBase
     {

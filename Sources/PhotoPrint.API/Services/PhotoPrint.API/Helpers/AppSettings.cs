@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhotoPrint.API.Helpers
+namespace PPT.PhotoPrint.API.Helpers
 {
     public class AppSettings
     {
