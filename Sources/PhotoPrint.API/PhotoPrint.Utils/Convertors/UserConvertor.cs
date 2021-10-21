@@ -14,39 +14,35 @@ namespace PPT.Utils.Convertors
         {
             var dto = new DTO.User()
             {
-        		        ID = entity.ID,
+                ID = entity.ID,
 
-				        Login = entity.Login,
+                Login = entity.Login,
 
-				        PwdHash = entity.PwdHash,
+                FirstName = entity.FirstName,
 
-				        Salt = entity.Salt,
+                MiddleName = entity.MiddleName,
 
-				        FirstName = entity.FirstName,
+                LastName = entity.LastName,
 
-				        MiddleName = entity.MiddleName,
+                FriendlyName = entity.FriendlyName,
 
-				        LastName = entity.LastName,
+                UserStatusID = entity.UserStatusID,
 
-				        FriendlyName = entity.FriendlyName,
+                UserTypeID = entity.UserTypeID,
 
-				        UserStatusID = entity.UserStatusID,
+                CreatedDate = entity.CreatedDate,
 
-				        UserTypeID = entity.UserTypeID,
+                ModifiedDate = entity.ModifiedDate,
 
-				        CreatedDate = entity.CreatedDate,
+                ModifiedByID = entity.ModifiedByID,
 
-				        ModifiedDate = entity.ModifiedDate,
 
-				        ModifiedByID = entity.ModifiedByID,
-
-				
             };
 
-                        if(url != null)
+            if (url != null)
             {
-                dto.Links.Add(new DTO.Link(url.Action("GetUser", "users", new { id = dto.ID  }), "self", "GET"));
-                dto.Links.Add(new DTO.Link(url.Action("DeleteUser", "users", new { id = dto.ID  }), "delete_user", "DELETE"));
+                dto.Links.Add(new DTO.Link(url.Action("GetUser", "users", new { id = dto.ID }), "self", "GET"));
+                dto.Links.Add(new DTO.Link(url.Action("DeleteUser", "users", new { id = dto.ID }), "delete_user", "DELETE"));
                 dto.Links.Add(new DTO.Link(url.Action("InsertUser", "users"), "insert_user", "POST"));
                 dto.Links.Add(new DTO.Link(url.Action("UpdateUser", "users"), "update_user", "PUT"));
             }
@@ -58,35 +54,31 @@ namespace PPT.Utils.Convertors
         {
             var entity = new Interfaces.Entities.User()
             {
-                
-        		        ID = dto.ID,
 
-				        Login = dto.Login,
+                ID = dto.ID,
 
-				        PwdHash = dto.PwdHash,
+                Login = dto.Login,
 
-				        Salt = dto.Salt,
+                FirstName = dto.FirstName,
 
-				        FirstName = dto.FirstName,
+                MiddleName = dto.MiddleName,
 
-				        MiddleName = dto.MiddleName,
+                LastName = dto.LastName,
 
-				        LastName = dto.LastName,
+                FriendlyName = dto.FriendlyName,
 
-				        FriendlyName = dto.FriendlyName,
+                UserStatusID = dto.UserStatusID,
 
-				        UserStatusID = dto.UserStatusID,
+                UserTypeID = dto.UserTypeID,
 
-				        UserTypeID = dto.UserTypeID,
+                CreatedDate = dto.CreatedDate,
 
-				        CreatedDate = dto.CreatedDate,
+                ModifiedDate = dto.ModifiedDate,
 
-				        ModifiedDate = dto.ModifiedDate,
+                ModifiedByID = dto.ModifiedByID,
 
-				        ModifiedByID = dto.ModifiedByID,
 
-				
-     
+
             };
 
             return entity;
