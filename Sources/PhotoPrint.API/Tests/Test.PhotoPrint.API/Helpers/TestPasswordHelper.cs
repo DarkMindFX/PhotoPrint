@@ -45,6 +45,34 @@ namespace Test.E2E.Helpers
         }
 
         [Fact]
+        public void GeneratePasswordHashes_Multiple_Success()
+        {
+            IList<Tuple<string, string>> pwds = new List<Tuple<string, string>>();
+            pwds.Add(new Tuple<string, string>("System2021!", "123SALT123BCD"));
+            pwds.Add(new Tuple<string, string>("Admin2021!", "567SALT567WQA"));
+            pwds.Add(new Tuple<string, string>("LindonJ2021!", "567SALT567WQA"));
+            pwds.Add(new Tuple<string, string>("JohnK2021!", "ETERTERTR"));
+            pwds.Add(new Tuple<string, string>("FranklinR2021!", "5656GHRED"));
+            pwds.Add(new Tuple<string, string>("ManagerBill2021!", "567SALT567WQA"));
+            pwds.Add(new Tuple<string, string>("ManagerTed2021!", "ETERTERTR"));
+            pwds.Add(new Tuple<string, string>("ManagerSam2021!", "5656GHRED"));
+            pwds.Add(new Tuple<string, string>("PrinterBill2021!", "567SALT567WQA"));
+            pwds.Add(new Tuple<string, string>("PrinterTed2021!", "ETERTERTR"));
+            pwds.Add(new Tuple<string, string>("PrinterSam2021!", "5656GHRED123"));
+
+            foreach (var v in pwds)
+            {
+                string password = v.Item1;
+                string salt = v.Item2;
+
+                string pwdHash = PasswordHelper.GenerateHash(password, salt);
+
+                Assert.NotNull(pwdHash);
+                Assert.True(!string.IsNullOrEmpty(pwdHash));
+            }
+        }
+
+        [Fact]
         public void GeneratePasswordHash_EmptySalt()
         {
             try
