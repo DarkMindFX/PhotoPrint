@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             FrameType newEntity = _dalFrameType.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, FrameTypeConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, FrameTypeConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = FrameTypeConvertor.Convert(dto);
 
-            var existingEntity = _dalFrameType.Get(newEntity.ID);
+            var existingEntity = _dalFrameType.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                FrameType entity = _dalFrameType.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            FrameType entity = _dalFrameType.Update(newEntity);
 
                 response = Ok(FrameTypeConvertor.Convert(entity, this.Url));
             }

@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             MaterialType newEntity = _dalMaterialType.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, MaterialTypeConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, MaterialTypeConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = MaterialTypeConvertor.Convert(dto);
 
-            var existingEntity = _dalMaterialType.Get(newEntity.ID);
+            var existingEntity = _dalMaterialType.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                MaterialType entity = _dalMaterialType.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            MaterialType entity = _dalMaterialType.Update(newEntity);
 
                 response = Ok(MaterialTypeConvertor.Convert(entity, this.Url));
             }

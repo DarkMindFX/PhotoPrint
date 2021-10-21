@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             OrderTracking newEntity = _dalOrderTracking.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, OrderTrackingConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, OrderTrackingConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = OrderTrackingConvertor.Convert(dto);
 
-            var existingEntity = _dalOrderTracking.Get(newEntity.ID);
+            var existingEntity = _dalOrderTracking.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                OrderTracking entity = _dalOrderTracking.Update(newEntity);
+                                                    OrderTracking entity = _dalOrderTracking.Update(newEntity);
 
                 response = Ok(OrderTrackingConvertor.Convert(entity, this.Url));
             }

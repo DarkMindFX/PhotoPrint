@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             OrderPaymentDetails newEntity = _dalOrderPaymentDetails.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, OrderPaymentDetailsConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, OrderPaymentDetailsConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = OrderPaymentDetailsConvertor.Convert(dto);
 
-            var existingEntity = _dalOrderPaymentDetails.Get(newEntity.ID);
+            var existingEntity = _dalOrderPaymentDetails.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                OrderPaymentDetails entity = _dalOrderPaymentDetails.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            OrderPaymentDetails entity = _dalOrderPaymentDetails.Update(newEntity);
 
                 response = Ok(OrderPaymentDetailsConvertor.Convert(entity, this.Url));
             }

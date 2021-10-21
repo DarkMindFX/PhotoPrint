@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             ImageCategory newEntity = _dalImageCategory.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, ImageCategoryConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, ImageCategoryConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = ImageCategoryConvertor.Convert(dto);
 
-            var existingEntity = _dalImageCategory.Get(newEntity.ImageID, newEntity.CategoryID);
+            var existingEntity = _dalImageCategory.Get(newEntity.ImageID, newEntity.CategoryID);           
+
             if (existingEntity != null)
             {
-                ImageCategory entity = _dalImageCategory.Update(newEntity);
+                                                    ImageCategory entity = _dalImageCategory.Update(newEntity);
 
                 response = Ok(ImageCategoryConvertor.Convert(entity, this.Url));
             }

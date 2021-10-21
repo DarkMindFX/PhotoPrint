@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             PrintingHouse newEntity = _dalPrintingHouse.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, PrintingHouseConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, PrintingHouseConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = PrintingHouseConvertor.Convert(dto);
 
-            var existingEntity = _dalPrintingHouse.Get(newEntity.ID);
+            var existingEntity = _dalPrintingHouse.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                PrintingHouse entity = _dalPrintingHouse.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            PrintingHouse entity = _dalPrintingHouse.Update(newEntity);
 
                 response = Ok(PrintingHouseConvertor.Convert(entity, this.Url));
             }

@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             ImageThumbnail newEntity = _dalImageThumbnail.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, ImageThumbnailConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, ImageThumbnailConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = ImageThumbnailConvertor.Convert(dto);
 
-            var existingEntity = _dalImageThumbnail.Get(newEntity.ID);
+            var existingEntity = _dalImageThumbnail.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                ImageThumbnail entity = _dalImageThumbnail.Update(newEntity);
+                                                    ImageThumbnail entity = _dalImageThumbnail.Update(newEntity);
 
                 response = Ok(ImageThumbnailConvertor.Convert(entity, this.Url));
             }

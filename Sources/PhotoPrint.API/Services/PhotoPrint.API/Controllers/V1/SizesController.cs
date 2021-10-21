@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             Size newEntity = _dalSize.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, SizeConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, SizeConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = SizeConvertor.Convert(dto);
 
-            var existingEntity = _dalSize.Get(newEntity.ID);
+            var existingEntity = _dalSize.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                Size entity = _dalSize.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            Size entity = _dalSize.Update(newEntity);
 
                 response = Ok(SizeConvertor.Convert(entity, this.Url));
             }

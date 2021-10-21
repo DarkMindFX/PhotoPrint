@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             Mat newEntity = _dalMat.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, MatConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, MatConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = MatConvertor.Convert(dto);
 
-            var existingEntity = _dalMat.Get(newEntity.ID);
+            var existingEntity = _dalMat.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                Mat entity = _dalMat.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            Mat entity = _dalMat.Update(newEntity);
 
                 response = Ok(MatConvertor.Convert(entity, this.Url));
             }

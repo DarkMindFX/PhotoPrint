@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             Category newEntity = _dalCategory.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, CategoryConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, CategoryConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = CategoryConvertor.Convert(dto);
 
-            var existingEntity = _dalCategory.Get(newEntity.ID);
+            var existingEntity = _dalCategory.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                Category entity = _dalCategory.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            Category entity = _dalCategory.Update(newEntity);
 
                 response = Ok(CategoryConvertor.Convert(entity, this.Url));
             }

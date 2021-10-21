@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             Country newEntity = _dalCountry.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, CountryConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, CountryConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = CountryConvertor.Convert(dto);
 
-            var existingEntity = _dalCountry.Get(newEntity.ID);
+            var existingEntity = _dalCountry.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                Country entity = _dalCountry.Update(newEntity);
+                                                    Country entity = _dalCountry.Update(newEntity);
 
                 response = Ok(CountryConvertor.Convert(entity, this.Url));
             }

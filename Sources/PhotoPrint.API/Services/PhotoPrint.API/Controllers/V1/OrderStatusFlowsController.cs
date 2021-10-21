@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             OrderStatusFlow newEntity = _dalOrderStatusFlow.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, OrderStatusFlowConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, OrderStatusFlowConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = OrderStatusFlowConvertor.Convert(dto);
 
-            var existingEntity = _dalOrderStatusFlow.Get(newEntity.FromStatusID, newEntity.ToStatusID);
+            var existingEntity = _dalOrderStatusFlow.Get(newEntity.FromStatusID, newEntity.ToStatusID);           
+
             if (existingEntity != null)
             {
-                OrderStatusFlow entity = _dalOrderStatusFlow.Update(newEntity);
+                                                    OrderStatusFlow entity = _dalOrderStatusFlow.Update(newEntity);
 
                 response = Ok(OrderStatusFlowConvertor.Convert(entity, this.Url));
             }

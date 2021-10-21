@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             UserAddress newEntity = _dalUserAddress.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, UserAddressConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, UserAddressConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = UserAddressConvertor.Convert(dto);
 
-            var existingEntity = _dalUserAddress.Get(newEntity.UserID, newEntity.AddressID);
+            var existingEntity = _dalUserAddress.Get(newEntity.UserID, newEntity.AddressID);           
+
             if (existingEntity != null)
             {
-                UserAddress entity = _dalUserAddress.Update(newEntity);
+                                                    UserAddress entity = _dalUserAddress.Update(newEntity);
 
                 response = Ok(UserAddressConvertor.Convert(entity, this.Url));
             }

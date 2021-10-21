@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             PaymentMethod newEntity = _dalPaymentMethod.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, PaymentMethodConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, PaymentMethodConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = PaymentMethodConvertor.Convert(dto);
 
-            var existingEntity = _dalPaymentMethod.Get(newEntity.ID);
+            var existingEntity = _dalPaymentMethod.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                PaymentMethod entity = _dalPaymentMethod.Update(newEntity);
+                                                    PaymentMethod entity = _dalPaymentMethod.Update(newEntity);
 
                 response = Ok(PaymentMethodConvertor.Convert(entity, this.Url));
             }

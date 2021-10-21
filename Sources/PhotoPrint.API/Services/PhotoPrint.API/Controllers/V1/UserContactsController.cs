@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             UserContact newEntity = _dalUserContact.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, UserContactConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, UserContactConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = UserContactConvertor.Convert(dto);
 
-            var existingEntity = _dalUserContact.Get(newEntity.UserID, newEntity.ContactID);
+            var existingEntity = _dalUserContact.Get(newEntity.UserID, newEntity.ContactID);           
+
             if (existingEntity != null)
             {
-                UserContact entity = _dalUserContact.Update(newEntity);
+                                                    UserContact entity = _dalUserContact.Update(newEntity);
 
                 response = Ok(UserContactConvertor.Convert(entity, this.Url));
             }

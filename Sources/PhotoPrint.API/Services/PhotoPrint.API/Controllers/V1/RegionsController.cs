@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             Region newEntity = _dalRegion.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, RegionConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, RegionConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = RegionConvertor.Convert(dto);
 
-            var existingEntity = _dalRegion.Get(newEntity.ID);
+            var existingEntity = _dalRegion.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                Region entity = _dalRegion.Update(newEntity);
+                                                    Region entity = _dalRegion.Update(newEntity);
 
                 response = Ok(RegionConvertor.Convert(entity, this.Url));
             }

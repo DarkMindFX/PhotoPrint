@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             Currency newEntity = _dalCurrency.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, CurrencyConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, CurrencyConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = CurrencyConvertor.Convert(dto);
 
-            var existingEntity = _dalCurrency.Get(newEntity.ID);
+            var existingEntity = _dalCurrency.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                Currency entity = _dalCurrency.Update(newEntity);
+                                                    Currency entity = _dalCurrency.Update(newEntity);
 
                 response = Ok(CurrencyConvertor.Convert(entity, this.Url));
             }

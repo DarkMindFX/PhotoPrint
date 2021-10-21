@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace Test.PPT.E2E.Helpers
+namespace Test.E2E.Helpers
 {
     public class TestPasswordHelper
     {

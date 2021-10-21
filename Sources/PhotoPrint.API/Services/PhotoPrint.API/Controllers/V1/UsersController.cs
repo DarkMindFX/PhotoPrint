@@ -24,10 +24,10 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         private readonly ILogger<UsersController> _logger;
 
 
-        public UsersController( Dal.IUserDal dalUser,
+        public UsersController(Dal.IUserDal dalUser,
                                     ILogger<UsersController> logger)
         {
-            _dalUser = dalUser; 
+            _dalUser = dalUser;
             _logger = logger;
         }
 
@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             User newEntity = _dalUser.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, UserConvertor.Convert(newEntity, this.Url));
+            base.SetCreatedModifiedProperties(entity,
+                        "CreatedDate",
+                        null);
+
+            response = StatusCode((int)HttpStatusCode.Created, UserConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -143,8 +147,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             var newEntity = UserConvertor.Convert(dto);
 
             var existingEntity = _dalUser.Get(newEntity.ID);
+
             if (existingEntity != null)
             {
+                newEntity.CreatedDate = existingEntity.CreatedDate;
+
+                base.SetCreatedModifiedProperties(newEntity,
+                                        "ModifiedDate",
+                                        "ModifiedByID");
                 User entity = _dalUser.Update(newEntity);
 
                 response = Ok(UserConvertor.Convert(entity, this.Url));

@@ -124,7 +124,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             DeliveryService newEntity = _dalDeliveryService.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, DeliveryServiceConvertor.Convert(newEntity, this.Url));
+                        base.SetCreatedModifiedProperties(entity, 
+                                    "CreatedDate", 
+                                    "CreatedByID"); 
+            
+            response = StatusCode((int)HttpStatusCode.Created, DeliveryServiceConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = DeliveryServiceConvertor.Convert(dto);
 
-            var existingEntity = _dalDeliveryService.Get(newEntity.ID);
+            var existingEntity = _dalDeliveryService.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                DeliveryService entity = _dalDeliveryService.Update(newEntity);
+                        newEntity.CreatedDate = existingEntity.CreatedDate; 
+                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
+                        
+            base.SetCreatedModifiedProperties(newEntity, 
+                                    "ModifiedDate", 
+                                    "ModifiedByID"); 
+                            DeliveryService entity = _dalDeliveryService.Update(newEntity);
 
                 response = Ok(DeliveryServiceConvertor.Convert(entity, this.Url));
             }

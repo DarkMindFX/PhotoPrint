@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             DeliveryServiceCity newEntity = _dalDeliveryServiceCity.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, DeliveryServiceCityConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, DeliveryServiceCityConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = DeliveryServiceCityConvertor.Convert(dto);
 
-            var existingEntity = _dalDeliveryServiceCity.Get(newEntity.DeliveryServiceID, newEntity.CityID);
+            var existingEntity = _dalDeliveryServiceCity.Get(newEntity.DeliveryServiceID, newEntity.CityID);           
+
             if (existingEntity != null)
             {
-                DeliveryServiceCity entity = _dalDeliveryServiceCity.Update(newEntity);
+                                                    DeliveryServiceCity entity = _dalDeliveryServiceCity.Update(newEntity);
 
                 response = Ok(DeliveryServiceCityConvertor.Convert(entity, this.Url));
             }

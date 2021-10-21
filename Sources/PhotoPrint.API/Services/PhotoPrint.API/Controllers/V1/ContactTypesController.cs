@@ -124,7 +124,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             ContactType newEntity = _dalContactType.Insert(entity);
 
-            response =StatusCode((int)HttpStatusCode.Created, ContactTypeConvertor.Convert(newEntity, this.Url));
+            
+            response = StatusCode((int)HttpStatusCode.Created, ContactTypeConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 
@@ -142,10 +143,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = ContactTypeConvertor.Convert(dto);
 
-            var existingEntity = _dalContactType.Get(newEntity.ID);
+            var existingEntity = _dalContactType.Get(newEntity.ID);           
+
             if (existingEntity != null)
             {
-                ContactType entity = _dalContactType.Update(newEntity);
+                                                    ContactType entity = _dalContactType.Update(newEntity);
 
                 response = Ok(ContactTypeConvertor.Convert(entity, this.Url));
             }
