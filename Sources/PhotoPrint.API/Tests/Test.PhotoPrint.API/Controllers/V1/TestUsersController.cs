@@ -136,6 +136,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     var reqDto = UserConvertor.Convert(testEntity, null);
+                    reqDto.Password = "Password1991! 28a2e433081f4289b9caccf286ffc6a9";
 
                     var content = CreateContentJson(reqDto);
 
@@ -188,9 +189,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     testEntity.FriendlyName = "FriendlyName 28a2e433081f4289b9caccf286ffc6a9";
                     testEntity.UserStatusID = 3;
                     testEntity.UserTypeID = 2;
-                    testEntity.CreatedDate = DateTime.Parse("10/9/2020 9:19:53 AM");
-                    testEntity.ModifiedDate = DateTime.Parse("10/9/2020 9:19:53 AM");
-                    testEntity.ModifiedByID = 311798;
 
                     var reqDto = UserConvertor.Convert(testEntity, null);
 
@@ -212,8 +210,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.UserStatusID, respDto.UserStatusID);
                     Assert.Equal(reqDto.UserTypeID, respDto.UserTypeID);
                     Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
+                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
 
                 }
                 finally
@@ -296,7 +294,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             entity.UserTypeID = 1;
             entity.CreatedDate = DateTime.Parse("2/22/2023 1:19:53 PM");
             entity.ModifiedDate = DateTime.Parse("2/22/2023 1:19:53 PM");
-            entity.ModifiedByID = 744521;
+            entity.ModifiedByID = 100001;
 
             return entity;
         }

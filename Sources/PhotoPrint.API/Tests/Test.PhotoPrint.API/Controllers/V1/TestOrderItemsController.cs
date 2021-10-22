@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/orderitems/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/orderitems/{paramID}");
 
@@ -145,28 +145,28 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderItem respDto = ExtractContentJson<OrderItem>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
-                                    Assert.Equal(reqDto.Width, respDto.Width);
-                                    Assert.Equal(reqDto.Height, respDto.Height);
-                                    Assert.Equal(reqDto.SizeID, respDto.SizeID);
-                                    Assert.Equal(reqDto.FrameTypeID, respDto.FrameTypeID);
-                                    Assert.Equal(reqDto.FrameSizeID, respDto.FrameSizeID);
-                                    Assert.Equal(reqDto.MatID, respDto.MatID);
-                                    Assert.Equal(reqDto.MaterialTypeID, respDto.MaterialTypeID);
-                                    Assert.Equal(reqDto.MountingTypeID, respDto.MountingTypeID);
-                                    Assert.Equal(reqDto.ItemCount, respDto.ItemCount);
-                                    Assert.Equal(reqDto.PriceAmountPerItem, respDto.PriceAmountPerItem);
-                                    Assert.Equal(reqDto.PriceCurrencyID, respDto.PriceCurrencyID);
-                                    Assert.Equal(reqDto.Comments, respDto.Comments);
-                                    Assert.Equal(reqDto.PrintingHouseID, respDto.PrintingHouseID);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
+                    Assert.Equal(reqDto.Width, respDto.Width);
+                    Assert.Equal(reqDto.Height, respDto.Height);
+                    Assert.Equal(reqDto.SizeID, respDto.SizeID);
+                    Assert.Equal(reqDto.FrameTypeID, respDto.FrameTypeID);
+                    Assert.Equal(reqDto.FrameSizeID, respDto.FrameSizeID);
+                    Assert.Equal(reqDto.MatID, respDto.MatID);
+                    Assert.Equal(reqDto.MaterialTypeID, respDto.MaterialTypeID);
+                    Assert.Equal(reqDto.MountingTypeID, respDto.MountingTypeID);
+                    Assert.Equal(reqDto.ItemCount, respDto.ItemCount);
+                    Assert.Equal(reqDto.PriceAmountPerItem, respDto.PriceAmountPerItem);
+                    Assert.Equal(reqDto.PriceCurrencyID, respDto.PriceCurrencyID);
+                    Assert.Equal(reqDto.Comments, respDto.Comments);
+                    Assert.Equal(reqDto.PrintingHouseID, respDto.PrintingHouseID);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
+                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
                     respEntity = OrderItemConvertor.Convert(respDto);
                 }
                 finally
@@ -188,27 +188,24 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderItem testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.OrderID = 100012;
-                            testEntity.ImageID = 100001;
-                            testEntity.Width = 344;
-                            testEntity.Height = 344;
-                            testEntity.SizeID = 100009;
-                            testEntity.FrameTypeID = 100009;
-                            testEntity.FrameSizeID = 100022;
-                            testEntity.MatID = 100021;
-                            testEntity.MaterialTypeID = 100014;
-                            testEntity.MountingTypeID = 100020;
-                            testEntity.ItemCount = 911;
-                            testEntity.PriceAmountPerItem = 665M;
-                            testEntity.PriceCurrencyID = 278;
-                            testEntity.Comments = "Comments 444dbc344c2142e188a9c5298aeab0c9";
-                            testEntity.PrintingHouseID = 100002;
-                            testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
-                            testEntity.CreatedByID = 100065;
-                            testEntity.ModifiedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
-                            testEntity.ModifiedByID = 100004;
-              
+                    testEntity.OrderID = 100012;
+                    testEntity.ImageID = 100001;
+                    testEntity.Width = 344;
+                    testEntity.Height = 344;
+                    testEntity.SizeID = 100009;
+                    testEntity.FrameTypeID = 100009;
+                    testEntity.FrameSizeID = 100002;
+                    testEntity.MatID = 100003;
+                    testEntity.MaterialTypeID = 100004;
+                    testEntity.MountingTypeID = 100008;
+                    testEntity.ItemCount = 911;
+                    testEntity.PriceAmountPerItem = 665M;
+                    testEntity.PriceCurrencyID = 108;
+                    testEntity.Comments = "Comments 444dbc344c2142e188a9c5298aeab0c9";
+                    testEntity.PrintingHouseID = 100002;
+                    testEntity.IsDeleted = true;
+
+
                     var reqDto = OrderItemConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -219,28 +216,28 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderItem respDto = ExtractContentJson<OrderItem>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
-                                    Assert.Equal(reqDto.Width, respDto.Width);
-                                    Assert.Equal(reqDto.Height, respDto.Height);
-                                    Assert.Equal(reqDto.SizeID, respDto.SizeID);
-                                    Assert.Equal(reqDto.FrameTypeID, respDto.FrameTypeID);
-                                    Assert.Equal(reqDto.FrameSizeID, respDto.FrameSizeID);
-                                    Assert.Equal(reqDto.MatID, respDto.MatID);
-                                    Assert.Equal(reqDto.MaterialTypeID, respDto.MaterialTypeID);
-                                    Assert.Equal(reqDto.MountingTypeID, respDto.MountingTypeID);
-                                    Assert.Equal(reqDto.ItemCount, respDto.ItemCount);
-                                    Assert.Equal(reqDto.PriceAmountPerItem, respDto.PriceAmountPerItem);
-                                    Assert.Equal(reqDto.PriceCurrencyID, respDto.PriceCurrencyID);
-                                    Assert.Equal(reqDto.Comments, respDto.Comments);
-                                    Assert.Equal(reqDto.PrintingHouseID, respDto.PrintingHouseID);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
+                    Assert.Equal(reqDto.Width, respDto.Width);
+                    Assert.Equal(reqDto.Height, respDto.Height);
+                    Assert.Equal(reqDto.SizeID, respDto.SizeID);
+                    Assert.Equal(reqDto.FrameTypeID, respDto.FrameTypeID);
+                    Assert.Equal(reqDto.FrameSizeID, respDto.FrameSizeID);
+                    Assert.Equal(reqDto.MatID, respDto.MatID);
+                    Assert.Equal(reqDto.MaterialTypeID, respDto.MaterialTypeID);
+                    Assert.Equal(reqDto.MountingTypeID, respDto.MountingTypeID);
+                    Assert.Equal(reqDto.ItemCount, respDto.ItemCount);
+                    Assert.Equal(reqDto.PriceAmountPerItem, respDto.PriceAmountPerItem);
+                    Assert.Equal(reqDto.PriceCurrencyID, respDto.PriceCurrencyID);
+                    Assert.Equal(reqDto.Comments, respDto.Comments);
+                    Assert.Equal(reqDto.PrintingHouseID, respDto.PrintingHouseID);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
+                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
+
                 }
                 finally
                 {
@@ -261,28 +258,28 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderItem testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.OrderID = 100012;
-                            testEntity.ImageID = 100001;
-                            testEntity.Width = 344;
-                            testEntity.Height = 344;
-                            testEntity.SizeID = 100009;
-                            testEntity.FrameTypeID = 100009;
-                            testEntity.FrameSizeID = 100022;
-                            testEntity.MatID = 100021;
-                            testEntity.MaterialTypeID = 100014;
-                            testEntity.MountingTypeID = 100020;
-                            testEntity.ItemCount = 911;
-                            testEntity.PriceAmountPerItem = 46538M;
-                            testEntity.PriceCurrencyID = 278;
-                            testEntity.Comments = "Comments 444dbc344c2142e188a9c5298aeab0c9";
-                            testEntity.PrintingHouseID = 100002;
-                            testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
-                            testEntity.CreatedByID = 100065;
-                            testEntity.ModifiedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
-                            testEntity.ModifiedByID = 100004;
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.OrderID = 100012;
+                    testEntity.ImageID = 100001;
+                    testEntity.Width = 344;
+                    testEntity.Height = 344;
+                    testEntity.SizeID = 100009;
+                    testEntity.FrameTypeID = 100009;
+                    testEntity.FrameSizeID = 100022;
+                    testEntity.MatID = 100021;
+                    testEntity.MaterialTypeID = 100014;
+                    testEntity.MountingTypeID = 100005;
+                    testEntity.ItemCount = 911;
+                    testEntity.PriceAmountPerItem = 46538M;
+                    testEntity.PriceCurrencyID = 178;
+                    testEntity.Comments = "Comments 444dbc344c2142e188a9c5298aeab0c9";
+                    testEntity.PrintingHouseID = 100002;
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
+                    testEntity.CreatedByID = 100005;
+                    testEntity.ModifiedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
+                    testEntity.ModifiedByID = 100004;
+
                     var reqDto = OrderItemConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -319,27 +316,27 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderItem CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderItem();
-                          entity.OrderID = 100006;
-                            entity.ImageID = 100017;
-                            entity.Width = 597;
-                            entity.Height = 597;
-                            entity.SizeID = 100010;
-                            entity.FrameTypeID = 100008;
-                            entity.FrameSizeID = 100005;
-                            entity.MatID = 100021;
-                            entity.MaterialTypeID = 100003;
-                            entity.MountingTypeID = 100003;
-                            entity.ItemCount = 165;
-                            entity.PriceAmountPerItem = 435345M;
-                            entity.PriceCurrencyID = 170;
-                            entity.Comments = "Comments a916b91829514ab48357a1c0408f6500";
-                            entity.PrintingHouseID = 100014;
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("10/31/2022 2:26:52 AM");
-                            entity.CreatedByID = 100002;
-                            entity.ModifiedDate = DateTime.Parse("3/20/2020 12:13:52 PM");
-                            entity.ModifiedByID = 100010;
-              
+            entity.OrderID = 100006;
+            entity.ImageID = 100017;
+            entity.Width = 597;
+            entity.Height = 597;
+            entity.SizeID = 100010;
+            entity.FrameTypeID = 100008;
+            entity.FrameSizeID = 100005;
+            entity.MatID = 100001;
+            entity.MaterialTypeID = 100003;
+            entity.MountingTypeID = 100003;
+            entity.ItemCount = 165;
+            entity.PriceAmountPerItem = 435345M;
+            entity.PriceCurrencyID = 170;
+            entity.Comments = "Comments a916b91829514ab48357a1c0408f6500";
+            entity.PrintingHouseID = 100003;
+            entity.IsDeleted = true;
+            entity.CreatedDate = DateTime.Parse("10/31/2022 2:26:52 AM");
+            entity.CreatedByID = 100002;
+            entity.ModifiedDate = DateTime.Parse("3/20/2020 12:13:52 PM");
+            entity.ModifiedByID = 100010;
+
             return entity;
         }
 

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/units/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/units/{paramID}");
 
@@ -145,12 +145,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Unit respDto = ExtractContentJson<Unit>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
-                                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
-                                    Assert.Equal(reqDto.Description, respDto.Description);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
+                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
+                    Assert.Equal(reqDto.Description, respDto.Description);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = UnitConvertor.Convert(respDto);
                 }
                 finally
@@ -172,11 +172,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Unit testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.UnitName = "UnitName 03fa071f123b4c079f462d081f4b3d8c";
-                            testEntity.UnitAbbr = "UnitAbbr 03fa071f123b4c079f462d081f4b3d8c";
-                            testEntity.Description = "Description 03fa071f123b4c079f462d081f4b3d8c";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.UnitName = "UnitName 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.UnitAbbr = "UnitAbbr 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.Description = "Description 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = UnitConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -187,12 +187,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Unit respDto = ExtractContentJson<Unit>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
-                                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
-                                    Assert.Equal(reqDto.Description, respDto.Description);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
+                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
+                    Assert.Equal(reqDto.Description, respDto.Description);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -213,12 +213,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Unit testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.UnitName = "UnitName 03fa071f123b4c079f462d081f4b3d8c";
-                            testEntity.UnitAbbr = "UnitAbbr 03fa071f123b4c079f462d081f4b3d8c";
-                            testEntity.Description = "Description 03fa071f123b4c079f462d081f4b3d8c";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.UnitName = "UnitName 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.UnitAbbr = "UnitAbbr 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.Description = "Description 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = UnitConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -255,11 +255,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Unit CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Unit();
-                          entity.UnitName = "UnitName b5c3539c1bae4590bce279db59b01cbd";
-                            entity.UnitAbbr = "UnitAbbr b5c3539c1bae4590bce279db59b01cbd";
-                            entity.Description = "Description b5c3539c1bae4590bce279db59b01cbd";
-                            entity.IsDeleted = true;              
-              
+            entity.UnitName = "UnitName b5c3539c1bae4590bce279db59b01cbd";
+            entity.UnitAbbr = "UnitAbbr b5c3539c1bae4590bce279db59b01cbd";
+            entity.Description = "Description b5c3539c1bae4590bce279db59b01cbd";
+            entity.IsDeleted = true;
+
             return entity;
         }
 

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +49,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramUserID = testEntity.UserID;
-                var paramContactID = testEntity.ContactID;
+                    var paramUserID = testEntity.UserID;
+                    var paramContactID = testEntity.ContactID;
                     var respGet = client.GetAsync($"/api/v1/usercontacts/{paramUserID}/{paramContactID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +95,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramUserID = testEntity.UserID;
-                var paramContactID = testEntity.ContactID;
+                    var paramUserID = testEntity.UserID;
+                    var paramContactID = testEntity.ContactID;
 
                     var respDel = client.DeleteAsync($"/api/v1/usercontacts/{paramUserID}/{paramContactID}");
 
@@ -149,10 +149,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserContact respDto = ExtractContentJson<UserContact>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.UserID);
-                                    Assert.NotNull(respDto.ContactID);
-                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-                
+                    Assert.NotNull(respDto.UserID);
+                    Assert.NotNull(respDto.ContactID);
+                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+
                     respEntity = UserContactConvertor.Convert(respDto);
                 }
                 finally
@@ -174,8 +174,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserContact testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.IsPrimary = true;              
-              
+                    testEntity.IsPrimary = true;
+
                     var reqDto = UserContactConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -186,10 +186,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserContact respDto = ExtractContentJson<UserContact>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.UserID);
-                                    Assert.NotNull(respDto.ContactID);
-                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-                
+                    Assert.NotNull(respDto.UserID);
+                    Assert.NotNull(respDto.ContactID);
+                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+
                 }
                 finally
                 {
@@ -210,10 +210,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserContact testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.UserID = 100009;
-                            testEntity.ContactID = 100003;
-                            testEntity.IsPrimary = true;              
-              
+                    testEntity.UserID = 100009;
+                    testEntity.ContactID = 100003;
+                    testEntity.IsPrimary = true;
+
                     var reqDto = UserContactConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -251,10 +251,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserContact CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserContact();
-                          entity.UserID = 100064;
-                            entity.ContactID = 100019;
-                            entity.IsPrimary = false;              
-              
+            entity.UserID = 100011;
+            entity.ContactID = 100012;
+            entity.IsPrimary = false;
+
             return entity;
         }
 

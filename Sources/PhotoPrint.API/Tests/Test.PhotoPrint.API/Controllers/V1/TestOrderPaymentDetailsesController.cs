@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/orderpaymentdetailses/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/orderpaymentdetailses/{paramID}");
 
@@ -145,17 +145,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderPaymentDetails respDto = ExtractContentJson<OrderPaymentDetails>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                                    Assert.Equal(reqDto.PaymentMethodID, respDto.PaymentMethodID);
-                                    Assert.Equal(reqDto.PaymentTransUID, respDto.PaymentTransUID);
-                                    Assert.Equal(reqDto.PaymentDateTime, respDto.PaymentDateTime);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                    Assert.Equal(reqDto.PaymentMethodID, respDto.PaymentMethodID);
+                    Assert.Equal(reqDto.PaymentTransUID, respDto.PaymentTransUID);
+                    Assert.Equal(reqDto.PaymentDateTime, respDto.PaymentDateTime);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
+                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
                     respEntity = OrderPaymentDetailsConvertor.Convert(respDto);
                 }
                 finally
@@ -177,16 +177,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderPaymentDetails testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.OrderID = 100002;
-                            testEntity.PaymentMethodID = 6;
-                            testEntity.PaymentTransUID = "PaymentTransUID 9bae7efed89b448e94b0924b9ef69f97";
-                            testEntity.PaymentDateTime = DateTime.Parse("4/20/2020 3:50:52 AM");
-                            testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("4/20/2020 3:50:52 AM");
-                            testEntity.CreatedByID = 100064;
-                            testEntity.ModifiedDate = DateTime.Parse("4/20/2020 3:50:52 AM");
-                            testEntity.ModifiedByID = 100004;
-              
+                    testEntity.OrderID = 100002;
+                    testEntity.PaymentMethodID = 5;
+                    testEntity.PaymentTransUID = "PaymentTransUID 9bae7efed89b448e94b0924b9ef69f97";
+                    testEntity.PaymentDateTime = DateTime.Parse("4/20/2020 3:50:52 AM");
+                    testEntity.IsDeleted = true;
+                    
                     var reqDto = OrderPaymentDetailsConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -197,17 +193,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderPaymentDetails respDto = ExtractContentJson<OrderPaymentDetails>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                                    Assert.Equal(reqDto.PaymentMethodID, respDto.PaymentMethodID);
-                                    Assert.Equal(reqDto.PaymentTransUID, respDto.PaymentTransUID);
-                                    Assert.Equal(reqDto.PaymentDateTime, respDto.PaymentDateTime);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                    Assert.Equal(reqDto.PaymentMethodID, respDto.PaymentMethodID);
+                    Assert.Equal(reqDto.PaymentTransUID, respDto.PaymentTransUID);
+                    Assert.Equal(reqDto.PaymentDateTime, respDto.PaymentDateTime);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
+                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
+
                 }
                 finally
                 {
@@ -228,17 +224,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderPaymentDetails testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.OrderID = 100002;
-                            testEntity.PaymentMethodID = 6;
-                            testEntity.PaymentTransUID = "PaymentTransUID 9bae7efed89b448e94b0924b9ef69f97";
-                            testEntity.PaymentDateTime = DateTime.Parse("4/20/2020 3:50:52 AM");
-                            testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("4/20/2020 3:50:52 AM");
-                            testEntity.CreatedByID = 100064;
-                            testEntity.ModifiedDate = DateTime.Parse("4/20/2020 3:50:52 AM");
-                            testEntity.ModifiedByID = 100004;
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.OrderID = 100002;
+                    testEntity.PaymentMethodID = 6;
+                    testEntity.PaymentTransUID = "PaymentTransUID 9bae7efed89b448e94b0924b9ef69f97";
+                    testEntity.PaymentDateTime = DateTime.Parse("4/20/2020 3:50:52 AM");
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedDate = DateTime.Parse("4/20/2020 3:50:52 AM");
+                    testEntity.CreatedByID = 100064;
+                    testEntity.ModifiedDate = DateTime.Parse("4/20/2020 3:50:52 AM");
+                    testEntity.ModifiedByID = 100004;
+
                     var reqDto = OrderPaymentDetailsConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -275,16 +271,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderPaymentDetails CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderPaymentDetails();
-                          entity.OrderID = 100007;
-                            entity.PaymentMethodID = 2;
-                            entity.PaymentTransUID = "PaymentTransUID d5288bc48c66468793a03c809f37c31d";
-                            entity.PaymentDateTime = DateTime.Parse("6/4/2022 12:16:52 PM");
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("6/4/2022 12:16:52 PM");
-                            entity.CreatedByID = 100065;
-                            entity.ModifiedDate = DateTime.Parse("10/23/2019 10:03:52 PM");
-                            entity.ModifiedByID = 100008;
-              
+            entity.OrderID = 100007;
+            entity.PaymentMethodID = 2;
+            entity.PaymentTransUID = "PaymentTransUID d5288bc48c66468793a03c809f37c31d";
+            entity.PaymentDateTime = DateTime.Parse("6/4/2022 12:16:52 PM");
+            entity.IsDeleted = true;
+            entity.CreatedDate = DateTime.Parse("6/4/2022 12:16:52 PM");
+            entity.CreatedByID = 100005;
+            entity.ModifiedDate = DateTime.Parse("10/23/2019 10:03:52 PM");
+            entity.ModifiedByID = 100008;
+
             return entity;
         }
 

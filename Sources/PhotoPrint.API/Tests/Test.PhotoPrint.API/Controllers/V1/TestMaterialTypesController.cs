@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/materialtypes/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/materialtypes/{paramID}");
 
@@ -145,16 +145,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     MaterialType respDto = ExtractContentJson<MaterialType>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.MaterialTypeName, respDto.MaterialTypeName);
-                                    Assert.Equal(reqDto.Description, respDto.Description);
-                                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.MaterialTypeName, respDto.MaterialTypeName);
+                    Assert.Equal(reqDto.Description, respDto.Description);
+                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
+                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
                     respEntity = MaterialTypeConvertor.Convert(respDto);
                 }
                 finally
@@ -176,15 +176,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.MaterialType testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.MaterialTypeName = "MaterialTypeName 79abcc0d02c9499c9f0d5b5e012ecb72";
-                            testEntity.Description = "Description 79abcc0d02c9499c9f0d5b5e012ecb72";
-                            testEntity.ThumbnailUrl = "ThumbnailUrl 79abcc0d02c9499c9f0d5b5e012ecb72";
-                            testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("1/24/2023 12:02:52 AM");
-                            testEntity.CreatedByID = 100010;
-                            testEntity.ModifiedDate = DateTime.Parse("6/13/2020 9:49:52 AM");
-                            testEntity.ModifiedByID = 100064;
-              
+                    testEntity.MaterialTypeName = "MaterialTypeName 79abcc0d02c9499c9f0d5b5e012ecb72";
+                    testEntity.Description = "Description 79abcc0d02c9499c9f0d5b5e012ecb72";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 79abcc0d02c9499c9f0d5b5e012ecb72";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = MaterialTypeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -195,16 +191,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     MaterialType respDto = ExtractContentJson<MaterialType>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.MaterialTypeName, respDto.MaterialTypeName);
-                                    Assert.Equal(reqDto.Description, respDto.Description);
-                                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.MaterialTypeName, respDto.MaterialTypeName);
+                    Assert.Equal(reqDto.Description, respDto.Description);
+                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
+                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
+
                 }
                 finally
                 {
@@ -225,16 +221,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.MaterialType testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.MaterialTypeName = "MaterialTypeName 79abcc0d02c9499c9f0d5b5e012ecb72";
-                            testEntity.Description = "Description 79abcc0d02c9499c9f0d5b5e012ecb72";
-                            testEntity.ThumbnailUrl = "ThumbnailUrl 79abcc0d02c9499c9f0d5b5e012ecb72";
-                            testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("1/24/2023 12:02:52 AM");
-                            testEntity.CreatedByID = 100010;
-                            testEntity.ModifiedDate = DateTime.Parse("6/13/2020 9:49:52 AM");
-                            testEntity.ModifiedByID = 100064;
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.MaterialTypeName = "MaterialTypeName 79abcc0d02c9499c9f0d5b5e012ecb72";
+                    testEntity.Description = "Description 79abcc0d02c9499c9f0d5b5e012ecb72";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 79abcc0d02c9499c9f0d5b5e012ecb72";
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedDate = DateTime.Parse("1/24/2023 12:02:52 AM");
+                    testEntity.CreatedByID = 100010;
+                    testEntity.ModifiedDate = DateTime.Parse("6/13/2020 9:49:52 AM");
+                    testEntity.ModifiedByID = 100064;
+
                     var reqDto = MaterialTypeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -271,15 +267,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.MaterialType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.MaterialType();
-                          entity.MaterialTypeName = "MaterialTypeName ba2b9307e2a3410381cd705be5eba65f";
-                            entity.Description = "Description ba2b9307e2a3410381cd705be5eba65f";
-                            entity.ThumbnailUrl = "ThumbnailUrl ba2b9307e2a3410381cd705be5eba65f";
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("3/14/2020 2:15:52 PM");
-                            entity.CreatedByID = 100004;
-                            entity.ModifiedDate = DateTime.Parse("3/14/2020 2:15:52 PM");
-                            entity.ModifiedByID = 100009;
-              
+            entity.MaterialTypeName = "MaterialTypeName ba2b9307e2a3410381cd705be5eba65f";
+            entity.Description = "Description ba2b9307e2a3410381cd705be5eba65f";
+            entity.ThumbnailUrl = "ThumbnailUrl ba2b9307e2a3410381cd705be5eba65f";
+            entity.IsDeleted = true;
+            entity.CreatedDate = DateTime.Parse("3/14/2020 2:15:52 PM");
+            entity.CreatedByID = 100004;
+            entity.ModifiedDate = DateTime.Parse("3/14/2020 2:15:52 PM");
+            entity.ModifiedByID = 100009;
+
             return entity;
         }
 

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/ordertrackings/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/ordertrackings/{paramID}");
 
@@ -145,13 +145,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderTracking respDto = ExtractContentJson<OrderTracking>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
-                                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
-                                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
-                                    Assert.Equal(reqDto.Comment, respDto.Comment);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
+                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
+                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
+                    Assert.Equal(reqDto.Comment, respDto.Comment);
+
                     respEntity = OrderTrackingConvertor.Convert(respDto);
                 }
                 finally
@@ -173,12 +173,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderTracking testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.OrderID = 100003;
-                            testEntity.OrderStatusID = 1;
-                            testEntity.SetDate = DateTime.Parse("11/26/2021 2:52:53 AM");
-                            testEntity.SetByID = 100064;
-                            testEntity.Comment = "Comment f2627bb0034a408dbc1fe19d7fdbe9b1";
-              
+                    testEntity.OrderID = 100003;
+                    testEntity.OrderStatusID = 1;
+                    testEntity.SetDate = DateTime.Parse("11/26/2021 2:52:53 AM");
+                    testEntity.SetByID = 100004;
+                    testEntity.Comment = "Comment f2627bb0034a408dbc1fe19d7fdbe9b1";
+
                     var reqDto = OrderTrackingConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -189,13 +189,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderTracking respDto = ExtractContentJson<OrderTracking>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
-                                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
-                                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
-                                    Assert.Equal(reqDto.Comment, respDto.Comment);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
+                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
+                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
+                    Assert.Equal(reqDto.Comment, respDto.Comment);
+
                 }
                 finally
                 {
@@ -216,13 +216,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderTracking testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.OrderID = 100003;
-                            testEntity.OrderStatusID = 1;
-                            testEntity.SetDate = DateTime.Parse("11/26/2021 2:52:53 AM");
-                            testEntity.SetByID = 100064;
-                            testEntity.Comment = "Comment f2627bb0034a408dbc1fe19d7fdbe9b1";
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.OrderID = 100003;
+                    testEntity.OrderStatusID = 1;
+                    testEntity.SetDate = DateTime.Parse("11/26/2021 2:52:53 AM");
+                    testEntity.SetByID = 100011;
+                    testEntity.Comment = "Comment f2627bb0034a408dbc1fe19d7fdbe9b1";
+
                     var reqDto = OrderTrackingConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -259,12 +259,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderTracking CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderTracking();
-                          entity.OrderID = 100005;
-                            entity.OrderStatusID = 4;
-                            entity.SetDate = DateTime.Parse("3/2/2021 10:51:53 AM");
-                            entity.SetByID = 100010;
-                            entity.Comment = "Comment aa44e1542918490492fe692514dc5cca";
-              
+            entity.OrderID = 100005;
+            entity.OrderStatusID = 4;
+            entity.SetDate = DateTime.Parse("3/2/2021 10:51:53 AM");
+            entity.SetByID = 100010;
+            entity.Comment = "Comment aa44e1542918490492fe692514dc5cca";
+
             return entity;
         }
 

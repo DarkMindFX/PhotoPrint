@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/mats/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/mats/{paramID}");
 
@@ -145,16 +145,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Mat respDto = ExtractContentJson<Mat>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.MatName, respDto.MatName);
-                                    Assert.Equal(reqDto.Description, respDto.Description);
-                                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.MatName, respDto.MatName);
+                    Assert.Equal(reqDto.Description, respDto.Description);
+                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
+                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
                     respEntity = MatConvertor.Convert(respDto);
                 }
                 finally
@@ -176,15 +176,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Mat testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.MatName = "MatName 2de06dbc36434b3598e3405c155d1c96";
-                            testEntity.Description = "Description 2de06dbc36434b3598e3405c155d1c96";
-                            testEntity.ThumbnailUrl = "ThumbnailUrl 2de06dbc36434b3598e3405c155d1c96";
-                            testEntity.IsDeleted = false;              
-                            testEntity.CreatedDate = DateTime.Parse("6/19/2019 10:14:52 PM");
-                            testEntity.CreatedByID = 100007;
-                            testEntity.ModifiedDate = DateTime.Parse("6/19/2019 10:14:52 PM");
-                            testEntity.ModifiedByID = 100009;
-              
+                    testEntity.MatName = "MatName 2de06dbc36434b3598e3405c155d1c96";
+                    testEntity.Description = "Description 2de06dbc36434b3598e3405c155d1c96";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 2de06dbc36434b3598e3405c155d1c96";
+                    testEntity.IsDeleted = false;
+
                     var reqDto = MatConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -195,16 +191,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Mat respDto = ExtractContentJson<Mat>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.MatName, respDto.MatName);
-                                    Assert.Equal(reqDto.Description, respDto.Description);
-                                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.MatName, respDto.MatName);
+                    Assert.Equal(reqDto.Description, respDto.Description);
+                    Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
+                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
+
                 }
                 finally
                 {
@@ -225,16 +221,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Mat testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.MatName = "MatName 2de06dbc36434b3598e3405c155d1c96";
-                            testEntity.Description = "Description 2de06dbc36434b3598e3405c155d1c96";
-                            testEntity.ThumbnailUrl = "ThumbnailUrl 2de06dbc36434b3598e3405c155d1c96";
-                            testEntity.IsDeleted = false;              
-                            testEntity.CreatedDate = DateTime.Parse("6/19/2019 10:14:52 PM");
-                            testEntity.CreatedByID = 100007;
-                            testEntity.ModifiedDate = DateTime.Parse("6/19/2019 10:14:52 PM");
-                            testEntity.ModifiedByID = 100009;
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.MatName = "MatName 2de06dbc36434b3598e3405c155d1c96";
+                    testEntity.Description = "Description 2de06dbc36434b3598e3405c155d1c96";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 2de06dbc36434b3598e3405c155d1c96";
+                    testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("6/19/2019 10:14:52 PM");
+                    testEntity.CreatedByID = 100007;
+                    testEntity.ModifiedDate = DateTime.Parse("6/19/2019 10:14:52 PM");
+                    testEntity.ModifiedByID = 100009;
+
                     var reqDto = MatConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -271,15 +267,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Mat CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Mat();
-                          entity.MatName = "MatName 88a576ef0503427599c5ba5f44756155";
-                            entity.Description = "Description 88a576ef0503427599c5ba5f44756155";
-                            entity.ThumbnailUrl = "ThumbnailUrl 88a576ef0503427599c5ba5f44756155";
-                            entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("6/12/2024 4:27:52 PM");
-                            entity.CreatedByID = 100010;
-                            entity.ModifiedDate = DateTime.Parse("11/1/2021 2:14:52 AM");
-                            entity.ModifiedByID = 100003;
-              
+            entity.MatName = "MatName 88a576ef0503427599c5ba5f44756155";
+            entity.Description = "Description 88a576ef0503427599c5ba5f44756155";
+            entity.ThumbnailUrl = "ThumbnailUrl 88a576ef0503427599c5ba5f44756155";
+            entity.IsDeleted = false;
+            entity.CreatedDate = DateTime.Parse("6/12/2024 4:27:52 PM");
+            entity.CreatedByID = 100010;
+            entity.ModifiedDate = DateTime.Parse("11/1/2021 2:14:52 AM");
+            entity.ModifiedByID = 100003;
+
             return entity;
         }
 

@@ -24,10 +24,10 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         private readonly ILogger<OrderItemsController> _logger;
 
 
-        public OrderItemsController( Dal.IOrderItemDal dalOrderItem,
+        public OrderItemsController(Dal.IOrderItemDal dalOrderItem,
                                     ILogger<OrderItemsController> logger)
         {
-            _dalOrderItem = dalOrderItem; 
+            _dalOrderItem = dalOrderItem;
             _logger = logger;
         }
 
@@ -124,10 +124,10 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             OrderItem newEntity = _dalOrderItem.Insert(entity);
 
-                        base.SetCreatedModifiedProperties(entity, 
-                                    "CreatedDate", 
-                                    "CreatedByID"); 
-            
+            base.SetCreatedModifiedProperties(entity,
+                        "CreatedDate",
+                        "CreatedByID");
+
             response = StatusCode((int)HttpStatusCode.Created, OrderItemConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
@@ -146,17 +146,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = OrderItemConvertor.Convert(dto);
 
-            var existingEntity = _dalOrderItem.Get(newEntity.ID);           
+            var existingEntity = _dalOrderItem.Get(newEntity.ID);
 
             if (existingEntity != null)
             {
-                        newEntity.CreatedDate = existingEntity.CreatedDate; 
-                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
-                        
-            base.SetCreatedModifiedProperties(newEntity, 
-                                    "ModifiedDate", 
-                                    "ModifiedByID"); 
-                            OrderItem entity = _dalOrderItem.Update(newEntity);
+                newEntity.CreatedDate = existingEntity.CreatedDate;
+                newEntity.CreatedByID = existingEntity.CreatedByID;
+
+                base.SetCreatedModifiedProperties(newEntity,
+                                        "ModifiedDate",
+                                        "ModifiedByID");
+                OrderItem entity = _dalOrderItem.Update(newEntity);
 
                 response = Ok(OrderItemConvertor.Convert(entity, this.Url));
             }
