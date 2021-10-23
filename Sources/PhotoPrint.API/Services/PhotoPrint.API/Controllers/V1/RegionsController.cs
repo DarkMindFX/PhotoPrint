@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/bycountryid/:countryid")]
+        //[Authorize]
+        [HttpGet("bycountryid/{countryid}")]
         public IActionResult GetByCountryID(System.Int64 countryid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

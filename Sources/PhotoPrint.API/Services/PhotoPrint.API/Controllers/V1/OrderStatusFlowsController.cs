@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/byfromstatusid/:fromstatusid")]
+        //[Authorize]
+        [HttpGet("byfromstatusid/{fromstatusid}")]
         public IActionResult GetByFromStatusID(System.Int64 fromstatusid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -104,8 +104,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bytostatusid/:tostatusid")]
+        //[Authorize]
+        [HttpGet("bytostatusid/{tostatusid}")]
         public IActionResult GetByToStatusID(System.Int64 tostatusid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

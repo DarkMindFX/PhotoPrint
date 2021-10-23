@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/byorderid/:orderid")]
+        //[Authorize]
+        [HttpGet("byorderid/{orderid}")]
         public IActionResult GetByOrderID(System.Int64 orderid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -104,8 +104,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/byorderstatusid/:orderstatusid")]
+        //[Authorize]
+        [HttpGet("byorderstatusid/{orderstatusid}")]
         public IActionResult GetByOrderStatusID(System.Int64 orderstatusid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -128,8 +128,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bysetbyid/:setbyid")]
+        //[Authorize]
+        [HttpGet("bysetbyid/{setbyid}")]
         public IActionResult GetBySetByID(System.Int64 setbyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

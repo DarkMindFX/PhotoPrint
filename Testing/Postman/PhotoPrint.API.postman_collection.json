@@ -207,6 +207,7 @@
 								"api",
 								"v1",
 								"addresses",
+								"byaddresstypeid",
 								":addresstypeid"
 						
 							]
@@ -241,6 +242,7 @@
 								"api",
 								"v1",
 								"addresses",
+								"bycityid",
 								":cityid"
 						
 							]
@@ -275,6 +277,7 @@
 								"api",
 								"v1",
 								"addresses",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -309,6 +312,7 @@
 								"api",
 								"v1",
 								"addresses",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -691,6 +695,7 @@
 								"api",
 								"v1",
 								"categories",
+								"byparentid",
 								":parentid"
 						
 							]
@@ -725,6 +730,7 @@
 								"api",
 								"v1",
 								"categories",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -759,6 +765,7 @@
 								"api",
 								"v1",
 								"categories",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -967,6 +974,7 @@
 								"api",
 								"v1",
 								"cities",
+								"byregionid",
 								":regionid"
 						
 							]
@@ -1175,6 +1183,7 @@
 								"api",
 								"v1",
 								"contacts",
+								"bycontacttypeid",
 								":contacttypeid"
 						
 							]
@@ -1209,6 +1218,7 @@
 								"api",
 								"v1",
 								"contacts",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -1243,6 +1253,7 @@
 								"api",
 								"v1",
 								"contacts",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -1973,6 +1984,7 @@
 								"api",
 								"v1",
 								"deliveryservices",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -2007,6 +2019,7 @@
 								"api",
 								"v1",
 								"deliveryservices",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -2219,6 +2232,7 @@
 								"api",
 								"v1",
 								"deliveryservicecities",
+								"bydeliveryserviceid",
 								":deliveryserviceid"
 						
 							]
@@ -2253,6 +2267,7 @@
 								"api",
 								"v1",
 								"deliveryservicecities",
+								"bycityid",
 								":cityid"
 						
 							]
@@ -2461,6 +2476,7 @@
 								"api",
 								"v1",
 								"frametypes",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -2495,6 +2511,7 @@
 								"api",
 								"v1",
 								"frametypes",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -2703,6 +2720,7 @@
 								"api",
 								"v1",
 								"images",
+								"bypricecurrencyid",
 								":pricecurrencyid"
 						
 							]
@@ -2737,6 +2755,7 @@
 								"api",
 								"v1",
 								"images",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -2771,6 +2790,7 @@
 								"api",
 								"v1",
 								"images",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -2983,6 +3003,7 @@
 								"api",
 								"v1",
 								"imagecategories",
+								"byimageid",
 								":imageid"
 						
 							]
@@ -3017,6 +3038,7 @@
 								"api",
 								"v1",
 								"imagecategories",
+								"bycategoryid",
 								":categoryid"
 						
 							]
@@ -3403,6 +3425,7 @@
 								"api",
 								"v1",
 								"imagethumbnails",
+								"byimageid",
 								":imageid"
 						
 							]
@@ -3611,6 +3634,7 @@
 								"api",
 								"v1",
 								"mats",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -3645,6 +3669,7 @@
 								"api",
 								"v1",
 								"mats",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -3853,6 +3878,7 @@
 								"api",
 								"v1",
 								"materialtypes",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -3887,6 +3913,7 @@
 								"api",
 								"v1",
 								"materialtypes",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -4269,6 +4296,7 @@
 								"api",
 								"v1",
 								"orders",
+								"bymanagerid",
 								":managerid"
 						
 							]
@@ -4303,6 +4331,7 @@
 								"api",
 								"v1",
 								"orders",
+								"byuserid",
 								":userid"
 						
 							]
@@ -4337,6 +4366,7 @@
 								"api",
 								"v1",
 								"orders",
+								"bycontactid",
 								":contactid"
 						
 							]
@@ -4371,6 +4401,7 @@
 								"api",
 								"v1",
 								"orders",
+								"bydeliveryaddressid",
 								":deliveryaddressid"
 						
 							]
@@ -4405,6 +4436,7 @@
 								"api",
 								"v1",
 								"orders",
+								"bydeliveryserviceid",
 								":deliveryserviceid"
 						
 							]
@@ -4439,6 +4471,7 @@
 								"api",
 								"v1",
 								"orders",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -4473,6 +4506,7 @@
 								"api",
 								"v1",
 								"orders",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -4681,6 +4715,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"byorderid",
 								":orderid"
 						
 							]
@@ -4715,6 +4750,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"byimageid",
 								":imageid"
 						
 							]
@@ -4749,6 +4785,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bysizeid",
 								":sizeid"
 						
 							]
@@ -4783,6 +4820,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"byframetypeid",
 								":frametypeid"
 						
 							]
@@ -4817,6 +4855,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"byframesizeid",
 								":framesizeid"
 						
 							]
@@ -4851,6 +4890,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bymatid",
 								":matid"
 						
 							]
@@ -4885,6 +4925,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bymaterialtypeid",
 								":materialtypeid"
 						
 							]
@@ -4919,6 +4960,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bymountingtypeid",
 								":mountingtypeid"
 						
 							]
@@ -4953,6 +4995,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bypricecurrencyid",
 								":pricecurrencyid"
 						
 							]
@@ -4987,6 +5030,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"byprintinghouseid",
 								":printinghouseid"
 						
 							]
@@ -5021,6 +5065,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -5055,6 +5100,7 @@
 								"api",
 								"v1",
 								"orderitems",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -5263,6 +5309,7 @@
 								"api",
 								"v1",
 								"orderpaymentdetailses",
+								"byorderid",
 								":orderid"
 						
 							]
@@ -5297,6 +5344,7 @@
 								"api",
 								"v1",
 								"orderpaymentdetailses",
+								"bypaymentmethodid",
 								":paymentmethodid"
 						
 							]
@@ -5331,6 +5379,7 @@
 								"api",
 								"v1",
 								"orderpaymentdetailses",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -5365,6 +5414,7 @@
 								"api",
 								"v1",
 								"orderpaymentdetailses",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -5751,6 +5801,7 @@
 								"api",
 								"v1",
 								"orderstatusflows",
+								"byfromstatusid",
 								":fromstatusid"
 						
 							]
@@ -5785,6 +5836,7 @@
 								"api",
 								"v1",
 								"orderstatusflows",
+								"bytostatusid",
 								":tostatusid"
 						
 							]
@@ -5993,6 +6045,7 @@
 								"api",
 								"v1",
 								"ordertrackings",
+								"byorderid",
 								":orderid"
 						
 							]
@@ -6027,6 +6080,7 @@
 								"api",
 								"v1",
 								"ordertrackings",
+								"byorderstatusid",
 								":orderstatusid"
 						
 							]
@@ -6061,6 +6115,7 @@
 								"api",
 								"v1",
 								"ordertrackings",
+								"bysetbyid",
 								":setbyid"
 						
 							]
@@ -6443,6 +6498,7 @@
 								"api",
 								"v1",
 								"printinghouses",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -6477,6 +6533,7 @@
 								"api",
 								"v1",
 								"printinghouses",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -6689,6 +6746,7 @@
 								"api",
 								"v1",
 								"printinghouseaddresses",
+								"byprintinghouseid",
 								":printinghouseid"
 						
 							]
@@ -6723,6 +6781,7 @@
 								"api",
 								"v1",
 								"printinghouseaddresses",
+								"byaddressid",
 								":addressid"
 						
 							]
@@ -6935,6 +6994,7 @@
 								"api",
 								"v1",
 								"printinghousecontacts",
+								"byprintinghouseid",
 								":printinghouseid"
 						
 							]
@@ -6969,6 +7029,7 @@
 								"api",
 								"v1",
 								"printinghousecontacts",
+								"bycontactid",
 								":contactid"
 						
 							]
@@ -7177,6 +7238,7 @@
 								"api",
 								"v1",
 								"regions",
+								"bycountryid",
 								":countryid"
 						
 							]
@@ -7385,6 +7447,7 @@
 								"api",
 								"v1",
 								"sizes",
+								"bycreatedbyid",
 								":createdbyid"
 						
 							]
@@ -7419,6 +7482,7 @@
 								"api",
 								"v1",
 								"sizes",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -7801,6 +7865,7 @@
 								"api",
 								"v1",
 								"users",
+								"byuserstatusid",
 								":userstatusid"
 						
 							]
@@ -7835,6 +7900,7 @@
 								"api",
 								"v1",
 								"users",
+								"byusertypeid",
 								":usertypeid"
 						
 							]
@@ -7869,6 +7935,7 @@
 								"api",
 								"v1",
 								"users",
+								"bymodifiedbyid",
 								":modifiedbyid"
 						
 							]
@@ -8081,6 +8148,7 @@
 								"api",
 								"v1",
 								"useraddresses",
+								"byuserid",
 								":userid"
 						
 							]
@@ -8115,6 +8183,7 @@
 								"api",
 								"v1",
 								"useraddresses",
+								"byaddressid",
 								":addressid"
 						
 							]
@@ -8327,6 +8396,7 @@
 								"api",
 								"v1",
 								"usercontacts",
+								"byuserid",
 								":userid"
 						
 							]
@@ -8361,6 +8431,7 @@
 								"api",
 								"v1",
 								"usercontacts",
+								"bycontactid",
 								":contactid"
 						
 							]

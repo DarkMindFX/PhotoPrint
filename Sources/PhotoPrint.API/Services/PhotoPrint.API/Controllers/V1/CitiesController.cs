@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/byregionid/:regionid")]
+        //[Authorize]
+        [HttpGet("byregionid/{regionid}")]
         public IActionResult GetByRegionID(System.Int64 regionid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

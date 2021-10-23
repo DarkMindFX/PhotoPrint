@@ -113,7 +113,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         //[Authorize]
-        [HttpGet("/byusertypeid/:usertypeid")]
+        [HttpGet("byusertypeid/{usertypeid}")]
         public IActionResult GetByUserTypeID(System.Int64 usertypeid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -137,7 +137,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         //[Authorize]
-        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

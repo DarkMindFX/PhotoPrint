@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/byorderid/:orderid")]
+        //[Authorize]
+        [HttpGet("byorderid/{orderid}")]
         public IActionResult GetByOrderID(System.Int64 orderid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -104,8 +104,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/byimageid/:imageid")]
+        //[Authorize]
+        [HttpGet("byimageid/{imageid}")]
         public IActionResult GetByImageID(System.Int64 imageid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -128,8 +128,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bysizeid/:sizeid")]
+        //[Authorize]
+        [HttpGet("bysizeid/{sizeid}")]
         public IActionResult GetBySizeID(System.Int64? sizeid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -152,8 +152,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/byframetypeid/:frametypeid")]
+        //[Authorize]
+        [HttpGet("byframetypeid/{frametypeid}")]
         public IActionResult GetByFrameTypeID(System.Int64 frametypeid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -176,8 +176,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/byframesizeid/:framesizeid")]
+        //[Authorize]
+        [HttpGet("byframesizeid/{framesizeid}")]
         public IActionResult GetByFrameSizeID(System.Int64? framesizeid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -200,8 +200,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bymatid/:matid")]
+        //[Authorize]
+        [HttpGet("bymatid/{matid}")]
         public IActionResult GetByMatID(System.Int64 matid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -224,8 +224,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bymaterialtypeid/:materialtypeid")]
+        //[Authorize]
+        [HttpGet("bymaterialtypeid/{materialtypeid}")]
         public IActionResult GetByMaterialTypeID(System.Int64 materialtypeid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -248,8 +248,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bymountingtypeid/:mountingtypeid")]
+        //[Authorize]
+        [HttpGet("bymountingtypeid/{mountingtypeid}")]
         public IActionResult GetByMountingTypeID(System.Int64 mountingtypeid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -272,8 +272,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bypricecurrencyid/:pricecurrencyid")]
+        //[Authorize]
+        [HttpGet("bypricecurrencyid/{pricecurrencyid}")]
         public IActionResult GetByPriceCurrencyID(System.Int64 pricecurrencyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -296,8 +296,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/byprintinghouseid/:printinghouseid")]
+        //[Authorize]
+        [HttpGet("byprintinghouseid/{printinghouseid}")]
         public IActionResult GetByPrintingHouseID(System.Int64? printinghouseid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -320,8 +320,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bycreatedbyid/:createdbyid")]
+        //[Authorize]
+        [HttpGet("bycreatedbyid/{createdbyid}")]
         public IActionResult GetByCreatedByID(System.Int64 createdbyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -344,8 +344,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        //[Authorize]
+        [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

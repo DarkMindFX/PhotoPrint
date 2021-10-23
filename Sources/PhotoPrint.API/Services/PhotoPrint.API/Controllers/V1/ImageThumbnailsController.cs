@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/byimageid/:imageid")]
+        //[Authorize]
+        [HttpGet("byimageid/{imageid}")]
         public IActionResult GetByImageID(System.Int64 imageid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");

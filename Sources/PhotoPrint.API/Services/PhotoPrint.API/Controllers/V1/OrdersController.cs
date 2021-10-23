@@ -80,8 +80,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-                //[Authorize]
-        [HttpGet("/bymanagerid/:managerid")]
+        //[Authorize]
+        [HttpGet("bymanagerid/{managerid}")]
         public IActionResult GetByManagerID(System.Int64? managerid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -104,8 +104,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/byuserid/:userid")]
+        //[Authorize]
+        [HttpGet("byuserid/{userid}")]
         public IActionResult GetByUserID(System.Int64 userid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -128,8 +128,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bycontactid/:contactid")]
+        //[Authorize]
+        [HttpGet("bycontactid/{contactid}")]
         public IActionResult GetByContactID(System.Int64 contactid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -152,8 +152,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bydeliveryaddressid/:deliveryaddressid")]
+        //[Authorize]
+        [HttpGet("bydeliveryaddressid/{deliveryaddressid}")]
         public IActionResult GetByDeliveryAddressID(System.Int64 deliveryaddressid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -176,8 +176,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bydeliveryserviceid/:deliveryserviceid")]
+        //[Authorize]
+        [HttpGet("bydeliveryserviceid/{deliveryserviceid}")]
         public IActionResult GetByDeliveryServiceID(System.Int64 deliveryserviceid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -200,8 +200,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bycreatedbyid/:createdbyid")]
+        //[Authorize]
+        [HttpGet("bycreatedbyid/{createdbyid}")]
         public IActionResult GetByCreatedByID(System.Int64 createdbyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
@@ -224,8 +224,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-                //[Authorize]
-        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        //[Authorize]
+        [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
