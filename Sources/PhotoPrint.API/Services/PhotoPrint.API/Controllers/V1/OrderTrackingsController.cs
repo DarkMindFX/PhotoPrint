@@ -80,6 +80,79 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byorderid/:orderid")]
+        public IActionResult GetByOrderID(System.Int64 orderid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderTracking.GetByOrderID(orderid);
+
+            IList<DTO.OrderTracking> dtos = new List<DTO.OrderTracking>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderTrackingConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/byorderstatusid/:orderstatusid")]
+        public IActionResult GetByOrderStatusID(System.Int64 orderstatusid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderTracking.GetByOrderStatusID(orderstatusid);
+
+            IList<DTO.OrderTracking> dtos = new List<DTO.OrderTracking>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderTrackingConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bysetbyid/:setbyid")]
+        public IActionResult GetBySetByID(System.Int64 setbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderTracking.GetBySetByID(setbyid);
+
+            IList<DTO.OrderTracking> dtos = new List<DTO.OrderTracking>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderTrackingConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteOrderTracking")]
         public IActionResult Delete(System.Int64? id)

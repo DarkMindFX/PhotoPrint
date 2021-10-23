@@ -80,6 +80,79 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/bycontacttypeid/:contacttypeid")]
+        public IActionResult GetByContactTypeID(System.Int64 contacttypeid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalContact.GetByContactTypeID(contacttypeid);
+
+            IList<DTO.Contact> dtos = new List<DTO.Contact>();
+
+            foreach (var p in entities)
+            {
+                var dto = ContactConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycreatedbyid/:createdbyid")]
+        public IActionResult GetByCreatedByID(System.Int64 createdbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalContact.GetByCreatedByID(createdbyid);
+
+            IList<DTO.Contact> dtos = new List<DTO.Contact>();
+
+            foreach (var p in entities)
+            {
+                var dto = ContactConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalContact.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.Contact> dtos = new List<DTO.Contact>();
+
+            foreach (var p in entities)
+            {
+                var dto = ContactConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteContact")]
         public IActionResult Delete(System.Int64? id)

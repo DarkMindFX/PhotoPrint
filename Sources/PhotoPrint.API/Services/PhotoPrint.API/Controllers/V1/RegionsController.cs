@@ -80,6 +80,31 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/bycountryid/:countryid")]
+        public IActionResult GetByCountryID(System.Int64 countryid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalRegion.GetByCountryID(countryid);
+
+            IList<DTO.Region> dtos = new List<DTO.Region>();
+
+            foreach (var p in entities)
+            {
+                var dto = RegionConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteRegion")]
         public IActionResult Delete(System.Int64? id)

@@ -80,6 +80,79 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/bypricecurrencyid/:pricecurrencyid")]
+        public IActionResult GetByPriceCurrencyID(System.Int64? pricecurrencyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalImage.GetByPriceCurrencyID(pricecurrencyid);
+
+            IList<DTO.Image> dtos = new List<DTO.Image>();
+
+            foreach (var p in entities)
+            {
+                var dto = ImageConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycreatedbyid/:createdbyid")]
+        public IActionResult GetByCreatedByID(System.Int64 createdbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalImage.GetByCreatedByID(createdbyid);
+
+            IList<DTO.Image> dtos = new List<DTO.Image>();
+
+            foreach (var p in entities)
+            {
+                var dto = ImageConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalImage.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.Image> dtos = new List<DTO.Image>();
+
+            foreach (var p in entities)
+            {
+                var dto = ImageConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteImage")]
         public IActionResult Delete(System.Int64? id)

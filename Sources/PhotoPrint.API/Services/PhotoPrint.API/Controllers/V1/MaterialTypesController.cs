@@ -80,6 +80,55 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/bycreatedbyid/:createdbyid")]
+        public IActionResult GetByCreatedByID(System.Int64 createdbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalMaterialType.GetByCreatedByID(createdbyid);
+
+            IList<DTO.MaterialType> dtos = new List<DTO.MaterialType>();
+
+            foreach (var p in entities)
+            {
+                var dto = MaterialTypeConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalMaterialType.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.MaterialType> dtos = new List<DTO.MaterialType>();
+
+            foreach (var p in entities)
+            {
+                var dto = MaterialTypeConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteMaterialType")]
         public IActionResult Delete(System.Int64? id)

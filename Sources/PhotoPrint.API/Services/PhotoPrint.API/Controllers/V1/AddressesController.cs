@@ -80,6 +80,103 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byaddresstypeid/:addresstypeid")]
+        public IActionResult GetByAddressTypeID(System.Int64 addresstypeid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalAddress.GetByAddressTypeID(addresstypeid);
+
+            IList<DTO.Address> dtos = new List<DTO.Address>();
+
+            foreach (var p in entities)
+            {
+                var dto = AddressConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycityid/:cityid")]
+        public IActionResult GetByCityID(System.Int64 cityid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalAddress.GetByCityID(cityid);
+
+            IList<DTO.Address> dtos = new List<DTO.Address>();
+
+            foreach (var p in entities)
+            {
+                var dto = AddressConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycreatedbyid/:createdbyid")]
+        public IActionResult GetByCreatedByID(System.Int64 createdbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalAddress.GetByCreatedByID(createdbyid);
+
+            IList<DTO.Address> dtos = new List<DTO.Address>();
+
+            foreach (var p in entities)
+            {
+                var dto = AddressConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalAddress.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.Address> dtos = new List<DTO.Address>();
+
+            foreach (var p in entities)
+            {
+                var dto = AddressConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteAddress")]
         public IActionResult Delete(System.Int64? id)

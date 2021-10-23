@@ -80,6 +80,79 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byparentid/:parentid")]
+        public IActionResult GetByParentID(System.Int64? parentid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalCategory.GetByParentID(parentid);
+
+            IList<DTO.Category> dtos = new List<DTO.Category>();
+
+            foreach (var p in entities)
+            {
+                var dto = CategoryConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycreatedbyid/:createdbyid")]
+        public IActionResult GetByCreatedByID(System.Int64 createdbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalCategory.GetByCreatedByID(createdbyid);
+
+            IList<DTO.Category> dtos = new List<DTO.Category>();
+
+            foreach (var p in entities)
+            {
+                var dto = CategoryConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalCategory.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.Category> dtos = new List<DTO.Category>();
+
+            foreach (var p in entities)
+            {
+                var dto = CategoryConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteCategory")]
         public IActionResult Delete(System.Int64? id)

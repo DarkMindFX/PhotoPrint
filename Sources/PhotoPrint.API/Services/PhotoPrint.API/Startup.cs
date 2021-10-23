@@ -259,6 +259,10 @@ namespace PPT.PhotoPrint.API
             services.AddSingleton<IUserTypeDal>(dalUserTypeDal);
             services.AddSingleton<Dal.IUserTypeDal, Dal.UserTypeDal>();
 
+            /** Connection Tester for health endpoint **/
+            var dalConnTest = InitDal<IConnectionTestDal>(serviceCfg);
+            services.AddSingleton<IConnectionTestDal>(dalConnTest);
+
         }
 
         private TDal InitDal<TDal>(ServiceConfig serviceCfg) where TDal : IInitializable

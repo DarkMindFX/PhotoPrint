@@ -33,5 +33,9 @@ namespace PPT.PhotoPrint.API.Dal
         {
             return _dalImpl.GetByUserTypeID(UserTypeID);
         }
+        public IList<User> GetByModifiedByID(System.Int64? ModifiedByID)
+        {
+            return _dalImpl.GetByModifiedByID(ModifiedByID);
+        }
             }
 }

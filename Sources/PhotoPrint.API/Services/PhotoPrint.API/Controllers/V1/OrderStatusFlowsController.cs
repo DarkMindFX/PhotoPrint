@@ -80,6 +80,55 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byfromstatusid/:fromstatusid")]
+        public IActionResult GetByFromStatusID(System.Int64 fromstatusid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderStatusFlow.GetByFromStatusID(fromstatusid);
+
+            IList<DTO.OrderStatusFlow> dtos = new List<DTO.OrderStatusFlow>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderStatusFlowConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bytostatusid/:tostatusid")]
+        public IActionResult GetByToStatusID(System.Int64 tostatusid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderStatusFlow.GetByToStatusID(tostatusid);
+
+            IList<DTO.OrderStatusFlow> dtos = new List<DTO.OrderStatusFlow>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderStatusFlowConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{fromstatusid}/{tostatusid}"), ActionName("DeleteOrderStatusFlow")]
         public IActionResult Delete(System.Int64 fromstatusid, System.Int64 tostatusid)

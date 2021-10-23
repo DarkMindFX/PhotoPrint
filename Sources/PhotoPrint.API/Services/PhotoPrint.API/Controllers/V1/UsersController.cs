@@ -89,6 +89,79 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         //[Authorize]
+        [HttpGet("/byuserstatusid/:userstatusid")]
+        public IActionResult GetByUserStatusID(System.Int64 userstatusid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalUser.GetByUserStatusID(userstatusid);
+
+            IList<DTO.User> dtos = new List<DTO.User>();
+
+            foreach (var p in entities)
+            {
+                var dto = UserConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        //[Authorize]
+        [HttpGet("/byusertypeid/:usertypeid")]
+        public IActionResult GetByUserTypeID(System.Int64 usertypeid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalUser.GetByUserTypeID(usertypeid);
+
+            IList<DTO.User> dtos = new List<DTO.User>();
+
+            foreach (var p in entities)
+            {
+                var dto = UserConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalUser.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.User> dtos = new List<DTO.User>();
+
+            foreach (var p in entities)
+            {
+                var dto = UserConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+
+        //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteUser")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -155,7 +228,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             IActionResult response = null;
 
             var newEntity = UserConvertor.Convert(dto);
-            
+
 
             var existingEntity = _dalUser.Get(newEntity.ID);
 
@@ -193,7 +266,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var existingEntity = _dalUser.GetAll().FirstOrDefault( u => u.Login.ToLower() == dtoLogin.Login.ToLower());
+            var existingEntity = _dalUser.GetAll().FirstOrDefault(u => u.Login.ToLower() == dtoLogin.Login.ToLower());
             if (existingEntity != null)
             {
                 string pwdHash = Helpers.PasswordHelper.GenerateHash(dtoLogin.Password, existingEntity.Salt);

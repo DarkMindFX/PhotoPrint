@@ -80,6 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+        
         //[Authorize]
         [HttpDelete("{imageid}/{relatedimageid}"), ActionName("DeleteImageRelated")]
         public IActionResult Delete(System.Int64 imageid, System.Int64 relatedimageid)

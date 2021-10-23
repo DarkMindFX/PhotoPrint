@@ -80,6 +80,55 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byuserid/:userid")]
+        public IActionResult GetByUserID(System.Int64 userid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalUserAddress.GetByUserID(userid);
+
+            IList<DTO.UserAddress> dtos = new List<DTO.UserAddress>();
+
+            foreach (var p in entities)
+            {
+                var dto = UserAddressConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/byaddressid/:addressid")]
+        public IActionResult GetByAddressID(System.Int64 addressid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalUserAddress.GetByAddressID(addressid);
+
+            IList<DTO.UserAddress> dtos = new List<DTO.UserAddress>();
+
+            foreach (var p in entities)
+            {
+                var dto = UserAddressConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{userid}/{addressid}"), ActionName("DeleteUserAddress")]
         public IActionResult Delete(System.Int64 userid, System.Int64 addressid)

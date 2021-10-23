@@ -80,6 +80,55 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byprintinghouseid/:printinghouseid")]
+        public IActionResult GetByPrintingHouseID(System.Int64 printinghouseid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalPrintingHouseContact.GetByPrintingHouseID(printinghouseid);
+
+            IList<DTO.PrintingHouseContact> dtos = new List<DTO.PrintingHouseContact>();
+
+            foreach (var p in entities)
+            {
+                var dto = PrintingHouseContactConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycontactid/:contactid")]
+        public IActionResult GetByContactID(System.Int64 contactid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalPrintingHouseContact.GetByContactID(contactid);
+
+            IList<DTO.PrintingHouseContact> dtos = new List<DTO.PrintingHouseContact>();
+
+            foreach (var p in entities)
+            {
+                var dto = PrintingHouseContactConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{printinghouseid}/{contactid}"), ActionName("DeletePrintingHouseContact")]
         public IActionResult Delete(System.Int64 printinghouseid, System.Int64 contactid)

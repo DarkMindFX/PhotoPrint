@@ -80,6 +80,103 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byorderid/:orderid")]
+        public IActionResult GetByOrderID(System.Int64 orderid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderPaymentDetails.GetByOrderID(orderid);
+
+            IList<DTO.OrderPaymentDetails> dtos = new List<DTO.OrderPaymentDetails>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderPaymentDetailsConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bypaymentmethodid/:paymentmethodid")]
+        public IActionResult GetByPaymentMethodID(System.Int64 paymentmethodid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderPaymentDetails.GetByPaymentMethodID(paymentmethodid);
+
+            IList<DTO.OrderPaymentDetails> dtos = new List<DTO.OrderPaymentDetails>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderPaymentDetailsConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycreatedbyid/:createdbyid")]
+        public IActionResult GetByCreatedByID(System.Int64 createdbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderPaymentDetails.GetByCreatedByID(createdbyid);
+
+            IList<DTO.OrderPaymentDetails> dtos = new List<DTO.OrderPaymentDetails>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderPaymentDetailsConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bymodifiedbyid/:modifiedbyid")]
+        public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalOrderPaymentDetails.GetByModifiedByID(modifiedbyid);
+
+            IList<DTO.OrderPaymentDetails> dtos = new List<DTO.OrderPaymentDetails>();
+
+            foreach (var p in entities)
+            {
+                var dto = OrderPaymentDetailsConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteOrderPaymentDetails")]
         public IActionResult Delete(System.Int64? id)

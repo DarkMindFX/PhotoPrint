@@ -88,6 +88,12 @@ namespace PPT.DAL.MSSQL
 
             return entitiesOut;
         }
+                public IList<User> GetByModifiedByID(System.Int64? ModifiedByID)
+        {
+            var entitiesOut = base.GetBy<User, System.Int64?>("p_User_GetByModifiedByID", ModifiedByID, "@ModifiedByID", SqlDbType.BigInt, 0, UserFromRow);
+
+            return entitiesOut;
+        }
         
         public IList<User> GetAll()
         {

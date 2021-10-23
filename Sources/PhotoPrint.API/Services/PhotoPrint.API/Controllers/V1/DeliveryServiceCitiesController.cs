@@ -80,6 +80,55 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/bydeliveryserviceid/:deliveryserviceid")]
+        public IActionResult GetByDeliveryServiceID(System.Int64 deliveryserviceid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalDeliveryServiceCity.GetByDeliveryServiceID(deliveryserviceid);
+
+            IList<DTO.DeliveryServiceCity> dtos = new List<DTO.DeliveryServiceCity>();
+
+            foreach (var p in entities)
+            {
+                var dto = DeliveryServiceCityConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+                //[Authorize]
+        [HttpGet("/bycityid/:cityid")]
+        public IActionResult GetByCityID(System.Int64 cityid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalDeliveryServiceCity.GetByCityID(cityid);
+
+            IList<DTO.DeliveryServiceCity> dtos = new List<DTO.DeliveryServiceCity>();
+
+            foreach (var p in entities)
+            {
+                var dto = DeliveryServiceCityConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{deliveryserviceid}/{cityid}"), ActionName("DeleteDeliveryServiceCity")]
         public IActionResult Delete(System.Int64 deliveryserviceid, System.Int64 cityid)

@@ -80,6 +80,31 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+                //[Authorize]
+        [HttpGet("/byimageid/:imageid")]
+        public IActionResult GetByImageID(System.Int64 imageid)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+            IActionResult response = null;
+
+            var entities = _dalImageThumbnail.GetByImageID(imageid);
+
+            IList<DTO.ImageThumbnail> dtos = new List<DTO.ImageThumbnail>();
+
+            foreach (var p in entities)
+            {
+                var dto = ImageThumbnailConvertor.Convert(p, this.Url);
+
+                dtos.Add(dto);
+            }
+
+            response = Ok(dtos);
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteImageThumbnail")]
         public IActionResult Delete(System.Int64? id)

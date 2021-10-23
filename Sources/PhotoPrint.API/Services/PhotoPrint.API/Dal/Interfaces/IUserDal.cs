@@ -15,5 +15,6 @@ namespace PPT.PhotoPrint.API.Dal
 
             IList<User> GetByUserStatusID(System.Int64 UserStatusID);
             IList<User> GetByUserTypeID(System.Int64 UserTypeID);
+            IList<User> GetByModifiedByID(System.Int64? ModifiedByID);
         }
 }

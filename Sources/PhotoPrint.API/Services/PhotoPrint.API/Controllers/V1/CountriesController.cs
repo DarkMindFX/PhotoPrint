@@ -80,6 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
+        
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteCountry")]
         public IActionResult Delete(System.Int64? id)
