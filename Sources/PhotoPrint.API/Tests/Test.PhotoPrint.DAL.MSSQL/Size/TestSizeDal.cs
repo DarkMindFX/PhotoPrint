@@ -55,7 +55,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.AreEqual("SizeName 27a37d68711b4701b9cadc460e2e8e1f", entity.SizeName);
             Assert.AreEqual(366, entity.Width);
             Assert.AreEqual(366, entity.Height);
-            Assert.AreEqual(365827, entity.IsDeleted);
+            Assert.AreEqual(false, entity.IsDeleted);
             Assert.AreEqual(DateTime.Parse("1/21/2021 11:20:49 PM"), entity.CreatedDate);
             Assert.AreEqual(100004, entity.CreatedByID);
             Assert.AreEqual(DateTime.Parse("5/16/2022 12:46:49 PM"), entity.ModifiedDate);
@@ -111,7 +111,7 @@ namespace Test.PPT.DAL.MSSQL
             entity.SizeName = "SizeName 474354b31cec492d8d7638ba3ae25c40";
             entity.Width = 695;
             entity.Height = 695;
-            entity.IsDeleted = true;
+            entity.IsDeleted = false;
             entity.CreatedDate = DateTime.Parse("11/12/2022 6:33:49 PM");
             entity.CreatedByID = 100007;
             entity.ModifiedDate = DateTime.Parse("4/1/2020 4:20:49 AM");
@@ -127,7 +127,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.AreEqual("SizeName 474354b31cec492d8d7638ba3ae25c40", entity.SizeName);
             Assert.AreEqual(695, entity.Width);
             Assert.AreEqual(695, entity.Height);
-            Assert.AreEqual(695563, entity.IsDeleted);
+            Assert.AreEqual(false, entity.IsDeleted);
             Assert.AreEqual(DateTime.Parse("11/12/2022 6:33:49 PM"), entity.CreatedDate);
             Assert.AreEqual(100007, entity.CreatedByID);
             Assert.AreEqual(DateTime.Parse("4/1/2020 4:20:49 AM"), entity.ModifiedDate);
@@ -164,7 +164,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.AreEqual("SizeName c97f2011693747218d3a68f4c1b849f1", entity.SizeName);
             Assert.AreEqual(740, entity.Width);
             Assert.AreEqual(740, entity.Height);
-            Assert.AreEqual(740413, entity.IsDeleted);
+            Assert.AreEqual(false, entity.IsDeleted);
             Assert.AreEqual(DateTime.Parse("2/10/2023 2:07:49 PM"), entity.CreatedDate);
             Assert.AreEqual(100006, entity.CreatedByID);
             Assert.AreEqual(DateTime.Parse("6/29/2020 2:34:49 PM"), entity.ModifiedDate);
