@@ -8,7 +8,8 @@
 	},
 	"item": [
 		
-		{
+		
+	{
 			"name": "Address",
 			"item": [
 				{
@@ -18,7 +19,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeID\": 9999999,\r\n  \"Title\": \"Title 70a2b5b4-f2d1-4c00-8746-6481a0a80fcc\",\r\n  \"CityID\": 9999999,\r\n  \"Street\": \"Street 56e3857d-97b3-46be-95f7-bbbd095e6ad6\",\r\n  \"BuildingNo\": \"BuildingNo eb5ad835-14d8-48f4-9d91-05a491e65086\",\r\n  \"ApartmentNo\": \"ApartmentNo 3238e9c4-ba8b-41fa-bca3-1462a79badd3\",\r\n  \"Comment\": \"Comment 413339dd-cb3f-4448-8760-efe8edd59e66\",\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -89,7 +90,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeID\": 9999999,\r\n  \"Title\": \"Title 70a2b5b4-f2d1-4c00-8746-6481a0a80fcc\",\r\n  \"CityID\": 9999999,\r\n  \"Street\": \"Street 56e3857d-97b3-46be-95f7-bbbd095e6ad6\",\r\n  \"BuildingNo\": \"BuildingNo eb5ad835-14d8-48f4-9d91-05a491e65086\",\r\n  \"ApartmentNo\": \"ApartmentNo 3238e9c4-ba8b-41fa-bca3-1462a79badd3\",\r\n  \"Comment\": \"Comment 413339dd-cb3f-4448-8760-efe8edd59e66\",\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -322,7 +323,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "AddressType",
 			"item": [
 				{
@@ -332,7 +334,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeName\": \"AddressTypeName 6c3cb8e2-e367-4f72-a041-4ffd01a16366\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -403,7 +405,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeName\": \"AddressTypeName 6c3cb8e2-e367-4f72-a041-4ffd01a16366\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -496,7 +498,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Category",
 			"item": [
 				{
@@ -506,7 +509,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CategoryName\": \"CategoryName 8724d19d-e203-40fa-b6ef-2a5428bdb171\",\r\n  \"Description\": \"Description fef7b8de-c3b1-461a-b2e3-811b6e80df71\",\r\n  \"ParentID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -577,7 +580,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CategoryName\": \"CategoryName 8724d19d-e203-40fa-b6ef-2a5428bdb171\",\r\n  \"Description\": \"Description fef7b8de-c3b1-461a-b2e3-811b6e80df71\",\r\n  \"ParentID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -775,7 +778,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "City",
 			"item": [
 				{
@@ -785,7 +789,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CityName\": \"CityName 3c9beac5-c6a7-4533-a0eb-e93b3152ee49\",\r\n  \"RegionID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -856,7 +860,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CityName\": \"CityName 3c9beac5-c6a7-4533-a0eb-e93b3152ee49\",\r\n  \"RegionID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -984,7 +988,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Contact",
 			"item": [
 				{
@@ -994,7 +999,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeID\": 9999999,\r\n  \"Title\": \"Title c01109b6-de2a-4165-ae63-e1cc0a33a4de\",\r\n  \"Comment\": \"Comment bd09991e-56f3-4b30-884d-6941aa85cf98\",\r\n  \"Value\": \"Value f1080cf4-adb4-464f-947b-8938f5a345fa\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1065,7 +1070,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeID\": 9999999,\r\n  \"Title\": \"Title c01109b6-de2a-4165-ae63-e1cc0a33a4de\",\r\n  \"Comment\": \"Comment bd09991e-56f3-4b30-884d-6941aa85cf98\",\r\n  \"Value\": \"Value f1080cf4-adb4-464f-947b-8938f5a345fa\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1263,7 +1268,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "ContactType",
 			"item": [
 				{
@@ -1273,7 +1279,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeName\": \"ContactTypeName f6b3db78-304e-4b3f-a1ef-3799bfc1c54d\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1344,7 +1350,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeName\": \"ContactTypeName f6b3db78-304e-4b3f-a1ef-3799bfc1c54d\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1437,7 +1443,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Country",
 			"item": [
 				{
@@ -1447,7 +1454,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CountryName\": \"CountryName 6a424747-9255-41ee-ab5c-2379425cf8e7\",\r\n  \"ISO\": \"ISO 42af5eeb-447b-4af9-b1e1-90cc84643e78\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1518,7 +1525,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CountryName\": \"CountryName 6a424747-9255-41ee-ab5c-2379425cf8e7\",\r\n  \"ISO\": \"ISO 42af5eeb-447b-4af9-b1e1-90cc84643e78\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1611,7 +1618,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Currency",
 			"item": [
 				{
@@ -1621,7 +1629,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ISO\": \"ISO 5230d910-f701-4171-884f-b27274a9f16d\",\r\n  \"CurrencyName\": \"CurrencyName aea8018c-1879-4043-bdaf-fd2c224fdbd7\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1692,7 +1700,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ISO\": \"ISO 5230d910-f701-4171-884f-b27274a9f16d\",\r\n  \"CurrencyName\": \"CurrencyName aea8018c-1879-4043-bdaf-fd2c224fdbd7\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1785,7 +1793,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "DeliveryService",
 			"item": [
 				{
@@ -1795,7 +1804,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"DeliveryServiceName\": \"DeliveryServiceName 9ea91b64-9c95-4378-a7df-93ce61368ac7\",\r\n  \"Description\": \"Description 08d7cda1-040f-4f71-bfcf-df911e638c6a\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1866,7 +1875,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"DeliveryServiceName\": \"DeliveryServiceName 9ea91b64-9c95-4378-a7df-93ce61368ac7\",\r\n  \"Description\": \"Description 08d7cda1-040f-4f71-bfcf-df911e638c6a\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2029,7 +2038,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "DeliveryServiceCity",
 			"item": [
 				{
@@ -2039,7 +2049,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"CityID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2110,7 +2120,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"CityID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2277,7 +2287,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "FrameType",
 			"item": [
 				{
@@ -2287,7 +2298,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"FrameTypeName\": \"FrameTypeName 74b3e262-b805-4bb1-a926-6d144ddc2b7c\",\r\n  \"Description\": \"Description dff1f35b-68aa-45ef-8614-1c5a0b9aa843\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 8c61d633-3a3e-459e-8933-2854885eca06\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2358,7 +2369,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"FrameTypeName\": \"FrameTypeName 74b3e262-b805-4bb1-a926-6d144ddc2b7c\",\r\n  \"Description\": \"Description dff1f35b-68aa-45ef-8614-1c5a0b9aa843\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 8c61d633-3a3e-459e-8933-2854885eca06\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2521,7 +2532,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Image",
 			"item": [
 				{
@@ -2531,7 +2543,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title 77bcd849-5a01-496f-a111-fa679432afc5\",\r\n  \"Description\": \"Description 47a41c4a-083e-4ea8-97b5-b4494103d6fe\",\r\n  \"OriginUrl\": \"OriginUrl 4aa55c4f-a213-441a-9893-76994fb1eac2\",\r\n  \"MaxWidth\": 9999999,\r\n  \"MaxHeight\": 9999999,\r\n  \"PriceAmount\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2602,7 +2614,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title 77bcd849-5a01-496f-a111-fa679432afc5\",\r\n  \"Description\": \"Description 47a41c4a-083e-4ea8-97b5-b4494103d6fe\",\r\n  \"OriginUrl\": \"OriginUrl 4aa55c4f-a213-441a-9893-76994fb1eac2\",\r\n  \"MaxWidth\": 9999999,\r\n  \"MaxHeight\": 9999999,\r\n  \"PriceAmount\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2800,7 +2812,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "ImageCategory",
 			"item": [
 				{
@@ -2810,7 +2823,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ImageID\": 9999999,\r\n  \"CategoryID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2881,7 +2894,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ImageID\": 9999999,\r\n  \"CategoryID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3048,7 +3061,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "ImageRelated",
 			"item": [
 				{
@@ -3058,7 +3072,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ImageID\": 9999999,\r\n  \"RelatedImageID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3129,7 +3143,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ImageID\": 9999999,\r\n  \"RelatedImageID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3226,7 +3240,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "ImageThumbnail",
 			"item": [
 				{
@@ -3236,7 +3251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Url\": \"Url 77603e04-7968-4bc5-ba3a-6311f645db57\",\r\n  \"Order\": 9999999,\r\n  \"ImageID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3307,7 +3322,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Url\": \"Url 77603e04-7968-4bc5-ba3a-6311f645db57\",\r\n  \"Order\": 9999999,\r\n  \"ImageID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3435,7 +3450,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Mat",
 			"item": [
 				{
@@ -3445,7 +3461,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MatName\": \"MatName 15913401-fac4-4c73-bbb5-898b2cd9dc8a\",\r\n  \"Description\": \"Description 14e4a022-71e3-401f-80aa-c3d010eeb820\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1f63e892-3be2-403e-8c10-11d4c6dba899\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3516,7 +3532,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MatName\": \"MatName 15913401-fac4-4c73-bbb5-898b2cd9dc8a\",\r\n  \"Description\": \"Description 14e4a022-71e3-401f-80aa-c3d010eeb820\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1f63e892-3be2-403e-8c10-11d4c6dba899\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3679,7 +3695,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "MaterialType",
 			"item": [
 				{
@@ -3689,7 +3706,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MaterialTypeName\": \"MaterialTypeName 2b953ea9-ffd9-4d85-b23d-efaf8884f643\",\r\n  \"Description\": \"Description 328e0b22-eaaa-4649-8e79-3d90dc5c431b\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 3250c0a3-003c-4339-8e46-1945ab6dc023\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3760,7 +3777,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MaterialTypeName\": \"MaterialTypeName 2b953ea9-ffd9-4d85-b23d-efaf8884f643\",\r\n  \"Description\": \"Description 328e0b22-eaaa-4649-8e79-3d90dc5c431b\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 3250c0a3-003c-4339-8e46-1945ab6dc023\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3923,7 +3940,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "MountingType",
 			"item": [
 				{
@@ -3933,7 +3951,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MountingTypeName\": \"MountingTypeName 4702e08c-5152-4470-b7d7-511c0bba070f\",\r\n  \"Description\": \"Description d506c0a7-4c01-4697-928f-0761b2ecaec4\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1480465c-b534-4f17-a3af-aa8815f3fa34\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4004,7 +4022,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MountingTypeName\": \"MountingTypeName 4702e08c-5152-4470-b7d7-511c0bba070f\",\r\n  \"Description\": \"Description d506c0a7-4c01-4697-928f-0761b2ecaec4\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1480465c-b534-4f17-a3af-aa8815f3fa34\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4097,7 +4115,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Order",
 			"item": [
 				{
@@ -4107,7 +4126,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ManagerID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"DeliveryAddressID\": 9999999,\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"Comments\": \"Comments d121e76d-3766-43d9-9c3b-a09a553382eb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4178,7 +4197,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ManagerID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"DeliveryAddressID\": 9999999,\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"Comments\": \"Comments d121e76d-3766-43d9-9c3b-a09a553382eb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4516,7 +4535,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "OrderItem",
 			"item": [
 				{
@@ -4526,7 +4546,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"ImageID\": 9999999,\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"SizeID\": 9999999,\r\n  \"FrameTypeID\": 9999999,\r\n  \"FrameSizeID\": 9999999,\r\n  \"MatID\": 9999999,\r\n  \"MaterialTypeID\": 9999999,\r\n  \"MountingTypeID\": 9999999,\r\n  \"ItemCount\": 9999999,\r\n  \"PriceAmountPerItem\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"Comments\": \"Comments f5cab34c-690f-4b12-a80d-817352027fee\",\r\n  \"PrintingHouseID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4597,7 +4617,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"ImageID\": 9999999,\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"SizeID\": 9999999,\r\n  \"FrameTypeID\": 9999999,\r\n  \"FrameSizeID\": 9999999,\r\n  \"MatID\": 9999999,\r\n  \"MaterialTypeID\": 9999999,\r\n  \"MountingTypeID\": 9999999,\r\n  \"ItemCount\": 9999999,\r\n  \"PriceAmountPerItem\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"Comments\": \"Comments f5cab34c-690f-4b12-a80d-817352027fee\",\r\n  \"PrintingHouseID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5110,7 +5130,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "OrderPaymentDetails",
 			"item": [
 				{
@@ -5120,7 +5141,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"PaymentMethodID\": 9999999,\r\n  \"PaymentTransUID\": \"PaymentTransUID b5894e37-11ae-48d1-9e72-fc8247f51e60\",\r\n  \"PaymentDateTime\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5191,7 +5212,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"PaymentMethodID\": 9999999,\r\n  \"PaymentTransUID\": \"PaymentTransUID b5894e37-11ae-48d1-9e72-fc8247f51e60\",\r\n  \"PaymentDateTime\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5424,7 +5445,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "OrderStatus",
 			"item": [
 				{
@@ -5434,7 +5456,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderStatusName\": \"OrderStatusName 3718da76-c539-44dc-8162-e65d61a28bf2\",\r\n  \"IsDeleted\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5505,7 +5527,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderStatusName\": \"OrderStatusName 3718da76-c539-44dc-8162-e65d61a28bf2\",\r\n  \"IsDeleted\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5598,7 +5620,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "OrderStatusFlow",
 			"item": [
 				{
@@ -5608,7 +5631,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"FromStatusID\": 9999999,\r\n  \"ToStatusID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5679,7 +5702,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"FromStatusID\": 9999999,\r\n  \"ToStatusID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5846,7 +5869,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "OrderTracking",
 			"item": [
 				{
@@ -5856,7 +5880,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"OrderStatusID\": 9999999,\r\n  \"SetDate\": \"2021-10-01 21:35:00\",\r\n  \"SetByID\": 9999999,\r\n  \"Comment\": \"Comment 334417df-201b-49b2-aa4c-09a3ee9ce74d\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5927,7 +5951,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"OrderStatusID\": 9999999,\r\n  \"SetDate\": \"2021-10-01 21:35:00\",\r\n  \"SetByID\": 9999999,\r\n  \"Comment\": \"Comment 334417df-201b-49b2-aa4c-09a3ee9ce74d\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6125,7 +6149,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "PaymentMethod",
 			"item": [
 				{
@@ -6135,7 +6160,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 05ba7c40-525b-42f1-bc67-cf84c8a46441\",\r\n  \"Description\": \"Description 344387aa-93f9-48ad-80eb-8adb0fe97acd\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6206,7 +6231,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 05ba7c40-525b-42f1-bc67-cf84c8a46441\",\r\n  \"Description\": \"Description 344387aa-93f9-48ad-80eb-8adb0fe97acd\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6299,7 +6324,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "PrintingHouse",
 			"item": [
 				{
@@ -6309,7 +6335,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name f9c779f4-f2c7-408d-b285-09d542172e3c\",\r\n  \"Description\": \"Description 7dc1d9b0-649b-4030-9a14-8df53f3b9c3f\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6380,7 +6406,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name f9c779f4-f2c7-408d-b285-09d542172e3c\",\r\n  \"Description\": \"Description 7dc1d9b0-649b-4030-9a14-8df53f3b9c3f\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6543,7 +6569,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "PrintingHouseAddress",
 			"item": [
 				{
@@ -6553,7 +6580,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"PrintingHouseID\": 9999999,\r\n  \"AddressID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6624,7 +6651,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"PrintingHouseID\": 9999999,\r\n  \"AddressID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6791,7 +6818,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "PrintingHouseContact",
 			"item": [
 				{
@@ -6801,7 +6829,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"PrintingHouseID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6872,7 +6900,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"PrintingHouseID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7039,7 +7067,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Region",
 			"item": [
 				{
@@ -7049,7 +7078,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"RegionName\": \"RegionName 691454d6-72bb-4e56-a417-ca69b02cbde5\",\r\n  \"CountryID\": 9999999,\r\n  \"IsDeleted\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7120,7 +7149,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"RegionName\": \"RegionName 691454d6-72bb-4e56-a417-ca69b02cbde5\",\r\n  \"CountryID\": 9999999,\r\n  \"IsDeleted\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7248,7 +7277,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Size",
 			"item": [
 				{
@@ -7258,7 +7288,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"SizeName\": \"SizeName 2833f3ca-de4f-4368-8bc0-7aba23ef8ba4\",\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7329,7 +7359,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"SizeName\": \"SizeName 2833f3ca-de4f-4368-8bc0-7aba23ef8ba4\",\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7492,7 +7522,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "Unit",
 			"item": [
 				{
@@ -7502,7 +7533,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UnitName\": \"UnitName 25b3d66c-c478-4e3b-a6bd-a6b1c9577e6c\",\r\n  \"UnitAbbr\": \"UnitAbbr fd44cc67-c519-45dc-8200-89c36479cdf2\",\r\n  \"Description\": \"Description 546a0e64-6291-4f86-999f-256cf887f0cc\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7573,7 +7604,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UnitName\": \"UnitName 25b3d66c-c478-4e3b-a6bd-a6b1c9577e6c\",\r\n  \"UnitAbbr\": \"UnitAbbr fd44cc67-c519-45dc-8200-89c36479cdf2\",\r\n  \"Description\": \"Description 546a0e64-6291-4f86-999f-256cf887f0cc\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7666,7 +7697,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "User",
 			"item": [
 				{
@@ -7676,7 +7708,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Login\": \"Login 2c09b628-24c6-459e-b2e1-aed7784ea37c\",\r\n  \"PwdHash\": \"PwdHash 7ffbab95-a33f-4daf-8a5b-edcdebc9010b\",\r\n  \"Salt\": \"Salt f297112c-1071-4ad1-9838-e4e3293ef965\",\r\n  \"FirstName\": \"FirstName ed37dc23-644d-4bf3-86b8-a2be78e9315c\",\r\n  \"MiddleName\": \"MiddleName 3228642d-cb71-45e8-bbc8-72c4bf126f73\",\r\n  \"LastName\": \"LastName 886f8e3a-5388-4273-a2f7-7924facc8716\",\r\n  \"FriendlyName\": \"FriendlyName 54b5cb26-c72e-4444-93ce-8727865063d9\",\r\n  \"UserStatusID\": 9999999,\r\n  \"UserTypeID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7747,7 +7779,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Login\": \"Login 2c09b628-24c6-459e-b2e1-aed7784ea37c\",\r\n  \"PwdHash\": \"PwdHash 7ffbab95-a33f-4daf-8a5b-edcdebc9010b\",\r\n  \"Salt\": \"Salt f297112c-1071-4ad1-9838-e4e3293ef965\",\r\n  \"FirstName\": \"FirstName ed37dc23-644d-4bf3-86b8-a2be78e9315c\",\r\n  \"MiddleName\": \"MiddleName 3228642d-cb71-45e8-bbc8-72c4bf126f73\",\r\n  \"LastName\": \"LastName 886f8e3a-5388-4273-a2f7-7924facc8716\",\r\n  \"FriendlyName\": \"FriendlyName 54b5cb26-c72e-4444-93ce-8727865063d9\",\r\n  \"UserStatusID\": 9999999,\r\n  \"UserTypeID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7945,7 +7977,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "UserAddress",
 			"item": [
 				{
@@ -7955,7 +7988,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"UserID\": 9999999,\r\n  \"AddressID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8026,7 +8059,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"UserID\": 9999999,\r\n  \"AddressID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8193,7 +8226,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "UserContact",
 			"item": [
 				{
@@ -8203,7 +8237,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8274,7 +8308,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"IsPrimary\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8441,7 +8475,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "UserStatus",
 			"item": [
 				{
@@ -8451,7 +8486,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"StatusName\": \"StatusName a3d965d2-4619-4736-9381-1eeeba46c014\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8522,7 +8557,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"StatusName\": \"StatusName a3d965d2-4619-4736-9381-1eeeba46c014\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8615,7 +8650,8 @@
 				}
 					]
 		},
-		{
+		
+	{
 			"name": "UserType",
 			"item": [
 				{
@@ -8625,7 +8661,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_login\": \"TestUser02\",\r\n    \"_fname\": \"Test 2 API First\",\r\n    \"_lname\": \"Test 2 API Last\",\r\n    \"_email\": \"testapiuser2@email.com\",\r\n    \"_pwd\": \"SomePassword2\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserTypeName\": \"UserTypeName 58b6d949-214c-443b-8404-17323cf6d6c0\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8696,7 +8732,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"_userId\": 33010025,\r\n        \"_login\": \"[Test OPRFGHUB] Inserted User_U\",\r\n        \"_fname\": \"[Test OPRFGHUB] Test First_U\",\r\n        \"_lname\": \"[Test OPRFGHUB] Test Last_U\",\r\n        \"_email\": \"user2testdupinsert@email.com_U\",\r\n        \"_desc\": \"Desc_U\",\r\n        \"_pwd\": null\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserTypeName\": \"UserTypeName 58b6d949-214c-443b-8404-17323cf6d6c0\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
