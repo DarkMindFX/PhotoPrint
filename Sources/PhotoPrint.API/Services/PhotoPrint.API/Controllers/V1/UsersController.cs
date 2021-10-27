@@ -205,11 +205,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             entity.Salt = Helpers.PasswordHelper.GenerateSalt(12);
             entity.PwdHash = Helpers.PasswordHelper.GenerateHash(dto.Password, entity.Salt);
 
-            User newEntity = _dalUser.Insert(entity);
-
             base.SetCreatedModifiedProperties(entity,
                         "CreatedDate",
                         null);
+
+            User newEntity = _dalUser.Insert(entity);
 
             response = StatusCode((int)HttpStatusCode.Created, UserConvertor.Convert(newEntity, this.Url));
 

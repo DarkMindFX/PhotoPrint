@@ -14,19 +14,19 @@ namespace PPT.Utils.Convertors
         {
             var dto = new DTO.AddressType()
             {
-        		        ID = entity.ID,
+                ID = entity.ID,
 
-				        AddressTypeName = entity.AddressTypeName,
+                AddressTypeName = entity.AddressTypeName,
 
-				        IsDeleted = entity.IsDeleted,
+                IsDeleted = entity.IsDeleted,
 
-				
+
             };
 
-                        if(url != null)
+            if (url != null)
             {
-                dto.Links.Add(new DTO.Link(url.Action("GetAddressType", "addresstypes", new { id = dto.ID  }), "self", "GET"));
-                dto.Links.Add(new DTO.Link(url.Action("DeleteAddressType", "addresstypes", new { id = dto.ID  }), "delete_addresstype", "DELETE"));
+                dto.Links.Add(new DTO.Link(url.Action("GetAddressType", "addresstypes", new { id = dto.ID }), "self", "GET"));
+                dto.Links.Add(new DTO.Link(url.Action("DeleteAddressType", "addresstypes", new { id = dto.ID }), "delete_addresstype", "DELETE"));
                 dto.Links.Add(new DTO.Link(url.Action("InsertAddressType", "addresstypes"), "insert_addresstype", "POST"));
                 dto.Links.Add(new DTO.Link(url.Action("UpdateAddressType", "addresstypes"), "update_addresstype", "PUT"));
             }
@@ -38,15 +38,15 @@ namespace PPT.Utils.Convertors
         {
             var entity = new Interfaces.Entities.AddressType()
             {
-                
-        		        ID = dto.ID,
 
-				        AddressTypeName = dto.AddressTypeName,
+                ID = dto.ID,
 
-				        IsDeleted = dto.IsDeleted,
+                AddressTypeName = dto.AddressTypeName,
 
-				
-     
+                IsDeleted = dto.IsDeleted,
+
+
+
             };
 
             return entity;

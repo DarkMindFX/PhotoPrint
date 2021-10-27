@@ -217,14 +217,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = AddressConvertor.Convert(dto);
-
-            Address newEntity = _dalAddress.Insert(entity);
+            var entity = AddressConvertor.Convert(dto);           
 
                         base.SetCreatedModifiedProperties(entity, 
                                     "CreatedDate", 
                                     "CreatedByID"); 
             
+            Address newEntity = _dalAddress.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, AddressConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

@@ -121,11 +121,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = AddressTypeConvertor.Convert(dto);
-
-            AddressType newEntity = _dalAddressType.Insert(entity);
+            var entity = AddressTypeConvertor.Convert(dto);           
 
             
+            AddressType newEntity = _dalAddressType.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, AddressTypeConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

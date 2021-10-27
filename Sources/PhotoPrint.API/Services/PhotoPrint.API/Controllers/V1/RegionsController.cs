@@ -145,11 +145,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = RegionConvertor.Convert(dto);
-
-            Region newEntity = _dalRegion.Insert(entity);
+            var entity = RegionConvertor.Convert(dto);           
 
             
+            Region newEntity = _dalRegion.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, RegionConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

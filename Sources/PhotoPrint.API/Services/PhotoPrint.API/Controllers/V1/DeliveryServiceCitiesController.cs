@@ -169,11 +169,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = DeliveryServiceCityConvertor.Convert(dto);
-
-            DeliveryServiceCity newEntity = _dalDeliveryServiceCity.Insert(entity);
+            var entity = DeliveryServiceCityConvertor.Convert(dto);           
 
             
+            DeliveryServiceCity newEntity = _dalDeliveryServiceCity.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, DeliveryServiceCityConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

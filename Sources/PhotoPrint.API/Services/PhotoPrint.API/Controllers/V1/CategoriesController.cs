@@ -193,14 +193,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = CategoryConvertor.Convert(dto);
-
-            Category newEntity = _dalCategory.Insert(entity);
+            var entity = CategoryConvertor.Convert(dto);           
 
                         base.SetCreatedModifiedProperties(entity, 
                                     "CreatedDate", 
                                     "CreatedByID"); 
             
+            Category newEntity = _dalCategory.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, CategoryConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

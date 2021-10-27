@@ -409,14 +409,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = OrderItemConvertor.Convert(dto);
-
-            OrderItem newEntity = _dalOrderItem.Insert(entity);
+            var entity = OrderItemConvertor.Convert(dto);           
 
                         base.SetCreatedModifiedProperties(entity, 
                                     "CreatedDate", 
                                     "CreatedByID"); 
             
+            OrderItem newEntity = _dalOrderItem.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, OrderItemConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

@@ -217,14 +217,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = OrderPaymentDetailsConvertor.Convert(dto);
-
-            OrderPaymentDetails newEntity = _dalOrderPaymentDetails.Insert(entity);
+            var entity = OrderPaymentDetailsConvertor.Convert(dto);           
 
                         base.SetCreatedModifiedProperties(entity, 
                                     "CreatedDate", 
                                     "CreatedByID"); 
             
+            OrderPaymentDetails newEntity = _dalOrderPaymentDetails.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, OrderPaymentDetailsConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

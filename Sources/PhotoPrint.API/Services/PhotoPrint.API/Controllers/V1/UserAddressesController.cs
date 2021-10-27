@@ -169,11 +169,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = UserAddressConvertor.Convert(dto);
-
-            UserAddress newEntity = _dalUserAddress.Insert(entity);
+            var entity = UserAddressConvertor.Convert(dto);           
 
             
+            UserAddress newEntity = _dalUserAddress.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, UserAddressConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

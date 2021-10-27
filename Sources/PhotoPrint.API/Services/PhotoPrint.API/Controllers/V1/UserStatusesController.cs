@@ -121,11 +121,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = UserStatusConvertor.Convert(dto);
-
-            UserStatus newEntity = _dalUserStatus.Insert(entity);
+            var entity = UserStatusConvertor.Convert(dto);           
 
             
+            UserStatus newEntity = _dalUserStatus.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, UserStatusConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

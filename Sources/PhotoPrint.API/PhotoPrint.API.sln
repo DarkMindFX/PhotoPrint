@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2820586E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.DTO", "PhotoPrint.DTO\PhotoPrint.DTO.csproj", "{242244DE-FCCA-4226-9F9A-E6FCD9EEA125}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.DAL.MSSQL", "PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj", "{76C4AFCB-22F6-4CB1-ACFC-CEC8027254CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.DAL.MSSQL", "PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj", "{76C4AFCB-22F6-4CB1-ACFC-CEC8027254CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Interfaces", "PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj", "{F08C05FC-2F7B-4281-9B29-81537F670FD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Interfaces", "PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj", "{F08C05FC-2F7B-4281-9B29-81537F670FD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Utils", "PhotoPrint.Utils\PhotoPrint.Utils.csproj", "{2EED79EF-A4FE-45AB-A1B9-796ECD3B9473}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Utils", "PhotoPrint.Utils\PhotoPrint.Utils.csproj", "{2EED79EF-A4FE-45AB-A1B9-796ECD3B9473}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.API", "Services\PhotoPrint.API\PhotoPrint.API.csproj", "{C79E6270-2B15-46BD-B228-CCD4FE82CEA8}"
 EndProject

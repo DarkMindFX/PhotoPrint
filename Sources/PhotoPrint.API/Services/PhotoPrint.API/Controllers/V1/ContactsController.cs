@@ -24,10 +24,10 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         private readonly ILogger<ContactsController> _logger;
 
 
-        public ContactsController( Dal.IContactDal dalContact,
+        public ContactsController(Dal.IContactDal dalContact,
                                     ILogger<ContactsController> logger)
         {
-            _dalContact = dalContact; 
+            _dalContact = dalContact;
             _logger = logger;
         }
 
@@ -152,7 +152,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        
+
         //[Authorize]
         [HttpDelete("{id}"), ActionName("DeleteContact")]
         public IActionResult Delete(System.Int64? id)
@@ -195,12 +195,12 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var entity = ContactConvertor.Convert(dto);
 
+            base.SetCreatedModifiedProperties(entity,
+                        "CreatedDate",
+                        "CreatedByID");
+
             Contact newEntity = _dalContact.Insert(entity);
 
-                        base.SetCreatedModifiedProperties(entity, 
-                                    "CreatedDate", 
-                                    "CreatedByID"); 
-            
             response = StatusCode((int)HttpStatusCode.Created, ContactConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
@@ -219,17 +219,17 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = ContactConvertor.Convert(dto);
 
-            var existingEntity = _dalContact.Get(newEntity.ID);           
+            var existingEntity = _dalContact.Get(newEntity.ID);
 
             if (existingEntity != null)
             {
-                        newEntity.CreatedDate = existingEntity.CreatedDate; 
-                                    newEntity.CreatedByID = existingEntity.CreatedByID; 
-                        
-            base.SetCreatedModifiedProperties(newEntity, 
-                                    "ModifiedDate", 
-                                    "ModifiedByID"); 
-                            Contact entity = _dalContact.Update(newEntity);
+                newEntity.CreatedDate = existingEntity.CreatedDate;
+                newEntity.CreatedByID = existingEntity.CreatedByID;
+
+                base.SetCreatedModifiedProperties(newEntity,
+                                        "ModifiedDate",
+                                        "ModifiedByID");
+                Contact entity = _dalContact.Update(newEntity);
 
                 response = Ok(ContactConvertor.Convert(entity, this.Url));
             }

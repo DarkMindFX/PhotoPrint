@@ -25,7 +25,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
                 obj.GetType().GetProperty(propNameDate,
                     BindingFlags.Instance | BindingFlags.Public | BindingFlags.Instance).SetValue(obj, DateTime.UtcNow, null);
             }
-            if (propNameID != null && obj.GetType().GetProperty(propNameID) != null)
+            if (propNameID != null && obj.GetType().GetProperty(propNameID) != null && this.CurrentUser != null)
             {
                 obj.GetType().GetProperty(propNameID,
                     BindingFlags.Instance | BindingFlags.Public | BindingFlags.Instance).SetValue(obj, this.CurrentUser.ID, null);

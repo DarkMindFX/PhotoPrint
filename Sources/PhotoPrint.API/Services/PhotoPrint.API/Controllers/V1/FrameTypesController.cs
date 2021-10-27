@@ -169,14 +169,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = FrameTypeConvertor.Convert(dto);
-
-            FrameType newEntity = _dalFrameType.Insert(entity);
+            var entity = FrameTypeConvertor.Convert(dto);           
 
                         base.SetCreatedModifiedProperties(entity, 
                                     "CreatedDate", 
                                     "CreatedByID"); 
             
+            FrameType newEntity = _dalFrameType.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, FrameTypeConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

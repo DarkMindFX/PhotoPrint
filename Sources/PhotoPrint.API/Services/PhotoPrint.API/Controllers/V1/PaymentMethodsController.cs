@@ -121,11 +121,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = PaymentMethodConvertor.Convert(dto);
-
-            PaymentMethod newEntity = _dalPaymentMethod.Insert(entity);
+            var entity = PaymentMethodConvertor.Convert(dto);           
 
             
+            PaymentMethod newEntity = _dalPaymentMethod.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, PaymentMethodConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

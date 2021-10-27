@@ -145,11 +145,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = ImageThumbnailConvertor.Convert(dto);
-
-            ImageThumbnail newEntity = _dalImageThumbnail.Insert(entity);
+            var entity = ImageThumbnailConvertor.Convert(dto);           
 
             
+            ImageThumbnail newEntity = _dalImageThumbnail.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, ImageThumbnailConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

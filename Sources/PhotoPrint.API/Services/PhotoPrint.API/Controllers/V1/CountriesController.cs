@@ -121,11 +121,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = CountryConvertor.Convert(dto);
-
-            Country newEntity = _dalCountry.Insert(entity);
+            var entity = CountryConvertor.Convert(dto);           
 
             
+            Country newEntity = _dalCountry.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, CountryConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

@@ -169,14 +169,14 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = MatConvertor.Convert(dto);
-
-            Mat newEntity = _dalMat.Insert(entity);
+            var entity = MatConvertor.Convert(dto);           
 
                         base.SetCreatedModifiedProperties(entity, 
                                     "CreatedDate", 
                                     "CreatedByID"); 
             
+            Mat newEntity = _dalMat.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, MatConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");

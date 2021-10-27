@@ -121,11 +121,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = CurrencyConvertor.Convert(dto);
-
-            Currency newEntity = _dalCurrency.Insert(entity);
+            var entity = CurrencyConvertor.Convert(dto);           
 
             
+            Currency newEntity = _dalCurrency.Insert(entity);
+
             response = StatusCode((int)HttpStatusCode.Created, CurrencyConvertor.Convert(newEntity, this.Url));
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
