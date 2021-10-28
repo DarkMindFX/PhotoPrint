@@ -54,6 +54,7 @@ BEGIN
 	SELECT 17, 'ImageRelated', 'ImageRelated.csv'		UNION
 	SELECT 17, 'ImageThumbnail', 'ImageThumbnail.csv'	UNION
 	SELECT 18, 'Image', 'Image.csv'						UNION
+	SELECT 19, 'UserConfirmation', 'UserConfirmation.csv'	UNION
 	SELECT 99, 'User', 'User.csv'						
 
 	DECLARE paramsCursor CURSOR FOR
