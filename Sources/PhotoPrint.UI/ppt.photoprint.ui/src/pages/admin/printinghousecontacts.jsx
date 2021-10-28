@@ -7,14 +7,14 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const PrintingHouseContactsDal = require('../dal/PrintingHouseContactsDal');
+const PageHelper = require("../../helpers/PageHelper");
+const PrintingHouseContactsDal = require('../../dal/PrintingHouseContactsDal');
 
-const PrintingHousesDal = require('../dal/PrintingHousesDal');
+const PrintingHousesDal = require('../../dal/PrintingHousesDal');
 
-const ContactsDal = require('../dal/ContactsDal');
+const ContactsDal = require('../../dal/ContactsDal');
 
 
 class PrintingHouseContactsPage extends React.Component {
@@ -26,15 +26,15 @@ class PrintingHouseContactsPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             printinghousecontacts: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/printinghousecontacts`,
-            urlNewEntity: `${rooPath}/printinghousecontact/new`,
-            urlEditEntity: `${rooPath}/printinghousecontact/edit/`,
+            urlThis: `${rooPath}printinghousecontacts`,
+            urlNewEntity: `${rooPath}printinghousecontact/new`,
+            urlEditEntity: `${rooPath}printinghousecontact/edit/`,
         };
         this._initColumns();
        

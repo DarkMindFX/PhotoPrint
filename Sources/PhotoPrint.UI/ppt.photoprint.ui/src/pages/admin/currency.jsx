@@ -12,12 +12,12 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const CurrenciesDal = require('../dal/CurrenciesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const CurrenciesDal = require('../../dal/CurrenciesDal');
 const { CurrencyDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class CurrencyPage extends React.Component {
 
@@ -29,7 +29,7 @@ class CurrencyPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -43,8 +43,8 @@ class CurrencyPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/currencies`,
-            urlThis: `${rooPath}/currency/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}currencies`,
+            urlThis: `${rooPath}currency/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onISOChanged = this.onISOChanged.bind(this);

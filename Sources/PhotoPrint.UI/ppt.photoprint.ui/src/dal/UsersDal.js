@@ -5,12 +5,34 @@ const axios = require('axios');
 const constants = require('../constants');
 
 const DalBase = require('./DalBase');
+const { LoginRequest } = require('ppt.photoprint.dto')
 
 
 class UsersDal extends DalBase {
 
     constructor() {
         super();
+    }
+
+    async login(login, password) {
+
+        let inst = this.Instance;
+
+        try {
+
+            var reqLogin = new LoginRequest();
+            reqLogin.Login = login;
+            reqLogin.Password = password;
+
+            let res = await inst.post(`/users/login`, reqLogin);
+
+            return res;
+        }
+        catch(error) {
+            console.log(error.response);
+            return error.response;
+        }
+
     }
 
     async insertUser(newUser) {

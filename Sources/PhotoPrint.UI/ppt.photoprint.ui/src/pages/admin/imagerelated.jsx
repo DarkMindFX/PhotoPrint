@@ -12,12 +12,12 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const ImageRelatedsDal = require('../dal/ImageRelatedsDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const ImageRelatedsDal = require('../../dal/ImageRelatedsDal');
 const { ImageRelatedDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class ImageRelatedPage extends React.Component {
 
@@ -29,7 +29,7 @@ class ImageRelatedPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -43,8 +43,8 @@ class ImageRelatedPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/imagerelateds`,
-            urlThis: `${rooPath}/imagerelated/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}imagerelateds`,
+            urlThis: `${rooPath}imagerelated/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onImageIDChanged = this.onImageIDChanged.bind(this);

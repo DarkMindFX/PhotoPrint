@@ -7,12 +7,12 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const CategoriesDal = require('../dal/CategoriesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const CategoriesDal = require('../../dal/CategoriesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
 
 class CategoriesPage extends React.Component {
@@ -24,15 +24,15 @@ class CategoriesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             categories: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/categories`,
-            urlNewEntity: `${rooPath}/category/new`,
-            urlEditEntity: `${rooPath}/category/edit/`,
+            urlThis: `${rooPath}categories`,
+            urlNewEntity: `${rooPath}category/new`,
+            urlEditEntity: `${rooPath}category/edit/`,
         };
         this._initColumns();
        

@@ -7,10 +7,10 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderStatusesDal = require('../dal/OrderStatusesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderStatusesDal = require('../../dal/OrderStatusesDal');
 
 
 class OrderStatusesPage extends React.Component {
@@ -22,15 +22,15 @@ class OrderStatusesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             orderstatuses: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/orderstatuses`,
-            urlNewEntity: `${rooPath}/orderstatus/new`,
-            urlEditEntity: `${rooPath}/orderstatus/edit/`,
+            urlThis: `${rooPath}orderstatuses`,
+            urlNewEntity: `${rooPath}orderstatus/new`,
+            urlEditEntity: `${rooPath}orderstatus/edit/`,
         };
         this._initColumns();
        

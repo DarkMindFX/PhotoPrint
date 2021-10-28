@@ -7,14 +7,14 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const UserContactsDal = require('../dal/UserContactsDal');
+const PageHelper = require("../../helpers/PageHelper");
+const UserContactsDal = require('../../dal/UserContactsDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
-const ContactsDal = require('../dal/ContactsDal');
+const ContactsDal = require('../../dal/ContactsDal');
 
 
 class UserContactsPage extends React.Component {
@@ -26,15 +26,15 @@ class UserContactsPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             usercontacts: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/usercontacts`,
-            urlNewEntity: `${rooPath}/usercontact/new`,
-            urlEditEntity: `${rooPath}/usercontact/edit/`,
+            urlThis: `${rooPath}usercontacts`,
+            urlNewEntity: `${rooPath}usercontact/new`,
+            urlEditEntity: `${rooPath}usercontact/edit/`,
         };
         this._initColumns();
        

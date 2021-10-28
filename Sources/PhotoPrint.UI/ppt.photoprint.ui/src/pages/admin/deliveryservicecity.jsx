@@ -12,16 +12,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const DeliveryServiceCitiesDal = require('../dal/DeliveryServiceCitiesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const DeliveryServiceCitiesDal = require('../../dal/DeliveryServiceCitiesDal');
 
-const DeliveryServicesDal = require('../dal/DeliveryServicesDal');
+const DeliveryServicesDal = require('../../dal/DeliveryServicesDal');
 
-const CitiesDal = require('../dal/CitiesDal');
+const CitiesDal = require('../../dal/CitiesDal');
 const { DeliveryServiceCityDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class DeliveryServiceCityPage extends React.Component {
 
@@ -33,7 +33,7 @@ class DeliveryServiceCityPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -47,8 +47,8 @@ class DeliveryServiceCityPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/deliveryservicecities`,
-            urlThis: `${rooPath}/deliveryservicecity/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}deliveryservicecities`,
+            urlThis: `${rooPath}deliveryservicecity/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onDeliveryServiceIDChanged = this.onDeliveryServiceIDChanged.bind(this);

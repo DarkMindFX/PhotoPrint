@@ -7,16 +7,16 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderPaymentDetailsesDal = require('../dal/OrderPaymentDetailsesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderPaymentDetailsesDal = require('../../dal/OrderPaymentDetailsesDal');
 
-const OrdersDal = require('../dal/OrdersDal');
+const OrdersDal = require('../../dal/OrdersDal');
 
-const PaymentMethodsDal = require('../dal/PaymentMethodsDal');
+const PaymentMethodsDal = require('../../dal/PaymentMethodsDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
 
 class OrderPaymentDetailsesPage extends React.Component {
@@ -28,15 +28,15 @@ class OrderPaymentDetailsesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             orderpaymentdetailses: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/orderpaymentdetailses`,
-            urlNewEntity: `${rooPath}/orderpaymentdetails/new`,
-            urlEditEntity: `${rooPath}/orderpaymentdetails/edit/`,
+            urlThis: `${rooPath}orderpaymentdetailses`,
+            urlNewEntity: `${rooPath}orderpaymentdetails/new`,
+            urlEditEntity: `${rooPath}orderpaymentdetails/edit/`,
         };
         this._initColumns();
        

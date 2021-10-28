@@ -12,16 +12,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const PrintingHouseAddressesDal = require('../dal/PrintingHouseAddressesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const PrintingHouseAddressesDal = require('../../dal/PrintingHouseAddressesDal');
 
-const PrintingHousesDal = require('../dal/PrintingHousesDal');
+const PrintingHousesDal = require('../../dal/PrintingHousesDal');
 
-const AddressesDal = require('../dal/AddressesDal');
+const AddressesDal = require('../../dal/AddressesDal');
 const { PrintingHouseAddressDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class PrintingHouseAddressPage extends React.Component {
 
@@ -33,7 +33,7 @@ class PrintingHouseAddressPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -47,8 +47,8 @@ class PrintingHouseAddressPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/printinghouseaddresses`,
-            urlThis: `${rooPath}/printinghouseaddress/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}printinghouseaddresses`,
+            urlThis: `${rooPath}printinghouseaddress/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onPrintingHouseIDChanged = this.onPrintingHouseIDChanged.bind(this);

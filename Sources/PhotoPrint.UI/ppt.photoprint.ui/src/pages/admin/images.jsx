@@ -7,14 +7,14 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const ImagesDal = require('../dal/ImagesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const ImagesDal = require('../../dal/ImagesDal');
 
-const CurrenciesDal = require('../dal/CurrenciesDal');
+const CurrenciesDal = require('../../dal/CurrenciesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
 
 class ImagesPage extends React.Component {
@@ -26,15 +26,15 @@ class ImagesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             images: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/images`,
-            urlNewEntity: `${rooPath}/image/new`,
-            urlEditEntity: `${rooPath}/image/edit/`,
+            urlThis: `${rooPath}images`,
+            urlNewEntity: `${rooPath}image/new`,
+            urlEditEntity: `${rooPath}image/edit/`,
         };
         this._initColumns();
        

@@ -7,12 +7,12 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const PrintingHousesDal = require('../dal/PrintingHousesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const PrintingHousesDal = require('../../dal/PrintingHousesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
 
 class PrintingHousesPage extends React.Component {
@@ -24,15 +24,15 @@ class PrintingHousesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             printinghouses: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/printinghouses`,
-            urlNewEntity: `${rooPath}/printinghouse/new`,
-            urlEditEntity: `${rooPath}/printinghouse/edit/`,
+            urlThis: `${rooPath}printinghouses`,
+            urlNewEntity: `${rooPath}printinghouse/new`,
+            urlEditEntity: `${rooPath}printinghouse/edit/`,
         };
         this._initColumns();
        

@@ -12,16 +12,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const PrintingHouseContactsDal = require('../dal/PrintingHouseContactsDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const PrintingHouseContactsDal = require('../../dal/PrintingHouseContactsDal');
 
-const PrintingHousesDal = require('../dal/PrintingHousesDal');
+const PrintingHousesDal = require('../../dal/PrintingHousesDal');
 
-const ContactsDal = require('../dal/ContactsDal');
+const ContactsDal = require('../../dal/ContactsDal');
 const { PrintingHouseContactDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class PrintingHouseContactPage extends React.Component {
 
@@ -33,7 +33,7 @@ class PrintingHouseContactPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -47,8 +47,8 @@ class PrintingHouseContactPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/printinghousecontacts`,
-            urlThis: `${rooPath}/printinghousecontact/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}printinghousecontacts`,
+            urlThis: `${rooPath}printinghousecontact/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onPrintingHouseIDChanged = this.onPrintingHouseIDChanged.bind(this);

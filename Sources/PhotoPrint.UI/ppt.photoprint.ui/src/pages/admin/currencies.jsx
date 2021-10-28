@@ -7,10 +7,10 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const CurrenciesDal = require('../dal/CurrenciesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const CurrenciesDal = require('../../dal/CurrenciesDal');
 
 
 class CurrenciesPage extends React.Component {
@@ -22,15 +22,15 @@ class CurrenciesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             currencies: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/currencies`,
-            urlNewEntity: `${rooPath}/currency/new`,
-            urlEditEntity: `${rooPath}/currency/edit/`,
+            urlThis: `${rooPath}currencies`,
+            urlNewEntity: `${rooPath}currency/new`,
+            urlEditEntity: `${rooPath}currency/edit/`,
         };
         this._initColumns();
        

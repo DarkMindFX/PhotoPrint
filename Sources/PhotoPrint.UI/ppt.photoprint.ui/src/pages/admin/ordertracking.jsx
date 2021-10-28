@@ -12,18 +12,18 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderTrackingsDal = require('../dal/OrderTrackingsDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderTrackingsDal = require('../../dal/OrderTrackingsDal');
 
-const OrdersDal = require('../dal/OrdersDal');
+const OrdersDal = require('../../dal/OrdersDal');
 
-const OrderStatusesDal = require('../dal/OrderStatusesDal');
+const OrderStatusesDal = require('../../dal/OrderStatusesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 const { OrderTrackingDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class OrderTrackingPage extends React.Component {
 
@@ -35,7 +35,7 @@ class OrderTrackingPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -49,8 +49,8 @@ class OrderTrackingPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/ordertrackings`,
-            urlThis: `${rooPath}/ordertracking/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}ordertrackings`,
+            urlThis: `${rooPath}ordertracking/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onOrderIDChanged = this.onOrderIDChanged.bind(this);

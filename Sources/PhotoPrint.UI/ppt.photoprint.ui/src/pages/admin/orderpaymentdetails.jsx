@@ -12,18 +12,18 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderPaymentDetailsesDal = require('../dal/OrderPaymentDetailsesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderPaymentDetailsesDal = require('../../dal/OrderPaymentDetailsesDal');
 
-const OrdersDal = require('../dal/OrdersDal');
+const OrdersDal = require('../../dal/OrdersDal');
 
-const PaymentMethodsDal = require('../dal/PaymentMethodsDal');
+const PaymentMethodsDal = require('../../dal/PaymentMethodsDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 const { OrderPaymentDetailsDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class OrderPaymentDetailsPage extends React.Component {
 
@@ -35,7 +35,7 @@ class OrderPaymentDetailsPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -49,8 +49,8 @@ class OrderPaymentDetailsPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/orderpaymentdetailses`,
-            urlThis: `${rooPath}/orderpaymentdetails/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}orderpaymentdetailses`,
+            urlThis: `${rooPath}orderpaymentdetails/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onOrderIDChanged = this.onOrderIDChanged.bind(this);

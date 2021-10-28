@@ -7,14 +7,14 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const DeliveryServiceCitiesDal = require('../dal/DeliveryServiceCitiesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const DeliveryServiceCitiesDal = require('../../dal/DeliveryServiceCitiesDal');
 
-const DeliveryServicesDal = require('../dal/DeliveryServicesDal');
+const DeliveryServicesDal = require('../../dal/DeliveryServicesDal');
 
-const CitiesDal = require('../dal/CitiesDal');
+const CitiesDal = require('../../dal/CitiesDal');
 
 
 class DeliveryServiceCitiesPage extends React.Component {
@@ -26,15 +26,15 @@ class DeliveryServiceCitiesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             deliveryservicecities: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/deliveryservicecities`,
-            urlNewEntity: `${rooPath}/deliveryservicecity/new`,
-            urlEditEntity: `${rooPath}/deliveryservicecity/edit/`,
+            urlThis: `${rooPath}deliveryservicecities`,
+            urlNewEntity: `${rooPath}deliveryservicecity/new`,
+            urlEditEntity: `${rooPath}deliveryservicecity/edit/`,
         };
         this._initColumns();
        

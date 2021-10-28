@@ -7,14 +7,14 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const UsersDal = require('../dal/UsersDal');
+const PageHelper = require("../../helpers/PageHelper");
+const UsersDal = require('../../dal/UsersDal');
 
-const UserStatusesDal = require('../dal/UserStatusesDal');
+const UserStatusesDal = require('../../dal/UserStatusesDal');
 
-const UserTypesDal = require('../dal/UserTypesDal');
+const UserTypesDal = require('../../dal/UserTypesDal');
 
 
 class UsersPage extends React.Component {
@@ -26,15 +26,15 @@ class UsersPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             users: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/users`,
-            urlNewEntity: `${rooPath}/user/new`,
-            urlEditEntity: `${rooPath}/user/edit/`,
+            urlThis: `${rooPath}users`,
+            urlNewEntity: `${rooPath}user/new`,
+            urlEditEntity: `${rooPath}user/edit/`,
         };
         this._initColumns();
        
@@ -92,8 +92,6 @@ class UsersPage extends React.Component {
         this._columns = [
                 { field: 'ID', headerName: 'ID', width: 250 },
                 { field: 'Login', headerName: 'Login', width: 250 },
-                { field: 'PwdHash', headerName: 'PwdHash', width: 250 },
-                { field: 'Salt', headerName: 'Salt', width: 250 },
                 { field: 'FirstName', headerName: 'FirstName', width: 250 },
                 { field: 'MiddleName', headerName: 'MiddleName', width: 250 },
                 { field: 'LastName', headerName: 'LastName', width: 250 },
@@ -118,17 +116,15 @@ class UsersPage extends React.Component {
                 id: cs[c].ID,
                 ID: cs[c].ID,
                 Login: cs[c].Login,
-                PwdHash: cs[c].PwdHash,
-                Salt: cs[c].Salt,
                 FirstName: cs[c].FirstName,
                 MiddleName: cs[c].MiddleName,
                 LastName: cs[c].LastName,
                 FriendlyName: cs[c].FriendlyName,
-                UserStatusID: cs[c].UserStatusID ? this.state.userstatuses[ cs[c].UserStatusID ].Name : "",
-                UserTypeID: cs[c].UserTypeID ? this.state.usertypes[ cs[c].UserTypeID ].Name : "",
+                UserStatusID: cs[c].UserStatusID ? this.state.userstatuses[ cs[c].UserStatusID ].StatusName : "",
+                UserTypeID: cs[c].UserTypeID ? this.state.usertypes[ cs[c].UserTypeID ].UserTypeName : "",
                 CreatedDate: cs[c].CreatedDate,
                 ModifiedDate: cs[c].ModifiedDate,
-                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].Name : "",
+                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].FirstName  + " " + this.state.users[ cs[c].ModifiedByID ].LastName: "",
 
             };
 

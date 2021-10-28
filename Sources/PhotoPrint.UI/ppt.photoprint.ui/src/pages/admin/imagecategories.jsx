@@ -7,14 +7,14 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const ImageCategoriesDal = require('../dal/ImageCategoriesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const ImageCategoriesDal = require('../../dal/ImageCategoriesDal');
 
-const ImagesDal = require('../dal/ImagesDal');
+const ImagesDal = require('../../dal/ImagesDal');
 
-const CategoriesDal = require('../dal/CategoriesDal');
+const CategoriesDal = require('../../dal/CategoriesDal');
 
 
 class ImageCategoriesPage extends React.Component {
@@ -26,15 +26,15 @@ class ImageCategoriesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             imagecategories: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/imagecategories`,
-            urlNewEntity: `${rooPath}/imagecategory/new`,
-            urlEditEntity: `${rooPath}/imagecategory/edit/`,
+            urlThis: `${rooPath}imagecategories`,
+            urlNewEntity: `${rooPath}imagecategory/new`,
+            urlEditEntity: `${rooPath}imagecategory/edit/`,
         };
         this._initColumns();
        

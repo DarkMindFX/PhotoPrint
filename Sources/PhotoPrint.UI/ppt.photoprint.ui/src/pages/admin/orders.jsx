@@ -7,18 +7,18 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const OrdersDal = require('../dal/OrdersDal');
+const PageHelper = require("../../helpers/PageHelper");
+const OrdersDal = require('../../dal/OrdersDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
-const ContactsDal = require('../dal/ContactsDal');
+const ContactsDal = require('../../dal/ContactsDal');
 
-const AddressesDal = require('../dal/AddressesDal');
+const AddressesDal = require('../../dal/AddressesDal');
 
-const DeliveryServicesDal = require('../dal/DeliveryServicesDal');
+const DeliveryServicesDal = require('../../dal/DeliveryServicesDal');
 
 
 class OrdersPage extends React.Component {
@@ -30,15 +30,15 @@ class OrdersPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             orders: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/orders`,
-            urlNewEntity: `${rooPath}/order/new`,
-            urlEditEntity: `${rooPath}/order/edit/`,
+            urlThis: `${rooPath}orders`,
+            urlNewEntity: `${rooPath}order/new`,
+            urlEditEntity: `${rooPath}order/edit/`,
         };
         this._initColumns();
        
@@ -123,17 +123,17 @@ class OrdersPage extends React.Component {
             let r = {
                 id: cs[c].ID,
                 ID: cs[c].ID,
-                ManagerID: cs[c].ManagerID ? this.state.users[ cs[c].ManagerID ].Name : "",
-                UserID: cs[c].UserID ? this.state.users[ cs[c].UserID ].Name : "",
-                ContactID: cs[c].ContactID ? this.state.contacts[ cs[c].ContactID ].Name : "",
-                DeliveryAddressID: cs[c].DeliveryAddressID ? this.state.addresses[ cs[c].DeliveryAddressID ].Name : "",
-                DeliveryServiceID: cs[c].DeliveryServiceID ? this.state.deliveryservices[ cs[c].DeliveryServiceID ].Name : "",
+                ManagerID: cs[c].ManagerID ? this.state.users[ cs[c].ManagerID ].FirstName + " " + this.state.users[ cs[c].ManagerID ].LastName : "",
+                UserID: cs[c].UserID ? this.state.users[ cs[c].UserID ].FirstName + " " + this.state.users[ cs[c].UserID ].LastName : "",
+                ContactID: cs[c].ContactID ? this.state.contacts[ cs[c].ContactID ].Value : "",
+                DeliveryAddressID: cs[c].DeliveryAddressID ? this.state.addresses[ cs[c].DeliveryAddressID ].Title : "",
+                DeliveryServiceID: cs[c].DeliveryServiceID ? this.state.deliveryservices[ cs[c].DeliveryServiceID ].DeliveryServiceName : "",
                 Comments: cs[c].Comments,
                 IsDeleted: cs[c].IsDeleted,
                 CreatedDate: cs[c].CreatedDate,
-                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].Name : "",
+                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName + " " + this.state.users[ cs[c].CreatedByID ].LastName : "",
                 ModifiedDate: cs[c].ModifiedDate,
-                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].Name : "",
+                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].FirstName + " " + this.state.users[ cs[c].ModifiedByID ].LastName : "",
 
             };
 

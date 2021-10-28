@@ -138,8 +138,8 @@ class RegisterPage extends React.Component {
                         dalUserContacts.insertUserContact(userContactDto)
                         .then( (res) => {
                             if(res.status == constants.HTTP_Created) {
-                                updatedState.showSuccess = false;
-                                updatedState.showError = true;
+                                updatedState.showSuccess = true;
+                                updatedState.showError = false;
                                 updatedState.error = null;
                             }
                             else {                

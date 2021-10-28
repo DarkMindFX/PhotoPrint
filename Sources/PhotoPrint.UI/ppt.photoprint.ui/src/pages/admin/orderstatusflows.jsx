@@ -7,12 +7,12 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderStatusFlowsDal = require('../dal/OrderStatusFlowsDal');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderStatusFlowsDal = require('../../dal/OrderStatusFlowsDal');
 
-const OrderStatusesDal = require('../dal/OrderStatusesDal');
+const OrderStatusesDal = require('../../dal/OrderStatusesDal');
 
 
 class OrderStatusFlowsPage extends React.Component {
@@ -24,15 +24,15 @@ class OrderStatusFlowsPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             orderstatusflows: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/orderstatusflows`,
-            urlNewEntity: `${rooPath}/orderstatusflow/new`,
-            urlEditEntity: `${rooPath}/orderstatusflow/edit/`,
+            urlThis: `${rooPath}orderstatusflows`,
+            urlNewEntity: `${rooPath}orderstatusflow/new`,
+            urlEditEntity: `${rooPath}orderstatusflow/edit/`,
         };
         this._initColumns();
        

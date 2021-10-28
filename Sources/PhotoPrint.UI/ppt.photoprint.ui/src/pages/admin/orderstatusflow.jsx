@@ -12,14 +12,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderStatusFlowsDal = require('../dal/OrderStatusFlowsDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderStatusFlowsDal = require('../../dal/OrderStatusFlowsDal');
 
-const OrderStatusesDal = require('../dal/OrderStatusesDal');
+const OrderStatusesDal = require('../../dal/OrderStatusesDal');
 const { OrderStatusFlowDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class OrderStatusFlowPage extends React.Component {
 
@@ -31,7 +31,7 @@ class OrderStatusFlowPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -45,8 +45,8 @@ class OrderStatusFlowPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/orderstatusflows`,
-            urlThis: `${rooPath}/orderstatusflow/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}orderstatusflows`,
+            urlThis: `${rooPath}orderstatusflow/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onFromStatusIDChanged = this.onFromStatusIDChanged.bind(this);

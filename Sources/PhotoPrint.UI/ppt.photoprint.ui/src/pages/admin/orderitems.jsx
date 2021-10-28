@@ -7,30 +7,30 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderItemsDal = require('../dal/OrderItemsDal');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderItemsDal = require('../../dal/OrderItemsDal');
 
-const OrdersDal = require('../dal/OrdersDal');
+const OrdersDal = require('../../dal/OrdersDal');
 
-const ImagesDal = require('../dal/ImagesDal');
+const ImagesDal = require('../../dal/ImagesDal');
 
-const SizesDal = require('../dal/SizesDal');
+const SizesDal = require('../../dal/SizesDal');
 
-const FrameTypesDal = require('../dal/FrameTypesDal');
+const FrameTypesDal = require('../../dal/FrameTypesDal');
 
-const MatsDal = require('../dal/MatsDal');
+const MatsDal = require('../../dal/MatsDal');
 
-const MaterialTypesDal = require('../dal/MaterialTypesDal');
+const MaterialTypesDal = require('../../dal/MaterialTypesDal');
 
-const MountingTypesDal = require('../dal/MountingTypesDal');
+const MountingTypesDal = require('../../dal/MountingTypesDal');
 
-const CurrenciesDal = require('../dal/CurrenciesDal');
+const CurrenciesDal = require('../../dal/CurrenciesDal');
 
-const PrintingHousesDal = require('../dal/PrintingHousesDal');
+const PrintingHousesDal = require('../../dal/PrintingHousesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
 
 class OrderItemsPage extends React.Component {
@@ -42,15 +42,15 @@ class OrderItemsPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             orderitems: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/orderitems`,
-            urlNewEntity: `${rooPath}/orderitem/new`,
-            urlEditEntity: `${rooPath}/orderitem/edit/`,
+            urlThis: `${rooPath}orderitems`,
+            urlNewEntity: `${rooPath}orderitem/new`,
+            urlEditEntity: `${rooPath}orderitem/edit/`,
         };
         this._initColumns();
        

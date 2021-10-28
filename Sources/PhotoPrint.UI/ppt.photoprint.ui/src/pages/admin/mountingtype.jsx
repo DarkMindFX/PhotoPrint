@@ -12,12 +12,12 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const MountingTypesDal = require('../dal/MountingTypesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const MountingTypesDal = require('../../dal/MountingTypesDal');
 const { MountingTypeDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class MountingTypePage extends React.Component {
 
@@ -29,7 +29,7 @@ class MountingTypePage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -43,8 +43,8 @@ class MountingTypePage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/mountingtypes`,
-            urlThis: `${rooPath}/mountingtype/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}mountingtypes`,
+            urlThis: `${rooPath}mountingtype/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onMountingTypeNameChanged = this.onMountingTypeNameChanged.bind(this);

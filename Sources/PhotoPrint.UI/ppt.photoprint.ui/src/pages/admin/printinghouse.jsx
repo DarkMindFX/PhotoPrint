@@ -12,14 +12,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const PrintingHousesDal = require('../dal/PrintingHousesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const PrintingHousesDal = require('../../dal/PrintingHousesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 const { PrintingHouseDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class PrintingHousePage extends React.Component {
 
@@ -31,7 +31,7 @@ class PrintingHousePage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -45,8 +45,8 @@ class PrintingHousePage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/printinghouses`,
-            urlThis: `${rooPath}/printinghouse/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}printinghouses`,
+            urlThis: `${rooPath}printinghouse/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onNameChanged = this.onNameChanged.bind(this);

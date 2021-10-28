@@ -12,14 +12,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const RegionsDal = require('../dal/RegionsDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const RegionsDal = require('../../dal/RegionsDal');
 
-const CountriesDal = require('../dal/CountriesDal');
+const CountriesDal = require('../../dal/CountriesDal');
 const { RegionDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class RegionPage extends React.Component {
 
@@ -31,7 +31,7 @@ class RegionPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -45,8 +45,8 @@ class RegionPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/regions`,
-            urlThis: `${rooPath}/region/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}regions`,
+            urlThis: `${rooPath}region/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onRegionNameChanged = this.onRegionNameChanged.bind(this);

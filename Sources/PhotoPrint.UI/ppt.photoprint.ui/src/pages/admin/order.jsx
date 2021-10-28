@@ -11,21 +11,24 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
-const PageHelper = require("../helpers/PageHelper");
-const OrdersDal = require('../dal/OrdersDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const OrdersDal = require('../../dal/OrdersDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
-const ContactsDal = require('../dal/ContactsDal');
+const ContactsDal = require('../../dal/ContactsDal');
 
-const AddressesDal = require('../dal/AddressesDal');
+const AddressesDal = require('../../dal/AddressesDal');
 
-const DeliveryServicesDal = require('../dal/DeliveryServicesDal');
+const DeliveryServicesDal = require('../../dal/DeliveryServicesDal');
 const { OrderDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class OrderPage extends React.Component {
 
@@ -37,7 +40,7 @@ class OrderPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -51,8 +54,8 @@ class OrderPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/orders`,
-            urlThis: `${rooPath}/order/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}orders`,
+            urlThis: `${rooPath}order/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onManagerIDChanged = this.onManagerIDChanged.bind(this);
@@ -172,7 +175,7 @@ class OrderPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.order.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -336,37 +339,37 @@ class OrderPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstManagerIDsFields = ["Name"];
+        const lstManagerIDsFields = ["FirstName", "LastName"];
         const lstManagerIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstManagerIDsFields,
                                                                     true );
-        const lstUserIDsFields = ["Name"];
+        const lstUserIDsFields = ["FirstName", "LastName"];
         const lstUserIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstUserIDsFields,
                                                                     false );
-        const lstContactIDsFields = ["Name"];
+        const lstContactIDsFields = ["Value"];
         const lstContactIDs = this._prepareOptionsList( this.state.contacts 
                                                                     ? Object.values(this.state.contacts) : null, 
                                                                     lstContactIDsFields,
                                                                     false );
-        const lstDeliveryAddressIDsFields = ["Name"];
+        const lstDeliveryAddressIDsFields = ["Title"];
         const lstDeliveryAddressIDs = this._prepareOptionsList( this.state.addresses 
                                                                     ? Object.values(this.state.addresses) : null, 
                                                                     lstDeliveryAddressIDsFields,
                                                                     false );
-        const lstDeliveryServiceIDsFields = ["Name"];
+        const lstDeliveryServiceIDsFields = ["DeliveryServiceName"];
         const lstDeliveryServiceIDs = this._prepareOptionsList( this.state.deliveryservices 
                                                                     ? Object.values(this.state.deliveryservices) : null, 
                                                                     lstDeliveryServiceIDsFields,
                                                                     false );
-        const lstCreatedByIDsFields = ["Name"];
+        const lstCreatedByIDsFields = ["FirstName", "LastName"];
         const lstCreatedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstCreatedByIDsFields,
                                                                     false );
-        const lstModifiedByIDsFields = ["Name"];
+        const lstModifiedByIDsFields = ["FirstName", "LastName"];
         const lstModifiedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstModifiedByIDsFields,
@@ -377,7 +380,7 @@ class OrderPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Order: { this.state.order.toString() }</h2>
+                                <h2>Order: { this.state.order.ID }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -497,20 +500,22 @@ class OrderPage extends React.Component {
                                             value={this.state.order.Comments}
                                             onChange={ (event) => { this.onCommentsChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.order.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.order.IsDeleted } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 
@@ -525,6 +530,7 @@ class OrderPage extends React.Component {
                                             value={this.state.order.CreatedDate}
                                             onChange={ (event) => { this.onCreatedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -557,6 +563,7 @@ class OrderPage extends React.Component {
                                             value={this.state.order.ModifiedDate}
                                             onChange={ (event) => { this.onModifiedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 

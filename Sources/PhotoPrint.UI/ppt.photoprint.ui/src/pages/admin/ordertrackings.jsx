@@ -7,16 +7,16 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const OrderTrackingsDal = require('../dal/OrderTrackingsDal');
+const PageHelper = require("../../helpers/PageHelper");
+const OrderTrackingsDal = require('../../dal/OrderTrackingsDal');
 
-const OrdersDal = require('../dal/OrdersDal');
+const OrdersDal = require('../../dal/OrdersDal');
 
-const OrderStatusesDal = require('../dal/OrderStatusesDal');
+const OrderStatusesDal = require('../../dal/OrderStatusesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
 
 class OrderTrackingsPage extends React.Component {
@@ -28,15 +28,15 @@ class OrderTrackingsPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             ordertrackings: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/ordertrackings`,
-            urlNewEntity: `${rooPath}/ordertracking/new`,
-            urlEditEntity: `${rooPath}/ordertracking/edit/`,
+            urlThis: `${rooPath}ordertrackings`,
+            urlNewEntity: `${rooPath}ordertracking/new`,
+            urlEditEntity: `${rooPath}ordertracking/edit/`,
         };
         this._initColumns();
        

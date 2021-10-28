@@ -12,16 +12,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const ImageCategoriesDal = require('../dal/ImageCategoriesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const ImageCategoriesDal = require('../../dal/ImageCategoriesDal');
 
-const ImagesDal = require('../dal/ImagesDal');
+const ImagesDal = require('../../dal/ImagesDal');
 
-const CategoriesDal = require('../dal/CategoriesDal');
+const CategoriesDal = require('../../dal/CategoriesDal');
 const { ImageCategoryDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class ImageCategoryPage extends React.Component {
 
@@ -33,7 +33,7 @@ class ImageCategoryPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -47,8 +47,8 @@ class ImageCategoryPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/imagecategories`,
-            urlThis: `${rooPath}/imagecategory/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}imagecategories`,
+            urlThis: `${rooPath}imagecategory/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onImageIDChanged = this.onImageIDChanged.bind(this);

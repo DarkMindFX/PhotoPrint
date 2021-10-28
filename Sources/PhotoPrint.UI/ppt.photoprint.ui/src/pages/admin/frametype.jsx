@@ -12,14 +12,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const FrameTypesDal = require('../dal/FrameTypesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const FrameTypesDal = require('../../dal/FrameTypesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 const { FrameTypeDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class FrameTypePage extends React.Component {
 
@@ -31,7 +31,7 @@ class FrameTypePage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -45,8 +45,8 @@ class FrameTypePage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/frametypes`,
-            urlThis: `${rooPath}/frametype/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}frametypes`,
+            urlThis: `${rooPath}frametype/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onFrameTypeNameChanged = this.onFrameTypeNameChanged.bind(this);

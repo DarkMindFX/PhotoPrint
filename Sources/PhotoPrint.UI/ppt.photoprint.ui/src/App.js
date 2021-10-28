@@ -18,6 +18,12 @@ import LogoutPage from './pages/logout';
 
 import AddressesPage from './pages/admin/addresses';
 import AddressPage from './pages/admin/address';
+import AddressTypesPage from './pages/admin/addresstypes';
+import AddressTypePage from './pages/admin/addresstype';
+import OrdersPage from './pages/admin/orders';
+import OrderPage from './pages/admin/order';
+import UsersPage from './pages/admin/users';
+import UserPage from './pages/admin/user';
 
 
 class App extends React.Component {
@@ -35,7 +41,13 @@ class App extends React.Component {
        {/*Admin pages*/}
        <Route exact path="/admin/addresses" component={AddressesPage} />
        <Route exact path="/admin/addresses/:operation/:id?" component={AddressPage} />
-       
+       <Route exact path="/admin/addresstypes" component={AddressTypesPage} />
+       <Route exact path="/admin/addresstype/:operation/:id?" component={AddressTypePage} />
+       <Route exact path="/admin/orders" component={OrdersPage} />
+       <Route exact path="/admin/order/:operation/:id?" component={OrderPage} />
+       <Route exact path="/admin/users" component={UsersPage} />
+       <Route exact path="/admin/user/:operation/:id?" component={UserPage} />
+      
       </Router>
     );
   }

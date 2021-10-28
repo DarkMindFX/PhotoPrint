@@ -12,15 +12,15 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const UsersDal = require('../dal/UsersDal');
+const PageHelper = require("../../helpers/PageHelper");
+const UsersDal = require('../../dal/UsersDal');
 
-const UserStatusesDal = require('../dal/UserStatusesDal');
+const UserStatusesDal = require('../../dal/UserStatusesDal');
 
-const UserTypesDal = require('../dal/UserTypesDal');
+const UserTypesDal = require('../../dal/UserTypesDal');
 const { UserDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
+const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
 
 class UserPage extends React.Component {
@@ -33,7 +33,7 @@ class UserPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -47,13 +47,11 @@ class UserPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/users`,
-            urlThis: `${rooPath}/user/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}users`,
+            urlThis: `${rooPath}user/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onLoginChanged = this.onLoginChanged.bind(this);
-        this.onPwdHashChanged = this.onPwdHashChanged.bind(this);
-        this.onSaltChanged = this.onSaltChanged.bind(this);
         this.onFirstNameChanged = this.onFirstNameChanged.bind(this);
         this.onMiddleNameChanged = this.onMiddleNameChanged.bind(this);
         this.onLastNameChanged = this.onLastNameChanged.bind(this);
@@ -73,8 +71,6 @@ class UserPage extends React.Component {
         this.onDeleteConfirm = this.onDeleteConfirm.bind(this);
 
         this.onLoginChanged = this.onLoginChanged.bind(this);
-        this.onPwdHashChanged = this.onPwdHashChanged.bind(this);
-        this.onSaltChanged = this.onSaltChanged.bind(this);
         this.onFirstNameChanged = this.onFirstNameChanged.bind(this);
         this.onMiddleNameChanged = this.onMiddleNameChanged.bind(this);
         this.onLastNameChanged = this.onLastNameChanged.bind(this);
@@ -115,12 +111,12 @@ class UserPage extends React.Component {
         this.setState(updatedState);
     }
 
-    onPwdHashChanged(event) {
+    onPasswordChanged(event) {
 
         let updatedState = this.state;
         let newVal = null;
         newVal = event.target.value
-        updatedState.user.PwdHash = newVal;
+        updatedState.user.Password = newVal;
 
         this.setState(updatedState);
     }
@@ -225,8 +221,7 @@ class UserPage extends React.Component {
             const reqUser = new UserDto();
             reqUser.ID = this.state.id;
             reqUser.Login = this.state.user.Login;
-            reqUser.PwdHash = this.state.user.PwdHash;
-            reqUser.Salt = this.state.user.Salt;
+            reqUser.Password = this.state.user.Password;
             reqUser.FirstName = this.state.user.FirstName;
             reqUser.MiddleName = this.state.user.MiddleName;
             reqUser.LastName = this.state.user.LastName;
@@ -334,7 +329,7 @@ class UserPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstUserStatusIDsFields = ["UserStatusName"];
+        const lstUserStatusIDsFields = ["StatusName"];
         const lstUserStatusIDs = this._prepareOptionsList( this.state.userstatuses 
                                                                     ? Object.values(this.state.userstatuses) : null, 
                                                                     lstUserStatusIDsFields,
@@ -355,7 +350,7 @@ class UserPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>User: { this.state.user.toString() }</h2>
+                                <h2>User: { this.state.user.Login + " (" + this.state.user.FirstName + " " + this.state.user.LastName + ")" }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -391,13 +386,13 @@ class UserPage extends React.Component {
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="PwdHash" 
+                                <TextField  id="Password" 
                                             fullWidth
                                             type="text" 
                                             variant="filled" 
-                                            label="PwdHash" 
+                                            label="Password" 
                                             value={this.state.user.PwdHash}
-                                            onChange={ (event) => { this.onPwdHashChanged(event) } }
+                                            onChange={ (event) => { this.onPasswordChanged(event) } }
                                             />
                                 
                             </td>

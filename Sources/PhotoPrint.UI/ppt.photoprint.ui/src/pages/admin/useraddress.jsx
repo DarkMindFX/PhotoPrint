@@ -12,16 +12,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../helpers/PageHelper");
-const UserAddressesDal = require('../dal/UserAddressesDal');
+const constants = require('../../constants');
+const { v4: uuidv4 } = require('uuid');
+const PageHelper = require("../../helpers/PageHelper");
+const UserAddressesDal = require('../../dal/UserAddressesDal');
 
-const UsersDal = require('../dal/UsersDal');
+const UsersDal = require('../../dal/UsersDal');
 
-const AddressesDal = require('../dal/AddressesDal');
+const AddressesDal = require('../../dal/AddressesDal');
 const { UserAddressDto } = require('ppt.photoprint.dto')
 
-const constants = require('../constants');
-const { v4: uuidv4 } = require('uuid');
 
 class UserAddressPage extends React.Component {
 
@@ -33,7 +33,7 @@ class UserAddressPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
@@ -47,8 +47,8 @@ class UserAddressPage extends React.Component {
             showSuccess: false,
             error: null,
             success: null,
-            urlEntities: `${rooPath}/useraddresses`,
-            urlThis: `${rooPath}/useraddress/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlEntities: `${rooPath}useraddresses`,
+            urlThis: `${rooPath}useraddress/${paramOperation}` + (paramId ? `/${paramId}` : ``)
         };
 
         this.onUserIDChanged = this.onUserIDChanged.bind(this);

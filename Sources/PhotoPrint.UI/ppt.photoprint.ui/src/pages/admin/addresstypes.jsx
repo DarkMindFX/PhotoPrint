@@ -7,10 +7,10 @@ import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
 import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
-import constants from "../constants";
+import constants from "../../constants";
 
-const PageHelper = require("../helpers/PageHelper");
-const AddressTypesDal = require('../dal/AddressTypesDal');
+const PageHelper = require("../../helpers/PageHelper");
+const AddressTypesDal = require('../../dal/AddressTypesDal');
 
 
 class AddressTypesPage extends React.Component {
@@ -22,15 +22,15 @@ class AddressTypesPage extends React.Component {
         super(props);
 
         this._pageHelper = new PageHelper(this.props);
-        let rooPath = ''; // set the page hierarchy here
+        let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             addresstypes: [],
             showError: false,
             error: null,
-            urlThis: `${rooPath}/addresstypes`,
-            urlNewEntity: `${rooPath}/addresstype/new`,
-            urlEditEntity: `${rooPath}/addresstype/edit/`,
+            urlThis: `${rooPath}addresstypes`,
+            urlNewEntity: `${rooPath}addresstype/new`,
+            urlEditEntity: `${rooPath}addresstype/edit/`,
         };
         this._initColumns();
        
