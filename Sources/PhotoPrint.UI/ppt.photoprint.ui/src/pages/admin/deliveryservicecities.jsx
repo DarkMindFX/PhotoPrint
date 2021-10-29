@@ -49,7 +49,7 @@ class DeliveryServiceCitiesPage extends React.Component {
     onRowClick(event) {
         const row = event.row;
         if(row) {
-            this.props.history.push(this.state.urlEditEntity + row.id);
+            this.props.history.push(this.state.urlEditEntity + row.DeliveryServiceID + "/" + row.CityID);
         }
 
     }
@@ -89,8 +89,8 @@ class DeliveryServiceCitiesPage extends React.Component {
 
     _initColumns() {
         this._columns = [
-                { field: 'DeliveryServiceID', headerName: 'DeliveryServiceID', width: 250 },
-                { field: 'CityID', headerName: 'CityID', width: 250 },
+                { field: 'DeliveryService', headerName: 'DeliveryService', width: 250 },
+                { field: 'City', headerName: 'City', width: 250 },
        
         ]        
     }
@@ -100,12 +100,17 @@ class DeliveryServiceCitiesPage extends React.Component {
 
         let cs = Object.values(this.state.deliveryservicecities);
 
+        console.log(this.state.deliveryservicecities);
+
         for(let c in cs) {
 
+ 
             let r = {
-                id: cs[c].ID,
-                DeliveryServiceID: cs[c].DeliveryServiceID ? this.state.deliveryservices[ cs[c].DeliveryServiceID ].Name : "",
-                CityID: cs[c].CityID ? this.state.cities[ cs[c].CityID ].Name : "",
+                id: c,    
+                DeliveryServiceID: cs[c].DeliveryServiceID,
+                CityID: cs[c].CityID,            
+                DeliveryService: cs[c].DeliveryServiceID ? this.state.deliveryservices[ cs[c].DeliveryServiceID ].DeliveryServiceName : "",
+                City: cs[c].CityID ? this.state.cities[ cs[c].CityID ].CityName : "",
 
             };
 
@@ -127,6 +132,7 @@ class DeliveryServiceCitiesPage extends React.Component {
             {
                 updatedState.deliveryservices[response.data[s].ID] = response.data[s];             
             }
+
         }
         else if(response.status == constants.HTTP_Unauthorized) {
             this._redirectToLogin();            
@@ -171,7 +177,11 @@ class DeliveryServiceCitiesPage extends React.Component {
         {
             for(let s in response.data)
             {
-                updatedState.deliveryservicecities[response.data[s].ID] = response.data[s];             
+                updatedState.deliveryservicecities[
+                    [
+                        response.data[s].DeliveryServiceID, 
+                        response.data[s].CityID
+                    ]] = response.data[s];             
             }
         }
         else if(response.status == constants.HTTP_Unauthorized) {

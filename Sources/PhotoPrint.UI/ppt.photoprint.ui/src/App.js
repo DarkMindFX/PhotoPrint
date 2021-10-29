@@ -124,7 +124,7 @@ class App extends React.Component {
        <Route exact path="/admin/deliveryservices" component={DeliveryServicesPage} />
        <Route exact path="/admin/deliveryservice/:operation/:id?" component={DeliveryServicePage} />
        <Route exact path="/admin/deliveryservicecities" component={DeliveryServiceCitiesPage} />
-       <Route exact path="/admin/deliveryservicecity/:operation/:id?" component={DeliveryServiceCityPage} />
+       <Route exact path="/admin/deliveryservicecity/:operation/:deliveryserviceid?/:cityid?" component={DeliveryServiceCityPage} />
        <Route exact path="/admin/frametypes" component={FrameTypesPage} />
        <Route exact path="/admin/frametype/:operation/:id?" component={FrameTypePage} />
        <Route exact path="/admin/images" component={ImagesPage} />

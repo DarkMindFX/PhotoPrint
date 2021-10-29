@@ -35,12 +35,14 @@ class DeliveryServiceCityPage extends React.Component {
 
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
-        let paramId = this.props.match.params.id;
+        let paramDeliveryServiceId = this.props.match.params.deliveryserviceid;
+        let paramCityId = this.props.match.params.cityid;
         let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
-            id:         paramId ? parseInt(paramId) : null,
+            deliveryserviceid:         paramDeliveryServiceId ? parseInt(paramDeliveryServiceId) : null,
+            cityid:         paramCityId ? parseInt(paramCityId) : null,
             canEdit:    paramOperation ? ( paramOperation.toLowerCase() == 'new' || 
                                         paramOperation.toLowerCase() == 'edit' ? true : false) : false,
             deliveryservicecity: this._createEmptyDeliveryServiceCityObj(),
@@ -51,7 +53,7 @@ class DeliveryServiceCityPage extends React.Component {
             error: null,
             success: null,
             urlEntities: `${rooPath}deliveryservicecities`,
-            urlThis: `${rooPath}deliveryservicecity/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlThis: `${rooPath}deliveryservicecity/${paramOperation}` + (paramDeliveryServiceId ? `/${paramDeliveryServiceId}/${paramCityId}` : ``)
         };
 
         this.onDeliveryServiceIDChanged = this.onDeliveryServiceIDChanged.bind(this);
@@ -189,7 +191,7 @@ class DeliveryServiceCityPage extends React.Component {
         let dalDeliveryServiceCities = new DeliveryServiceCitiesDal();
         let obj = this;
 
-        dalDeliveryServiceCities.deleteDeliveryServiceCity(this.state.id).then( (response) => {
+        dalDeliveryServiceCities.deleteDeliveryServiceCity(this.state.deliveryserviceid, this.state.cityid).then( (response) => {
             if(response.status == constants.HTTP_OK) {
                 obj.props.history.push(this.state.urlEntities);                
             }
@@ -213,26 +215,31 @@ class DeliveryServiceCityPage extends React.Component {
         }   
         
         const styleDeleteBtn = {
-            display: this.state.id ? "block" : "none"
+            display: this.state.deliveryserviceid && this.state.cityid ? "block" : "none"
         }
 
-        const lstDeliveryServiceIDsFields = ["Name"];
+        const lstDeliveryServiceIDsFields = ["DeliveryServiceName"];
         const lstDeliveryServiceIDs = this._prepareOptionsList( this.state.deliveryservices 
                                                                     ? Object.values(this.state.deliveryservices) : null, 
                                                                     lstDeliveryServiceIDsFields,
                                                                     false );
-        const lstCityIDsFields = ["Name"];
+        const lstCityIDsFields = ["CityName"];
         const lstCityIDs = this._prepareOptionsList( this.state.cities 
                                                                     ? Object.values(this.state.cities) : null, 
                                                                     lstCityIDsFields,
                                                                     false );
+
         return (
             <div>
                  <table>
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>DeliveryServiceCity: { this.state.deliveryservicecity.toString() }</h2>
+                                <h2>DeliveryServiceCity: { 
+                                    (this.state.deliveryservicecity.DeliveryServiceID ? this.state.deliveryservices[ this.state.deliveryservicecity.DeliveryServiceID ].DeliveryServiceName : "")
+                                    + " to " +
+                                    (this.state.deliveryservicecity.CityID ? this.state.cities[ this.state.deliveryservicecity.CityID ].CityName : "")
+                                    }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -321,11 +328,11 @@ class DeliveryServiceCityPage extends React.Component {
 
     async _getDeliveryServiceCity()
     {
-        if(this.state.id) {
+        if(this.state.deliveryserviceid && this.state.cityid) {
             let updatedState = this.state;
                   
             let dalDeliveryServiceCities = new DeliveryServiceCitiesDal();
-            let response = await dalDeliveryServiceCities.getDeliveryServiceCity(this.state.id);
+            let response = await dalDeliveryServiceCities.getDeliveryServiceCity(this.state.deliveryserviceid, this.state.cityid);
 
             if(response.status == constants.HTTP_OK)
             {
