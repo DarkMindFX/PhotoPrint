@@ -229,7 +229,7 @@ class CurrencyPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Currency: { this.state.currency.toString() }</h2>
+                                <h2>Currency: { this.state.currency.CurrencyName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
