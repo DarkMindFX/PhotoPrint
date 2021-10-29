@@ -284,7 +284,7 @@ class CountryPage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.country.IsDeleted } 
+                                        <Checkbox   checked={ this.state.country.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

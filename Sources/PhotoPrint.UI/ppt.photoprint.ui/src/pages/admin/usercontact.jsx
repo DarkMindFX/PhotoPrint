@@ -306,7 +306,7 @@ class UserContactPage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsPrimary"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.usercontact.IsPrimary } 
+                                        <Checkbox   checked={ this.state.usercontact.IsPrimary ? true : false } 
                                                     onChange={(event) => this.onIsPrimaryChanged(event)} 
                                                     name="IsPrimary" />
                                         }

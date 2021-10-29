@@ -216,7 +216,7 @@ class AddressTypePage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>AddressType: { this.state.addresstype.toString() }</h2>
+                                <h2>AddressType: { this.state.addresstype.AddressTypeName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -256,7 +256,7 @@ class AddressTypePage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.addresstype.IsDeleted } 
+                                        <Checkbox   checked={ this.state.addresstype.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }
@@ -307,7 +307,7 @@ class AddressTypePage extends React.Component {
 
             if(response.status == constants.HTTP_OK)
             {
-                updatedState.addresstype = response.data;                
+                updatedState.addresstype = response.data;  
             }
             else if(response.status == constants.HTTP_Unauthorized)
             {

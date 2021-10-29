@@ -377,7 +377,7 @@ class MaterialTypePage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.materialtype.IsDeleted } 
+                                        <Checkbox   checked={ this.state.materialtype.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

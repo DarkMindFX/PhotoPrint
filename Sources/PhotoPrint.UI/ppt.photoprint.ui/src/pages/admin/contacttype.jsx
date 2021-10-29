@@ -256,7 +256,7 @@ class ContactTypePage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.contacttype.IsDeleted } 
+                                        <Checkbox   checked={ this.state.contacttype.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

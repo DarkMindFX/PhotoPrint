@@ -377,7 +377,7 @@ class FrameTypePage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.frametype.IsDeleted } 
+                                        <Checkbox   checked={ this.state.frametype.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

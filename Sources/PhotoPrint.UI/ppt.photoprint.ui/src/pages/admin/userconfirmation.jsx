@@ -321,7 +321,7 @@ class UserConfirmationPage extends React.Component {
                                 <FormControlLabel
                                     key="lblComfirmed"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.userconfirmation.Comfirmed } 
+                                        <Checkbox   checked={ this.state.userconfirmation.Comfirmed ? true : false } 
                                                     onChange={(event) => this.onComfirmedChanged(event)} 
                                                     name="Comfirmed" />
                                         }

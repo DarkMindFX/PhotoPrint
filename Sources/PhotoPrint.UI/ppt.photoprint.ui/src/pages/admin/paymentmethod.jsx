@@ -284,7 +284,7 @@ class PaymentMethodPage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.paymentmethod.IsDeleted } 
+                                        <Checkbox   checked={ this.state.paymentmethod.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

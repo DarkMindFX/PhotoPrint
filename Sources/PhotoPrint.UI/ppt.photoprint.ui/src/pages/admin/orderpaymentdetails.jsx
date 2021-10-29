@@ -427,7 +427,7 @@ class OrderPaymentDetailsPage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.orderpaymentdetails.IsDeleted } 
+                                        <Checkbox   checked={ this.state.orderpaymentdetails.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

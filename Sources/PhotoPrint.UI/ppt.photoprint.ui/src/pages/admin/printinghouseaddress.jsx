@@ -306,7 +306,7 @@ class PrintingHouseAddressPage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsPrimary"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.printinghouseaddress.IsPrimary } 
+                                        <Checkbox   checked={ this.state.printinghouseaddress.IsPrimary ? true : false } 
                                                     onChange={(event) => this.onIsPrimaryChanged(event)} 
                                                     name="IsPrimary" />
                                         }

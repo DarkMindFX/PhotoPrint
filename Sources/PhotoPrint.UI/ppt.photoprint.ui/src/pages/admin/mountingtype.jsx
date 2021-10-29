@@ -364,7 +364,7 @@ class MountingTypePage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.mountingtype.IsDeleted } 
+                                        <Checkbox   checked={ this.state.mountingtype.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

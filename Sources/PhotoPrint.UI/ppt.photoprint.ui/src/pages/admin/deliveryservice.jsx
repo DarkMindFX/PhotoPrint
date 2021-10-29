@@ -349,7 +349,7 @@ class DeliveryServicePage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.deliveryservice.IsDeleted } 
+                                        <Checkbox   checked={ this.state.deliveryservice.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }

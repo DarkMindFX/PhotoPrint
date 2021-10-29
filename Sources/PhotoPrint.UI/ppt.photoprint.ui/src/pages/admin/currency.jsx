@@ -284,7 +284,7 @@ class CurrencyPage extends React.Component {
                                 <FormControlLabel
                                     key="lblIsDeleted"                        
                                     control = {
-                                        <Checkbox   checked={ this.state.currency.IsDeleted } 
+                                        <Checkbox   checked={ this.state.currency.IsDeleted ? true : false } 
                                                     onChange={(event) => this.onIsDeletedChanged(event)} 
                                                     name="IsDeleted" />
                                         }
