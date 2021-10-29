@@ -226,7 +226,7 @@ class CityPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstRegionIDsFields = ["Name"];
+        const lstRegionIDsFields = ["RegionName"];
         const lstRegionIDs = this._prepareOptionsList( this.state.regions 
                                                                     ? Object.values(this.state.regions) : null, 
                                                                     lstRegionIDsFields,

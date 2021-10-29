@@ -104,7 +104,7 @@ class CitiesPage extends React.Component {
                 id: cs[c].ID,
                 ID: cs[c].ID,
                 CityName: cs[c].CityName,
-                RegionID: cs[c].RegionID ? this.state.regions[ cs[c].RegionID ].Name : "",
+                RegionID: cs[c].RegionID ? this.state.regions[ cs[c].RegionID ].RegionName : "",
                 IsDeleted: cs[c].IsDeleted,
 
             };
