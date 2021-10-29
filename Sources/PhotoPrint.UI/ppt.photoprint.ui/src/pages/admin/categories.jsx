@@ -111,7 +111,7 @@ class CategoriesPage extends React.Component {
                 ID: cs[c].ID,
                 CategoryName: cs[c].CategoryName,
                 Description: cs[c].Description,
-                ParentID: cs[c].ParentID ? this.state.categories[ cs[c].ParentID ].Name : "",
+                ParentID: cs[c].ParentID ? this.state.categories[ cs[c].ParentID ].CategoryName : "",
                 IsDeleted: cs[c].IsDeleted,
                 CreatedDate: cs[c].CreatedDate,
                 CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName + " " + this.state.users[ cs[c].CreatedByID ].LastName : "",

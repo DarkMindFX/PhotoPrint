@@ -292,17 +292,17 @@ class CategoryPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstParentIDsFields = ["Name"];
+        const lstParentIDsFields = ["CategoryName"];
         const lstParentIDs = this._prepareOptionsList( this.state.categories 
                                                                     ? Object.values(this.state.categories) : null, 
                                                                     lstParentIDsFields,
                                                                     true );
-        const lstCreatedByIDsFields = ["Name"];
+        const lstCreatedByIDsFields = ["FirstName", "LastName"];
         const lstCreatedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstCreatedByIDsFields,
                                                                     false );
-        const lstModifiedByIDsFields = ["Name"];
+        const lstModifiedByIDsFields = ["FirstName", "LastName"];
         const lstModifiedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstModifiedByIDsFields,
@@ -313,7 +313,7 @@ class CategoryPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Category: { this.state.category.toString() }</h2>
+                                <h2>Category: { this.state.category.CategoryName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
