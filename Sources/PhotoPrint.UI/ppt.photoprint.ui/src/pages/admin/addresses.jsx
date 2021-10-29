@@ -127,7 +127,7 @@ class AddressesPage extends React.Component {
                 BuildingNo: cs[c].BuildingNo,
                 ApartmentNo: cs[c].ApartmentNo,
                 Comment: cs[c].Comment,
-                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName  + " " + this.state.users[ cs[c].CreatedByID ].LastName: "",
+                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName + " " + this.state.users[ cs[c].CreatedByID ].LastName : "",
                 CreatedDate: cs[c].CreatedDate,
                 ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].FirstName + " " + this.state.users[ cs[c].ModifiedByID ].LastName : "",
                 ModifiedDate: cs[c].ModifiedDate,

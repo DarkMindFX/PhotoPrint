@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -127,7 +130,7 @@ class SizePage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.size.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -334,6 +337,7 @@ class SizePage extends React.Component {
                                             value={this.state.size.SizeName}
                                             onChange={ (event) => { this.onSizeNameChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -348,6 +352,7 @@ class SizePage extends React.Component {
                                             value={this.state.size.Width}
                                             onChange={ (event) => { this.onWidthChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -362,20 +367,22 @@ class SizePage extends React.Component {
                                             value={this.state.size.Height}
                                             onChange={ (event) => { this.onHeightChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.size.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.size.IsDeleted } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 
@@ -390,6 +397,7 @@ class SizePage extends React.Component {
                                             value={this.state.size.CreatedDate}
                                             onChange={ (event) => { this.onCreatedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -422,6 +430,7 @@ class SizePage extends React.Component {
                                             value={this.state.size.ModifiedDate}
                                             onChange={ (event) => { this.onModifiedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 

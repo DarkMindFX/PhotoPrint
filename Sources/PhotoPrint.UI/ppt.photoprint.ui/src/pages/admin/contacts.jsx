@@ -118,9 +118,9 @@ class ContactsPage extends React.Component {
                 Comment: cs[c].Comment,
                 Value: cs[c].Value,
                 IsDeleted: cs[c].IsDeleted,
-                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].Name : "",
+                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName + " " + this.state.users[ cs[c].CreatedByID ].LastName : "",
                 CreatedDate: cs[c].CreatedDate,
-                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].Name : "",
+                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].FirstName + " " + this.state.users[ cs[c].ModifiedByID ].LastName : "",
                 ModifiedDate: cs[c].ModifiedDate,
 
             };

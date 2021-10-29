@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -111,7 +114,7 @@ class UserConfirmationPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.userconfirmation.Comfirmed = newVal;
 
         this.setState(updatedState);
@@ -308,20 +311,22 @@ class UserConfirmationPage extends React.Component {
                                             value={this.state.userconfirmation.ConfirmationCode}
                                             onChange={ (event) => { this.onConfirmationCodeChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="Comfirmed" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="Comfirmed" 
-                                            value={this.state.userconfirmation.Comfirmed}
-                                            onChange={ (event) => { this.onComfirmedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblComfirmed"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.userconfirmation.Comfirmed } 
+                                                    onChange={(event) => this.onComfirmedChanged(event)} 
+                                                    name="Comfirmed" />
+                                        }
+                                    label="Comfirmed"
+                                />
                                 
                             </td>
                         </tr> 
@@ -336,6 +341,7 @@ class UserConfirmationPage extends React.Component {
                                             value={this.state.userconfirmation.ExpiresDate}
                                             onChange={ (event) => { this.onExpiresDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -350,6 +356,7 @@ class UserConfirmationPage extends React.Component {
                                             value={this.state.userconfirmation.ConfirmationDate}
                                             onChange={ (event) => { this.onConfirmationDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 

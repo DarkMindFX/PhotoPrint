@@ -124,9 +124,9 @@ class ImagesPage extends React.Component {
                 PriceAmount: cs[c].PriceAmount,
                 PriceCurrencyID: cs[c].PriceCurrencyID ? this.state.currencies[ cs[c].PriceCurrencyID ].Name : "",
                 IsDeleted: cs[c].IsDeleted,
-                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].Name : "",
+                CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName + " " + this.state.users[ cs[c].CreatedByID ].LastName : "",
                 CreatedDate: cs[c].CreatedDate,
-                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].Name : "",
+                ModifiedByID: cs[c].ModifiedByID ? this.state.users[ cs[c].ModifiedByID ].FirstName + " " + this.state.users[ cs[c].ModifiedByID ].LastName : "",
                 ModifiedDate: cs[c].ModifiedDate,
 
             };

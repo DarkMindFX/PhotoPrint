@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -110,7 +113,7 @@ class PrintingHouseAddressPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.printinghouseaddress.IsPrimary = newVal;
 
         this.setState(updatedState);
@@ -300,14 +303,15 @@ class PrintingHouseAddressPage extends React.Component {
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsPrimary" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsPrimary" 
-                                            value={this.state.printinghouseaddress.IsPrimary}
-                                            onChange={ (event) => { this.onIsPrimaryChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsPrimary"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.printinghouseaddress.IsPrimary } 
+                                                    onChange={(event) => this.onIsPrimaryChanged(event)} 
+                                                    name="IsPrimary" />
+                                        }
+                                    label="IsPrimary"
+                                />
                                 
                             </td>
                         </tr> 

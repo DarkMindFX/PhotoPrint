@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -221,7 +224,7 @@ class AddressPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.address.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -346,22 +349,22 @@ class AddressPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstAddressTypeIDsFields = ["Name"];
+        const lstAddressTypeIDsFields = ["AddressTypeName"];
         const lstAddressTypeIDs = this._prepareOptionsList( this.state.addresstypes 
                                                                     ? Object.values(this.state.addresstypes) : null, 
                                                                     lstAddressTypeIDsFields,
                                                                     false );
-        const lstCityIDsFields = ["Name"];
+        const lstCityIDsFields = ["CityName"];
         const lstCityIDs = this._prepareOptionsList( this.state.cities 
                                                                     ? Object.values(this.state.cities) : null, 
                                                                     lstCityIDsFields,
                                                                     false );
-        const lstCreatedByIDsFields = ["Name"];
+        const lstCreatedByIDsFields = ["FirstName", "LastName"];
         const lstCreatedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstCreatedByIDsFields,
                                                                     false );
-        const lstModifiedByIDsFields = ["Name"];
+        const lstModifiedByIDsFields = ["FirstName", "LastName"];
         const lstModifiedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstModifiedByIDsFields,
@@ -372,7 +375,7 @@ class AddressPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Address: { this.state.address.toString() }</h2>
+                                <h2>Address: { this.state.address.Title }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -420,6 +423,7 @@ class AddressPage extends React.Component {
                                             value={this.state.address.Title}
                                             onChange={ (event) => { this.onTitleChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -452,6 +456,7 @@ class AddressPage extends React.Component {
                                             value={this.state.address.Street}
                                             onChange={ (event) => { this.onStreetChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -466,6 +471,7 @@ class AddressPage extends React.Component {
                                             value={this.state.address.BuildingNo}
                                             onChange={ (event) => { this.onBuildingNoChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -480,6 +486,7 @@ class AddressPage extends React.Component {
                                             value={this.state.address.ApartmentNo}
                                             onChange={ (event) => { this.onApartmentNoChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -494,6 +501,7 @@ class AddressPage extends React.Component {
                                             value={this.state.address.Comment}
                                             onChange={ (event) => { this.onCommentChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -526,6 +534,7 @@ class AddressPage extends React.Component {
                                             value={this.state.address.CreatedDate}
                                             onChange={ (event) => { this.onCreatedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -558,20 +567,22 @@ class AddressPage extends React.Component {
                                             value={this.state.address.ModifiedDate}
                                             onChange={ (event) => { this.onModifiedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.address.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.address.IsDeleted } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 

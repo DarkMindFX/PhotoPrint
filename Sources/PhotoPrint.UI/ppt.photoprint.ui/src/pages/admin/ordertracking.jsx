@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -342,6 +345,7 @@ class OrderTrackingPage extends React.Component {
                                             value={this.state.ordertracking.SetDate}
                                             onChange={ (event) => { this.onSetDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -374,6 +378,7 @@ class OrderTrackingPage extends React.Component {
                                             value={this.state.ordertracking.Comment}
                                             onChange={ (event) => { this.onCommentChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 

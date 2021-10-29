@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -104,7 +107,7 @@ class CountryPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.country.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -256,6 +259,7 @@ class CountryPage extends React.Component {
                                             value={this.state.country.CountryName}
                                             onChange={ (event) => { this.onCountryNameChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -270,20 +274,22 @@ class CountryPage extends React.Component {
                                             value={this.state.country.ISO}
                                             onChange={ (event) => { this.onISOChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.country.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.country.IsDeleted } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 

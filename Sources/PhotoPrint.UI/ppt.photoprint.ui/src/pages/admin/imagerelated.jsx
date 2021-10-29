@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -243,6 +246,7 @@ class ImageRelatedPage extends React.Component {
                                             value={this.state.imagerelated.ImageID}
                                             onChange={ (event) => { this.onImageIDChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -257,6 +261,7 @@ class ImageRelatedPage extends React.Component {
                                             value={this.state.imagerelated.RelatedImageID}
                                             onChange={ (event) => { this.onRelatedImageIDChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 

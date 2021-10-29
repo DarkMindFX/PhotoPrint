@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -92,7 +95,7 @@ class UserTypePage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.usertype.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -243,20 +246,22 @@ class UserTypePage extends React.Component {
                                             value={this.state.usertype.UserTypeName}
                                             onChange={ (event) => { this.onUserTypeNameChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.usertype.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.usertype.IsDeleted } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 

@@ -11,6 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -142,7 +145,7 @@ class ContactPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = event.target.value
+        newVal = event.target.checked;
         updatedState.contact.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -373,6 +376,7 @@ class ContactPage extends React.Component {
                                             value={this.state.contact.Title}
                                             onChange={ (event) => { this.onTitleChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -387,6 +391,7 @@ class ContactPage extends React.Component {
                                             value={this.state.contact.Comment}
                                             onChange={ (event) => { this.onCommentChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -401,20 +406,22 @@ class ContactPage extends React.Component {
                                             value={this.state.contact.Value}
                                             onChange={ (event) => { this.onValueChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.contact.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.contact.IsDeleted } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 
@@ -447,6 +454,7 @@ class ContactPage extends React.Component {
                                             value={this.state.contact.CreatedDate}
                                             onChange={ (event) => { this.onCreatedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
@@ -479,6 +487,7 @@ class ContactPage extends React.Component {
                                             value={this.state.contact.ModifiedDate}
                                             onChange={ (event) => { this.onModifiedDateChanged(event) } }
                                             />
+
                                 
                             </td>
                         </tr> 
