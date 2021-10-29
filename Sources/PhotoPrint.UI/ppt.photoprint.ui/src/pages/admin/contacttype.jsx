@@ -216,7 +216,7 @@ class ContactTypePage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>ContactType: { this.state.contacttype.toString() }</h2>
+                                <h2>ContactType: { this.state.contacttype.ContactTypeName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
