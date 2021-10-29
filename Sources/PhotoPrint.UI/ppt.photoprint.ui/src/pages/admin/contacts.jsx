@@ -113,7 +113,7 @@ class ContactsPage extends React.Component {
             let r = {
                 id: cs[c].ID,
                 ID: cs[c].ID,
-                ContactTypeID: cs[c].ContactTypeID ? this.state.contacttypes[ cs[c].ContactTypeID ].Name : "",
+                ContactTypeID: cs[c].ContactTypeID ? this.state.contacttypes[ cs[c].ContactTypeID ].ContactTypeName : "",
                 Title: cs[c].Title,
                 Comment: cs[c].Comment,
                 Value: cs[c].Value,

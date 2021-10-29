@@ -307,17 +307,17 @@ class ContactPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstContactTypeIDsFields = ["Name"];
+        const lstContactTypeIDsFields = ["ContactTypeName"];
         const lstContactTypeIDs = this._prepareOptionsList( this.state.contacttypes 
                                                                     ? Object.values(this.state.contacttypes) : null, 
                                                                     lstContactTypeIDsFields,
                                                                     false );
-        const lstCreatedByIDsFields = ["Name"];
+        const lstCreatedByIDsFields = ["FirstName", "LastName"];
         const lstCreatedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstCreatedByIDsFields,
                                                                     false );
-        const lstModifiedByIDsFields = ["Name"];
+        const lstModifiedByIDsFields = ["FirstName", "LastName"];
         const lstModifiedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstModifiedByIDsFields,
@@ -328,7 +328,7 @@ class ContactPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Contact: { this.state.contact.toString() }</h2>
+                                <h2>Contact: { this.state.contact.Title }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

@@ -237,7 +237,7 @@ class CityPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>City: { this.state.city.toString() }</h2>
+                                <h2>City: { this.state.city.CityName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
