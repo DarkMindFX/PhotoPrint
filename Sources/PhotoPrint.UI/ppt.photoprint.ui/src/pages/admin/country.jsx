@@ -229,7 +229,7 @@ class CountryPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Country: { this.state.country.toString() }</h2>
+                                <h2>Country: { this.state.country.CountryName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
