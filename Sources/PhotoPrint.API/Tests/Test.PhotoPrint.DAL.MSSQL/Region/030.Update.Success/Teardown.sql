@@ -2,16 +2,16 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @RegionName NVARCHAR(50) = 'RegionName 14e4350e72724f0eb1ac029141b84ccc'
-DECLARE @CountryID BIGINT = 105
-DECLARE @IsDeleted BIGINT = 51872
+DECLARE @RegionName NVARCHAR(50) = 'RegionName a389c81cd1604b03b4309db0079dcea5'
+DECLARE @CountryID BIGINT = 207
+DECLARE @IsDeleted BIT = 1
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updRegionName NVARCHAR(50) = 'RegionName 56f9de216cab495aa347a54b6b005cf9'
-DECLARE @updCountryID BIGINT = 136
-DECLARE @updIsDeleted BIGINT = 619148
+DECLARE @updRegionName NVARCHAR(50) = 'RegionName 51a471a4f7584010a9c65e3b7160e0ed'
+DECLARE @updCountryID BIGINT = 123
+DECLARE @updIsDeleted BIT = 0
  
 
 DECLARE @Fail AS BIT = 0

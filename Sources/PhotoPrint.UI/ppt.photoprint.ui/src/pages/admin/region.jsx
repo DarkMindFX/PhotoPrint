@@ -110,7 +110,7 @@ class RegionPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = parseInt(event.target.value);
+        newVal = event.target.checked;
         updatedState.region.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -226,7 +226,7 @@ class RegionPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstCountryIDsFields = ["Name"];
+        const lstCountryIDsFields = ["CountryName"];
         const lstCountryIDs = this._prepareOptionsList( this.state.countries 
                                                                     ? Object.values(this.state.countries) : null, 
                                                                     lstCountryIDsFields,
@@ -237,7 +237,7 @@ class RegionPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Region: { this.state.region.toString() }</h2>
+                                <h2>Region: { this.state.region.RegionName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -292,15 +292,15 @@ class RegionPage extends React.Component {
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.region.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
-
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.region.IsDeleted ? true : false } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 

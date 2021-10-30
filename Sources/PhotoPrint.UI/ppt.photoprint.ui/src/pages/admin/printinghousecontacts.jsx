@@ -49,7 +49,7 @@ class PrintingHouseContactsPage extends React.Component {
     onRowClick(event) {
         const row = event.row;
         if(row) {
-            this.props.history.push(this.state.urlEditEntity + row.id);
+            this.props.history.push(this.state.urlEditEntity + row.PrintingHouseID + "/" + row.ContactID);
         }
 
     }
@@ -89,8 +89,8 @@ class PrintingHouseContactsPage extends React.Component {
 
     _initColumns() {
         this._columns = [
-                { field: 'PrintingHouseID', headerName: 'PrintingHouseID', width: 250 },
-                { field: 'ContactID', headerName: 'ContactID', width: 250 },
+                { field: 'PrintingHouse', headerName: 'PrintingHouseID', width: 250 },
+                { field: 'Contact', headerName: 'ContactID', width: 250 },
                 { field: 'IsPrimary', headerName: 'IsPrimary', width: 250 },
        
         ]        
@@ -104,9 +104,11 @@ class PrintingHouseContactsPage extends React.Component {
         for(let c in cs) {
 
             let r = {
-                id: cs[c].ID,
-                PrintingHouseID: cs[c].PrintingHouseID ? this.state.printinghouses[ cs[c].PrintingHouseID ].Name : "",
-                ContactID: cs[c].ContactID ? this.state.contacts[ cs[c].ContactID ].Name : "",
+                id: c,
+                PrintingHouseID: cs[c].PrintingHouseID,
+                ContactID: cs[c].ContactID,
+                PrintingHouse: cs[c].PrintingHouseID ? this.state.printinghouses[ cs[c].PrintingHouseID ].Name : "",
+                Contact: cs[c].ContactID ? this.state.contacts[ cs[c].ContactID ].Title : "",
                 IsPrimary: cs[c].IsPrimary,
 
             };
@@ -173,7 +175,7 @@ class PrintingHouseContactsPage extends React.Component {
         {
             for(let s in response.data)
             {
-                updatedState.printinghousecontacts[response.data[s].ID] = response.data[s];             
+                updatedState.printinghousecontacts[[response.data[s].PrintingHouseID, response.data[s].ContactID]] = response.data[s];             
             }
         }
         else if(response.status == constants.HTTP_Unauthorized) {

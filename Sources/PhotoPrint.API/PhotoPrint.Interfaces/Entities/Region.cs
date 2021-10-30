@@ -16,7 +16,7 @@ namespace PPT.Interfaces.Entities
 
 				public System.Int64 CountryID { get; set; }
 
-				public System.Int64 IsDeleted { get; set; }
+				public System.Boolean IsDeleted { get; set; }
 
 				
     }

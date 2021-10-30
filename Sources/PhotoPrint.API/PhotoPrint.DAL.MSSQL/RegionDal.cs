@@ -109,7 +109,7 @@ namespace PPT.DAL.MSSQL
                 SqlParameter pID = new SqlParameter("@ID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "ID", DataRowVersion.Current, (object)entity.ID != null ? (object)entity.ID : DBNull.Value);   cmd.Parameters.Add(pID); 
                 SqlParameter pRegionName = new SqlParameter("@RegionName", System.Data.SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "RegionName", DataRowVersion.Current, (object)entity.RegionName != null ? (object)entity.RegionName : DBNull.Value);   cmd.Parameters.Add(pRegionName); 
                 SqlParameter pCountryID = new SqlParameter("@CountryID", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "CountryID", DataRowVersion.Current, (object)entity.CountryID != null ? (object)entity.CountryID : DBNull.Value);   cmd.Parameters.Add(pCountryID); 
-                SqlParameter pIsDeleted = new SqlParameter("@IsDeleted", System.Data.SqlDbType.BigInt, 0, ParameterDirection.Input, false, 0, 0, "IsDeleted", DataRowVersion.Current, (object)entity.IsDeleted != null ? (object)entity.IsDeleted : DBNull.Value);   cmd.Parameters.Add(pIsDeleted); 
+                SqlParameter pIsDeleted = new SqlParameter("@IsDeleted", System.Data.SqlDbType.Bit, 0, ParameterDirection.Input, false, 0, 0, "IsDeleted", DataRowVersion.Current, (object)entity.IsDeleted != null ? (object)entity.IsDeleted : DBNull.Value);   cmd.Parameters.Add(pIsDeleted); 
         
             return cmd;
         }
@@ -121,7 +121,7 @@ namespace PPT.DAL.MSSQL
                     entity.ID = !DBNull.Value.Equals(row["ID"]) ? (System.Int64?)row["ID"] : default(System.Int64?);
                     entity.RegionName = !DBNull.Value.Equals(row["RegionName"]) ? (System.String)row["RegionName"] : default(System.String);
                     entity.CountryID = !DBNull.Value.Equals(row["CountryID"]) ? (System.Int64)row["CountryID"] : default(System.Int64);
-                    entity.IsDeleted = !DBNull.Value.Equals(row["IsDeleted"]) ? (System.Int64)row["IsDeleted"] : default(System.Int64);
+                    entity.IsDeleted = !DBNull.Value.Equals(row["IsDeleted"]) ? (System.Boolean)row["IsDeleted"] : default(System.Boolean);
         
             return entity;
         }

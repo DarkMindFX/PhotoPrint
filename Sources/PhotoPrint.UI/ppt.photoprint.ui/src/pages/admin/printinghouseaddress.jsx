@@ -35,12 +35,14 @@ class PrintingHouseAddressPage extends React.Component {
 
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
-        let paramId = this.props.match.params.id;
+        let paramPrintingHouseId = this.props.match.params.printinghouseid;
+        let paramAddressId = this.props.match.params.addressid;
         let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
-            id:         paramId ? parseInt(paramId) : null,
+            printinghouseid:         paramPrintingHouseId ? parseInt(paramPrintingHouseId) : null,
+            addressid:         paramPrintingHouseId ? parseInt(paramAddressId) : null,
             canEdit:    paramOperation ? ( paramOperation.toLowerCase() == 'new' || 
                                         paramOperation.toLowerCase() == 'edit' ? true : false) : false,
             printinghouseaddress: this._createEmptyPrintingHouseAddressObj(),
@@ -51,7 +53,7 @@ class PrintingHouseAddressPage extends React.Component {
             error: null,
             success: null,
             urlEntities: `${rooPath}printinghouseaddresses`,
-            urlThis: `${rooPath}printinghouseaddress/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlThis: `${rooPath}printinghouseaddress/${paramOperation}` + (paramPrintingHouseId ? `/${paramPrintingHouseId}/${paramAddressId}` : ``)
         };
 
         this.onPrintingHouseIDChanged = this.onPrintingHouseIDChanged.bind(this);
@@ -127,7 +129,6 @@ class PrintingHouseAddressPage extends React.Component {
         
         if(this._validateForm()) {
             const reqPrintingHouseAddress = new PrintingHouseAddressDto();
-            reqPrintingHouseAddress.ID = this.state.id;
             reqPrintingHouseAddress.PrintingHouseID = this.state.printinghouseaddress.PrintingHouseID;
             reqPrintingHouseAddress.AddressID = this.state.printinghouseaddress.AddressID;
             reqPrintingHouseAddress.IsPrimary = this.state.printinghouseaddress.IsPrimary;
@@ -145,8 +146,9 @@ class PrintingHouseAddressPage extends React.Component {
                     updatedState.showSuccess = true;
                     updatedState.showError = false;
                     if(response.status == constants.HTTP_Created) {
-                        updatedState.id = response.data.ID;
-                        updatedState.success = `PrintingHouseAddress was created. ID: ${updatedState.id}`;
+                        updatedState.printinghouseid = response.data.PrintingHouseID;
+                        updatedState.addressid = response.data.AddressID;
+                        updatedState.success = `PrintingHouseAddress was created.`;
                     }
                     else {
                         updatedState.success = `PrintingHouseAddress was updated`;                
@@ -170,7 +172,7 @@ class PrintingHouseAddressPage extends React.Component {
                 obj.setState(updatedState);
             }
 
-            if(this.state.id != null) {
+            if(this.state.printinghouseid, this.state.addressid != null) {
                 dalPrintingHouseAddresses.updatePrintingHouseAddress(reqPrintingHouseAddress)
                                         .then( (res) => { upsertPrintingHouseAddressThen(res); } )
                                         .catch( (err) => { upsertCatch(err); });
@@ -202,7 +204,7 @@ class PrintingHouseAddressPage extends React.Component {
         let dalPrintingHouseAddresses = new PrintingHouseAddressesDal();
         let obj = this;
 
-        dalPrintingHouseAddresses.deletePrintingHouseAddress(this.state.id).then( (response) => {
+        dalPrintingHouseAddresses.deletePrintingHouseAddress(this.state.printinghouseid, this.state.addressid).then( (response) => {
             if(response.status == constants.HTTP_OK) {
                 obj.props.history.push(this.state.urlEntities);                
             }
@@ -226,7 +228,7 @@ class PrintingHouseAddressPage extends React.Component {
         }   
         
         const styleDeleteBtn = {
-            display: this.state.id ? "block" : "none"
+            display: this.state.printinghouseid && this.state.addressid ? "block" : "none"
         }
 
         const lstPrintingHouseIDsFields = ["Name"];
@@ -234,7 +236,7 @@ class PrintingHouseAddressPage extends React.Component {
                                                                     ? Object.values(this.state.printinghouses) : null, 
                                                                     lstPrintingHouseIDsFields,
                                                                     false );
-        const lstAddressIDsFields = ["Name"];
+        const lstAddressIDsFields = ["Title"];
         const lstAddressIDs = this._prepareOptionsList( this.state.addresses 
                                                                     ? Object.values(this.state.addresses) : null, 
                                                                     lstAddressIDsFields,
@@ -245,7 +247,7 @@ class PrintingHouseAddressPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>PrintingHouseAddress: { this.state.printinghouseaddress.toString() }</h2>
+                                <h2>PrintingHouseAddress: { this.state.printinghouseaddress.PrintingHouseID ? this.state.printinghouses[this.state.printinghouseaddress.PrintingHouseID].Name : "" }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -349,11 +351,11 @@ class PrintingHouseAddressPage extends React.Component {
 
     async _getPrintingHouseAddress()
     {
-        if(this.state.id) {
+        if(this.state.printinghouseid && this.state.addressid) {
             let updatedState = this.state;
                   
             let dalPrintingHouseAddresses = new PrintingHouseAddressesDal();
-            let response = await dalPrintingHouseAddresses.getPrintingHouseAddress(this.state.id);
+            let response = await dalPrintingHouseAddresses.getPrintingHouseAddress(this.state.printinghouseid, this.state.addressid);
 
             if(response.status == constants.HTTP_OK)
             {

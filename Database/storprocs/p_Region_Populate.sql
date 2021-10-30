@@ -21,12 +21,12 @@ BEGIN
 
 	INSERT INTO @tblRegion
 	-- UKRAINE
-	SELECT 1, 'Kharkivska obl.', 222	UNION 
-	SELECT 2, 'Kyivska obl.', 222		UNION
-	SELECT 3, 'Dniprovska obl.', 222 UNION
-	SELECT 4, 'Rivnenska obl.', 222 UNION
-	SELECT 5, 'Zhytomyrska obl.', 222 UNION
-	SELECT 6, 'All Ukraine', 222 UNION
+	SELECT 1, 'Kharkivska obl.', 232	UNION 
+	SELECT 2, 'Kyivska obl.', 232		UNION
+	SELECT 3, 'Dniprovska obl.', 232 UNION
+	SELECT 4, 'Rivnenska obl.', 232 UNION
+	SELECT 5, 'Zhytomyrska obl.', 232 UNION
+	SELECT 6, 'All Ukraine', 232 UNION
 	-- POLAND
 	SELECT 7, 'All Poland', 176 UNION
 	SELECT 8, 'Pomorske voevodship', 176 UNION

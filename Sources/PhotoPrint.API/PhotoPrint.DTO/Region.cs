@@ -16,7 +16,7 @@ namespace PPT.DTO
 		public System.Int64 CountryID { get; set; }
 
 				[JsonPropertyName("IsDeleted")]
-		public System.Int64 IsDeleted { get; set; }
+		public System.Boolean IsDeleted { get; set; }
 
 				
     }

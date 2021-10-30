@@ -52,9 +52,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("RegionName 3c1f9cb6a21e4437854f3b7937c51399", entity.RegionName);
-                            Assert.AreEqual(206, entity.CountryID);
-                            Assert.AreEqual(484596, entity.IsDeleted);
+                          Assert.AreEqual("RegionName bf864ed74cea46ee82b220877c8860eb", entity.RegionName);
+                            Assert.AreEqual(125, entity.CountryID);
+                            Assert.AreEqual(false, entity.IsDeleted);
                       }
 
         [Test]
@@ -103,9 +103,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareRegionDal("DALInitParams");
 
             var entity = new Region();
-                          entity.RegionName = "RegionName 1a5597f0f780436895e22e9800b5e118";
-                            entity.CountryID = 26;
-                            entity.IsDeleted = 51872;
+                          entity.RegionName = "RegionName 04a90cf3eaa74a629c3bddf002edebda";
+                            entity.CountryID = 199;
+                            entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +114,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("RegionName 1a5597f0f780436895e22e9800b5e118", entity.RegionName);
-                            Assert.AreEqual(26, entity.CountryID);
-                            Assert.AreEqual(51872, entity.IsDeleted);
+                          Assert.AreEqual("RegionName 04a90cf3eaa74a629c3bddf002edebda", entity.RegionName);
+                            Assert.AreEqual(199, entity.CountryID);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -130,9 +130,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Region entity = dal.Get(paramID);
 
-                          entity.RegionName = "RegionName 56f9de216cab495aa347a54b6b005cf9";
-                            entity.CountryID = 136;
-                            entity.IsDeleted = 619148;
+                          entity.RegionName = "RegionName 51a471a4f7584010a9c65e3b7160e0ed";
+                            entity.CountryID = 123;
+                            entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
 
@@ -141,9 +141,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("RegionName 56f9de216cab495aa347a54b6b005cf9", entity.RegionName);
-                            Assert.AreEqual(136, entity.CountryID);
-                            Assert.AreEqual(619148, entity.IsDeleted);
+                          Assert.AreEqual("RegionName 51a471a4f7584010a9c65e3b7160e0ed", entity.RegionName);
+                            Assert.AreEqual(123, entity.CountryID);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -153,9 +153,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareRegionDal("DALInitParams");
 
             var entity = new Region();
-                          entity.RegionName = "RegionName 56f9de216cab495aa347a54b6b005cf9";
-                            entity.CountryID = 136;
-                            entity.IsDeleted = 619148;
+                          entity.RegionName = "RegionName 51a471a4f7584010a9c65e3b7160e0ed";
+                            entity.CountryID = 123;
+                            entity.IsDeleted = false;              
               
             try
             {

@@ -4,7 +4,7 @@ ID,AddressTypeID,Title,CityID,Street,BuildingNo,ApartmentNo,Comment,CreatedByID,
 100003,1,JohnK Main Address,3,ul.Pushkina,56D,,,100001,9/1/2021 12:00,,,0
 100004,3,JohnK Delivery Address,1,ul.Kirova,11,27,,100001,9/1/2021 12:00,,,0
 100005,1,FranklinR Main Address,4,al.Peremogy,16,35,Between 10 and 16,100001,9/1/2021 12:00,,,0
-100006,2,FranklinR Billing Address,5,ul.I.Franka,220,30,"Office center, call from reception +450",100001,9/1/2021 12:00,,,0
+100006,2,FranklinR Billing Address,5,ul.I.Franka,220,30,Office center call from reception +450,100001,9/1/2021 12:00,,,0
 100007,1,ManagerBill Main Address,5,pr.Gagarina,45,,,100001,9/1/2021 12:00,,,0
 100008,1,ManagerTed Main Adress,4,ul.Zlota,23,,,100001,9/1/2021 12:00,,,0
 100009,4,PrinterBill Office Address,3,ul.Pushkina,56C,,,100001,9/1/2021 12:00,,,0

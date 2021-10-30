@@ -13,7 +13,7 @@ CREATE PROCEDURE [dbo].[p_Region_Update]
 			@ID BIGINT,
 			@RegionName NVARCHAR(50),
 			@CountryID BIGINT,
-			@IsDeleted BIGINT
+			@IsDeleted BIT
 	AS
 BEGIN
 

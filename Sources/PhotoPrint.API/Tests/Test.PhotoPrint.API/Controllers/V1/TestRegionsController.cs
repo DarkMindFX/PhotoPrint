@@ -171,9 +171,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Region testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.RegionName = "RegionName ef4d227bcb074386a013b17d1ac76148";
-                            testEntity.CountryID = 117;
-                            testEntity.IsDeleted = 504486;
+                          testEntity.RegionName = "RegionName 9028e249389e46a59270a532e839702b";
+                            testEntity.CountryID = 150;
+                            testEntity.IsDeleted = false;              
               
                     var reqDto = RegionConvertor.Convert(testEntity, null);
 
@@ -211,9 +211,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                              testEntity.ID = Int64.MaxValue;
-                             testEntity.RegionName = "RegionName ef4d227bcb074386a013b17d1ac76148";
-                            testEntity.CountryID = 117;
-                            testEntity.IsDeleted = 504486;
+                             testEntity.RegionName = "RegionName 9028e249389e46a59270a532e839702b";
+                            testEntity.CountryID = 150;
+                            testEntity.IsDeleted = false;              
               
                     var reqDto = RegionConvertor.Convert(testEntity, null);
 
@@ -251,9 +251,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Region CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Region();
-                          entity.RegionName = "RegionName 7969bc01908344b18861866de588aa6e";
-                            entity.CountryID = 212;
-                            entity.IsDeleted = 937210;
+                          entity.RegionName = "RegionName 6bf5de81ee8f40a1980bff311be0bd9d";
+                            entity.CountryID = 42;
+                            entity.IsDeleted = false;              
               
             return entity;
         }
