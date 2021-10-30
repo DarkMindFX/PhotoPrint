@@ -49,7 +49,7 @@ class ImageCategoriesPage extends React.Component {
     onRowClick(event) {
         const row = event.row;
         if(row) {
-            this.props.history.push(this.state.urlEditEntity + row.id);
+            this.props.history.push(this.state.urlEditEntity + row.ImageID + "/" + row.CategoryID);
         }
 
     }
@@ -89,8 +89,8 @@ class ImageCategoriesPage extends React.Component {
 
     _initColumns() {
         this._columns = [
-                { field: 'ImageID', headerName: 'ImageID', width: 250 },
-                { field: 'CategoryID', headerName: 'CategoryID', width: 250 },
+                { field: 'Image', headerName: 'ImageID', width: 250 },
+                { field: 'Category', headerName: 'CategoryID', width: 250 },
        
         ]        
     }
@@ -103,9 +103,11 @@ class ImageCategoriesPage extends React.Component {
         for(let c in cs) {
 
             let r = {
-                id: cs[c].ID,
-                ImageID: cs[c].ImageID ? this.state.images[ cs[c].ImageID ].Name : "",
-                CategoryID: cs[c].CategoryID ? this.state.categories[ cs[c].CategoryID ].Name : "",
+                id: c,
+                ImageID: cs[c].ImageID,
+                CategoryID: cs[c].CategoryID,
+                Image: cs[c].ImageID ? this.state.images[ cs[c].ImageID ].Title : "",
+                Category: cs[c].CategoryID ? this.state.categories[ cs[c].CategoryID ].CategoryName : "",
 
             };
 
@@ -171,7 +173,10 @@ class ImageCategoriesPage extends React.Component {
         {
             for(let s in response.data)
             {
-                updatedState.imagecategories[response.data[s].ID] = response.data[s];             
+                updatedState.imagecategories[[
+                    response.data[s].ImageID, 
+                    response.data[s].CategoryID
+                ]] = response.data[s];             
             }
         }
         else if(response.status == constants.HTTP_Unauthorized) {

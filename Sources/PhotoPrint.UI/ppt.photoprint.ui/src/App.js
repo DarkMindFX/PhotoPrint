@@ -130,9 +130,9 @@ class App extends React.Component {
        <Route exact path="/admin/images" component={ImagesPage} />
        <Route exact path="/admin/image/:operation/:id?" component={ImagePage} />
        <Route exact path="/admin/imagecategories" component={ImageCategoriesPage} />
-       <Route exact path="/admin/imagecategory/:operation/:id?" component={ImageCategoryPage} />
+       <Route exact path="/admin/imagecategory/:operation/:imageid?/:categoryid?" component={ImageCategoryPage} />
        <Route exact path="/admin/imagerelateds" component={ImageRelatedsPage} />
-       <Route exact path="/admin/imagerelated/:operation/:id?" component={ImageRelatedPage} />
+       <Route exact path="/admin/imagerelated/:operation/:imageid?/:relatedimageid?" component={ImageRelatedPage} />
        <Route exact path="/admin/imagethumbnails" component={ImageThumbnailsPage} />
        <Route exact path="/admin/imagethumbnail/:operation/:id?" component={ImageThumbnailPage} />
        <Route exact path="/admin/mats" component={MatsPage} />
@@ -158,9 +158,9 @@ class App extends React.Component {
        <Route exact path="/admin/printinghouses" component={PrintingHousesPage} />
        <Route exact path="/admin/printinghouse/:operation/:id?" component={PrintingHousePage} />
        <Route exact path="/admin/printinghouseaddresses" component={PrintingHouseAddressesPage} />
-       <Route exact path="/admin/printinghouseaddress/:operation/:id?" component={PrintingHouseAddressPage} />
+       <Route exact path="/admin/printinghouseaddress/:operation/:printinghouseid?/:addressid?" component={PrintingHouseAddressPage} />
        <Route exact path="/admin/printinghousecontacts" component={PrintingHouseContactsPage} />
-       <Route exact path="/admin/printinghousecontact/:operation/:id?" component={PrintingHouseContactPage} />
+       <Route exact path="/admin/printinghousecontact/:operation/:printinghouseid?/:contactid?" component={PrintingHouseContactPage} />
        <Route exact path="/admin/regions" component={RegionsPage} />
        <Route exact path="/admin/region/:operation/:id?" component={RegionPage} />
        <Route exact path="/admin/sizes" component={SizesPage} />
@@ -170,11 +170,11 @@ class App extends React.Component {
        <Route exact path="/admin/users" component={UsersPage} />
        <Route exact path="/admin/user/:operation/:id?" component={UserPage} />
        <Route exact path="/admin/useraddresses" component={UserAddressesPage} />
-       <Route exact path="/admin/useraddress/:operation/:id?" component={UserAddressPage} />
+       <Route exact path="/admin/useraddress/:operation/:userid?/:addressid?" component={UserAddressPage} />
        <Route exact path="/admin/userconfirmations" component={UserConfirmationsPage} />
        <Route exact path="/admin/userconfirmation/:operation/:id?" component={UserConfirmationPage} />
        <Route exact path="/admin/usercontacts" component={UserContactsPage} />
-       <Route exact path="/admin/usercontact/:operation/:id?" component={UserContactPage} />
+       <Route exact path="/admin/usercontact/:operation/:userid?/:contactid??" component={UserContactPage} />
        <Route exact path="/admin/userstatuses" component={UserStatusesPage} />
        <Route exact path="/admin/userstatus/:operation/:id?" component={UserStatusPage} />
        <Route exact path="/admin/usertypes" component={UserTypesPage} />

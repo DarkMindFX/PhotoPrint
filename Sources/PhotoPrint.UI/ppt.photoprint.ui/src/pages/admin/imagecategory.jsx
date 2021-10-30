@@ -35,12 +35,14 @@ class ImageCategoryPage extends React.Component {
 
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
-        let paramId = this.props.match.params.id;
+        let paramImageId = this.props.match.params.imageid;
+        let paramCategoryId = this.props.match.params.categoryid;
         let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
-            id:         paramId ? parseInt(paramId) : null,
+            imageid:    paramImageId ? parseInt(paramImageId) : null,
+            categoryid:    paramCategoryId ? parseInt(paramCategoryId) : null,
             canEdit:    paramOperation ? ( paramOperation.toLowerCase() == 'new' || 
                                         paramOperation.toLowerCase() == 'edit' ? true : false) : false,
             imagecategory: this._createEmptyImageCategoryObj(),
@@ -51,7 +53,7 @@ class ImageCategoryPage extends React.Component {
             error: null,
             success: null,
             urlEntities: `${rooPath}imagecategories`,
-            urlThis: `${rooPath}imagecategory/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlThis: `${rooPath}imagecategory/${paramOperation}` + (paramImageId ? `/${paramImageId}/${paramCategoryId}` : ``)
         };
 
         this.onImageIDChanged = this.onImageIDChanged.bind(this);
@@ -115,7 +117,6 @@ class ImageCategoryPage extends React.Component {
         
         if(this._validateForm()) {
             const reqImageCategory = new ImageCategoryDto();
-            reqImageCategory.ID = this.state.id;
             reqImageCategory.ImageID = this.state.imagecategory.ImageID;
             reqImageCategory.CategoryID = this.state.imagecategory.CategoryID;
 
@@ -133,7 +134,7 @@ class ImageCategoryPage extends React.Component {
                     updatedState.showError = false;
                     if(response.status == constants.HTTP_Created) {
                         updatedState.id = response.data.ID;
-                        updatedState.success = `ImageCategory was created. ID: ${updatedState.id}`;
+                        updatedState.success = `ImageCategory was created.`;
                     }
                     else {
                         updatedState.success = `ImageCategory was updated`;                
@@ -157,7 +158,7 @@ class ImageCategoryPage extends React.Component {
                 obj.setState(updatedState);
             }
 
-            if(this.state.id != null) {
+            if(this.state.imageid != null && this.state.categoryid != null) {
                 dalImageCategories.updateImageCategory(reqImageCategory)
                                         .then( (res) => { upsertImageCategoryThen(res); } )
                                         .catch( (err) => { upsertCatch(err); });
@@ -189,7 +190,7 @@ class ImageCategoryPage extends React.Component {
         let dalImageCategories = new ImageCategoriesDal();
         let obj = this;
 
-        dalImageCategories.deleteImageCategory(this.state.id).then( (response) => {
+        dalImageCategories.deleteImageCategory(this.state.imageid, this.state.categoryid).then( (response) => {
             if(response.status == constants.HTTP_OK) {
                 obj.props.history.push(this.state.urlEntities);                
             }
@@ -213,15 +214,15 @@ class ImageCategoryPage extends React.Component {
         }   
         
         const styleDeleteBtn = {
-            display: this.state.id ? "block" : "none"
+            display: this.state.imageid && this.state.categoryid ? "block" : "none"
         }
 
-        const lstImageIDsFields = ["Name"];
+        const lstImageIDsFields = ["Title"];
         const lstImageIDs = this._prepareOptionsList( this.state.images 
                                                                     ? Object.values(this.state.images) : null, 
                                                                     lstImageIDsFields,
                                                                     false );
-        const lstCategoryIDsFields = ["Name"];
+        const lstCategoryIDsFields = ["CategoryName"];
         const lstCategoryIDs = this._prepareOptionsList( this.state.categories 
                                                                     ? Object.values(this.state.categories) : null, 
                                                                     lstCategoryIDsFields,
@@ -232,7 +233,11 @@ class ImageCategoryPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>ImageCategory: { this.state.imagecategory.toString() }</h2>
+                                <h2>ImageCategory: { 
+                                    (this.state.imagecategory.ImageID ? this.state.images[ this.state.imagecategory.ImageID ].Title : "")
+                                    + " - " +
+                                    (this.state.imagecategory.CategoryID ? this.state.categories[ this.state.imagecategory.CategoryID ].CategoryName : "")
+                                    }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -321,11 +326,11 @@ class ImageCategoryPage extends React.Component {
 
     async _getImageCategory()
     {
-        if(this.state.id) {
+        if(this.state.imageid && this.state.categoryid) {
             let updatedState = this.state;
                   
             let dalImageCategories = new ImageCategoriesDal();
-            let response = await dalImageCategories.getImageCategory(this.state.id);
+            let response = await dalImageCategories.getImageCategory(this.state.imageid, this.state.categoryid);
 
             if(response.status == constants.HTTP_OK)
             {
