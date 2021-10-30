@@ -339,27 +339,27 @@ class OrderPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstManagerIDsFields = ["Name"];
+        const lstManagerIDsFields = ["FirstName", "LastName"];
         const lstManagerIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstManagerIDsFields,
                                                                     true );
-        const lstUserIDsFields = ["Name"];
+        const lstUserIDsFields = ["FirstName", "LastName"];
         const lstUserIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstUserIDsFields,
                                                                     false );
-        const lstContactIDsFields = ["Name"];
+        const lstContactIDsFields = ["Title"];
         const lstContactIDs = this._prepareOptionsList( this.state.contacts 
                                                                     ? Object.values(this.state.contacts) : null, 
                                                                     lstContactIDsFields,
                                                                     false );
-        const lstDeliveryAddressIDsFields = ["Name"];
+        const lstDeliveryAddressIDsFields = ["Title"];
         const lstDeliveryAddressIDs = this._prepareOptionsList( this.state.addresses 
                                                                     ? Object.values(this.state.addresses) : null, 
                                                                     lstDeliveryAddressIDsFields,
                                                                     false );
-        const lstDeliveryServiceIDsFields = ["Name"];
+        const lstDeliveryServiceIDsFields = ["DeliveryServiceName"];
         const lstDeliveryServiceIDs = this._prepareOptionsList( this.state.deliveryservices 
                                                                     ? Object.values(this.state.deliveryservices) : null, 
                                                                     lstDeliveryServiceIDsFields,
@@ -380,7 +380,7 @@ class OrderPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Order: { this.state.order.toString() }</h2>
+                                <h2>Order: { this.state.order.ID }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
