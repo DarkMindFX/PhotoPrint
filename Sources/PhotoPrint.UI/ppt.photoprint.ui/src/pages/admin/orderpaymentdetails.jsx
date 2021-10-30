@@ -310,7 +310,7 @@ class OrderPaymentDetailsPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstOrderIDsFields = ["Name"];
+        const lstOrderIDsFields = ["ID"];
         const lstOrderIDs = this._prepareOptionsList( this.state.orders 
                                                                     ? Object.values(this.state.orders) : null, 
                                                                     lstOrderIDsFields,
@@ -336,7 +336,7 @@ class OrderPaymentDetailsPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>OrderPaymentDetails: { this.state.orderpaymentdetails.toString() }</h2>
+                                <h2>OrderPaymentDetails: Order { this.state.orderpaymentdetails.OrderID }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

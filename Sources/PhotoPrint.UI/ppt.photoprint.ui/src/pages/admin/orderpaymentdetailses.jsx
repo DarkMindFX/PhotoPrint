@@ -117,7 +117,7 @@ class OrderPaymentDetailsesPage extends React.Component {
             let r = {
                 id: cs[c].ID,
                 ID: cs[c].ID,
-                OrderID: cs[c].OrderID ? this.state.orders[ cs[c].OrderID ].Name : "",
+                OrderID: cs[c].OrderID,
                 PaymentMethodID: cs[c].PaymentMethodID ? this.state.paymentmethods[ cs[c].PaymentMethodID ].Name : "",
                 PaymentTransUID: cs[c].PaymentTransUID,
                 PaymentDateTime: cs[c].PaymentDateTime,
