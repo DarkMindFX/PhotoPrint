@@ -258,17 +258,17 @@ class OrderTrackingPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstOrderIDsFields = ["Name"];
+        const lstOrderIDsFields = ["ID"];
         const lstOrderIDs = this._prepareOptionsList( this.state.orders 
                                                                     ? Object.values(this.state.orders) : null, 
                                                                     lstOrderIDsFields,
                                                                     false );
-        const lstOrderStatusIDsFields = ["Name"];
+        const lstOrderStatusIDsFields = ["OrderStatusName"];
         const lstOrderStatusIDs = this._prepareOptionsList( this.state.orderstatuses 
                                                                     ? Object.values(this.state.orderstatuses) : null, 
                                                                     lstOrderStatusIDsFields,
                                                                     false );
-        const lstSetByIDsFields = ["Name"];
+        const lstSetByIDsFields = ["FirstName", "LastName"];
         const lstSetByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstSetByIDsFields,
@@ -279,7 +279,7 @@ class OrderTrackingPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>OrderTracking: { this.state.ordertracking.toString() }</h2>
+                                <h2>OrderTracking: Order { this.state.ordertracking.OrderID }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

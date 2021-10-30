@@ -113,10 +113,10 @@ class OrderTrackingsPage extends React.Component {
             let r = {
                 id: cs[c].ID,
                 ID: cs[c].ID,
-                OrderID: cs[c].OrderID ? this.state.orders[ cs[c].OrderID ].Name : "",
-                OrderStatusID: cs[c].OrderStatusID ? this.state.orderstatuses[ cs[c].OrderStatusID ].Name : "",
+                OrderID: cs[c].OrderID,
+                OrderStatusID: cs[c].OrderStatusID ? this.state.orderstatuses[ cs[c].OrderStatusID ].OrderStatusName : "",
                 SetDate: cs[c].SetDate,
-                SetByID: cs[c].SetByID ? this.state.users[ cs[c].SetByID ].Name : "",
+                SetByID: cs[c].SetByID ? this.state.users[ cs[c].SetByID ].FirstName + " " + this.state.users[ cs[c].SetByID ].LastName : "",
                 Comment: cs[c].Comment,
 
             };
