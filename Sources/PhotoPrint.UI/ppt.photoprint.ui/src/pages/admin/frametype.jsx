@@ -14,6 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
+import Image from "material-ui-image";
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -371,6 +372,11 @@ class FrameTypePage extends React.Component {
                                 
                             </td>
                         </tr> 
+                        <tr>
+                            <td>
+                                <Image src={this.state.frametype.ThumbnailUrl} />
+                            </td>
+                        </tr>
    
                         <tr>
                             <td colSpan={2}>

@@ -122,7 +122,7 @@ class ImagesPage extends React.Component {
                 MaxWidth: cs[c].MaxWidth,
                 MaxHeight: cs[c].MaxHeight,
                 PriceAmount: cs[c].PriceAmount,
-                PriceCurrencyID: cs[c].PriceCurrencyID ? this.state.currencies[ cs[c].PriceCurrencyID ].Name : "",
+                PriceCurrencyID: cs[c].PriceCurrencyID ? this.state.currencies[ cs[c].PriceCurrencyID ].ISO : "",
                 IsDeleted: cs[c].IsDeleted,
                 CreatedByID: cs[c].CreatedByID ? this.state.users[ cs[c].CreatedByID ].FirstName + " " + this.state.users[ cs[c].CreatedByID ].LastName : "",
                 CreatedDate: cs[c].CreatedDate,
