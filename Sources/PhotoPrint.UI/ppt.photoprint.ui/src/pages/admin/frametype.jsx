@@ -291,12 +291,12 @@ class FrameTypePage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstCreatedByIDsFields = ["Name"];
+        const lstCreatedByIDsFields = ["FirstName", "LastName"];
         const lstCreatedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstCreatedByIDsFields,
                                                                     false );
-        const lstModifiedByIDsFields = ["Name"];
+        const lstModifiedByIDsFields = ["FirstName", "LastName"];
         const lstModifiedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstModifiedByIDsFields,
@@ -307,7 +307,7 @@ class FrameTypePage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>FrameType: { this.state.frametype.toString() }</h2>
+                                <h2>FrameType: { this.state.frametype.FrameTypeName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

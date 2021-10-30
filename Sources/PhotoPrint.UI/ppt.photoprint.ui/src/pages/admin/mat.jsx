@@ -291,12 +291,12 @@ class MatPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstCreatedByIDsFields = ["Name"];
+        const lstCreatedByIDsFields = ["FirstName", "LastName"];
         const lstCreatedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstCreatedByIDsFields,
                                                                     false );
-        const lstModifiedByIDsFields = ["Name"];
+        const lstModifiedByIDsFields = ["FirstName", "LastName"];
         const lstModifiedByIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstModifiedByIDsFields,
