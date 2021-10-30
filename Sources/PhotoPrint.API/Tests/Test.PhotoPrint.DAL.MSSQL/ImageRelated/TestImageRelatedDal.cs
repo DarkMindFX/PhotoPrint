@@ -54,8 +54,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.RelatedImageID);
             
-                          Assert.AreEqual(603366, entity.ImageID);
-                            Assert.AreEqual(603366, entity.RelatedImageID);
+                          Assert.AreEqual(100049, entity.ImageID);
+                            Assert.AreEqual(100013, entity.RelatedImageID);
                       }
 
         [Test]
@@ -107,8 +107,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageRelatedDal("DALInitParams");
 
             var entity = new ImageRelated();
-                          entity.ImageID = 603366;
-                            entity.RelatedImageID = 603366;
+                          entity.ImageID = 100014;
+                            entity.RelatedImageID = 100025;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +118,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.RelatedImageID);
             
-                          Assert.AreEqual(603366, entity.ImageID);
-                            Assert.AreEqual(603366, entity.RelatedImageID);
+                          Assert.AreEqual(100014, entity.ImageID);
+                            Assert.AreEqual(100025, entity.RelatedImageID);
               
         }
 
@@ -143,8 +143,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.RelatedImageID);
             
-                          Assert.AreEqual(603366, entity.ImageID);
-                            Assert.AreEqual(603366, entity.RelatedImageID);
+                          Assert.AreEqual(100021, entity.ImageID);
+                            Assert.AreEqual(100015, entity.RelatedImageID);
               
         }
 
@@ -154,8 +154,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageRelatedDal("DALInitParams");
 
             var entity = new ImageRelated();
-                          entity.ImageID = 603366;
-                            entity.RelatedImageID = 603366;
+                          entity.ImageID = 100021;
+                            entity.RelatedImageID = 100015;
               
             try
             {

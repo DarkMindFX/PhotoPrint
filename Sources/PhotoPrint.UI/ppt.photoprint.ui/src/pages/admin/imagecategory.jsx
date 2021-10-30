@@ -133,7 +133,8 @@ class ImageCategoryPage extends React.Component {
                     updatedState.showSuccess = true;
                     updatedState.showError = false;
                     if(response.status == constants.HTTP_Created) {
-                        updatedState.id = response.data.ID;
+                        updatedState.imageid = response.data.ImageID;
+                        updatedState.categoryid = response.data.CategoryID;
                         updatedState.success = `ImageCategory was created.`;
                     }
                     else {
@@ -237,7 +238,8 @@ class ImageCategoryPage extends React.Component {
                                     (this.state.imagecategory.ImageID ? this.state.images[ this.state.imagecategory.ImageID ].Title : "")
                                     + " - " +
                                     (this.state.imagecategory.CategoryID ? this.state.categories[ this.state.imagecategory.CategoryID ].CategoryName : "")
-                                    }</h2>
+                                    }
+                                </h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

@@ -12,6 +12,8 @@ import constants from "../../constants";
 const PageHelper = require("../../helpers/PageHelper");
 const ImageRelatedsDal = require('../../dal/ImageRelatedsDal');
 
+const ImagesDal = require('../../dal/ImagesDal');
+
 
 class ImageRelatedsPage extends React.Component {
 
@@ -34,6 +36,7 @@ class ImageRelatedsPage extends React.Component {
         };
         this._initColumns();
        
+        this._getImages = this._getImages.bind(this);
         this._getImageRelateds = this._getImageRelateds.bind(this);
         this._redirectToLogin = this._redirectToLogin.bind(this);
 
@@ -43,7 +46,7 @@ class ImageRelatedsPage extends React.Component {
     onRowClick(event) {
         const row = event.row;
         if(row) {
-            this.props.history.push(this.state.urlEditEntity + row.id);
+            this.props.history.push(this.state.urlEditEntity + row.ImageID + "/" + row.RelatedImageID);
         }
 
     }
@@ -53,8 +56,9 @@ class ImageRelatedsPage extends React.Component {
         console.log('Token: ', token);
         if(token != null) {
             let obj = this;
-            			obj._getImageRelateds().then( () => {} );
-			
+            			obj._getImages().then( () => {
+			obj._getImageRelateds().then( () => {} );
+			});
         }
         else {
             console.log('No token - need to login')
@@ -81,8 +85,8 @@ class ImageRelatedsPage extends React.Component {
 
     _initColumns() {
         this._columns = [
-                { field: 'ImageID', headerName: 'ImageID', width: 250 },
-                { field: 'RelatedImageID', headerName: 'RelatedImageID', width: 250 },
+                { field: 'Image', headerName: 'ImageID', width: 250 },
+                { field: 'RelatedImage', headerName: 'RelatedImageID', width: 250 },
        
         ]        
     }
@@ -95,9 +99,11 @@ class ImageRelatedsPage extends React.Component {
         for(let c in cs) {
 
             let r = {
-                id: cs[c].ID,
+                id: c,
                 ImageID: cs[c].ImageID,
                 RelatedImageID: cs[c].RelatedImageID,
+                Image: cs[c].ImageID ? this.state.images[ cs[c].ImageID ].Title : "",
+                RelatedImage: cs[c].RelatedImageID ? this.state.images[ cs[c].RelatedImageID ].Title : "",
 
             };
 
@@ -107,6 +113,28 @@ class ImageRelatedsPage extends React.Component {
         return records;
     }
 
+    async _getImages() {
+        let updatedState = this.state;
+        updatedState.images = {};
+        let dalImages = new ImagesDal();
+        let response = await dalImages.getImages();
+
+        if(response.status == constants.HTTP_OK)
+        {
+            for(let s in response.data)
+            {
+                updatedState.images[response.data[s].ID] = response.data[s];             
+            }
+        }
+        else if(response.status == constants.HTTP_Unauthorized) {
+            this._redirectToLogin();            
+        }
+        else {
+            this._showError(updatedState, response);                        
+        }
+
+        this.setState(updatedState);
+    }
     
 
     async _getImageRelateds() {
@@ -119,7 +147,10 @@ class ImageRelatedsPage extends React.Component {
         {
             for(let s in response.data)
             {
-                updatedState.imagerelateds[response.data[s].ID] = response.data[s];             
+                updatedState.imagerelateds[[
+                    response.data[s].ImageID,
+                    response.data[s].RelatedImageID
+                ]] = response.data[s];             
             }
         }
         else if(response.status == constants.HTTP_Unauthorized) {

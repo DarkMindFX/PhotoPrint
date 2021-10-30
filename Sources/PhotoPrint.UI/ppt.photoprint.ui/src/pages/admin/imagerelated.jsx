@@ -19,6 +19,8 @@ const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
 const PageHelper = require("../../helpers/PageHelper");
 const ImageRelatedsDal = require('../../dal/ImageRelatedsDal');
+
+const ImagesDal = require('../../dal/ImagesDal');
 const { ImageRelatedDto } = require('ppt.photoprint.dto')
 
 
@@ -31,12 +33,14 @@ class ImageRelatedPage extends React.Component {
 
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
-        let paramId = this.props.match.params.id;
+        let paramImageId = this.props.match.params.imageid;
+        let paramRelatedImageId = this.props.match.params.relatedimageid;
         let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
-            id:         paramId ? parseInt(paramId) : null,
+            imageid:    paramImageId ? parseInt(paramImageId) : null,
+            relatedimageid:    paramRelatedImageId ? parseInt(paramRelatedImageId) : null,
             canEdit:    paramOperation ? ( paramOperation.toLowerCase() == 'new' || 
                                         paramOperation.toLowerCase() == 'edit' ? true : false) : false,
             imagerelated: this._createEmptyImageRelatedObj(),
@@ -47,7 +51,7 @@ class ImageRelatedPage extends React.Component {
             error: null,
             success: null,
             urlEntities: `${rooPath}imagerelateds`,
-            urlThis: `${rooPath}imagerelated/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlThis: `${rooPath}imagerelated/${paramOperation}` + (paramImageId ? `/${paramImageId}/${paramRelatedImageId}` : ``)
         };
 
         this.onImageIDChanged = this.onImageIDChanged.bind(this);
@@ -72,8 +76,9 @@ class ImageRelatedPage extends React.Component {
         console.log('Token: ', token);
         if(token != null) {
             let obj = this;
-            			obj._getImageRelated().then( () => {} );
-			
+            			obj._getImages().then( () => {
+			obj._getImageRelated().then( () => {} );
+			});
         }
         else {
             console.log('No token - need to login')
@@ -109,7 +114,6 @@ class ImageRelatedPage extends React.Component {
         
         if(this._validateForm()) {
             const reqImageRelated = new ImageRelatedDto();
-            reqImageRelated.ID = this.state.id;
             reqImageRelated.ImageID = this.state.imagerelated.ImageID;
             reqImageRelated.RelatedImageID = this.state.imagerelated.RelatedImageID;
 
@@ -126,8 +130,9 @@ class ImageRelatedPage extends React.Component {
                     updatedState.showSuccess = true;
                     updatedState.showError = false;
                     if(response.status == constants.HTTP_Created) {
-                        updatedState.id = response.data.ID;
-                        updatedState.success = `ImageRelated was created. ID: ${updatedState.id}`;
+                        updatedState.imageid = response.data.ImageID;
+                        updatedState.relatedimageid = response.data.RelatedImageID;
+                        updatedState.success = `ImageRelated was created.`;
                     }
                     else {
                         updatedState.success = `ImageRelated was updated`;                
@@ -151,7 +156,7 @@ class ImageRelatedPage extends React.Component {
                 obj.setState(updatedState);
             }
 
-            if(this.state.id != null) {
+            if(this.state.imageid != null && this.state.relatedimageid != null) {
                 dalImageRelateds.updateImageRelated(reqImageRelated)
                                         .then( (res) => { upsertImageRelatedThen(res); } )
                                         .catch( (err) => { upsertCatch(err); });
@@ -183,7 +188,7 @@ class ImageRelatedPage extends React.Component {
         let dalImageRelateds = new ImageRelatedsDal();
         let obj = this;
 
-        dalImageRelateds.deleteImageRelated(this.state.id).then( (response) => {
+        dalImageRelateds.deleteImageRelated(this.state.imageid, this.state.relatedimageid).then( (response) => {
             if(response.status == constants.HTTP_OK) {
                 obj.props.history.push(this.state.urlEntities);                
             }
@@ -207,16 +212,31 @@ class ImageRelatedPage extends React.Component {
         }   
         
         const styleDeleteBtn = {
-            display: this.state.id ? "block" : "none"
+            display: this.state.imageid && this.state.relatedimageid ? "block" : "none"
         }
 
+        const lstImageIDsFields = ["Title"];
+        const lstImageIDs = this._prepareOptionsList( this.state.images 
+                                                                    ? Object.values(this.state.images) : null, 
+                                                                    lstImageIDsFields,
+                                                                    false );
+        const lstRelatedImageIDsFields = ["Title"];
+        const lstRelatedImageIDs = this._prepareOptionsList( this.state.images 
+                                                                    ? Object.values(this.state.images) : null, 
+                                                                    lstRelatedImageIDsFields,
+                                                                    false );
         return (
             <div>
                  <table>
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>ImageRelated: { this.state.imagerelated.toString() }</h2>
+                                <h2>ImageRelated: { 
+                                    (this.state.imagerelated.ImageID ? this.state.images[ this.state.imagerelated.ImageID ].Title : "")
+                                    + " - " +
+                                    (this.state.imagerelated.RelatedImageID ? this.state.images[ this.state.imagerelated.RelatedImageID ].Title : "")
+                                    }
+                                </h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -238,14 +258,17 @@ class ImageRelatedPage extends React.Component {
     
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="ImageID" 
+                                <TextField  key="cbImageID" 
                                             fullWidth
-                                            type="text" 
-                                            variant="filled" 
+                                            select 
                                             label="ImageID" 
-                                            value={this.state.imagerelated.ImageID}
-                                            onChange={ (event) => { this.onImageIDChanged(event) } }
-                                            />
+                                            value={ (this.state.imagerelated && this.state.imagerelated.ImageID) ? 
+                                                        this.state.imagerelated.ImageID : '-1' }
+                                                        onChange={ (event) => this.onImageIDChanged(event) }>
+                                        {
+                                            lstImageIDs 
+                                        }
+                                </TextField>
 
                                 
                             </td>
@@ -253,14 +276,17 @@ class ImageRelatedPage extends React.Component {
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="RelatedImageID" 
+                                <TextField  key="cbRelatedImageID" 
                                             fullWidth
-                                            type="text" 
-                                            variant="filled" 
+                                            select 
                                             label="RelatedImageID" 
-                                            value={this.state.imagerelated.RelatedImageID}
-                                            onChange={ (event) => { this.onRelatedImageIDChanged(event) } }
-                                            />
+                                            value={ (this.state.imagerelated && this.state.imagerelated.RelatedImageID) ? 
+                                                        this.state.imagerelated.RelatedImageID : '-1' }
+                                                        onChange={ (event) => this.onRelatedImageIDChanged(event) }>
+                                        {
+                                            lstRelatedImageIDs 
+                                        }
+                                </TextField>
 
                                 
                             </td>
@@ -299,11 +325,11 @@ class ImageRelatedPage extends React.Component {
 
     async _getImageRelated()
     {
-        if(this.state.id) {
+        if(this.state.imageid && this.state.relatedimageid) {
             let updatedState = this.state;
                   
             let dalImageRelateds = new ImageRelatedsDal();
-            let response = await dalImageRelateds.getImageRelated(this.state.id);
+            let response = await dalImageRelateds.getImageRelated(this.state.imageid, this.state.relatedimageid);
 
             if(response.status == constants.HTTP_OK)
             {
@@ -320,6 +346,29 @@ class ImageRelatedPage extends React.Component {
         
             this.setState(updatedState);    
         }
+    }
+
+    async _getImages() {
+        let updatedState = this.state;
+        updatedState.images = {};
+        let dalImages = new ImagesDal();
+        let response = await dalImages.getImages();
+
+        if(response.status == constants.HTTP_OK)
+        {
+            for(let s in response.data)
+            {
+                updatedState.images[response.data[s].ID] = response.data[s];             
+            }
+        }
+        else if(response.status == constants.HTTP_Unauthorized) {
+            this._redirectToLogin();            
+        }
+        else {
+            this._showError(updatedState, response);                        
+        }
+
+        this.setState(updatedState);
     }
 
     

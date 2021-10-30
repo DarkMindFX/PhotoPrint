@@ -117,7 +117,6 @@ class DeliveryServiceCityPage extends React.Component {
         
         if(this._validateForm()) {
             const reqDeliveryServiceCity = new DeliveryServiceCityDto();
-            reqDeliveryServiceCity.ID = this.state.id;
             reqDeliveryServiceCity.DeliveryServiceID = this.state.deliveryservicecity.DeliveryServiceID;
             reqDeliveryServiceCity.CityID = this.state.deliveryservicecity.CityID;
 
@@ -134,8 +133,9 @@ class DeliveryServiceCityPage extends React.Component {
                     updatedState.showSuccess = true;
                     updatedState.showError = false;
                     if(response.status == constants.HTTP_Created) {
-                        updatedState.id = response.data.ID;
-                        updatedState.success = `DeliveryServiceCity was created. ID: ${updatedState.id}`;
+                        updatedState.deliveryserviceid = response.data.DelvieryServiceID;
+                        updatedState.cityid = response.data.CityID;
+                        updatedState.success = `DeliveryServiceCity was created.`;
                     }
                     else {
                         updatedState.success = `DeliveryServiceCity was updated`;                
@@ -159,7 +159,7 @@ class DeliveryServiceCityPage extends React.Component {
                 obj.setState(updatedState);
             }
 
-            if(this.state.id != null) {
+            if(this.state.deliveryserviceid != null && this.state.cityid) {
                 dalDeliveryServiceCities.updateDeliveryServiceCity(reqDeliveryServiceCity)
                                         .then( (res) => { upsertDeliveryServiceCityThen(res); } )
                                         .catch( (err) => { upsertCatch(err); });
