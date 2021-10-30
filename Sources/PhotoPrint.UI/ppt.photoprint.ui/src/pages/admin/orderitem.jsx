@@ -474,47 +474,47 @@ class OrderItemPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstOrderIDsFields = ["Name"];
+        const lstOrderIDsFields = ["ID"];
         const lstOrderIDs = this._prepareOptionsList( this.state.orders 
                                                                     ? Object.values(this.state.orders) : null, 
                                                                     lstOrderIDsFields,
                                                                     false );
-        const lstImageIDsFields = ["Name"];
+        const lstImageIDsFields = ["Title"];
         const lstImageIDs = this._prepareOptionsList( this.state.images 
                                                                     ? Object.values(this.state.images) : null, 
                                                                     lstImageIDsFields,
                                                                     false );
-        const lstSizeIDsFields = ["Name"];
+        const lstSizeIDsFields = ["SizeName"];
         const lstSizeIDs = this._prepareOptionsList( this.state.sizes 
                                                                     ? Object.values(this.state.sizes) : null, 
                                                                     lstSizeIDsFields,
                                                                     true );
-        const lstFrameTypeIDsFields = ["Name"];
+        const lstFrameTypeIDsFields = ["FrameTypeName"];
         const lstFrameTypeIDs = this._prepareOptionsList( this.state.frametypes 
                                                                     ? Object.values(this.state.frametypes) : null, 
                                                                     lstFrameTypeIDsFields,
                                                                     false );
-        const lstFrameSizeIDsFields = ["Name"];
+        const lstFrameSizeIDsFields = ["SizeName"];
         const lstFrameSizeIDs = this._prepareOptionsList( this.state.sizes 
                                                                     ? Object.values(this.state.sizes) : null, 
                                                                     lstFrameSizeIDsFields,
                                                                     true );
-        const lstMatIDsFields = ["Name"];
+        const lstMatIDsFields = ["MatName"];
         const lstMatIDs = this._prepareOptionsList( this.state.mats 
                                                                     ? Object.values(this.state.mats) : null, 
                                                                     lstMatIDsFields,
                                                                     false );
-        const lstMaterialTypeIDsFields = ["Name"];
+        const lstMaterialTypeIDsFields = ["MaterialTypeName"];
         const lstMaterialTypeIDs = this._prepareOptionsList( this.state.materialtypes 
                                                                     ? Object.values(this.state.materialtypes) : null, 
                                                                     lstMaterialTypeIDsFields,
                                                                     false );
-        const lstMountingTypeIDsFields = ["Name"];
+        const lstMountingTypeIDsFields = ["MountingTypeName"];
         const lstMountingTypeIDs = this._prepareOptionsList( this.state.mountingtypes 
                                                                     ? Object.values(this.state.mountingtypes) : null, 
                                                                     lstMountingTypeIDsFields,
                                                                     false );
-        const lstPriceCurrencyIDsFields = ["Name"];
+        const lstPriceCurrencyIDsFields = ["ISO"];
         const lstPriceCurrencyIDs = this._prepareOptionsList( this.state.currencies 
                                                                     ? Object.values(this.state.currencies) : null, 
                                                                     lstPriceCurrencyIDsFields,
@@ -540,7 +540,7 @@ class OrderItemPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>OrderItem: { this.state.orderitem.toString() }</h2>
+                                <h2>OrderItem: { this.state.orderitem.ID }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

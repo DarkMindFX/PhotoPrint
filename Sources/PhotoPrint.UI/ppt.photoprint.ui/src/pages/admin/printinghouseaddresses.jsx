@@ -49,7 +49,7 @@ class PrintingHouseAddressesPage extends React.Component {
     onRowClick(event) {
         const row = event.row;
         if(row) {
-            this.props.history.push(this.state.urlEditEntity + row.id);
+            this.props.history.push(this.state.urlEditEntity + row.PrintingHouseID + "/" + row.AddressID);
         }
 
     }
@@ -89,8 +89,8 @@ class PrintingHouseAddressesPage extends React.Component {
 
     _initColumns() {
         this._columns = [
-                { field: 'PrintingHouseID', headerName: 'PrintingHouseID', width: 250 },
-                { field: 'AddressID', headerName: 'AddressID', width: 250 },
+                { field: 'PrintingHouse', headerName: 'PrintingHouseID', width: 250 },
+                { field: 'Address', headerName: 'AddressID', width: 250 },
                 { field: 'IsPrimary', headerName: 'IsPrimary', width: 250 },
        
         ]        
@@ -104,9 +104,11 @@ class PrintingHouseAddressesPage extends React.Component {
         for(let c in cs) {
 
             let r = {
-                id: cs[c].ID,
-                PrintingHouseID: cs[c].PrintingHouseID ? this.state.printinghouses[ cs[c].PrintingHouseID ].Name : "",
-                AddressID: cs[c].AddressID ? this.state.addresses[ cs[c].AddressID ].Name : "",
+                id: c,
+                PrintingHouseID: cs[c].PrintingHouseID,
+                AddressID: cs[c].AddressID,
+                PrintingHouse: cs[c].PrintingHouseID ? this.state.printinghouses[ cs[c].PrintingHouseID ].Name : "",
+                Address: cs[c].AddressID ? this.state.addresses[ cs[c].AddressID ].Title : "",
                 IsPrimary: cs[c].IsPrimary,
 
             };
@@ -173,7 +175,8 @@ class PrintingHouseAddressesPage extends React.Component {
         {
             for(let s in response.data)
             {
-                updatedState.printinghouseaddresses[response.data[s].ID] = response.data[s];             
+                updatedState.printinghouseaddresses[[response.data[s].PrintingHouseID,
+                                                        response.data[s].AddressID]] = response.data[s];             
             }
         }
         else if(response.status == constants.HTTP_Unauthorized) {
