@@ -14,6 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
+import Image from "material-ui-image";
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -294,7 +295,7 @@ class MountingTypePage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>MountingType: { this.state.mountingtype.toString() }</h2>
+                                <h2>MountingType: { this.state.mountingtype.MountingTypeName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -358,6 +359,12 @@ class MountingTypePage extends React.Component {
                                 
                             </td>
                         </tr> 
+
+                        <tr>
+                            <td>
+                                <Image src={this.state.mountingtype.ThumbnailUrl} />
+                            </td>
+                        </tr>
    
                         <tr>
                             <td colSpan={2}>
