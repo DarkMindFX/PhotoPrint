@@ -46,7 +46,7 @@ class OrderStatusFlowsPage extends React.Component {
     onRowClick(event) {
         const row = event.row;
         if(row) {
-            this.props.history.push(this.state.urlEditEntity + row.id);
+            this.props.history.push(this.state.urlEditEntity + row.FromStatusID + "/" + row.ToStatusID);
         }
 
     }
@@ -85,8 +85,8 @@ class OrderStatusFlowsPage extends React.Component {
 
     _initColumns() {
         this._columns = [
-                { field: 'FromStatusID', headerName: 'FromStatusID', width: 250 },
-                { field: 'ToStatusID', headerName: 'ToStatusID', width: 250 },
+                { field: 'FromStatus', headerName: 'FromStatusID', width: 250 },
+                { field: 'ToStatus', headerName: 'ToStatusID', width: 250 },
        
         ]        
     }
@@ -99,9 +99,11 @@ class OrderStatusFlowsPage extends React.Component {
         for(let c in cs) {
 
             let r = {
-                id: cs[c].ID,
-                FromStatusID: cs[c].FromStatusID ? this.state.orderstatuses[ cs[c].FromStatusID ].Name : "",
-                ToStatusID: cs[c].ToStatusID ? this.state.orderstatuses[ cs[c].ToStatusID ].Name : "",
+                id: c,
+                FromStatusID: cs[c].FromStatusID,
+                ToStatusID: cs[c].ToStatusID,
+                FromStatus: cs[c].FromStatusID ? this.state.orderstatuses[ cs[c].FromStatusID ].OrderStatusName : "",
+                ToStatus: cs[c].ToStatusID ? this.state.orderstatuses[ cs[c].ToStatusID ].OrderStatusName : "",
 
             };
 
@@ -145,7 +147,9 @@ class OrderStatusFlowsPage extends React.Component {
         {
             for(let s in response.data)
             {
-                updatedState.orderstatusflows[response.data[s].ID] = response.data[s];             
+                updatedState.orderstatusflows[[
+                    response.data[s].FromStatusID,
+                    response.data[s].ToStatusID ]] = response.data[s];             
             }
         }
         else if(response.status == constants.HTTP_Unauthorized) {

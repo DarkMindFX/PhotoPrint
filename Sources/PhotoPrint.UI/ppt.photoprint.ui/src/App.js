@@ -150,7 +150,7 @@ class App extends React.Component {
        <Route exact path="/admin/orderstatuses" component={OrderStatusesPage} />
        <Route exact path="/admin/orderstatus/:operation/:id?" component={OrderStatusPage} />
        <Route exact path="/admin/orderstatusflows" component={OrderStatusFlowsPage} />
-       <Route exact path="/admin/orderstatusflow/:operation/:id?" component={OrderStatusFlowPage} />
+       <Route exact path="/admin/orderstatusflow/:operation/:fromstatusid?/:tostatusid?" component={OrderStatusFlowPage} />
        <Route exact path="/admin/ordertrackings" component={OrderTrackingsPage} />
        <Route exact path="/admin/ordertracking/:operation/:id?" component={OrderTrackingPage} />
        <Route exact path="/admin/paymentmethods" component={PaymentMethodsPage} />

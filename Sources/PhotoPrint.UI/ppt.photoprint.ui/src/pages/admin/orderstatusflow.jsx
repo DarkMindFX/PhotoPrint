@@ -33,12 +33,14 @@ class OrderStatusFlowPage extends React.Component {
 
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
-        let paramId = this.props.match.params.id;
+        let paramFromStatusId = this.props.match.params.fromstatusid;
+        let paramToStatusId = this.props.match.params.tostatusid;
         let rooPath = '/admin/'; // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,
-            id:         paramId ? parseInt(paramId) : null,
+            fromstatusid:         paramFromStatusId ? parseInt(paramFromStatusId) : null,
+            tostatusid:         paramToStatusId ? parseInt(paramToStatusId) : null,
             canEdit:    paramOperation ? ( paramOperation.toLowerCase() == 'new' || 
                                         paramOperation.toLowerCase() == 'edit' ? true : false) : false,
             orderstatusflow: this._createEmptyOrderStatusFlowObj(),
@@ -49,7 +51,7 @@ class OrderStatusFlowPage extends React.Component {
             error: null,
             success: null,
             urlEntities: `${rooPath}orderstatusflows`,
-            urlThis: `${rooPath}orderstatusflow/${paramOperation}` + (paramId ? `/${paramId}` : ``)
+            urlThis: `${rooPath}orderstatusflow/${paramOperation}` + (paramFromStatusId ? `/${paramFromStatusId}/${paramToStatusId}` : ``)
         };
 
         this.onFromStatusIDChanged = this.onFromStatusIDChanged.bind(this);
@@ -112,7 +114,6 @@ class OrderStatusFlowPage extends React.Component {
         
         if(this._validateForm()) {
             const reqOrderStatusFlow = new OrderStatusFlowDto();
-            reqOrderStatusFlow.ID = this.state.id;
             reqOrderStatusFlow.FromStatusID = this.state.orderstatusflow.FromStatusID;
             reqOrderStatusFlow.ToStatusID = this.state.orderstatusflow.ToStatusID;
 
@@ -129,8 +130,9 @@ class OrderStatusFlowPage extends React.Component {
                     updatedState.showSuccess = true;
                     updatedState.showError = false;
                     if(response.status == constants.HTTP_Created) {
-                        updatedState.id = response.data.ID;
-                        updatedState.success = `OrderStatusFlow was created. ID: ${updatedState.id}`;
+                        updatedState.fromstatusid = response.data.FromStatusID;
+                        updatedState.tostatusid = response.data.ToStatusID;
+                        updatedState.success = `OrderStatusFlow was created.`;
                     }
                     else {
                         updatedState.success = `OrderStatusFlow was updated`;                
@@ -154,7 +156,7 @@ class OrderStatusFlowPage extends React.Component {
                 obj.setState(updatedState);
             }
 
-            if(this.state.id != null) {
+            if(this.state.fromstatusid != null && this.state.tostatusid != null) {
                 dalOrderStatusFlows.updateOrderStatusFlow(reqOrderStatusFlow)
                                         .then( (res) => { upsertOrderStatusFlowThen(res); } )
                                         .catch( (err) => { upsertCatch(err); });
@@ -186,7 +188,7 @@ class OrderStatusFlowPage extends React.Component {
         let dalOrderStatusFlows = new OrderStatusFlowsDal();
         let obj = this;
 
-        dalOrderStatusFlows.deleteOrderStatusFlow(this.state.id).then( (response) => {
+        dalOrderStatusFlows.deleteOrderStatusFlow(this.state.fromstatusid, this.state.tostatusid).then( (response) => {
             if(response.status == constants.HTTP_OK) {
                 obj.props.history.push(this.state.urlEntities);                
             }
@@ -210,15 +212,15 @@ class OrderStatusFlowPage extends React.Component {
         }   
         
         const styleDeleteBtn = {
-            display: this.state.id ? "block" : "none"
+            display: this.state.fromstatusid && this.state.tostatusid ? "block" : "none"
         }
 
-        const lstFromStatusIDsFields = ["Name"];
+        const lstFromStatusIDsFields = ["OrderStatusName"];
         const lstFromStatusIDs = this._prepareOptionsList( this.state.orderstatuses 
                                                                     ? Object.values(this.state.orderstatuses) : null, 
                                                                     lstFromStatusIDsFields,
                                                                     false );
-        const lstToStatusIDsFields = ["Name"];
+        const lstToStatusIDsFields = ["OrderStatusName"];
         const lstToStatusIDs = this._prepareOptionsList( this.state.orderstatuses 
                                                                     ? Object.values(this.state.orderstatuses) : null, 
                                                                     lstToStatusIDsFields,
@@ -229,7 +231,11 @@ class OrderStatusFlowPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>OrderStatusFlow: { this.state.orderstatusflow.toString() }</h2>
+                                <h2>OrderStatusFlow: { (this.state.orderstatusflow.FromStatusID ? this.state.orderstatuses[ this.state.orderstatusflow.FromStatusID ].OrderStatusName : "")
+                                    + " to " +
+                                    (this.state.orderstatusflow.ToStatusID ? this.state.orderstatuses[ this.state.orderstatusflow.ToStatusID ].OrderStatusName : "")
+                                     }
+                                </h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -318,11 +324,11 @@ class OrderStatusFlowPage extends React.Component {
 
     async _getOrderStatusFlow()
     {
-        if(this.state.id) {
+        if(this.state.fromstatusid && this.state.tostatusid) {
             let updatedState = this.state;
                   
             let dalOrderStatusFlows = new OrderStatusFlowsDal();
-            let response = await dalOrderStatusFlows.getOrderStatusFlow(this.state.id);
+            let response = await dalOrderStatusFlows.getOrderStatusFlow(this.state.fromstatusid, this.state.tostatusid);
 
             if(response.status == constants.HTTP_OK)
             {
