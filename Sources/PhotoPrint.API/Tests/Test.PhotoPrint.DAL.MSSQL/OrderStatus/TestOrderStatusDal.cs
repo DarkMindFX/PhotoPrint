@@ -52,8 +52,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("OrderStatusName 89fadabb89894a62ac2e03a0d4ea75c7", entity.OrderStatusName);
-                            Assert.AreEqual(928916, entity.IsDeleted);
+                          Assert.AreEqual("OrderStatusName a1ebaa72925f4a4b994d494580c57662", entity.OrderStatusName);
+                            Assert.AreEqual(false, entity.IsDeleted);
                       }
 
         [Test]
@@ -102,8 +102,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderStatusDal("DALInitParams");
 
             var entity = new OrderStatus();
-                          entity.OrderStatusName = "OrderStatusName 7c91420b2a054336a02b2bb66607be69";
-                            entity.IsDeleted = 928916;
+                          entity.OrderStatusName = "OrderStatusName 2beb5051ea894565929ed5940f36d296";
+                            entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
 
@@ -112,8 +112,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("OrderStatusName 7c91420b2a054336a02b2bb66607be69", entity.OrderStatusName);
-                            Assert.AreEqual(928916, entity.IsDeleted);
+                          Assert.AreEqual("OrderStatusName 2beb5051ea894565929ed5940f36d296", entity.OrderStatusName);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -127,8 +127,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             OrderStatus entity = dal.Get(paramID);
 
-                          entity.OrderStatusName = "OrderStatusName a702ef209a0f4eb7a9fddb59af63cce9";
-                            entity.IsDeleted = 928916;
+                          entity.OrderStatusName = "OrderStatusName 14990f906aef4e5e92bc0831d60254ce";
+                            entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
 
@@ -137,8 +137,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("OrderStatusName a702ef209a0f4eb7a9fddb59af63cce9", entity.OrderStatusName);
-                            Assert.AreEqual(928916, entity.IsDeleted);
+                          Assert.AreEqual("OrderStatusName 14990f906aef4e5e92bc0831d60254ce", entity.OrderStatusName);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -148,8 +148,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderStatusDal("DALInitParams");
 
             var entity = new OrderStatus();
-                          entity.OrderStatusName = "OrderStatusName a702ef209a0f4eb7a9fddb59af63cce9";
-                            entity.IsDeleted = 928916;
+                          entity.OrderStatusName = "OrderStatusName 14990f906aef4e5e92bc0831d60254ce";
+                            entity.IsDeleted = false;              
               
             try
             {

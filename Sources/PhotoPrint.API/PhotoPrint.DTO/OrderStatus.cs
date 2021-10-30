@@ -13,7 +13,7 @@ namespace PPT.DTO
 		public System.String OrderStatusName { get; set; }
 
 				[JsonPropertyName("IsDeleted")]
-		public System.Int64 IsDeleted { get; set; }
+		public System.Boolean IsDeleted { get; set; }
 
 				
     }

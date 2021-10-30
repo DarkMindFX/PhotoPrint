@@ -14,7 +14,7 @@ namespace PPT.Interfaces.Entities
 
 				public System.String OrderStatusName { get; set; }
 
-				public System.Int64 IsDeleted { get; set; }
+				public System.Boolean IsDeleted { get; set; }
 
 				
     }

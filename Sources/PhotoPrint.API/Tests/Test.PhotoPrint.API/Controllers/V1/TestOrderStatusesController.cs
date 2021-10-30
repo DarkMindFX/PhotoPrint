@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/orderstatuses/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/orderstatuses/{paramID}");
 
@@ -145,10 +145,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderStatus respDto = ExtractContentJson<OrderStatus>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.OrderStatusName, respDto.OrderStatusName);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.OrderStatusName, respDto.OrderStatusName);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                
                     respEntity = OrderStatusConvertor.Convert(respDto);
                 }
                 finally
@@ -170,9 +170,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderStatus testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.OrderStatusName = "OrderStatusName e0241d8a78964ac3be188fd4998fcc26";
-                    testEntity.IsDeleted = 270327;
-
+                          testEntity.OrderStatusName = "OrderStatusName b37126a09c7a4841a75c9b2051a994e1";
+                            testEntity.IsDeleted = true;              
+              
                     var reqDto = OrderStatusConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -183,10 +183,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderStatus respDto = ExtractContentJson<OrderStatus>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.OrderStatusName, respDto.OrderStatusName);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.OrderStatusName, respDto.OrderStatusName);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                
                 }
                 finally
                 {
@@ -207,10 +207,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderStatus testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.OrderStatusName = "OrderStatusName e0241d8a78964ac3be188fd4998fcc26";
-                    testEntity.IsDeleted = 270327;
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.OrderStatusName = "OrderStatusName b37126a09c7a4841a75c9b2051a994e1";
+                            testEntity.IsDeleted = true;              
+              
                     var reqDto = OrderStatusConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -247,9 +247,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderStatus CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderStatus();
-            entity.OrderStatusName = "OrderStatusName 4cabdf505a8a40eda53735f7fe49063d";
-            entity.IsDeleted = 270327;
-
+                          entity.OrderStatusName = "OrderStatusName 11ad6537194b41f0a728d2ba4e5f73dd";
+                            entity.IsDeleted = true;              
+              
             return entity;
         }
 

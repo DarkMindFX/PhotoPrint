@@ -95,7 +95,7 @@ class OrderStatusPage extends React.Component {
 
         let updatedState = this.state;
         let newVal = null;
-        newVal = parseInt(event.target.value);
+        newVal = event.target.checked;
         updatedState.orderstatus.IsDeleted = newVal;
 
         this.setState(updatedState);
@@ -216,7 +216,7 @@ class OrderStatusPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>OrderStatus: { this.state.orderstatus.toString() }</h2>
+                                <h2>OrderStatus: { this.state.orderstatus.OrderStatusName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -253,15 +253,15 @@ class OrderStatusPage extends React.Component {
    
                         <tr>
                             <td colSpan={2}>
-                                <TextField  id="IsDeleted" 
-                                            fullWidth
-                                            type="text" 
-                                            variant="filled" 
-                                            label="IsDeleted" 
-                                            value={this.state.orderstatus.IsDeleted}
-                                            onChange={ (event) => { this.onIsDeletedChanged(event) } }
-                                            />
-
+                                <FormControlLabel
+                                    key="lblIsDeleted"                        
+                                    control = {
+                                        <Checkbox   checked={ this.state.orderstatus.IsDeleted ? true : false } 
+                                                    onChange={(event) => this.onIsDeletedChanged(event)} 
+                                                    name="IsDeleted" />
+                                        }
+                                    label="IsDeleted"
+                                />
                                 
                             </td>
                         </tr> 
