@@ -14,6 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
+import Image from "material-ui-image";
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -226,7 +227,7 @@ class ImageThumbnailPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstImageIDsFields = ["Name"];
+        const lstImageIDsFields = ["Title"];
         const lstImageIDs = this._prepareOptionsList( this.state.images 
                                                                     ? Object.values(this.state.images) : null, 
                                                                     lstImageIDsFields,
@@ -237,7 +238,7 @@ class ImageThumbnailPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>ImageThumbnail: { this.state.imagethumbnail.toString() }</h2>
+                                <h2>ImageThumbnail: { this.state.imagethumbnail.ImageID ? this.state.images[ this.state.imagethumbnail.ImageID ].Title : "" }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
@@ -271,7 +272,11 @@ class ImageThumbnailPage extends React.Component {
                                 
                             </td>
                         </tr> 
-   
+                        <tr>
+                            <td>
+                                <Image src={this.state.imagethumbnail.Url} />
+                            </td>
+                        </tr>   
                         <tr>
                             <td colSpan={2}>
                                 <TextField  id="Order" 

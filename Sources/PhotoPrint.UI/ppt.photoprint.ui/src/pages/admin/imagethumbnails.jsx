@@ -105,7 +105,7 @@ class ImageThumbnailsPage extends React.Component {
                 ID: cs[c].ID,
                 Url: cs[c].Url,
                 Order: cs[c].Order,
-                ImageID: cs[c].ImageID ? this.state.images[ cs[c].ImageID ].Name : "",
+                ImageID: cs[c].ImageID ? this.state.images[ cs[c].ImageID ].Title : "",
 
             };
 
