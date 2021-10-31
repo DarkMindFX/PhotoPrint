@@ -1,8 +1,8 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @RegionName NVARCHAR(50) = 'RegionName a389c81cd1604b03b4309db0079dcea5'
-DECLARE @CountryID BIGINT = 207
+DECLARE @RegionName NVARCHAR(50) = 'RegionName 6e8a7e2d24134e2ea8ed405ed5284c6c'
+DECLARE @CountryID BIGINT = 51
 DECLARE @IsDeleted BIT = 1
  
 

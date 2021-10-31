@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/usertypes/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/usertypes/{paramID}");
 
@@ -145,10 +145,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserType respDto = ExtractContentJson<UserType>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.UserTypeName, respDto.UserTypeName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.UserTypeName, respDto.UserTypeName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = UserTypeConvertor.Convert(respDto);
                 }
                 finally
@@ -170,9 +170,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserType testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.UserTypeName = "UserTypeName 620e755535724eeb9cde4fc87367c281";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.UserTypeName = "UserTypeName 89d2a3e37ab940ebb304dd0b8e7c3e70";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = UserTypeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -183,10 +183,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserType respDto = ExtractContentJson<UserType>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.UserTypeName, respDto.UserTypeName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.UserTypeName, respDto.UserTypeName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -207,10 +207,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserType testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.UserTypeName = "UserTypeName 620e755535724eeb9cde4fc87367c281";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.UserTypeName = "UserTypeName 89d2a3e37ab940ebb304dd0b8e7c3e70";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = UserTypeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -247,9 +247,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserType();
-                          entity.UserTypeName = "UserTypeName 3686b2d9e772498b9a3f50f1832291b0";
-                            entity.IsDeleted = true;              
-              
+            entity.UserTypeName = "UserTypeName 54549c76e81d49afb88b810712608a31";
+            entity.IsDeleted = true;
+
             return entity;
         }
 

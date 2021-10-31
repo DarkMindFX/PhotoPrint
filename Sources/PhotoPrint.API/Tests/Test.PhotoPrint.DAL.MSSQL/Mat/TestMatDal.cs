@@ -52,14 +52,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("MatName 6496f94b17194c01aec7d0c937bc9bf3", entity.MatName);
-                            Assert.AreEqual("Description 6496f94b17194c01aec7d0c937bc9bf3", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl 6496f94b17194c01aec7d0c937bc9bf3", entity.ThumbnailUrl);
+                          Assert.AreEqual("MatName 309a5a43c2ee47ae8f1a14445f5bc50b", entity.MatName);
+                            Assert.AreEqual("Description 309a5a43c2ee47ae8f1a14445f5bc50b", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl 309a5a43c2ee47ae8f1a14445f5bc50b", entity.ThumbnailUrl);
                             Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("10/11/2023 3:09:48 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100005, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("1/8/2020 6:45:48 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100008, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/22/2022 7:34:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100009, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("2/2/2021 3:09:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100009, entity.ModifiedByID);
                       }
 
         [Test]
@@ -108,14 +108,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareMatDal("DALInitParams");
 
             var entity = new Mat();
-                          entity.MatName = "MatName 7699cf9018224d61a26df5a641e67191";
-                            entity.Description = "Description 7699cf9018224d61a26df5a641e67191";
-                            entity.ThumbnailUrl = "ThumbnailUrl 7699cf9018224d61a26df5a641e67191";
+                          entity.MatName = "MatName 06d2a79252a343eb94702fef3d5c609a";
+                            entity.Description = "Description 06d2a79252a343eb94702fef3d5c609a";
+                            entity.ThumbnailUrl = "ThumbnailUrl 06d2a79252a343eb94702fef3d5c609a";
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("9/27/2021 10:20:48 AM");
-                            entity.CreatedByID = 100004;
-                            entity.ModifiedDate = DateTime.Parse("2/14/2019 10:47:48 AM");
-                            entity.ModifiedByID = 100007;
+                            entity.CreatedDate = DateTime.Parse("5/1/2021 1:23:33 PM");
+                            entity.CreatedByID = 100009;
+                            entity.ModifiedDate = DateTime.Parse("3/11/2024 11:09:33 PM");
+                            entity.ModifiedByID = 100008;
                           
             entity = dal.Insert(entity);
 
@@ -124,14 +124,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("MatName 7699cf9018224d61a26df5a641e67191", entity.MatName);
-                            Assert.AreEqual("Description 7699cf9018224d61a26df5a641e67191", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl 7699cf9018224d61a26df5a641e67191", entity.ThumbnailUrl);
+                          Assert.AreEqual("MatName 06d2a79252a343eb94702fef3d5c609a", entity.MatName);
+                            Assert.AreEqual("Description 06d2a79252a343eb94702fef3d5c609a", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl 06d2a79252a343eb94702fef3d5c609a", entity.ThumbnailUrl);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("9/27/2021 10:20:48 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100004, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("2/14/2019 10:47:48 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100007, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("5/1/2021 1:23:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100009, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("3/11/2024 11:09:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100008, entity.ModifiedByID);
               
         }
 
@@ -145,13 +145,13 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Mat entity = dal.Get(paramID);
 
-                          entity.MatName = "MatName d2884ed7886d48029e6648aa8b1904ad";
-                            entity.Description = "Description d2884ed7886d48029e6648aa8b1904ad";
-                            entity.ThumbnailUrl = "ThumbnailUrl d2884ed7886d48029e6648aa8b1904ad";
+                          entity.MatName = "MatName 8e0c1f540543439083e681042065c689";
+                            entity.Description = "Description 8e0c1f540543439083e681042065c689";
+                            entity.ThumbnailUrl = "ThumbnailUrl 8e0c1f540543439083e681042065c689";
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("12/24/2021 8:34:48 PM");
-                            entity.CreatedByID = 100005;
-                            entity.ModifiedDate = DateTime.Parse("5/15/2019 6:21:48 AM");
+                            entity.CreatedDate = DateTime.Parse("6/9/2024 9:23:33 AM");
+                            entity.CreatedByID = 100011;
+                            entity.ModifiedDate = DateTime.Parse("6/9/2024 9:23:33 AM");
                             entity.ModifiedByID = 100003;
               
             entity = dal.Update(entity);
@@ -161,13 +161,13 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("MatName d2884ed7886d48029e6648aa8b1904ad", entity.MatName);
-                            Assert.AreEqual("Description d2884ed7886d48029e6648aa8b1904ad", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl d2884ed7886d48029e6648aa8b1904ad", entity.ThumbnailUrl);
+                          Assert.AreEqual("MatName 8e0c1f540543439083e681042065c689", entity.MatName);
+                            Assert.AreEqual("Description 8e0c1f540543439083e681042065c689", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl 8e0c1f540543439083e681042065c689", entity.ThumbnailUrl);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("12/24/2021 8:34:48 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100005, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("5/15/2019 6:21:48 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(DateTime.Parse("6/9/2024 9:23:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100011, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("6/9/2024 9:23:33 AM"), entity.ModifiedDate);
                             Assert.AreEqual(100003, entity.ModifiedByID);
               
         }
@@ -178,13 +178,13 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareMatDal("DALInitParams");
 
             var entity = new Mat();
-                          entity.MatName = "MatName d2884ed7886d48029e6648aa8b1904ad";
-                            entity.Description = "Description d2884ed7886d48029e6648aa8b1904ad";
-                            entity.ThumbnailUrl = "ThumbnailUrl d2884ed7886d48029e6648aa8b1904ad";
+                          entity.MatName = "MatName 8e0c1f540543439083e681042065c689";
+                            entity.Description = "Description 8e0c1f540543439083e681042065c689";
+                            entity.ThumbnailUrl = "ThumbnailUrl 8e0c1f540543439083e681042065c689";
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("12/24/2021 8:34:48 PM");
-                            entity.CreatedByID = 100005;
-                            entity.ModifiedDate = DateTime.Parse("5/15/2019 6:21:48 AM");
+                            entity.CreatedDate = DateTime.Parse("6/9/2024 9:23:33 AM");
+                            entity.CreatedByID = 100011;
+                            entity.ModifiedDate = DateTime.Parse("6/9/2024 9:23:33 AM");
                             entity.ModifiedByID = 100003;
               
             try

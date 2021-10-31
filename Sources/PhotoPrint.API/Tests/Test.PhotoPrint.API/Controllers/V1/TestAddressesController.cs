@@ -153,10 +153,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.BuildingNo, respDto.BuildingNo);
                     Assert.Equal(reqDto.ApartmentNo, respDto.ApartmentNo);
                     Assert.Equal(reqDto.Comment, respDto.Comment);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
 
                     respEntity = AddressConvertor.Convert(respDto);
@@ -180,15 +176,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Address testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.AddressTypeID = 5;
-                    testEntity.Title = "Title 8ca84fecb64846be90009552b960864f";
-                    testEntity.CityID = 7;
-                    testEntity.Street = "Street 8ca84fecb64846be90009552b960864f";
-                    testEntity.BuildingNo = "BuildingNo 8ca84fecb64846be90009552b960864f";
-                    testEntity.ApartmentNo = "ApartmentNo 8ca84fecb64846be90009552b960864f";
-                    testEntity.Comment = "Comment 8ca84fecb64846be90009552b960864f";
+                    testEntity.AddressTypeID = 4;
+                    testEntity.Title = "Title c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.CityID = 1;
+                    testEntity.Street = "Street c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.BuildingNo = "BuildingNo c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.ApartmentNo = "ApartmentNo c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.Comment = "Comment c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.CreatedByID = 100007;
+                    testEntity.CreatedDate = DateTime.Parse("11/9/2023 6:50:35 PM");
+                    testEntity.ModifiedByID = 100009;
+                    testEntity.ModifiedDate = DateTime.Parse("3/30/2021 4:37:35 AM");
                     testEntity.IsDeleted = true;
-                    testEntity.ModifiedByID = respLogin.User.ID;
 
                     var reqDto = AddressConvertor.Convert(testEntity, null);
 
@@ -208,10 +207,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.BuildingNo, respDto.BuildingNo);
                     Assert.Equal(reqDto.ApartmentNo, respDto.ApartmentNo);
                     Assert.Equal(reqDto.Comment, respDto.Comment);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
 
                 }
@@ -235,17 +230,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.AddressTypeID = 5;
-                    testEntity.Title = "Title 8ca84fecb64846be90009552b960864f";
-                    testEntity.CityID = 7;
-                    testEntity.Street = "Street 8ca84fecb64846be90009552b960864f";
-                    testEntity.BuildingNo = "BuildingNo 8ca84fecb64846be90009552b960864f";
-                    testEntity.ApartmentNo = "ApartmentNo 8ca84fecb64846be90009552b960864f";
-                    testEntity.Comment = "Comment 8ca84fecb64846be90009552b960864f";
-                    testEntity.CreatedByID = 100005;
-                    testEntity.CreatedDate = DateTime.Parse("10/29/2021 6:44:52 AM");
-                    testEntity.ModifiedByID = 100002;
-                    testEntity.ModifiedDate = DateTime.Parse("6/9/2020 2:19:52 PM");
+                    testEntity.AddressTypeID = 4;
+                    testEntity.Title = "Title c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.CityID = 1;
+                    testEntity.Street = "Street c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.BuildingNo = "BuildingNo c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.ApartmentNo = "ApartmentNo c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.Comment = "Comment c5e5bf860f0443e49a63d808d169a8e2";
+                    testEntity.CreatedByID = 100007;
+                    testEntity.CreatedDate = DateTime.Parse("11/9/2023 6:50:35 PM");
+                    testEntity.ModifiedByID = 100009;
+                    testEntity.ModifiedDate = DateTime.Parse("3/30/2021 4:37:35 AM");
                     testEntity.IsDeleted = true;
 
                     var reqDto = AddressConvertor.Convert(testEntity, null);
@@ -284,18 +279,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Address CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Address();
-            entity.AddressTypeID = 11;
-            entity.Title = "Title f2c47218c2df42c1962bbff2e75bdb43";
+            entity.AddressTypeID = 4;
+            entity.Title = "Title 879afb07ddaa499aa82164fa30c631ec";
             entity.CityID = 1;
-            entity.Street = "Street f2c47218c2df42c1962bbff2e75bdb43";
-            entity.BuildingNo = "BuildingNo f2c47218c2df42c1962bbff2e75bdb43";
-            entity.ApartmentNo = "ApartmentNo f2c47218c2df42c1962bbff2e75bdb43";
-            entity.Comment = "Comment f2c47218c2df42c1962bbff2e75bdb43";
-            entity.CreatedByID = 100003;
-            entity.CreatedDate = DateTime.Parse("4/20/2022 2:33:52 PM");
-            entity.ModifiedByID = 100003;
-            entity.ModifiedDate = DateTime.Parse("3/7/2020 6:08:52 AM");
-            entity.IsDeleted = true;
+            entity.Street = "Street 879afb07ddaa499aa82164fa30c631ec";
+            entity.BuildingNo = "BuildingNo 879afb07ddaa499aa82164fa30c631ec";
+            entity.ApartmentNo = "ApartmentNo 879afb07ddaa499aa82164fa30c631ec";
+            entity.Comment = "Comment 879afb07ddaa499aa82164fa30c631ec";
+            entity.CreatedByID = 100008;
+            entity.CreatedDate = DateTime.Parse("10/1/2020 10:49:35 PM");
+            entity.ModifiedByID = 100002;
+            entity.ModifiedDate = DateTime.Parse("8/13/2023 8:36:35 AM");
+            entity.IsDeleted = false;
 
             return entity;
         }

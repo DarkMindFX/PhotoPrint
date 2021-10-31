@@ -26,20 +26,26 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     public class UsersController : BaseController
     {
         private readonly Dal.IUserDal _dalUser;
+        private readonly Dal.IContactDal _dalContact;
+        private readonly Dal.IUserContactDal _dalUserContact;
         private readonly ILogger<UsersController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
 
 
-        public UsersController(Dal.IUserDal dalUser,
+        public UsersController( Dal.IUserDal dalUser,
+                                Dal.IContactDal dalContact,
+                                Dal.IUserContactDal dalUserContact,
                                     ILogger<UsersController> logger,
                                     IOptions<AppSettings> appSettings)
         {
             _dalUser = dalUser;
+            _dalContact = dalContact;
+            _dalUserContact = dalUserContact;
             _logger = logger;
             _appSettings = appSettings;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -64,7 +70,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetUser")]
         public IActionResult Get(System.Int64? id)
         {
@@ -88,7 +94,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("/byuserstatusid/:userstatusid")]
         public IActionResult GetByUserStatusID(System.Int64 userstatusid)
         {
@@ -112,7 +118,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("byusertypeid/{usertypeid}")]
         public IActionResult GetByUserTypeID(System.Int64 usertypeid)
         {
@@ -136,7 +142,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
@@ -161,7 +167,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteUser")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -193,7 +199,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertUser")]
         public IActionResult Insert(DTO.User dto)
         {
@@ -219,7 +225,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateUser")]
         public IActionResult Update(DTO.User dto)
         {
@@ -228,7 +234,6 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             IActionResult response = null;
 
             var newEntity = UserConvertor.Convert(dto);
-
 
             var existingEntity = _dalUser.Get(newEntity.ID);
 
@@ -293,6 +298,49 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             {
                 response = NotFound($"User not found [login:{dtoLogin.Login}]");
             }
+
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+
+            return response;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register"), ActionName("Register")]
+        public IActionResult Register(DTO.RegisterRequest dtoRegister)
+        {
+            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Started");
+
+            IActionResult response = null;
+
+            // Inserting new user
+            var entityUser = UserConvertor.Convert(dtoRegister.User);
+            entityUser.Salt = Helpers.PasswordHelper.GenerateSalt(12);
+            entityUser.PwdHash = Helpers.PasswordHelper.GenerateHash(dtoRegister.User.Password, entityUser.Salt);
+
+            base.SetCreatedModifiedProperties(entityUser,
+                        "CreatedDate",
+                        null);
+
+            User newEntityUser = _dalUser.Insert(entityUser);
+
+            // Inserting user's contact
+            var entityContact = ContactConvertor.Convert(dtoRegister.Contact);
+            Contact newEntityContact = _dalContact.Insert(entityContact);
+            base.SetCreatedModifiedProperties(entityContact,
+                        "CreatedDate",
+                        null);
+            entityContact.CreatedByID = (long)entityUser.ID;
+
+            // Connecting user & contact
+            var entityUserContact = new  PPT.Interfaces.Entities.UserContact();
+            entityUserContact.UserID = (long)newEntityUser.ID;
+            entityUserContact.ContactID = (long)newEntityContact.ID;
+            entityUserContact.IsPrimary = true;
+            UserContact newEntityUserContact = _dalUserContact.Insert(entityUserContact);
+
+            // Preparing response
+            response = StatusCode(  (int)HttpStatusCode.Created, 
+                                    new DTO.RegisterResponse() { User = UserConvertor.Convert(newEntityUser, this.Url) });
 
             _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
 

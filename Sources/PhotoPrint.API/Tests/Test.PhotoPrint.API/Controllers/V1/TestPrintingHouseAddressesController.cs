@@ -210,8 +210,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PrintingHouseAddress testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.PrintingHouseID = 100001;
-                    testEntity.AddressID = 100009;
+                    testEntity.PrintingHouseID = 100005;
+                    testEntity.AddressID = 100010;
                     testEntity.IsPrimary = false;
 
                     var reqDto = PrintingHouseAddressConvertor.Convert(testEntity, null);
@@ -251,9 +251,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.PrintingHouseAddress CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.PrintingHouseAddress();
-            entity.PrintingHouseID = 100004;
-            entity.AddressID = 100002;
-            entity.IsPrimary = false;
+            entity.PrintingHouseID = 100005;
+            entity.AddressID = 100006;
+            entity.IsPrimary = true;
 
             return entity;
         }

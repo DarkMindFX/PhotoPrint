@@ -52,11 +52,11 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100003, entity.UserID);
-                            Assert.AreEqual("ConfirmationCode 4613055313c54e6e8bc76c5fa201c97b", entity.ConfirmationCode);
+                          Assert.AreEqual(100005, entity.UserID);
+                            Assert.AreEqual("ConfirmationCode 24d575a85e4248c399447fa00a0e4c43", entity.ConfirmationCode);
                             Assert.AreEqual(true, entity.Comfirmed);
-                            Assert.AreEqual(DateTime.Parse("10/18/2019 7:33:26 AM"), entity.ExpiresDate);
-                            Assert.AreEqual(DateTime.Parse("10/18/2019 7:33:26 AM"), entity.ConfirmationDate);
+                            Assert.AreEqual(DateTime.Parse("1/3/2024 5:57:34 PM"), entity.ExpiresDate);
+                            Assert.AreEqual(DateTime.Parse("1/3/2024 5:57:34 PM"), entity.ConfirmationDate);
                       }
 
         [Test]
@@ -105,11 +105,11 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserConfirmationDal("DALInitParams");
 
             var entity = new UserConfirmation();
-                          entity.UserID = 100001;
-                            entity.ConfirmationCode = "ConfirmationCode e15e5835df8e40f0bdfe6df436e2be0d";
-                            entity.Comfirmed = true;              
-                            entity.ExpiresDate = DateTime.Parse("8/23/2023 4:55:26 AM");
-                            entity.ConfirmationDate = DateTime.Parse("8/23/2023 4:55:26 AM");
+                          entity.UserID = 100009;
+                            entity.ConfirmationCode = "ConfirmationCode 51ce9beb93d344deb72d23cbdc39d771";
+                            entity.Comfirmed = false;              
+                            entity.ExpiresDate = DateTime.Parse("8/21/2021 1:57:34 PM");
+                            entity.ConfirmationDate = DateTime.Parse("8/21/2021 1:57:34 PM");
                           
             entity = dal.Insert(entity);
 
@@ -118,11 +118,11 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100001, entity.UserID);
-                            Assert.AreEqual("ConfirmationCode e15e5835df8e40f0bdfe6df436e2be0d", entity.ConfirmationCode);
-                            Assert.AreEqual(true, entity.Comfirmed);
-                            Assert.AreEqual(DateTime.Parse("8/23/2023 4:55:26 AM"), entity.ExpiresDate);
-                            Assert.AreEqual(DateTime.Parse("8/23/2023 4:55:26 AM"), entity.ConfirmationDate);
+                          Assert.AreEqual(100009, entity.UserID);
+                            Assert.AreEqual("ConfirmationCode 51ce9beb93d344deb72d23cbdc39d771", entity.ConfirmationCode);
+                            Assert.AreEqual(false, entity.Comfirmed);
+                            Assert.AreEqual(DateTime.Parse("8/21/2021 1:57:34 PM"), entity.ExpiresDate);
+                            Assert.AreEqual(DateTime.Parse("8/21/2021 1:57:34 PM"), entity.ConfirmationDate);
               
         }
 
@@ -136,11 +136,11 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             UserConfirmation entity = dal.Get(paramID);
 
-                          entity.UserID = 100009;
-                            entity.ConfirmationCode = "ConfirmationCode 8d89783eb4ed413ba87d23cb37bb8132";
+                          entity.UserID = 100003;
+                            entity.ConfirmationCode = "ConfirmationCode 9480c4a0802a45fea32c47ad80143fe8";
                             entity.Comfirmed = false;              
-                            entity.ExpiresDate = DateTime.Parse("1/9/2021 5:22:26 AM");
-                            entity.ConfirmationDate = DateTime.Parse("1/9/2021 5:22:26 AM");
+                            entity.ExpiresDate = DateTime.Parse("7/8/2019 5:32:34 AM");
+                            entity.ConfirmationDate = DateTime.Parse("7/8/2019 5:32:34 AM");
               
             entity = dal.Update(entity);
 
@@ -149,11 +149,11 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100009, entity.UserID);
-                            Assert.AreEqual("ConfirmationCode 8d89783eb4ed413ba87d23cb37bb8132", entity.ConfirmationCode);
+                          Assert.AreEqual(100003, entity.UserID);
+                            Assert.AreEqual("ConfirmationCode 9480c4a0802a45fea32c47ad80143fe8", entity.ConfirmationCode);
                             Assert.AreEqual(false, entity.Comfirmed);
-                            Assert.AreEqual(DateTime.Parse("1/9/2021 5:22:26 AM"), entity.ExpiresDate);
-                            Assert.AreEqual(DateTime.Parse("1/9/2021 5:22:26 AM"), entity.ConfirmationDate);
+                            Assert.AreEqual(DateTime.Parse("7/8/2019 5:32:34 AM"), entity.ExpiresDate);
+                            Assert.AreEqual(DateTime.Parse("7/8/2019 5:32:34 AM"), entity.ConfirmationDate);
               
         }
 
@@ -163,11 +163,11 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserConfirmationDal("DALInitParams");
 
             var entity = new UserConfirmation();
-                          entity.UserID = 100009;
-                            entity.ConfirmationCode = "ConfirmationCode 8d89783eb4ed413ba87d23cb37bb8132";
+                          entity.UserID = 100003;
+                            entity.ConfirmationCode = "ConfirmationCode 9480c4a0802a45fea32c47ad80143fe8";
                             entity.Comfirmed = false;              
-                            entity.ExpiresDate = DateTime.Parse("1/9/2021 5:22:26 AM");
-                            entity.ConfirmationDate = DateTime.Parse("1/9/2021 5:22:26 AM");
+                            entity.ExpiresDate = DateTime.Parse("7/8/2019 5:32:34 AM");
+                            entity.ConfirmationDate = DateTime.Parse("7/8/2019 5:32:34 AM");
               
             try
             {

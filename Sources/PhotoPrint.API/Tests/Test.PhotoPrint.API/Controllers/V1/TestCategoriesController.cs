@@ -150,10 +150,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ParentID, respDto.ParentID);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
 
                     respEntity = CategoryConvertor.Convert(respDto);
                 }
@@ -176,10 +172,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Category testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.CategoryName = "CategoryName 5562f6020e344ef1b0ca8bb46969ca91";
-                    testEntity.Description = "Description 5562f6020e344ef1b0ca8bb46969ca91";
-                    testEntity.ParentID = 100005;
+                    testEntity.CategoryName = "CategoryName a9b5fe4c1bea40d99c1d5f8315cbf67b";
+                    testEntity.Description = "Description a9b5fe4c1bea40d99c1d5f8315cbf67b";
+                    testEntity.ParentID = 100008;
                     testEntity.IsDeleted = true;
+                    testEntity.CreatedDate = DateTime.Parse("4/25/2022 7:49:35 AM");
+                    testEntity.CreatedByID = 100006;
+                    testEntity.ModifiedDate = DateTime.Parse("4/25/2022 7:49:35 AM");
+                    testEntity.ModifiedByID = 100006;
 
                     var reqDto = CategoryConvertor.Convert(testEntity, null);
 
@@ -196,10 +196,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ParentID, respDto.ParentID);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
 
                 }
                 finally
@@ -222,14 +218,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.CategoryName = "CategoryName 5562f6020e344ef1b0ca8bb46969ca91";
-                    testEntity.Description = "Description 5562f6020e344ef1b0ca8bb46969ca91";
-                    testEntity.ParentID = 100005;
+                    testEntity.CategoryName = "CategoryName a9b5fe4c1bea40d99c1d5f8315cbf67b";
+                    testEntity.Description = "Description a9b5fe4c1bea40d99c1d5f8315cbf67b";
+                    testEntity.ParentID = 100008;
                     testEntity.IsDeleted = true;
-                    testEntity.CreatedDate = DateTime.Parse("1/29/2019 11:11:52 PM");
+                    testEntity.CreatedDate = DateTime.Parse("4/25/2022 7:49:35 AM");
                     testEntity.CreatedByID = 100006;
-                    testEntity.ModifiedDate = DateTime.Parse("3/8/2022 7:11:52 PM");
-                    testEntity.ModifiedByID = 100009;
+                    testEntity.ModifiedDate = DateTime.Parse("4/25/2022 7:49:35 AM");
+                    testEntity.ModifiedByID = 100006;
 
                     var reqDto = CategoryConvertor.Convert(testEntity, null);
 
@@ -267,14 +263,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Category CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Category();
-            entity.CategoryName = "CategoryName a54c05f634b447de887d4c6d816a1dee";
-            entity.Description = "Description a54c05f634b447de887d4c6d816a1dee";
-            entity.ParentID = 100001;
+            entity.CategoryName = "CategoryName 3c6daf77fe554cc5a067031cdeae1c4c";
+            entity.Description = "Description 3c6daf77fe554cc5a067031cdeae1c4c";
+            entity.ParentID = 100006;
             entity.IsDeleted = true;
-            entity.CreatedDate = DateTime.Parse("5/27/2023 4:22:52 AM");
-            entity.CreatedByID = 100010;
-            entity.ModifiedDate = DateTime.Parse("3/29/2023 9:45:52 AM");
-            entity.ModifiedByID = 100006;
+            entity.CreatedDate = DateTime.Parse("3/17/2019 11:48:35 AM");
+            entity.CreatedByID = 100001;
+            entity.ModifiedDate = DateTime.Parse("1/24/2022 12:15:35 PM");
+            entity.ModifiedByID = 100008;
 
             return entity;
         }

@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{userid}/{contactid}"), ActionName("GetUserContact")]
         public IActionResult Get(System.Int64 userid, System.Int64 contactid)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byuserid/{userid}")]
         public IActionResult GetByUserID(System.Int64 userid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycontactid/{contactid}")]
         public IActionResult GetByContactID(System.Int64 contactid)
         {
@@ -129,7 +129,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{userid}/{contactid}"), ActionName("DeleteUserContact")]
         public IActionResult Delete(System.Int64 userid, System.Int64 contactid)
         {
@@ -161,7 +161,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertUserContact")]
         public IActionResult Insert(DTO.UserContact dto)
         {
@@ -182,7 +182,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateUserContact")]
         public IActionResult Update(DTO.UserContact dto)
         {

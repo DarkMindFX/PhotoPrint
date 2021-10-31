@@ -150,10 +150,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
 
                     respEntity = MaterialTypeConvertor.Convert(respDto);
                 }
@@ -176,10 +173,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.MaterialType testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.MaterialTypeName = "MaterialTypeName 79abcc0d02c9499c9f0d5b5e012ecb72";
-                    testEntity.Description = "Description 79abcc0d02c9499c9f0d5b5e012ecb72";
-                    testEntity.ThumbnailUrl = "ThumbnailUrl 79abcc0d02c9499c9f0d5b5e012ecb72";
-                    testEntity.IsDeleted = true;
+                    testEntity.MaterialTypeName = "MaterialTypeName ab2e37a5bf254adfa404bf10c0b62629";
+                    testEntity.Description = "Description ab2e37a5bf254adfa404bf10c0b62629";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl ab2e37a5bf254adfa404bf10c0b62629";
+                    testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("11/6/2021 12:37:35 PM");
+                    testEntity.CreatedByID = 100008;
+                    testEntity.ModifiedDate = DateTime.Parse("11/6/2021 12:37:35 PM");
+                    testEntity.ModifiedByID = 100007;
 
                     var reqDto = MaterialTypeConvertor.Convert(testEntity, null);
 
@@ -196,11 +197,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
-
                 }
                 finally
                 {
@@ -222,14 +218,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.MaterialTypeName = "MaterialTypeName 79abcc0d02c9499c9f0d5b5e012ecb72";
-                    testEntity.Description = "Description 79abcc0d02c9499c9f0d5b5e012ecb72";
-                    testEntity.ThumbnailUrl = "ThumbnailUrl 79abcc0d02c9499c9f0d5b5e012ecb72";
-                    testEntity.IsDeleted = true;
-                    testEntity.CreatedDate = DateTime.Parse("1/24/2023 12:02:52 AM");
-                    testEntity.CreatedByID = 100010;
-                    testEntity.ModifiedDate = DateTime.Parse("6/13/2020 9:49:52 AM");
-                    testEntity.ModifiedByID = 100064;
+                    testEntity.MaterialTypeName = "MaterialTypeName ab2e37a5bf254adfa404bf10c0b62629";
+                    testEntity.Description = "Description ab2e37a5bf254adfa404bf10c0b62629";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl ab2e37a5bf254adfa404bf10c0b62629";
+                    testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("11/6/2021 12:37:35 PM");
+                    testEntity.CreatedByID = 100008;
+                    testEntity.ModifiedDate = DateTime.Parse("11/6/2021 12:37:35 PM");
+                    testEntity.ModifiedByID = 100007;
 
                     var reqDto = MaterialTypeConvertor.Convert(testEntity, null);
 
@@ -267,14 +263,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.MaterialType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.MaterialType();
-            entity.MaterialTypeName = "MaterialTypeName ba2b9307e2a3410381cd705be5eba65f";
-            entity.Description = "Description ba2b9307e2a3410381cd705be5eba65f";
-            entity.ThumbnailUrl = "ThumbnailUrl ba2b9307e2a3410381cd705be5eba65f";
+            entity.MaterialTypeName = "MaterialTypeName 8566c139662f44868e61a7c73a89a86e";
+            entity.Description = "Description 8566c139662f44868e61a7c73a89a86e";
+            entity.ThumbnailUrl = "ThumbnailUrl 8566c139662f44868e61a7c73a89a86e";
             entity.IsDeleted = true;
-            entity.CreatedDate = DateTime.Parse("3/14/2020 2:15:52 PM");
-            entity.CreatedByID = 100004;
-            entity.ModifiedDate = DateTime.Parse("3/14/2020 2:15:52 PM");
-            entity.ModifiedByID = 100009;
+            entity.CreatedDate = DateTime.Parse("5/11/2021 6:50:35 AM");
+            entity.CreatedByID = 100006;
+            entity.ModifiedDate = DateTime.Parse("3/20/2024 7:17:35 AM");
+            entity.ModifiedByID = 100011;
 
             return entity;
         }

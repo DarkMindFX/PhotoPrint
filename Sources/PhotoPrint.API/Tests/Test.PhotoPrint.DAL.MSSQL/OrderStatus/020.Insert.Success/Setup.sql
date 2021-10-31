@@ -1,8 +1,8 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @OrderStatusName NVARCHAR(50) = 'OrderStatusName 2beb5051ea894565929ed5940f36d296'
-DECLARE @IsDeleted BIT = 0
+DECLARE @OrderStatusName NVARCHAR(50) = 'OrderStatusName 0db821e8effa4aef91b5f4c7037be14e'
+DECLARE @IsDeleted BIT = 1
  
 
 

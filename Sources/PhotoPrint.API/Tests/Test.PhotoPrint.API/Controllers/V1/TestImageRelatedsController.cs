@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +49,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramImageID = testEntity.ImageID;
-                var paramRelatedImageID = testEntity.RelatedImageID;
+                    var paramImageID = testEntity.ImageID;
+                    var paramRelatedImageID = testEntity.RelatedImageID;
                     var respGet = client.GetAsync($"/api/v1/imagerelateds/{paramImageID}/{paramRelatedImageID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +95,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramImageID = testEntity.ImageID;
-                var paramRelatedImageID = testEntity.RelatedImageID;
+                    var paramImageID = testEntity.ImageID;
+                    var paramRelatedImageID = testEntity.RelatedImageID;
 
                     var respDel = client.DeleteAsync($"/api/v1/imagerelateds/{paramImageID}/{paramRelatedImageID}");
 
@@ -149,9 +149,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ImageRelated respDto = ExtractContentJson<ImageRelated>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ImageID);
-                                    Assert.NotNull(respDto.RelatedImageID);
-                
+                    Assert.NotNull(respDto.ImageID);
+                    Assert.NotNull(respDto.RelatedImageID);
+
                     respEntity = ImageRelatedConvertor.Convert(respDto);
                 }
                 finally
@@ -173,7 +173,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageRelated testEntity = AddTestEntity();
                 try
                 {
-            
+
                     var reqDto = ImageRelatedConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -184,9 +184,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ImageRelated respDto = ExtractContentJson<ImageRelated>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ImageID);
-                                    Assert.NotNull(respDto.RelatedImageID);
-                
+                    Assert.NotNull(respDto.ImageID);
+                    Assert.NotNull(respDto.RelatedImageID);
+
                 }
                 finally
                 {
@@ -207,9 +207,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageRelated testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.ImageID = 100013;
-                            testEntity.RelatedImageID = 100043;
-              
+                    testEntity.ImageID = 100031;
+                    testEntity.RelatedImageID = 100033;
+
                     var reqDto = ImageRelatedConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -247,9 +247,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ImageRelated CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ImageRelated();
-                          entity.ImageID = 100032;
-                            entity.RelatedImageID = 100031;
-              
+            entity.ImageID = 100043;
+            entity.RelatedImageID = 100012;
+
             return entity;
         }
 

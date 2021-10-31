@@ -170,8 +170,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ContactType testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.ContactTypeName = "ContactTypeName fbc6d4a04f6844ff898b3bb71679cd96";
-                            testEntity.IsDeleted = false;              
+                          testEntity.ContactTypeName = "ContactTypeName abe49c5827f143d0894681f23f5d69a1";
+                            testEntity.IsDeleted = true;              
               
                     var reqDto = ContactTypeConvertor.Convert(testEntity, null);
 
@@ -208,8 +208,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                              testEntity.ID = Int64.MaxValue;
-                             testEntity.ContactTypeName = "ContactTypeName fbc6d4a04f6844ff898b3bb71679cd96";
-                            testEntity.IsDeleted = false;              
+                             testEntity.ContactTypeName = "ContactTypeName abe49c5827f143d0894681f23f5d69a1";
+                            testEntity.IsDeleted = true;              
               
                     var reqDto = ContactTypeConvertor.Convert(testEntity, null);
 
@@ -247,8 +247,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ContactType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ContactType();
-                          entity.ContactTypeName = "ContactTypeName f1e81564a47440329d041a57c5e933ea";
-                            entity.IsDeleted = false;              
+                          entity.ContactTypeName = "ContactTypeName 76a72950cfea48418ee8fcab0dc4dcb9";
+                            entity.IsDeleted = true;              
               
             return entity;
         }

@@ -210,7 +210,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserAddress testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.UserID = 100007;
+                    testEntity.UserID = 100008;
                     testEntity.AddressID = 100006;
                     testEntity.IsPrimary = false;
 
@@ -251,9 +251,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserAddress CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserAddress();
-            entity.UserID = 100005;
+            entity.UserID = 100007;
             entity.AddressID = 100010;
-            entity.IsPrimary = false;
+            entity.IsPrimary = true;
 
             return entity;
         }

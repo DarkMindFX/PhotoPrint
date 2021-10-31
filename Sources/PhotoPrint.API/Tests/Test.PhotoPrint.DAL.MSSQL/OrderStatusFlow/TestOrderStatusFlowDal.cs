@@ -54,8 +54,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.FromStatusID);
                         Assert.IsNotNull(entity.ToStatusID);
             
-                          Assert.AreEqual(10, entity.FromStatusID);
-                            Assert.AreEqual(4, entity.ToStatusID);
+                          Assert.AreEqual(7, entity.FromStatusID);
+                            Assert.AreEqual(7, entity.ToStatusID);
                       }
 
         [Test]
@@ -107,8 +107,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderStatusFlowDal("DALInitParams");
 
             var entity = new OrderStatusFlow();
-                          entity.FromStatusID = 8;
-                            entity.ToStatusID = 1;
+                          entity.FromStatusID = 11;
+                            entity.ToStatusID = 8;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +118,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.FromStatusID);
                         Assert.IsNotNull(entity.ToStatusID);
             
-                          Assert.AreEqual(8, entity.FromStatusID);
-                            Assert.AreEqual(1, entity.ToStatusID);
+                          Assert.AreEqual(11, entity.FromStatusID);
+                            Assert.AreEqual(8, entity.ToStatusID);
               
         }
 
@@ -143,8 +143,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.FromStatusID);
                         Assert.IsNotNull(entity.ToStatusID);
             
-                          Assert.AreEqual(3, entity.FromStatusID);
-                            Assert.AreEqual(3, entity.ToStatusID);
+                          Assert.AreEqual(2, entity.FromStatusID);
+                            Assert.AreEqual(2, entity.ToStatusID);
               
         }
 
@@ -154,8 +154,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderStatusFlowDal("DALInitParams");
 
             var entity = new OrderStatusFlow();
-                          entity.FromStatusID = 3;
-                            entity.ToStatusID = 3;
+                          entity.FromStatusID = 2;
+                            entity.ToStatusID = 2;
               
             try
             {

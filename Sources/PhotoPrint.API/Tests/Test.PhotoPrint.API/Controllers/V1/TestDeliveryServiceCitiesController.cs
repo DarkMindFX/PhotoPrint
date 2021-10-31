@@ -207,8 +207,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.DeliveryServiceCity testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.DeliveryServiceID = 100020;
-                            testEntity.CityID = 7;
+                            testEntity.DeliveryServiceID = 100003;
+                            testEntity.CityID = 5;
               
                     var reqDto = DeliveryServiceCityConvertor.Convert(testEntity, null);
 
@@ -247,8 +247,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.DeliveryServiceCity CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.DeliveryServiceCity();
-                          entity.DeliveryServiceID = 100008;
-                            entity.CityID = 6;
+                          entity.DeliveryServiceID = 100009;
+                            entity.CityID = 9;
               
             return entity;
         }

@@ -207,8 +207,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageCategory testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.ImageID = 100031;
-                            testEntity.CategoryID = 100006;
+                            testEntity.ImageID = 100046;
+                            testEntity.CategoryID = 100004;
               
                     var reqDto = ImageCategoryConvertor.Convert(testEntity, null);
 
@@ -247,8 +247,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ImageCategory CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ImageCategory();
-                          entity.ImageID = 100050;
-                            entity.CategoryID = 100003;
+                          entity.ImageID = 100017;
+                            entity.CategoryID = 100009;
               
             return entity;
         }

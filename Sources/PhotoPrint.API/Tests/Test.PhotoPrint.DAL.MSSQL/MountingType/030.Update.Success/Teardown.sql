@@ -2,26 +2,26 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @MountingTypeName NVARCHAR(50) = 'MountingTypeName 107815b31e304c28a195d56667605cf5'
-DECLARE @Description NVARCHAR(1000) = 'Description 107815b31e304c28a195d56667605cf5'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 107815b31e304c28a195d56667605cf5'
-DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '5/6/2021 8:48:48 AM'
-DECLARE @CreatedByID BIGINT = 418165
-DECLARE @ModifiedDate DATETIME = '5/6/2021 8:48:48 AM'
-DECLARE @ModifiedByID BIGINT = 418165
+DECLARE @MountingTypeName NVARCHAR(50) = 'MountingTypeName 801b2dbf65194475805d38ae0b698cdc'
+DECLARE @Description NVARCHAR(1000) = 'Description 801b2dbf65194475805d38ae0b698cdc'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 801b2dbf65194475805d38ae0b698cdc'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedDate DATETIME = '7/23/2019 4:46:33 AM'
+DECLARE @CreatedByID BIGINT = 84243
+DECLARE @ModifiedDate DATETIME = '7/23/2019 4:46:33 AM'
+DECLARE @ModifiedByID BIGINT = 84243
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updMountingTypeName NVARCHAR(50) = 'MountingTypeName 51101588f38b498e844dfa54fcf8dccd'
-DECLARE @updDescription NVARCHAR(1000) = 'Description 51101588f38b498e844dfa54fcf8dccd'
-DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 51101588f38b498e844dfa54fcf8dccd'
-DECLARE @updIsDeleted BIT = 0
-DECLARE @updCreatedDate DATETIME = '5/6/2021 8:48:48 AM'
-DECLARE @updCreatedByID BIGINT = 418165
-DECLARE @updModifiedDate DATETIME = '5/6/2021 8:48:48 AM'
-DECLARE @updModifiedByID BIGINT = 418165
+DECLARE @updMountingTypeName NVARCHAR(50) = 'MountingTypeName f73ff7899f2242a3a7e05792545f4ef1'
+DECLARE @updDescription NVARCHAR(1000) = 'Description f73ff7899f2242a3a7e05792545f4ef1'
+DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl f73ff7899f2242a3a7e05792545f4ef1'
+DECLARE @updIsDeleted BIT = 1
+DECLARE @updCreatedDate DATETIME = '7/23/2019 4:46:33 AM'
+DECLARE @updCreatedByID BIGINT = 84243
+DECLARE @updModifiedDate DATETIME = '7/23/2019 4:46:33 AM'
+DECLARE @updModifiedByID BIGINT = 84243
  
 
 DECLARE @Fail AS BIT = 0

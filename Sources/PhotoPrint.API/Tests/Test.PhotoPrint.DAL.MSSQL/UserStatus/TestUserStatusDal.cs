@@ -52,8 +52,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("StatusName 33eb2b1483a44ce2914115b015687aeb", entity.StatusName);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("StatusName 939e8969fd4d4c4695ef233cc0cf3e74", entity.StatusName);
+                            Assert.AreEqual(false, entity.IsDeleted);
                       }
 
         [Test]
@@ -102,8 +102,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserStatusDal("DALInitParams");
 
             var entity = new UserStatus();
-                          entity.StatusName = "StatusName 72d5d597be744ee6bb973abba93c5c48";
-                            entity.IsDeleted = true;              
+                          entity.StatusName = "StatusName e57162bd0ba442bba62d10c26cbaf855";
+                            entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
 
@@ -112,8 +112,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("StatusName 72d5d597be744ee6bb973abba93c5c48", entity.StatusName);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("StatusName e57162bd0ba442bba62d10c26cbaf855", entity.StatusName);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -127,8 +127,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             UserStatus entity = dal.Get(paramID);
 
-                          entity.StatusName = "StatusName 7da01d86bd2d434aa11ecf83f647a6c2";
-                            entity.IsDeleted = true;              
+                          entity.StatusName = "StatusName 5bf5cc07dcad4ba699d2b3750bded99b";
+                            entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
 
@@ -137,8 +137,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("StatusName 7da01d86bd2d434aa11ecf83f647a6c2", entity.StatusName);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("StatusName 5bf5cc07dcad4ba699d2b3750bded99b", entity.StatusName);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -148,8 +148,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserStatusDal("DALInitParams");
 
             var entity = new UserStatus();
-                          entity.StatusName = "StatusName 7da01d86bd2d434aa11ecf83f647a6c2";
-                            entity.IsDeleted = true;              
+                          entity.StatusName = "StatusName 5bf5cc07dcad4ba699d2b3750bded99b";
+                            entity.IsDeleted = false;              
               
             try
             {

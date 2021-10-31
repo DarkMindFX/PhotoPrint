@@ -173,11 +173,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderTracking testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.OrderID = 100003;
-                    testEntity.OrderStatusID = 1;
-                    testEntity.SetDate = DateTime.Parse("11/26/2021 2:52:53 AM");
-                    testEntity.SetByID = 100004;
-                    testEntity.Comment = "Comment f2627bb0034a408dbc1fe19d7fdbe9b1";
+                    testEntity.OrderID = 100007;
+                    testEntity.OrderStatusID = 11;
+                    testEntity.SetDate = DateTime.Parse("3/13/2022 12:27:35 PM");
+                    testEntity.SetByID = 100011;
+                    testEntity.Comment = "Comment b03d13c1a3c042cd85a8e32bae444303";
 
                     var reqDto = OrderTrackingConvertor.Convert(testEntity, null);
 
@@ -217,11 +217,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.OrderID = 100003;
-                    testEntity.OrderStatusID = 1;
-                    testEntity.SetDate = DateTime.Parse("11/26/2021 2:52:53 AM");
+                    testEntity.OrderID = 100007;
+                    testEntity.OrderStatusID = 11;
+                    testEntity.SetDate = DateTime.Parse("3/13/2022 12:27:35 PM");
                     testEntity.SetByID = 100011;
-                    testEntity.Comment = "Comment f2627bb0034a408dbc1fe19d7fdbe9b1";
+                    testEntity.Comment = "Comment b03d13c1a3c042cd85a8e32bae444303";
 
                     var reqDto = OrderTrackingConvertor.Convert(testEntity, null);
 
@@ -259,11 +259,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderTracking CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderTracking();
-            entity.OrderID = 100005;
-            entity.OrderStatusID = 4;
-            entity.SetDate = DateTime.Parse("3/2/2021 10:51:53 AM");
-            entity.SetByID = 100010;
-            entity.Comment = "Comment aa44e1542918490492fe692514dc5cca";
+            entity.OrderID = 100004;
+            entity.OrderStatusID = 1;
+            entity.SetDate = DateTime.Parse("7/24/2024 7:06:35 AM");
+            entity.SetByID = 100008;
+            entity.Comment = "Comment 661c9e8ec84c44d1bf516601fd9fdac2";
 
             return entity;
         }

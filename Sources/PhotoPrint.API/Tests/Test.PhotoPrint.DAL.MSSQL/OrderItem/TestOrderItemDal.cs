@@ -53,25 +53,25 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ID);
             
                           Assert.AreEqual(100007, entity.OrderID);
-                            Assert.AreEqual(100019, entity.ImageID);
-                            Assert.AreEqual(953, entity.Width);
-                            Assert.AreEqual(953, entity.Height);
+                            Assert.AreEqual(100049, entity.ImageID);
+                            Assert.AreEqual(461, entity.Width);
+                            Assert.AreEqual(461, entity.Height);
                             Assert.AreEqual(100009, entity.SizeID);
-                            Assert.AreEqual(100005, entity.FrameTypeID);
-                            Assert.AreEqual(100011, entity.FrameSizeID);
-                            Assert.AreEqual(100005, entity.MatID);
+                            Assert.AreEqual(100009, entity.FrameTypeID);
+                            Assert.AreEqual(100003, entity.FrameSizeID);
+                            Assert.AreEqual(100001, entity.MatID);
                             Assert.AreEqual(100001, entity.MaterialTypeID);
-                            Assert.AreEqual(100006, entity.MountingTypeID);
-                            Assert.AreEqual(373, entity.ItemCount);
-                            Assert.AreEqual(555, entity.PriceAmountPerItem);
-                            Assert.AreEqual(35, entity.PriceCurrencyID);
-                            Assert.AreEqual("Comments 8534c1f87d8e4cd09c5c3a398e883d64", entity.Comments);
-                            Assert.AreEqual(100003, entity.PrintingHouseID);
-                            Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("5/4/2021 6:28:49 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100010, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("3/14/2024 4:14:49 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100006, entity.ModifiedByID);
+                            Assert.AreEqual(100005, entity.MountingTypeID);
+                            Assert.AreEqual(163, entity.ItemCount);
+                            Assert.AreEqual(163153.51M, entity.PriceAmountPerItem);
+                            Assert.AreEqual(133, entity.PriceCurrencyID);
+                            Assert.AreEqual("Comments a4c589d9b7f443da81b23019d67f98c3", entity.Comments);
+                            Assert.AreEqual(100002, entity.PrintingHouseID);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("3/26/2020 6:26:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100003, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("3/26/2020 6:26:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100008, entity.ModifiedByID);
                       }
 
         [Test]
@@ -120,26 +120,26 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderItemDal("DALInitParams");
 
             var entity = new OrderItem();
-                          entity.OrderID = 100012;
-                            entity.ImageID = 100020;
-                            entity.Width = 388;
-                            entity.Height = 388;
-                            entity.SizeID = 100008;
-                            entity.FrameTypeID = 100006;
-                            entity.FrameSizeID = 100011;
-                            entity.MatID = 100002;
+                          entity.OrderID = 100010;
+                            entity.ImageID = 100025;
+                            entity.Width = 820;
+                            entity.Height = 820;
+                            entity.SizeID = 100006;
+                            entity.FrameTypeID = 100004;
+                            entity.FrameSizeID = 100012;
+                            entity.MatID = 100005;
                             entity.MaterialTypeID = 100001;
-                            entity.MountingTypeID = 100004;
-                            entity.ItemCount = 359;
-                            entity.PriceAmountPerItem = 555M;
-                            entity.PriceCurrencyID = 208;
-                            entity.Comments = "Comments 0ea424b8503641928e07fe541a1de985";
-                            entity.PrintingHouseID = 100004;
+                            entity.MountingTypeID = 100003;
+                            entity.ItemCount = 343;
+                            entity.PriceAmountPerItem = 342556.02M;
+                            entity.PriceCurrencyID = 83;
+                            entity.Comments = "Comments 453f32a09a8d4f0b848536df7936f69c";
+                            entity.PrintingHouseID = 100002;
                             entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("11/20/2023 3:02:49 AM");
-                            entity.CreatedByID = 100009;
-                            entity.ModifiedDate = DateTime.Parse("4/8/2021 12:48:49 PM");
-                            entity.ModifiedByID = 100003;
+                            entity.CreatedDate = DateTime.Parse("10/30/2023 8:14:33 AM");
+                            entity.CreatedByID = 100003;
+                            entity.ModifiedDate = DateTime.Parse("10/30/2023 8:14:33 AM");
+                            entity.ModifiedByID = 100002;
                           
             entity = dal.Insert(entity);
 
@@ -148,26 +148,26 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100012, entity.OrderID);
-                            Assert.AreEqual(100020, entity.ImageID);
-                            Assert.AreEqual(388, entity.Width);
-                            Assert.AreEqual(388, entity.Height);
-                            Assert.AreEqual(100008, entity.SizeID);
-                            Assert.AreEqual(100006, entity.FrameTypeID);
-                            Assert.AreEqual(100011, entity.FrameSizeID);
-                            Assert.AreEqual(100002, entity.MatID);
+                          Assert.AreEqual(100010, entity.OrderID);
+                            Assert.AreEqual(100025, entity.ImageID);
+                            Assert.AreEqual(820, entity.Width);
+                            Assert.AreEqual(820, entity.Height);
+                            Assert.AreEqual(100006, entity.SizeID);
+                            Assert.AreEqual(100004, entity.FrameTypeID);
+                            Assert.AreEqual(100012, entity.FrameSizeID);
+                            Assert.AreEqual(100005, entity.MatID);
                             Assert.AreEqual(100001, entity.MaterialTypeID);
-                            Assert.AreEqual(100004, entity.MountingTypeID);
-                            Assert.AreEqual(359, entity.ItemCount);
-                            Assert.AreEqual(555M, entity.PriceAmountPerItem);
-                            Assert.AreEqual(208, entity.PriceCurrencyID);
-                            Assert.AreEqual("Comments 0ea424b8503641928e07fe541a1de985", entity.Comments);
-                            Assert.AreEqual(100004, entity.PrintingHouseID);
+                            Assert.AreEqual(100003, entity.MountingTypeID);
+                            Assert.AreEqual(343, entity.ItemCount);
+                            Assert.AreEqual(342556.02M, entity.PriceAmountPerItem);
+                            Assert.AreEqual(83, entity.PriceCurrencyID);
+                            Assert.AreEqual("Comments 453f32a09a8d4f0b848536df7936f69c", entity.Comments);
+                            Assert.AreEqual(100002, entity.PrintingHouseID);
                             Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("11/20/2023 3:02:49 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100009, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("4/8/2021 12:48:49 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100003, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("10/30/2023 8:14:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100003, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("10/30/2023 8:14:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100002, entity.ModifiedByID);
               
         }
 
@@ -182,25 +182,25 @@ namespace Test.PPT.DAL.MSSQL
             OrderItem entity = dal.Get(paramID);
 
                           entity.OrderID = 100004;
-                            entity.ImageID = 100003;
-                            entity.Width = 151;
-                            entity.Height = 151;
+                            entity.ImageID = 100008;
+                            entity.Width = 999;
+                            entity.Height = 999;
                             entity.SizeID = 100010;
-                            entity.FrameTypeID = 100018;
-                            entity.FrameSizeID = 100008;
-                            entity.MatID = 100004;
-                            entity.MaterialTypeID = 100002;
-                            entity.MountingTypeID = 100003;
-                            entity.ItemCount = 718;
-                            entity.PriceAmountPerItem = 777M;
-                            entity.PriceCurrencyID = 144;
-                            entity.Comments = "Comments 2d882d9b320742bcb2d2ff7295612622";
+                            entity.FrameTypeID = 100012;
+                            entity.FrameSizeID = 100010;
+                            entity.MatID = 100003;
+                            entity.MaterialTypeID = 100005;
+                            entity.MountingTypeID = 100002;
+                            entity.ItemCount = 522;
+                            entity.PriceAmountPerItem = 521958.53M;
+                            entity.PriceCurrencyID = 226;
+                            entity.Comments = "Comments f8b26fca9f1a4c858ad287f1f378efac";
                             entity.PrintingHouseID = 100004;
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("8/14/2020 12:25:49 PM");
-                            entity.CreatedByID = 100002;
-                            entity.ModifiedDate = DateTime.Parse("8/14/2020 12:25:49 PM");
-                            entity.ModifiedByID = 100003;
+                            entity.CreatedDate = DateTime.Parse("5/3/2019 7:48:33 PM");
+                            entity.CreatedByID = 100008;
+                            entity.ModifiedDate = DateTime.Parse("5/3/2019 7:48:33 PM");
+                            entity.ModifiedByID = 100005;
               
             entity = dal.Update(entity);
 
@@ -210,25 +210,25 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ID);
             
                           Assert.AreEqual(100004, entity.OrderID);
-                            Assert.AreEqual(100003, entity.ImageID);
-                            Assert.AreEqual(151, entity.Width);
-                            Assert.AreEqual(151, entity.Height);
+                            Assert.AreEqual(100008, entity.ImageID);
+                            Assert.AreEqual(999, entity.Width);
+                            Assert.AreEqual(999, entity.Height);
                             Assert.AreEqual(100010, entity.SizeID);
-                            Assert.AreEqual(100018, entity.FrameTypeID);
-                            Assert.AreEqual(100008, entity.FrameSizeID);
-                            Assert.AreEqual(100004, entity.MatID);
-                            Assert.AreEqual(100002, entity.MaterialTypeID);
-                            Assert.AreEqual(100003, entity.MountingTypeID);
-                            Assert.AreEqual(718, entity.ItemCount);
-                            Assert.AreEqual(777M, entity.PriceAmountPerItem);
-                            Assert.AreEqual(144, entity.PriceCurrencyID);
-                            Assert.AreEqual("Comments 2d882d9b320742bcb2d2ff7295612622", entity.Comments);
+                            Assert.AreEqual(100012, entity.FrameTypeID);
+                            Assert.AreEqual(100010, entity.FrameSizeID);
+                            Assert.AreEqual(100003, entity.MatID);
+                            Assert.AreEqual(100005, entity.MaterialTypeID);
+                            Assert.AreEqual(100002, entity.MountingTypeID);
+                            Assert.AreEqual(522, entity.ItemCount);
+                            Assert.AreEqual(521958.53M, entity.PriceAmountPerItem);
+                            Assert.AreEqual(226, entity.PriceCurrencyID);
+                            Assert.AreEqual("Comments f8b26fca9f1a4c858ad287f1f378efac", entity.Comments);
                             Assert.AreEqual(100004, entity.PrintingHouseID);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("8/14/2020 12:25:49 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100002, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("8/14/2020 12:25:49 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100003, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("5/3/2019 7:48:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100008, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("5/3/2019 7:48:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100005, entity.ModifiedByID);
               
         }
 
@@ -239,25 +239,25 @@ namespace Test.PPT.DAL.MSSQL
 
             var entity = new OrderItem();
                           entity.OrderID = 100004;
-                            entity.ImageID = 100003;
-                            entity.Width = 151;
-                            entity.Height = 151;
+                            entity.ImageID = 100008;
+                            entity.Width = 999;
+                            entity.Height = 999;
                             entity.SizeID = 100010;
-                            entity.FrameTypeID = 100018;
-                            entity.FrameSizeID = 100008;
-                            entity.MatID = 100004;
-                            entity.MaterialTypeID = 100002;
-                            entity.MountingTypeID = 100003;
-                            entity.ItemCount = 718;
-                            entity.PriceAmountPerItem = 128.00M;
-                            entity.PriceCurrencyID = 144;
-                            entity.Comments = "Comments 2d882d9b320742bcb2d2ff7295612622";
+                            entity.FrameTypeID = 100012;
+                            entity.FrameSizeID = 100010;
+                            entity.MatID = 100003;
+                            entity.MaterialTypeID = 100005;
+                            entity.MountingTypeID = 100002;
+                            entity.ItemCount = 522;
+                            entity.PriceAmountPerItem = 521958.53M;
+                            entity.PriceCurrencyID = 226;
+                            entity.Comments = "Comments f8b26fca9f1a4c858ad287f1f378efac";
                             entity.PrintingHouseID = 100004;
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("8/14/2020 12:25:49 PM");
-                            entity.CreatedByID = 100002;
-                            entity.ModifiedDate = DateTime.Parse("8/14/2020 12:25:49 PM");
-                            entity.ModifiedByID = 100003;
+                            entity.CreatedDate = DateTime.Parse("5/3/2019 7:48:33 PM");
+                            entity.CreatedByID = 100008;
+                            entity.ModifiedDate = DateTime.Parse("5/3/2019 7:48:33 PM");
+                            entity.ModifiedByID = 100005;
               
             try
             {

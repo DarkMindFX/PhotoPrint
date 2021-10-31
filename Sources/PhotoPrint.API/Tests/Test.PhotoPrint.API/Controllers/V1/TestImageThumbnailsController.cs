@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/imagethumbnails/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/imagethumbnails/{paramID}");
 
@@ -145,11 +145,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ImageThumbnail respDto = ExtractContentJson<ImageThumbnail>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.Url, respDto.Url);
-                                    Assert.Equal(reqDto.Order, respDto.Order);
-                                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.Url, respDto.Url);
+                    Assert.Equal(reqDto.Order, respDto.Order);
+                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
+
                     respEntity = ImageThumbnailConvertor.Convert(respDto);
                 }
                 finally
@@ -171,10 +171,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageThumbnail testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.Url = "Url 948b29e44b1747548026ed9398ba8cd4";
-                            testEntity.Order = 147;
-                            testEntity.ImageID = 100035;
-              
+                    testEntity.Url = "Url 0afade0b870b4a26ba031379eefae862";
+                    testEntity.Order = 577;
+                    testEntity.ImageID = 100019;
+
                     var reqDto = ImageThumbnailConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -185,11 +185,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ImageThumbnail respDto = ExtractContentJson<ImageThumbnail>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.Url, respDto.Url);
-                                    Assert.Equal(reqDto.Order, respDto.Order);
-                                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.Url, respDto.Url);
+                    Assert.Equal(reqDto.Order, respDto.Order);
+                    Assert.Equal(reqDto.ImageID, respDto.ImageID);
+
                 }
                 finally
                 {
@@ -210,11 +210,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageThumbnail testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.Url = "Url 948b29e44b1747548026ed9398ba8cd4";
-                            testEntity.Order = 147;
-                            testEntity.ImageID = 100035;
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.Url = "Url 0afade0b870b4a26ba031379eefae862";
+                    testEntity.Order = 577;
+                    testEntity.ImageID = 100019;
+
                     var reqDto = ImageThumbnailConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -251,10 +251,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ImageThumbnail CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ImageThumbnail();
-                          entity.Url = "Url 3240894a80b74126860eeac350d7358e";
-                            entity.Order = 102;
-                            entity.ImageID = 100004;
-              
+            entity.Url = "Url 9ebe4ea9d3e240cf981f6c36d620b0cf";
+            entity.Order = 532;
+            entity.ImageID = 100035;
+
             return entity;
         }
 

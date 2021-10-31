@@ -2,16 +2,16 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @ISO NVARCHAR(5) = 'ISO 6'
-DECLARE @CurrencyName NVARCHAR(50) = 'CurrencyName 6d057544c28a4399b4f6e1bb09c561e0'
-DECLARE @IsDeleted BIT = 0
+DECLARE @ISO NVARCHAR(5) = 'ISO 4'
+DECLARE @CurrencyName NVARCHAR(50) = 'CurrencyName 472326a721044b8a9399e6e6f26a24c3'
+DECLARE @IsDeleted BIT = 1
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updISO NVARCHAR(5) = 'ISO b'
-DECLARE @updCurrencyName NVARCHAR(50) = 'CurrencyName b463bfcba47040d28988daf04e211602'
-DECLARE @updIsDeleted BIT = 0
+DECLARE @updISO NVARCHAR(5) = 'ISO 0'
+DECLARE @updCurrencyName NVARCHAR(50) = 'CurrencyName 03de2d7688054f298eef5280404b9000'
+DECLARE @updIsDeleted BIT = 1
  
 
 DECLARE @Fail AS BIT = 0

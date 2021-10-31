@@ -171,8 +171,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PaymentMethod testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Name = "Name 7afcd41465364466b49ae3a828858672";
-                    testEntity.Description = "Description 7afcd41465364466b49ae3a828858672";
+                    testEntity.Name = "Name fee79acc848d43b3b1877e5999c03c00";
+                    testEntity.Description = "Description fee79acc848d43b3b1877e5999c03c00";
                     testEntity.IsDeleted = false;
 
                     var reqDto = PaymentMethodConvertor.Convert(testEntity, null);
@@ -211,8 +211,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.Name = "Name 7afcd41465364466b49ae3a828858672";
-                    testEntity.Description = "Description 7afcd41465364466b49ae3a828858672";
+                    testEntity.Name = "Name fee79acc848d43b3b1877e5999c03c00";
+                    testEntity.Description = "Description fee79acc848d43b3b1877e5999c03c00";
                     testEntity.IsDeleted = false;
 
                     var reqDto = PaymentMethodConvertor.Convert(testEntity, null);
@@ -251,8 +251,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.PaymentMethod CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.PaymentMethod();
-            entity.Name = "Name db4e3e7d12b8429c8191c8e0684a1ef6";
-            entity.Description = "Description db4e3e7d12b8429c8191c8e0684a1ef6";
+            entity.Name = "Name ca866a7f853a450d8c73c4c519d9aa75";
+            entity.Description = "Description ca866a7f853a450d8c73c4c519d9aa75";
             entity.IsDeleted = false;
 
             return entity;

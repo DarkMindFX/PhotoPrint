@@ -52,7 +52,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ContactTypeName 02b03e2221f34effa78f3158fbc7c517", entity.ContactTypeName);
+                          Assert.AreEqual("ContactTypeName d073f23a20264f4489dbac88a5fcbed8", entity.ContactTypeName);
                             Assert.AreEqual(true, entity.IsDeleted);
                       }
 
@@ -102,7 +102,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareContactTypeDal("DALInitParams");
 
             var entity = new ContactType();
-                          entity.ContactTypeName = "ContactTypeName 1baf378ba82b4961962766f04870c771";
+                          entity.ContactTypeName = "ContactTypeName 29fd051a649c4b3c8bdac493e25b7e3e";
                             entity.IsDeleted = true;              
                           
             entity = dal.Insert(entity);
@@ -112,7 +112,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ContactTypeName 1baf378ba82b4961962766f04870c771", entity.ContactTypeName);
+                          Assert.AreEqual("ContactTypeName 29fd051a649c4b3c8bdac493e25b7e3e", entity.ContactTypeName);
                             Assert.AreEqual(true, entity.IsDeleted);
               
         }
@@ -127,7 +127,7 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             ContactType entity = dal.Get(paramID);
 
-                          entity.ContactTypeName = "ContactTypeName 7c68532bd17e4567b259161ff24f7b17";
+                          entity.ContactTypeName = "ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9";
                             entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
@@ -137,7 +137,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ContactTypeName 7c68532bd17e4567b259161ff24f7b17", entity.ContactTypeName);
+                          Assert.AreEqual("ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9", entity.ContactTypeName);
                             Assert.AreEqual(true, entity.IsDeleted);
               
         }
@@ -148,7 +148,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareContactTypeDal("DALInitParams");
 
             var entity = new ContactType();
-                          entity.ContactTypeName = "ContactTypeName 7c68532bd17e4567b259161ff24f7b17";
+                          entity.ContactTypeName = "ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9";
                             entity.IsDeleted = true;              
               
             try

@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{fromstatusid}/{tostatusid}"), ActionName("GetOrderStatusFlow")]
         public IActionResult Get(System.Int64 fromstatusid, System.Int64 tostatusid)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byfromstatusid/{fromstatusid}")]
         public IActionResult GetByFromStatusID(System.Int64 fromstatusid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bytostatusid/{tostatusid}")]
         public IActionResult GetByToStatusID(System.Int64 tostatusid)
         {
@@ -129,7 +129,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{fromstatusid}/{tostatusid}"), ActionName("DeleteOrderStatusFlow")]
         public IActionResult Delete(System.Int64 fromstatusid, System.Int64 tostatusid)
         {
@@ -161,7 +161,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertOrderStatusFlow")]
         public IActionResult Insert(DTO.OrderStatusFlow dto)
         {
@@ -182,7 +182,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateOrderStatusFlow")]
         public IActionResult Update(DTO.OrderStatusFlow dto)
         {

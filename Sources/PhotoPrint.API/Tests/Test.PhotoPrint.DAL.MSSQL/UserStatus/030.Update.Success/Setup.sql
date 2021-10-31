@@ -1,8 +1,8 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @StatusName NVARCHAR(50) = 'StatusName e93ebd47e87e432aa677c435a0071a9a'
-DECLARE @IsDeleted BIT = 1
+DECLARE @StatusName NVARCHAR(50) = 'StatusName 3bfac2611a90484d9422f792db2414fa'
+DECLARE @IsDeleted BIT = 0
  
 
 

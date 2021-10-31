@@ -54,8 +54,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.CategoryID);
             
-                          Assert.AreEqual(100014, entity.ImageID);
-                            Assert.AreEqual(100011, entity.CategoryID);
+                          Assert.AreEqual(100018, entity.ImageID);
+                            Assert.AreEqual(100008, entity.CategoryID);
                       }
 
         [Test]
@@ -107,8 +107,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageCategoryDal("DALInitParams");
 
             var entity = new ImageCategory();
-                          entity.ImageID = 100048;
-                            entity.CategoryID = 100008;
+                          entity.ImageID = 100031;
+                            entity.CategoryID = 100005;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +118,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.CategoryID);
             
-                          Assert.AreEqual(100048, entity.ImageID);
-                            Assert.AreEqual(100008, entity.CategoryID);
+                          Assert.AreEqual(100031, entity.ImageID);
+                            Assert.AreEqual(100005, entity.CategoryID);
               
         }
 
@@ -143,8 +143,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.CategoryID);
             
-                          Assert.AreEqual(100019, entity.ImageID);
-                            Assert.AreEqual(100009, entity.CategoryID);
+                          Assert.AreEqual(100045, entity.ImageID);
+                            Assert.AreEqual(100004, entity.CategoryID);
               
         }
 
@@ -154,8 +154,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageCategoryDal("DALInitParams");
 
             var entity = new ImageCategory();
-                          entity.ImageID = 100019;
-                            entity.CategoryID = 100009;
+                          entity.ImageID = 100045;
+                            entity.CategoryID = 100004;
               
             try
             {

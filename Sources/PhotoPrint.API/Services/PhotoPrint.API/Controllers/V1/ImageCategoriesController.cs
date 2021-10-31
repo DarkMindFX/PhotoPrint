@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{imageid}/{categoryid}"), ActionName("GetImageCategory")]
         public IActionResult Get(System.Int64 imageid, System.Int64 categoryid)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byimageid/{imageid}")]
         public IActionResult GetByImageID(System.Int64 imageid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycategoryid/{categoryid}")]
         public IActionResult GetByCategoryID(System.Int64 categoryid)
         {
@@ -129,7 +129,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{imageid}/{categoryid}"), ActionName("DeleteImageCategory")]
         public IActionResult Delete(System.Int64 imageid, System.Int64 categoryid)
         {
@@ -161,7 +161,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertImageCategory")]
         public IActionResult Insert(DTO.ImageCategory dto)
         {
@@ -182,7 +182,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateImageCategory")]
         public IActionResult Update(DTO.ImageCategory dto)
         {

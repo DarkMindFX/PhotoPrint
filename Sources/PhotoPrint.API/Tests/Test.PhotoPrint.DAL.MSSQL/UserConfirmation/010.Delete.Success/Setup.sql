@@ -1,11 +1,11 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @UserID BIGINT = 100001
-DECLARE @ConfirmationCode NVARCHAR(50) = 'ConfirmationCode ef5da6ad598a406aa3997c45197eb68b'
-DECLARE @Comfirmed BIT = 1
-DECLARE @ExpiresDate DATETIME = '10/11/2020 7:08:26 PM'
-DECLARE @ConfirmationDate DATETIME = '10/11/2020 7:08:26 PM'
+DECLARE @UserID BIGINT = 100011
+DECLARE @ConfirmationCode NVARCHAR(50) = 'ConfirmationCode f8e8ba44f7fa43f491ae5713076fe1f9'
+DECLARE @Comfirmed BIT = 0
+DECLARE @ExpiresDate DATETIME = '4/3/2024 1:31:34 PM'
+DECLARE @ConfirmationDate DATETIME = '4/3/2024 1:31:34 PM'
  
 
 

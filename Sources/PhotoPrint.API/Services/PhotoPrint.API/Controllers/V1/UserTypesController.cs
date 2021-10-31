@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetUserType")]
         public IActionResult Get(System.Int64? id)
         {
@@ -81,7 +81,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteUserType")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -113,7 +113,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertUserType")]
         public IActionResult Insert(DTO.UserType dto)
         {
@@ -134,7 +134,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateUserType")]
         public IActionResult Update(DTO.UserType dto)
         {

@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{deliveryserviceid}/{cityid}"), ActionName("GetDeliveryServiceCity")]
         public IActionResult Get(System.Int64 deliveryserviceid, System.Int64 cityid)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("bydeliveryserviceid/{deliveryserviceid}")]
         public IActionResult GetByDeliveryServiceID(System.Int64 deliveryserviceid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycityid/{cityid}")]
         public IActionResult GetByCityID(System.Int64 cityid)
         {
@@ -129,7 +129,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{deliveryserviceid}/{cityid}"), ActionName("DeleteDeliveryServiceCity")]
         public IActionResult Delete(System.Int64 deliveryserviceid, System.Int64 cityid)
         {
@@ -161,7 +161,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertDeliveryServiceCity")]
         public IActionResult Insert(DTO.DeliveryServiceCity dto)
         {
@@ -182,7 +182,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateDeliveryServiceCity")]
         public IActionResult Update(DTO.DeliveryServiceCity dto)
         {

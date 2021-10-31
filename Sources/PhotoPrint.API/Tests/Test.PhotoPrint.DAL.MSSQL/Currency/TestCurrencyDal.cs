@@ -52,9 +52,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ISO 3", entity.ISO);
-                            Assert.AreEqual("CurrencyName 3b72e280df894549a943fa21eed197cb", entity.CurrencyName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("ISO f", entity.ISO);
+                            Assert.AreEqual("CurrencyName fe7eefa7307d4a6497e34aa82f0acdb8", entity.CurrencyName);
+                            Assert.AreEqual(true, entity.IsDeleted);
                       }
 
         [Test]
@@ -103,9 +103,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCurrencyDal("DALInitParams");
 
             var entity = new Currency();
-                          entity.ISO = "ISO 8";
-                            entity.CurrencyName = "CurrencyName 8898385992e44cec9a5e37759bb0fcdb";
-                            entity.IsDeleted = false;              
+                          entity.ISO = "ISO 9";
+                            entity.CurrencyName = "CurrencyName 937b8974a7cc4f4286421838138d1436";
+                            entity.IsDeleted = true;              
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +114,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ISO 8", entity.ISO);
-                            Assert.AreEqual("CurrencyName 8898385992e44cec9a5e37759bb0fcdb", entity.CurrencyName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("ISO 9", entity.ISO);
+                            Assert.AreEqual("CurrencyName 937b8974a7cc4f4286421838138d1436", entity.CurrencyName);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -130,9 +130,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Currency entity = dal.Get(paramID);
 
-                          entity.ISO = "ISO b";
-                            entity.CurrencyName = "CurrencyName b463bfcba47040d28988daf04e211602";
-                            entity.IsDeleted = false;              
+                          entity.ISO = "ISO 0";
+                            entity.CurrencyName = "CurrencyName 03de2d7688054f298eef5280404b9000";
+                            entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
 
@@ -141,9 +141,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ISO b", entity.ISO);
-                            Assert.AreEqual("CurrencyName b463bfcba47040d28988daf04e211602", entity.CurrencyName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("ISO 0", entity.ISO);
+                            Assert.AreEqual("CurrencyName 03de2d7688054f298eef5280404b9000", entity.CurrencyName);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -153,9 +153,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCurrencyDal("DALInitParams");
 
             var entity = new Currency();
-                          entity.ISO = "ISO b";
-                            entity.CurrencyName = "CurrencyName b463bfcba47040d28988daf04e211602";
-                            entity.IsDeleted = false;              
+                          entity.ISO = "ISO 0";
+                            entity.CurrencyName = "CurrencyName 03de2d7688054f298eef5280404b9000";
+                            entity.IsDeleted = true;              
               
             try
             {

@@ -162,10 +162,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Comments, respDto.Comments);
                     Assert.Equal(reqDto.PrintingHouseID, respDto.PrintingHouseID);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
 
                     respEntity = OrderItemConvertor.Convert(respDto);
                 }
@@ -188,23 +185,26 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderItem testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.OrderID = 100012;
-                    testEntity.ImageID = 100001;
-                    testEntity.Width = 344;
-                    testEntity.Height = 344;
+                    testEntity.OrderID = 100011;
+                    testEntity.ImageID = 100018;
+                    testEntity.Width = 669;
+                    testEntity.Height = 669;
                     testEntity.SizeID = 100009;
-                    testEntity.FrameTypeID = 100009;
-                    testEntity.FrameSizeID = 100002;
-                    testEntity.MatID = 100003;
+                    testEntity.FrameTypeID = 100010;
+                    testEntity.FrameSizeID = 100004;
+                    testEntity.MatID = 100006;
                     testEntity.MaterialTypeID = 100004;
-                    testEntity.MountingTypeID = 100008;
-                    testEntity.ItemCount = 911;
-                    testEntity.PriceAmountPerItem = 665M;
-                    testEntity.PriceCurrencyID = 108;
-                    testEntity.Comments = "Comments 444dbc344c2142e188a9c5298aeab0c9";
+                    testEntity.MountingTypeID = 100005;
+                    testEntity.ItemCount = 714;
+                    testEntity.PriceAmountPerItem = 713841.3M;
+                    testEntity.PriceCurrencyID = 68;
+                    testEntity.Comments = "Comments 6c430effc47a4978bf8ccee771d6f5c5";
                     testEntity.PrintingHouseID = 100002;
-                    testEntity.IsDeleted = true;
-
+                    testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("5/21/2020 7:54:35 AM");
+                    testEntity.CreatedByID = 100011;
+                    testEntity.ModifiedDate = DateTime.Parse("5/21/2020 7:54:35 AM");
+                    testEntity.ModifiedByID = 100004;
 
                     var reqDto = OrderItemConvertor.Convert(testEntity, null);
 
@@ -233,10 +233,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Comments, respDto.Comments);
                     Assert.Equal(reqDto.PrintingHouseID, respDto.PrintingHouseID);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
 
                 }
                 finally
@@ -259,25 +255,25 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.OrderID = 100012;
-                    testEntity.ImageID = 100001;
-                    testEntity.Width = 344;
-                    testEntity.Height = 344;
+                    testEntity.OrderID = 100011;
+                    testEntity.ImageID = 100018;
+                    testEntity.Width = 669;
+                    testEntity.Height = 669;
                     testEntity.SizeID = 100009;
-                    testEntity.FrameTypeID = 100009;
-                    testEntity.FrameSizeID = 100022;
-                    testEntity.MatID = 100021;
-                    testEntity.MaterialTypeID = 100014;
+                    testEntity.FrameTypeID = 100010;
+                    testEntity.FrameSizeID = 100004;
+                    testEntity.MatID = 100006;
+                    testEntity.MaterialTypeID = 100004;
                     testEntity.MountingTypeID = 100005;
-                    testEntity.ItemCount = 911;
-                    testEntity.PriceAmountPerItem = 46538M;
-                    testEntity.PriceCurrencyID = 178;
-                    testEntity.Comments = "Comments 444dbc344c2142e188a9c5298aeab0c9";
+                    testEntity.ItemCount = 714;
+                    testEntity.PriceAmountPerItem = 713841.3M;
+                    testEntity.PriceCurrencyID = 68;
+                    testEntity.Comments = "Comments 6c430effc47a4978bf8ccee771d6f5c5";
                     testEntity.PrintingHouseID = 100002;
-                    testEntity.IsDeleted = true;
-                    testEntity.CreatedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
-                    testEntity.CreatedByID = 100005;
-                    testEntity.ModifiedDate = DateTime.Parse("4/20/2024 10:28:52 AM");
+                    testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("5/21/2020 7:54:35 AM");
+                    testEntity.CreatedByID = 100011;
+                    testEntity.ModifiedDate = DateTime.Parse("5/21/2020 7:54:35 AM");
                     testEntity.ModifiedByID = 100004;
 
                     var reqDto = OrderItemConvertor.Convert(testEntity, null);
@@ -316,26 +312,26 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderItem CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderItem();
-            entity.OrderID = 100006;
-            entity.ImageID = 100017;
-            entity.Width = 597;
-            entity.Height = 597;
-            entity.SizeID = 100010;
-            entity.FrameTypeID = 100008;
-            entity.FrameSizeID = 100005;
-            entity.MatID = 100001;
-            entity.MaterialTypeID = 100003;
+            entity.OrderID = 100008;
+            entity.ImageID = 100018;
+            entity.Width = 445;
+            entity.Height = 445;
+            entity.SizeID = 100005;
+            entity.FrameTypeID = 100001;
+            entity.FrameSizeID = 100004;
+            entity.MatID = 100003;
+            entity.MaterialTypeID = 100001;
             entity.MountingTypeID = 100003;
-            entity.ItemCount = 165;
-            entity.PriceAmountPerItem = 435345M;
-            entity.PriceCurrencyID = 170;
-            entity.Comments = "Comments a916b91829514ab48357a1c0408f6500";
-            entity.PrintingHouseID = 100003;
-            entity.IsDeleted = true;
-            entity.CreatedDate = DateTime.Parse("10/31/2022 2:26:52 AM");
-            entity.CreatedByID = 100002;
-            entity.ModifiedDate = DateTime.Parse("3/20/2020 12:13:52 PM");
-            entity.ModifiedByID = 100010;
+            entity.ItemCount = 490;
+            entity.PriceAmountPerItem = 489588.16M;
+            entity.PriceCurrencyID = 185;
+            entity.Comments = "Comments 03eaff57684146e9ae07b7db5a2e2c1e";
+            entity.PrintingHouseID = 100002;
+            entity.IsDeleted = false;
+            entity.CreatedDate = DateTime.Parse("2/28/2019 10:05:35 AM");
+            entity.CreatedByID = 100010;
+            entity.ModifiedDate = DateTime.Parse("1/7/2022 7:52:35 PM");
+            entity.ModifiedByID = 100008;
 
             return entity;
         }

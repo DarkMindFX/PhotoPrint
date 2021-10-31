@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetContact")]
         public IActionResult Get(System.Int64? id)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycontacttypeid/{contacttypeid}")]
         public IActionResult GetByContactTypeID(System.Int64 contacttypeid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycreatedbyid/{createdbyid}")]
         public IActionResult GetByCreatedByID(System.Int64 createdbyid)
         {
@@ -128,7 +128,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
@@ -153,7 +153,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteContact")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -185,7 +185,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertContact")]
         public IActionResult Insert(DTO.Contact dto)
         {
@@ -209,7 +209,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateContact")]
         public IActionResult Update(DTO.Contact dto)
         {

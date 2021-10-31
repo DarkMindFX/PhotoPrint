@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/orders/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/orders/{paramID}");
 
@@ -145,19 +145,19 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Order respDto = ExtractContentJson<Order>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.ManagerID, respDto.ManagerID);
-                    Assert.Equal(reqDto.UserID, respDto.UserID);
-                    Assert.Equal(reqDto.ContactID, respDto.ContactID);
-                    Assert.Equal(reqDto.DeliveryAddressID, respDto.DeliveryAddressID);
-                    Assert.Equal(reqDto.DeliveryServiceID, respDto.DeliveryServiceID);
-                    Assert.Equal(reqDto.Comments, respDto.Comments);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.ManagerID, respDto.ManagerID);
+                                    Assert.Equal(reqDto.UserID, respDto.UserID);
+                                    Assert.Equal(reqDto.ContactID, respDto.ContactID);
+                                    Assert.Equal(reqDto.DeliveryAddressID, respDto.DeliveryAddressID);
+                                    Assert.Equal(reqDto.DeliveryServiceID, respDto.DeliveryServiceID);
+                                    Assert.Equal(reqDto.Comments, respDto.Comments);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
+                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+                
                     respEntity = OrderConvertor.Convert(respDto);
                 }
                 finally
@@ -179,14 +179,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Order testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.ManagerID = 100005;
-                    testEntity.UserID = 100003;
-                    testEntity.ContactID = 100017;
-                    testEntity.DeliveryAddressID = 100010;
-                    testEntity.DeliveryServiceID = 100007;
-                    testEntity.Comments = "Comments 3377fb3642454252915b1630272c21be";
-                    testEntity.IsDeleted = false;
-
+                          testEntity.ManagerID = 100008 ;
+                            testEntity.UserID = 100010 ;
+                            testEntity.ContactID = 100003 ;
+                            testEntity.DeliveryAddressID = 100009 ;
+                            testEntity.DeliveryServiceID = 100009 ;
+                            testEntity.Comments = "Comments 446dc79f4735492aa84ca73657ec171e";
+                            testEntity.IsDeleted = true;              
+                            testEntity.CreatedDate = DateTime.Parse("10/23/2019 10:29:35 AM");
+                            testEntity.CreatedByID = 100011 ;
+                            testEntity.ModifiedDate = DateTime.Parse("9/2/2022 8:16:35 PM");
+                            testEntity.ModifiedByID = 100011 ;
+              
                     var reqDto = OrderConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -197,19 +201,19 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Order respDto = ExtractContentJson<Order>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.ManagerID, respDto.ManagerID);
-                    Assert.Equal(reqDto.UserID, respDto.UserID);
-                    Assert.Equal(reqDto.ContactID, respDto.ContactID);
-                    Assert.Equal(reqDto.DeliveryAddressID, respDto.DeliveryAddressID);
-                    Assert.Equal(reqDto.DeliveryServiceID, respDto.DeliveryServiceID);
-                    Assert.Equal(reqDto.Comments, respDto.Comments);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.ManagerID, respDto.ManagerID);
+                                    Assert.Equal(reqDto.UserID, respDto.UserID);
+                                    Assert.Equal(reqDto.ContactID, respDto.ContactID);
+                                    Assert.Equal(reqDto.DeliveryAddressID, respDto.DeliveryAddressID);
+                                    Assert.Equal(reqDto.DeliveryServiceID, respDto.DeliveryServiceID);
+                                    Assert.Equal(reqDto.Comments, respDto.Comments);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
+                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
+                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
+                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+                
                 }
                 finally
                 {
@@ -230,19 +234,19 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Order testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.ManagerID = 100004;
-                    testEntity.UserID = 100003;
-                    testEntity.ContactID = 100017;
-                    testEntity.DeliveryAddressID = 100010;
-                    testEntity.DeliveryServiceID = 100007;
-                    testEntity.Comments = "Comments 3377fb3642454252915b1630272c21be";
-                    testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("2/18/2024 3:14:52 AM");
-                    testEntity.CreatedByID = 100006;
-                    testEntity.ModifiedDate = DateTime.Parse("5/17/2024 1:28:52 PM");
-                    testEntity.ModifiedByID = 100008;
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.ManagerID = 100008;
+                            testEntity.UserID = 100010;
+                            testEntity.ContactID = 100003;
+                            testEntity.DeliveryAddressID = 100009;
+                            testEntity.DeliveryServiceID = 100009;
+                            testEntity.Comments = "Comments 446dc79f4735492aa84ca73657ec171e";
+                            testEntity.IsDeleted = true;              
+                            testEntity.CreatedDate = DateTime.Parse("10/23/2019 10:29:35 AM");
+                            testEntity.CreatedByID = 100011;
+                            testEntity.ModifiedDate = DateTime.Parse("9/2/2022 8:16:35 PM");
+                            testEntity.ModifiedByID = 100011;
+              
                     var reqDto = OrderConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -279,18 +283,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Order CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Order();
-            entity.ManagerID = 100006;
-            entity.UserID = 100009;
-            entity.ContactID = 100008;
-            entity.DeliveryAddressID = 100011;
-            entity.DeliveryServiceID = 100005;
-            entity.Comments = "Comments 7647f0c7f83e41f1bde30b9270a5e902";
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("11/27/2022 5:26:52 AM");
-            entity.CreatedByID = 100007;
-            entity.ModifiedDate = DateTime.Parse("11/27/2022 5:26:52 AM");
-            entity.ModifiedByID = 100011;
-
+                          entity.ManagerID = 100005;
+                            entity.UserID = 100007;
+                            entity.ContactID = 100016;
+                            entity.DeliveryAddressID = 100016;
+                            entity.DeliveryServiceID = 100002;
+                            entity.Comments = "Comments fe81414b76d74830b8b93b080af24ab1";
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("7/19/2024 6:28:35 PM");
+                            entity.CreatedByID = 100011;
+                            entity.ModifiedDate = DateTime.Parse("12/8/2021 4:15:35 AM");
+                            entity.ModifiedByID = 100007;
+              
             return entity;
         }
 

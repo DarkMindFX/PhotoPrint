@@ -1,8 +1,8 @@
 
 
 DECLARE @PrintingHouseID BIGINT = 100002
-DECLARE @AddressID BIGINT = 100001
-DECLARE @IsPrimary BIT = 1
+DECLARE @AddressID BIGINT = 100015
+DECLARE @IsPrimary BIT = 0
  
 
 

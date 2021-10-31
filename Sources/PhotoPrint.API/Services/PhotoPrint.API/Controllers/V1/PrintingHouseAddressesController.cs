@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{printinghouseid}/{addressid}"), ActionName("GetPrintingHouseAddress")]
         public IActionResult Get(System.Int64 printinghouseid, System.Int64 addressid)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byprintinghouseid/{printinghouseid}")]
         public IActionResult GetByPrintingHouseID(System.Int64 printinghouseid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("byaddressid/{addressid}")]
         public IActionResult GetByAddressID(System.Int64 addressid)
         {
@@ -129,7 +129,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{printinghouseid}/{addressid}"), ActionName("DeletePrintingHouseAddress")]
         public IActionResult Delete(System.Int64 printinghouseid, System.Int64 addressid)
         {
@@ -161,7 +161,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertPrintingHouseAddress")]
         public IActionResult Insert(DTO.PrintingHouseAddress dto)
         {
@@ -182,7 +182,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdatePrintingHouseAddress")]
         public IActionResult Update(DTO.PrintingHouseAddress dto)
         {

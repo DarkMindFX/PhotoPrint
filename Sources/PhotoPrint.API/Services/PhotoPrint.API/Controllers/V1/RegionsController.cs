@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetRegion")]
         public IActionResult Get(System.Int64? id)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycountryid/{countryid}")]
         public IActionResult GetByCountryID(System.Int64 countryid)
         {
@@ -105,7 +105,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteRegion")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -137,7 +137,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertRegion")]
         public IActionResult Insert(DTO.Region dto)
         {
@@ -158,7 +158,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateRegion")]
         public IActionResult Update(DTO.Region dto)
         {

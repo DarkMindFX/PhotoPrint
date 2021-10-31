@@ -44,28 +44,28 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareSizeDal("DALInitParams");
 
             IList<object> objIds = SetupCase(conn, caseName);
-            var paramID = (System.Int64?)objIds[0];
+                var paramID = (System.Int64?)objIds[0];
             Size entity = dal.Get(paramID);
 
             TeardownCase(conn, caseName);
 
             Assert.IsNotNull(entity);
-            Assert.IsNotNull(entity.ID);
-
-            Assert.AreEqual("SizeName 27a37d68711b4701b9cadc460e2e8e1f", entity.SizeName);
-            Assert.AreEqual(366, entity.Width);
-            Assert.AreEqual(366, entity.Height);
-            Assert.AreEqual(false, entity.IsDeleted);
-            Assert.AreEqual(DateTime.Parse("1/21/2021 11:20:49 PM"), entity.CreatedDate);
-            Assert.AreEqual(100004, entity.CreatedByID);
-            Assert.AreEqual(DateTime.Parse("5/16/2022 12:46:49 PM"), entity.ModifiedDate);
-            Assert.AreEqual(100003, entity.ModifiedByID);
-        }
+                        Assert.IsNotNull(entity.ID);
+            
+                          Assert.AreEqual("SizeName b5c1ceaf194f4c51bbdb08ffc9020da2", entity.SizeName);
+                            Assert.AreEqual(255, entity.Width);
+                            Assert.AreEqual(255, entity.Height);
+                            Assert.AreEqual(false, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("6/27/2020 9:29:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100007, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("5/7/2019 3:18:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100006, entity.ModifiedByID);
+                      }
 
         [Test]
         public void Size_GetDetails_InvalidId()
         {
-            var paramID = Int64.MaxValue - 1;
+                var paramID = Int64.MaxValue - 1;
             var dal = PrepareSizeDal("DALInitParams");
 
             Size entity = dal.Get(paramID);
@@ -80,7 +80,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareSizeDal("DALInitParams");
 
             IList<object> objIds = SetupCase(conn, caseName);
-            var paramID = (System.Int64?)objIds[0];
+                var paramID = (System.Int64?)objIds[0];
             bool removed = dal.Delete(paramID);
 
             TeardownCase(conn, caseName);
@@ -92,8 +92,8 @@ namespace Test.PPT.DAL.MSSQL
         public void Size_Delete_InvalidId()
         {
             var dal = PrepareSizeDal("DALInitParams");
-            var paramID = Int64.MaxValue - 1;
-
+                var paramID = Int64.MaxValue - 1;
+   
             bool removed = dal.Delete(paramID);
             Assert.IsFalse(removed);
 
@@ -108,31 +108,31 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareSizeDal("DALInitParams");
 
             var entity = new Size();
-            entity.SizeName = "SizeName 474354b31cec492d8d7638ba3ae25c40";
-            entity.Width = 695;
-            entity.Height = 695;
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("11/12/2022 6:33:49 PM");
-            entity.CreatedByID = 100007;
-            entity.ModifiedDate = DateTime.Parse("4/1/2020 4:20:49 AM");
-            entity.ModifiedByID = 100009;
-
+                          entity.SizeName = "SizeName b717ab6e141c44de9047816daf4825cc";
+                            entity.Width = 748;
+                            entity.Height = 748;
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("3/11/2023 12:39:33 PM");
+                            entity.CreatedByID = 100001;
+                            entity.ModifiedDate = DateTime.Parse("7/28/2020 1:06:33 PM");
+                            entity.ModifiedByID = 100005;
+                          
             entity = dal.Insert(entity);
 
             TeardownCase(conn, caseName);
 
             Assert.IsNotNull(entity);
-            Assert.IsNotNull(entity.ID);
-
-            Assert.AreEqual("SizeName 474354b31cec492d8d7638ba3ae25c40", entity.SizeName);
-            Assert.AreEqual(695, entity.Width);
-            Assert.AreEqual(695, entity.Height);
-            Assert.AreEqual(false, entity.IsDeleted);
-            Assert.AreEqual(DateTime.Parse("11/12/2022 6:33:49 PM"), entity.CreatedDate);
-            Assert.AreEqual(100007, entity.CreatedByID);
-            Assert.AreEqual(DateTime.Parse("4/1/2020 4:20:49 AM"), entity.ModifiedDate);
-            Assert.AreEqual(100009, entity.ModifiedByID);
-
+                        Assert.IsNotNull(entity.ID);
+            
+                          Assert.AreEqual("SizeName b717ab6e141c44de9047816daf4825cc", entity.SizeName);
+                            Assert.AreEqual(748, entity.Width);
+                            Assert.AreEqual(748, entity.Height);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("3/11/2023 12:39:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100001, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("7/28/2020 1:06:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100005, entity.ModifiedByID);
+              
         }
 
         [TestCase("Size\\030.Update.Success")]
@@ -142,34 +142,34 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareSizeDal("DALInitParams");
 
             IList<object> objIds = SetupCase(conn, caseName);
-            var paramID = (System.Int64?)objIds[0];
+                var paramID = (System.Int64?)objIds[0];
             Size entity = dal.Get(paramID);
 
-            entity.SizeName = "SizeName c97f2011693747218d3a68f4c1b849f1";
-            entity.Width = 740;
-            entity.Height = 740;
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("2/10/2023 2:07:49 PM");
-            entity.CreatedByID = 100006;
-            entity.ModifiedDate = DateTime.Parse("6/29/2020 2:34:49 PM");
-            entity.ModifiedByID = 100004;
-
+                          entity.SizeName = "SizeName f12f38841db54f4aa537c7b702b8edbd";
+                            entity.Width = 837;
+                            entity.Height = 837;
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("9/6/2023 9:07:33 AM");
+                            entity.CreatedByID = 100010;
+                            entity.ModifiedDate = DateTime.Parse("1/24/2021 6:54:33 PM");
+                            entity.ModifiedByID = 100011;
+              
             entity = dal.Update(entity);
 
             TeardownCase(conn, caseName);
 
             Assert.IsNotNull(entity);
-            Assert.IsNotNull(entity.ID);
-
-            Assert.AreEqual("SizeName c97f2011693747218d3a68f4c1b849f1", entity.SizeName);
-            Assert.AreEqual(740, entity.Width);
-            Assert.AreEqual(740, entity.Height);
-            Assert.AreEqual(false, entity.IsDeleted);
-            Assert.AreEqual(DateTime.Parse("2/10/2023 2:07:49 PM"), entity.CreatedDate);
-            Assert.AreEqual(100006, entity.CreatedByID);
-            Assert.AreEqual(DateTime.Parse("6/29/2020 2:34:49 PM"), entity.ModifiedDate);
-            Assert.AreEqual(100004, entity.ModifiedByID);
-
+                        Assert.IsNotNull(entity.ID);
+            
+                          Assert.AreEqual("SizeName f12f38841db54f4aa537c7b702b8edbd", entity.SizeName);
+                            Assert.AreEqual(837, entity.Width);
+                            Assert.AreEqual(837, entity.Height);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("9/6/2023 9:07:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100010, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("1/24/2021 6:54:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100011, entity.ModifiedByID);
+              
         }
 
         [Test]
@@ -178,15 +178,15 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareSizeDal("DALInitParams");
 
             var entity = new Size();
-            entity.SizeName = "SizeName c97f2011693747218d3a68f4c1b849f1";
-            entity.Width = 740;
-            entity.Height = 740;
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("2/10/2023 2:07:49 PM");
-            entity.CreatedByID = 100006;
-            entity.ModifiedDate = DateTime.Parse("6/29/2020 2:34:49 PM");
-            entity.ModifiedByID = 100004;
-
+                          entity.SizeName = "SizeName f12f38841db54f4aa537c7b702b8edbd";
+                            entity.Width = 837;
+                            entity.Height = 837;
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("9/6/2023 9:07:33 AM");
+                            entity.CreatedByID = 100010;
+                            entity.ModifiedDate = DateTime.Parse("1/24/2021 6:54:33 PM");
+                            entity.ModifiedByID = 100011;
+              
             try
             {
                 entity = dal.Update(entity);

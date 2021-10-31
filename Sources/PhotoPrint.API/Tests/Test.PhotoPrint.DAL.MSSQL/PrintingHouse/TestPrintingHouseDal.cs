@@ -52,13 +52,13 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name deec7c019c98423c890738aa3e85b7d8", entity.Name);
-                            Assert.AreEqual("Description deec7c019c98423c890738aa3e85b7d8", entity.Description);
+                          Assert.AreEqual("Name 882a68430de140eb8090e54066d39f31", entity.Name);
+                            Assert.AreEqual("Description 882a68430de140eb8090e54066d39f31", entity.Description);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("4/15/2019 7:52:49 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100003, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("7/19/2023 10:42:49 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100001, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("11/19/2019 1:28:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100006, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("2/17/2020 9:02:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100009, entity.ModifiedByID);
                       }
 
         [Test]
@@ -107,13 +107,13 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePrintingHouseDal("DALInitParams");
 
             var entity = new PrintingHouse();
-                          entity.Name = "Name 36d576885ae14a67bedd7c780c177008";
-                            entity.Description = "Description 36d576885ae14a67bedd7c780c177008";
+                          entity.Name = "Name d2878edad80746a4bf5929f0fd47dd19";
+                            entity.Description = "Description d2878edad80746a4bf5929f0fd47dd19";
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("5/14/2024 6:20:49 AM");
-                            entity.CreatedByID = 100007;
-                            entity.ModifiedDate = DateTime.Parse("10/2/2021 4:07:49 PM");
-                            entity.ModifiedByID = 100004;
+                            entity.CreatedDate = DateTime.Parse("3/28/2023 5:02:33 AM");
+                            entity.CreatedByID = 100004;
+                            entity.ModifiedDate = DateTime.Parse("3/28/2023 5:02:33 AM");
+                            entity.ModifiedByID = 100009;
                           
             entity = dal.Insert(entity);
 
@@ -122,13 +122,13 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 36d576885ae14a67bedd7c780c177008", entity.Name);
-                            Assert.AreEqual("Description 36d576885ae14a67bedd7c780c177008", entity.Description);
+                          Assert.AreEqual("Name d2878edad80746a4bf5929f0fd47dd19", entity.Name);
+                            Assert.AreEqual("Description d2878edad80746a4bf5929f0fd47dd19", entity.Description);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("5/14/2024 6:20:49 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100007, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("10/2/2021 4:07:49 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100004, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("3/28/2023 5:02:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100004, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("3/28/2023 5:02:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100009, entity.ModifiedByID);
               
         }
 
@@ -142,13 +142,13 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             PrintingHouse entity = dal.Get(paramID);
 
-                          entity.Name = "Name b39413a9abe040e5ab829242f699404a";
-                            entity.Description = "Description b39413a9abe040e5ab829242f699404a";
+                          entity.Name = "Name f3b901d4779a4ea4b59d2d0d2bdcba67";
+                            entity.Description = "Description f3b901d4779a4ea4b59d2d0d2bdcba67";
                             entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("1/1/2022 11:41:49 AM");
-                            entity.CreatedByID = 100009;
-                            entity.ModifiedDate = DateTime.Parse("5/21/2019 12:08:49 PM");
-                            entity.ModifiedByID = 100002;
+                            entity.CreatedDate = DateTime.Parse("6/25/2023 3:16:33 PM");
+                            entity.CreatedByID = 100010;
+                            entity.ModifiedDate = DateTime.Parse("11/12/2020 1:03:33 AM");
+                            entity.ModifiedByID = 100003;
               
             entity = dal.Update(entity);
 
@@ -157,13 +157,13 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name b39413a9abe040e5ab829242f699404a", entity.Name);
-                            Assert.AreEqual("Description b39413a9abe040e5ab829242f699404a", entity.Description);
+                          Assert.AreEqual("Name f3b901d4779a4ea4b59d2d0d2bdcba67", entity.Name);
+                            Assert.AreEqual("Description f3b901d4779a4ea4b59d2d0d2bdcba67", entity.Description);
                             Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("1/1/2022 11:41:49 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100009, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("5/21/2019 12:08:49 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100002, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/25/2023 3:16:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100010, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("11/12/2020 1:03:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100003, entity.ModifiedByID);
               
         }
 
@@ -173,13 +173,13 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePrintingHouseDal("DALInitParams");
 
             var entity = new PrintingHouse();
-                          entity.Name = "Name b39413a9abe040e5ab829242f699404a";
-                            entity.Description = "Description b39413a9abe040e5ab829242f699404a";
+                          entity.Name = "Name f3b901d4779a4ea4b59d2d0d2bdcba67";
+                            entity.Description = "Description f3b901d4779a4ea4b59d2d0d2bdcba67";
                             entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("1/1/2022 11:41:49 AM");
-                            entity.CreatedByID = 100009;
-                            entity.ModifiedDate = DateTime.Parse("5/21/2019 12:08:49 PM");
-                            entity.ModifiedByID = 100002;
+                            entity.CreatedDate = DateTime.Parse("6/25/2023 3:16:33 PM");
+                            entity.CreatedByID = 100010;
+                            entity.ModifiedDate = DateTime.Parse("11/12/2020 1:03:33 AM");
+                            entity.ModifiedByID = 100003;
               
             try
             {

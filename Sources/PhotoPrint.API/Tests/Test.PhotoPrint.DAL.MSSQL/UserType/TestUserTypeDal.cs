@@ -52,8 +52,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("UserTypeName 114c412a2cea47f29c00f2b98d847af2", entity.UserTypeName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("UserTypeName 45f7c7e282cc4a5ea6d758248bea50a4", entity.UserTypeName);
+                            Assert.AreEqual(true, entity.IsDeleted);
                       }
 
         [Test]
@@ -102,8 +102,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserTypeDal("DALInitParams");
 
             var entity = new UserType();
-                          entity.UserTypeName = "UserTypeName 7c4a299c5a7c4b3f9d910aed2f122549";
-                            entity.IsDeleted = false;              
+                          entity.UserTypeName = "UserTypeName 77d4380260db49449fb85fad211130cd";
+                            entity.IsDeleted = true;              
                           
             entity = dal.Insert(entity);
 
@@ -112,8 +112,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("UserTypeName 7c4a299c5a7c4b3f9d910aed2f122549", entity.UserTypeName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("UserTypeName 77d4380260db49449fb85fad211130cd", entity.UserTypeName);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -127,8 +127,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             UserType entity = dal.Get(paramID);
 
-                          entity.UserTypeName = "UserTypeName 045872aad309441d8f596e48aac58ee3";
-                            entity.IsDeleted = false;              
+                          entity.UserTypeName = "UserTypeName b5e131718dbd4fa19dc071b2bdfd9886";
+                            entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
 
@@ -137,8 +137,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("UserTypeName 045872aad309441d8f596e48aac58ee3", entity.UserTypeName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("UserTypeName b5e131718dbd4fa19dc071b2bdfd9886", entity.UserTypeName);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -148,8 +148,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserTypeDal("DALInitParams");
 
             var entity = new UserType();
-                          entity.UserTypeName = "UserTypeName 045872aad309441d8f596e48aac58ee3";
-                            entity.IsDeleted = false;              
+                          entity.UserTypeName = "UserTypeName b5e131718dbd4fa19dc071b2bdfd9886";
+                            entity.IsDeleted = true;              
               
             try
             {

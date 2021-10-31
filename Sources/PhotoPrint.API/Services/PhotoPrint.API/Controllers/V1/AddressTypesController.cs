@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetAddressType")]
         public IActionResult Get(System.Int64? id)
         {
@@ -81,7 +81,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteAddressType")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -113,7 +113,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertAddressType")]
         public IActionResult Insert(DTO.AddressType dto)
         {
@@ -134,7 +134,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateAddressType")]
         public IActionResult Update(DTO.AddressType dto)
         {

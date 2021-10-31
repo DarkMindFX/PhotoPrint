@@ -2,26 +2,26 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @FrameTypeName NVARCHAR(50) = 'FrameTypeName 7ee0a5cf5e4941c597f07d8cdee1a933'
-DECLARE @Description NVARCHAR(1000) = 'Description 7ee0a5cf5e4941c597f07d8cdee1a933'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 7ee0a5cf5e4941c597f07d8cdee1a933'
+DECLARE @FrameTypeName NVARCHAR(50) = 'FrameTypeName e0f863a718624ca2b6de0cb27eeb6c70'
+DECLARE @Description NVARCHAR(1000) = 'Description e0f863a718624ca2b6de0cb27eeb6c70'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl e0f863a718624ca2b6de0cb27eeb6c70'
 DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '3/25/2023 9:29:48 AM'
-DECLARE @CreatedByID BIGINT = 100002
-DECLARE @ModifiedDate DATETIME = '3/25/2023 9:29:48 AM'
-DECLARE @ModifiedByID BIGINT = 100008
+DECLARE @CreatedDate DATETIME = '6/29/2023 10:53:33 AM'
+DECLARE @CreatedByID BIGINT = 100004
+DECLARE @ModifiedDate DATETIME = '11/15/2020 11:20:33 AM'
+DECLARE @ModifiedByID BIGINT = 100003
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updFrameTypeName NVARCHAR(50) = 'FrameTypeName 44bda55972ac4d5cb814db2670544b49'
-DECLARE @updDescription NVARCHAR(1000) = 'Description 44bda55972ac4d5cb814db2670544b49'
-DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 44bda55972ac4d5cb814db2670544b49'
+DECLARE @updFrameTypeName NVARCHAR(50) = 'FrameTypeName 217f233dd23d4b2b935c69add0f84f64'
+DECLARE @updDescription NVARCHAR(1000) = 'Description 217f233dd23d4b2b935c69add0f84f64'
+DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 217f233dd23d4b2b935c69add0f84f64'
 DECLARE @updIsDeleted BIT = 1
-DECLARE @updCreatedDate DATETIME = '8/11/2020 9:56:48 AM'
-DECLARE @updCreatedByID BIGINT = 100003
-DECLARE @updModifiedDate DATETIME = '8/11/2020 9:56:48 AM'
-DECLARE @updModifiedByID BIGINT = 100007
+DECLARE @updCreatedDate DATETIME = '11/15/2020 11:20:33 AM'
+DECLARE @updCreatedByID BIGINT = 100001
+DECLARE @updModifiedDate DATETIME = '2/13/2021 6:54:33 AM'
+DECLARE @updModifiedByID BIGINT = 100001
  
 
 DECLARE @Fail AS BIT = 0

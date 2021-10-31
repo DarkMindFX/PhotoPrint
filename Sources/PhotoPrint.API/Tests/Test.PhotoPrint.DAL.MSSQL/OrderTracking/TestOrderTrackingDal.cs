@@ -52,11 +52,11 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100008, entity.OrderID);
-                            Assert.AreEqual(9, entity.OrderStatusID);
-                            Assert.AreEqual(DateTime.Parse("5/13/2022 5:17:49 PM"), entity.SetDate);
-                            Assert.AreEqual(100010, entity.SetByID);
-                            Assert.AreEqual("Comment 4b84cfd0b6204275b1582bab15bf20a6", entity.Comment);
+                          Assert.AreEqual(100010, entity.OrderID);
+                            Assert.AreEqual(4, entity.OrderStatusID);
+                            Assert.AreEqual(DateTime.Parse("1/11/2020 7:26:33 PM"), entity.SetDate);
+                            Assert.AreEqual(100003, entity.SetByID);
+                            Assert.AreEqual("Comment 3522cc3ace3641eaa4759f568ae9ef77", entity.Comment);
                       }
 
         [Test]
@@ -105,11 +105,11 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderTrackingDal("DALInitParams");
 
             var entity = new OrderTracking();
-                          entity.OrderID = 100007;
-                            entity.OrderStatusID = 11;
-                            entity.SetDate = DateTime.Parse("12/9/2023 2:54:49 PM");
-                            entity.SetByID = 100004;
-                            entity.Comment = "Comment 37733796239c42b4ac9dc76fd05e983f";
+                          entity.OrderID = 100005;
+                            entity.OrderStatusID = 7;
+                            entity.SetDate = DateTime.Parse("5/20/2023 11:01:33 AM");
+                            entity.SetByID = 100011;
+                            entity.Comment = "Comment ef0d29efbe584a5491ab16ae2315ce58";
                           
             entity = dal.Insert(entity);
 
@@ -118,11 +118,11 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100007, entity.OrderID);
-                            Assert.AreEqual(11, entity.OrderStatusID);
-                            Assert.AreEqual(DateTime.Parse("12/9/2023 2:54:49 PM"), entity.SetDate);
-                            Assert.AreEqual(100004, entity.SetByID);
-                            Assert.AreEqual("Comment 37733796239c42b4ac9dc76fd05e983f", entity.Comment);
+                          Assert.AreEqual(100005, entity.OrderID);
+                            Assert.AreEqual(7, entity.OrderStatusID);
+                            Assert.AreEqual(DateTime.Parse("5/20/2023 11:01:33 AM"), entity.SetDate);
+                            Assert.AreEqual(100011, entity.SetByID);
+                            Assert.AreEqual("Comment ef0d29efbe584a5491ab16ae2315ce58", entity.Comment);
               
         }
 
@@ -136,11 +136,11 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             OrderTracking entity = dal.Get(paramID);
 
-                          entity.OrderID = 100010;
+                          entity.OrderID = 100006;
                             entity.OrderStatusID = 3;
-                            entity.SetDate = DateTime.Parse("10/25/2021 6:28:49 AM");
-                            entity.SetByID = 100008;
-                            entity.Comment = "Comment ad04dfe0b03e4cae8a591c15dce85917";
+                            entity.SetDate = DateTime.Parse("8/17/2023 9:14:33 PM");
+                            entity.SetByID = 100007;
+                            entity.Comment = "Comment e696468f762546adbb0ab781d0a5ba0c";
               
             entity = dal.Update(entity);
 
@@ -149,11 +149,11 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100010, entity.OrderID);
+                          Assert.AreEqual(100006, entity.OrderID);
                             Assert.AreEqual(3, entity.OrderStatusID);
-                            Assert.AreEqual(DateTime.Parse("10/25/2021 6:28:49 AM"), entity.SetDate);
-                            Assert.AreEqual(100008, entity.SetByID);
-                            Assert.AreEqual("Comment ad04dfe0b03e4cae8a591c15dce85917", entity.Comment);
+                            Assert.AreEqual(DateTime.Parse("8/17/2023 9:14:33 PM"), entity.SetDate);
+                            Assert.AreEqual(100007, entity.SetByID);
+                            Assert.AreEqual("Comment e696468f762546adbb0ab781d0a5ba0c", entity.Comment);
               
         }
 
@@ -163,11 +163,11 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderTrackingDal("DALInitParams");
 
             var entity = new OrderTracking();
-                          entity.OrderID = 100010;
+                          entity.OrderID = 100006;
                             entity.OrderStatusID = 3;
-                            entity.SetDate = DateTime.Parse("10/25/2021 6:28:49 AM");
-                            entity.SetByID = 100008;
-                            entity.Comment = "Comment ad04dfe0b03e4cae8a591c15dce85917";
+                            entity.SetDate = DateTime.Parse("8/17/2023 9:14:33 PM");
+                            entity.SetByID = 100007;
+                            entity.Comment = "Comment e696468f762546adbb0ab781d0a5ba0c";
               
             try
             {

@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{imageid}/{relatedimageid}"), ActionName("GetImageRelated")]
         public IActionResult Get(System.Int64 imageid, System.Int64 relatedimageid)
         {
@@ -81,7 +81,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{imageid}/{relatedimageid}"), ActionName("DeleteImageRelated")]
         public IActionResult Delete(System.Int64 imageid, System.Int64 relatedimageid)
         {
@@ -113,7 +113,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertImageRelated")]
         public IActionResult Insert(DTO.ImageRelated dto)
         {
@@ -134,7 +134,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateImageRelated")]
         public IActionResult Update(DTO.ImageRelated dto)
         {

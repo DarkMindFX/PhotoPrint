@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{printinghouseid}/{contactid}"), ActionName("GetPrintingHouseContact")]
         public IActionResult Get(System.Int64 printinghouseid, System.Int64 contactid)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byprintinghouseid/{printinghouseid}")]
         public IActionResult GetByPrintingHouseID(System.Int64 printinghouseid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycontactid/{contactid}")]
         public IActionResult GetByContactID(System.Int64 contactid)
         {
@@ -129,7 +129,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{printinghouseid}/{contactid}"), ActionName("DeletePrintingHouseContact")]
         public IActionResult Delete(System.Int64 printinghouseid, System.Int64 contactid)
         {
@@ -161,7 +161,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertPrintingHouseContact")]
         public IActionResult Insert(DTO.PrintingHouseContact dto)
         {
@@ -182,7 +182,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdatePrintingHouseContact")]
         public IActionResult Update(DTO.PrintingHouseContact dto)
         {

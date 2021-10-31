@@ -52,7 +52,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("AddressTypeName 43f079185d234707ba0db64329ebbbf0", entity.AddressTypeName);
+                          Assert.AreEqual("AddressTypeName d7843c92ee0a497b8758b4b561b92cea", entity.AddressTypeName);
                             Assert.AreEqual(false, entity.IsDeleted);
                       }
 
@@ -102,7 +102,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareAddressTypeDal("DALInitParams");
 
             var entity = new AddressType();
-                          entity.AddressTypeName = "AddressTypeName 334da7e2cc544101a8df95875d584809";
+                          entity.AddressTypeName = "AddressTypeName d013910b78ab46ad86a445cfb642c0dc";
                             entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
@@ -112,7 +112,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("AddressTypeName 334da7e2cc544101a8df95875d584809", entity.AddressTypeName);
+                          Assert.AreEqual("AddressTypeName d013910b78ab46ad86a445cfb642c0dc", entity.AddressTypeName);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -127,7 +127,7 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             AddressType entity = dal.Get(paramID);
 
-                          entity.AddressTypeName = "AddressTypeName 593dcfb6484640089cae34d61f69f880";
+                          entity.AddressTypeName = "AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7";
                             entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
@@ -137,7 +137,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("AddressTypeName 593dcfb6484640089cae34d61f69f880", entity.AddressTypeName);
+                          Assert.AreEqual("AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7", entity.AddressTypeName);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -148,7 +148,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareAddressTypeDal("DALInitParams");
 
             var entity = new AddressType();
-                          entity.AddressTypeName = "AddressTypeName 593dcfb6484640089cae34d61f69f880";
+                          entity.AddressTypeName = "AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7";
                             entity.IsDeleted = false;              
               
             try

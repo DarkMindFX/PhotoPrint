@@ -52,14 +52,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("MaterialTypeName 71a2e09e35964b4f8f301b1ab9b56e61", entity.MaterialTypeName);
-                            Assert.AreEqual("Description 71a2e09e35964b4f8f301b1ab9b56e61", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl 71a2e09e35964b4f8f301b1ab9b56e61", entity.ThumbnailUrl);
+                          Assert.AreEqual("MaterialTypeName 9ee2fdeae8544ae3a4508890f95b78ca", entity.MaterialTypeName);
+                            Assert.AreEqual("Description 9ee2fdeae8544ae3a4508890f95b78ca", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl 9ee2fdeae8544ae3a4508890f95b78ca", entity.ThumbnailUrl);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("2/1/2021 9:57:48 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100002, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("1/19/2023 11:46:48 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100001, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("10/1/2021 4:11:33 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100010, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("10/1/2021 4:11:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100003, entity.ModifiedByID);
                       }
 
         [Test]
@@ -108,13 +108,13 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareMaterialTypeDal("DALInitParams");
 
             var entity = new MaterialType();
-                          entity.MaterialTypeName = "MaterialTypeName 4d5a2e53fdda4f30b98e50a1f0597014";
-                            entity.Description = "Description 4d5a2e53fdda4f30b98e50a1f0597014";
-                            entity.ThumbnailUrl = "ThumbnailUrl 4d5a2e53fdda4f30b98e50a1f0597014";
-                            entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("12/29/2021 9:12:48 AM");
-                            entity.CreatedByID = 100010;
-                            entity.ModifiedDate = DateTime.Parse("5/19/2019 6:59:48 PM");
+                          entity.MaterialTypeName = "MaterialTypeName c3f3f23d4a4046dcb460f55b86efc636";
+                            entity.Description = "Description c3f3f23d4a4046dcb460f55b86efc636";
+                            entity.ThumbnailUrl = "ThumbnailUrl c3f3f23d4a4046dcb460f55b86efc636";
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("12/31/2021 11:45:33 AM");
+                            entity.CreatedByID = 100004;
+                            entity.ModifiedDate = DateTime.Parse("5/20/2019 12:11:33 PM");
                             entity.ModifiedByID = 100002;
                           
             entity = dal.Insert(entity);
@@ -124,13 +124,13 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("MaterialTypeName 4d5a2e53fdda4f30b98e50a1f0597014", entity.MaterialTypeName);
-                            Assert.AreEqual("Description 4d5a2e53fdda4f30b98e50a1f0597014", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl 4d5a2e53fdda4f30b98e50a1f0597014", entity.ThumbnailUrl);
-                            Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("12/29/2021 9:12:48 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100010, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("5/19/2019 6:59:48 PM"), entity.ModifiedDate);
+                          Assert.AreEqual("MaterialTypeName c3f3f23d4a4046dcb460f55b86efc636", entity.MaterialTypeName);
+                            Assert.AreEqual("Description c3f3f23d4a4046dcb460f55b86efc636", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl c3f3f23d4a4046dcb460f55b86efc636", entity.ThumbnailUrl);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("12/31/2021 11:45:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100004, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("5/20/2019 12:11:33 PM"), entity.ModifiedDate);
                             Assert.AreEqual(100002, entity.ModifiedByID);
               
         }
@@ -145,14 +145,14 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             MaterialType entity = dal.Get(paramID);
 
-                          entity.MaterialTypeName = "MaterialTypeName a0a7eb608cfc4a729313a62a0ba671a4";
-                            entity.Description = "Description a0a7eb608cfc4a729313a62a0ba671a4";
-                            entity.ThumbnailUrl = "ThumbnailUrl a0a7eb608cfc4a729313a62a0ba671a4";
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("8/18/2019 2:33:48 PM");
+                          entity.MaterialTypeName = "MaterialTypeName ff2d9853a4d040fdae18acb35bfd1865";
+                            entity.Description = "Description ff2d9853a4d040fdae18acb35bfd1865";
+                            entity.ThumbnailUrl = "ThumbnailUrl ff2d9853a4d040fdae18acb35bfd1865";
+                            entity.IsDeleted = false;              
+                            entity.CreatedDate = DateTime.Parse("6/27/2022 8:12:33 AM");
                             entity.CreatedByID = 100007;
-                            entity.ModifiedDate = DateTime.Parse("8/18/2019 2:33:48 PM");
-                            entity.ModifiedByID = 100001;
+                            entity.ModifiedDate = DateTime.Parse("6/27/2022 8:12:33 AM");
+                            entity.ModifiedByID = 100008;
               
             entity = dal.Update(entity);
 
@@ -161,14 +161,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("MaterialTypeName a0a7eb608cfc4a729313a62a0ba671a4", entity.MaterialTypeName);
-                            Assert.AreEqual("Description a0a7eb608cfc4a729313a62a0ba671a4", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl a0a7eb608cfc4a729313a62a0ba671a4", entity.ThumbnailUrl);
-                            Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("8/18/2019 2:33:48 PM"), entity.CreatedDate);
+                          Assert.AreEqual("MaterialTypeName ff2d9853a4d040fdae18acb35bfd1865", entity.MaterialTypeName);
+                            Assert.AreEqual("Description ff2d9853a4d040fdae18acb35bfd1865", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl ff2d9853a4d040fdae18acb35bfd1865", entity.ThumbnailUrl);
+                            Assert.AreEqual(false, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("6/27/2022 8:12:33 AM"), entity.CreatedDate);
                             Assert.AreEqual(100007, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("8/18/2019 2:33:48 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100001, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/27/2022 8:12:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100008, entity.ModifiedByID);
               
         }
 
@@ -178,14 +178,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareMaterialTypeDal("DALInitParams");
 
             var entity = new MaterialType();
-                          entity.MaterialTypeName = "MaterialTypeName a0a7eb608cfc4a729313a62a0ba671a4";
-                            entity.Description = "Description a0a7eb608cfc4a729313a62a0ba671a4";
-                            entity.ThumbnailUrl = "ThumbnailUrl a0a7eb608cfc4a729313a62a0ba671a4";
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("8/18/2019 2:33:48 PM");
+                          entity.MaterialTypeName = "MaterialTypeName ff2d9853a4d040fdae18acb35bfd1865";
+                            entity.Description = "Description ff2d9853a4d040fdae18acb35bfd1865";
+                            entity.ThumbnailUrl = "ThumbnailUrl ff2d9853a4d040fdae18acb35bfd1865";
+                            entity.IsDeleted = false;              
+                            entity.CreatedDate = DateTime.Parse("6/27/2022 8:12:33 AM");
                             entity.CreatedByID = 100007;
-                            entity.ModifiedDate = DateTime.Parse("8/18/2019 2:33:48 PM");
-                            entity.ModifiedByID = 100001;
+                            entity.ModifiedDate = DateTime.Parse("6/27/2022 8:12:33 AM");
+                            entity.ModifiedByID = 100008;
               
             try
             {

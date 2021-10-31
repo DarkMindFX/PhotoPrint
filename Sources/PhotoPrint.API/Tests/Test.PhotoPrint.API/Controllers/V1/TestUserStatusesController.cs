@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/userstatuses/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/userstatuses/{paramID}");
 
@@ -145,10 +145,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserStatus respDto = ExtractContentJson<UserStatus>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.StatusName, respDto.StatusName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.StatusName, respDto.StatusName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = UserStatusConvertor.Convert(respDto);
                 }
                 finally
@@ -170,9 +170,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserStatus testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.StatusName = "StatusName f5fa5818e9c2460dad1d7a6fa417b3e5";
-                            testEntity.IsDeleted = false;              
-              
+                    testEntity.StatusName = "StatusName e540690365904bfb9da24c57768e2637";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = UserStatusConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -183,10 +183,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserStatus respDto = ExtractContentJson<UserStatus>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.StatusName, respDto.StatusName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.StatusName, respDto.StatusName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -207,10 +207,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserStatus testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.StatusName = "StatusName f5fa5818e9c2460dad1d7a6fa417b3e5";
-                            testEntity.IsDeleted = false;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.StatusName = "StatusName e540690365904bfb9da24c57768e2637";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = UserStatusConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -247,9 +247,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserStatus CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserStatus();
-                          entity.StatusName = "StatusName 504fcc05b4554daf8112702d4ff8be4e";
-                            entity.IsDeleted = false;              
-              
+            entity.StatusName = "StatusName 0022e4c37c104f48b1059443fd5b7a05";
+            entity.IsDeleted = true;
+
             return entity;
         }
 

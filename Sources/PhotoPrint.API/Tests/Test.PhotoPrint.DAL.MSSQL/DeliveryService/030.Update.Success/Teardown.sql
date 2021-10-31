@@ -2,24 +2,24 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @DeliveryServiceName NVARCHAR(50) = 'DeliveryServiceName 0aec51cde2d74bb1b084f155747e9f'
-DECLARE @Description NVARCHAR(1000) = 'Description 0aec51cde2d74bb1b084f155747e9f08'
-DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '5/12/2019 10:51:48 AM'
-DECLARE @CreatedByID BIGINT = 100001
-DECLARE @ModifiedDate DATETIME = '6/12/2023 9:07:48 AM'
+DECLARE @DeliveryServiceName NVARCHAR(50) = 'DeliveryServiceName 5d73c572613647a19a524ff1683195'
+DECLARE @Description NVARCHAR(1000) = 'Description 5d73c572613647a19a524ff168319561'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedDate DATETIME = '8/26/2019 3:53:32 PM'
+DECLARE @CreatedByID BIGINT = 100005
+DECLARE @ModifiedDate DATETIME = '8/26/2019 3:53:32 PM'
 DECLARE @ModifiedByID BIGINT = 100003
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updDeliveryServiceName NVARCHAR(50) = 'DeliveryServiceName 311de72dfc024740bcd6aafeffa6df'
-DECLARE @updDescription NVARCHAR(1000) = 'Description 311de72dfc024740bcd6aafeffa6df2d'
-DECLARE @updIsDeleted BIT = 1
-DECLARE @updCreatedDate DATETIME = '4/15/2023 2:30:48 PM'
-DECLARE @updCreatedByID BIGINT = 100003
-DECLARE @updModifiedDate DATETIME = '7/15/2023 10:04:48 AM'
-DECLARE @updModifiedByID BIGINT = 100006
+DECLARE @updDeliveryServiceName NVARCHAR(50) = 'DeliveryServiceName 9ed042a1118c48499f308a1ce2b944'
+DECLARE @updDescription NVARCHAR(1000) = 'Description 9ed042a1118c48499f308a1ce2b944fa'
+DECLARE @updIsDeleted BIT = 0
+DECLARE @updCreatedDate DATETIME = '7/7/2022 1:39:32 AM'
+DECLARE @updCreatedByID BIGINT = 100006
+DECLARE @updModifiedDate DATETIME = '7/7/2022 1:39:32 AM'
+DECLARE @updModifiedByID BIGINT = 100001
  
 
 DECLARE @Fail AS BIT = 0

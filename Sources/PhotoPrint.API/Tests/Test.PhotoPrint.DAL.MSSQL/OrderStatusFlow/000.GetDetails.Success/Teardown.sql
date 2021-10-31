@@ -1,7 +1,7 @@
 
 
-DECLARE @FromStatusID BIGINT = 10
-DECLARE @ToStatusID BIGINT = 4
+DECLARE @FromStatusID BIGINT = 7
+DECLARE @ToStatusID BIGINT = 7
  
 
 DELETE FROM [OrderStatusFlow]

@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/regions/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/regions/{paramID}");
 
@@ -145,11 +145,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Region respDto = ExtractContentJson<Region>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.RegionName, respDto.RegionName);
-                                    Assert.Equal(reqDto.CountryID, respDto.CountryID);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.RegionName, respDto.RegionName);
+                    Assert.Equal(reqDto.CountryID, respDto.CountryID);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = RegionConvertor.Convert(respDto);
                 }
                 finally
@@ -171,10 +171,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Region testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.RegionName = "RegionName 9028e249389e46a59270a532e839702b";
-                            testEntity.CountryID = 150;
-                            testEntity.IsDeleted = false;              
-              
+                    testEntity.RegionName = "RegionName ea2a613aedbd4dadaa5dbdee57eb4b65";
+                    testEntity.CountryID = 226;
+                    testEntity.IsDeleted = false;
+
                     var reqDto = RegionConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -185,11 +185,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Region respDto = ExtractContentJson<Region>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.RegionName, respDto.RegionName);
-                                    Assert.Equal(reqDto.CountryID, respDto.CountryID);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.RegionName, respDto.RegionName);
+                    Assert.Equal(reqDto.CountryID, respDto.CountryID);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -210,11 +210,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Region testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.RegionName = "RegionName 9028e249389e46a59270a532e839702b";
-                            testEntity.CountryID = 150;
-                            testEntity.IsDeleted = false;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.RegionName = "RegionName ea2a613aedbd4dadaa5dbdee57eb4b65";
+                    testEntity.CountryID = 226;
+                    testEntity.IsDeleted = false;
+
                     var reqDto = RegionConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -251,10 +251,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Region CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Region();
-                          entity.RegionName = "RegionName 6bf5de81ee8f40a1980bff311be0bd9d";
-                            entity.CountryID = 42;
-                            entity.IsDeleted = false;              
-              
+            entity.RegionName = "RegionName 3275aa53e0c348fb89e1ba6d5de35675";
+            entity.CountryID = 227;
+            entity.IsDeleted = true;
+
             return entity;
         }
 

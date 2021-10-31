@@ -210,8 +210,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserContact testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.UserID = 100009;
-                    testEntity.ContactID = 100003;
+                    testEntity.UserID = 100007;
+                    testEntity.ContactID = 100016;
                     testEntity.IsPrimary = true;
 
                     var reqDto = UserContactConvertor.Convert(testEntity, null);
@@ -251,9 +251,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserContact CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserContact();
-            entity.UserID = 100011;
-            entity.ContactID = 100012;
-            entity.IsPrimary = false;
+            entity.UserID = 100001;
+            entity.ContactID = 100011;
+            entity.IsPrimary = true;
 
             return entity;
         }

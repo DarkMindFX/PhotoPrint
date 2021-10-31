@@ -54,8 +54,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.UserID);
                         Assert.IsNotNull(entity.ContactID);
             
-                          Assert.AreEqual(100006, entity.UserID);
-                            Assert.AreEqual(100001, entity.ContactID);
+                          Assert.AreEqual(100011, entity.UserID);
+                            Assert.AreEqual(100021, entity.ContactID);
                             Assert.AreEqual(true, entity.IsPrimary);
                       }
 
@@ -108,9 +108,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserContactDal("DALInitParams");
 
             var entity = new UserContact();
-                          entity.UserID = 100007;
-                            entity.ContactID = 100006;
-                            entity.IsPrimary = true;              
+                          entity.UserID = 100004;
+                            entity.ContactID = 100020;
+                            entity.IsPrimary = false;              
                           
             entity = dal.Insert(entity);
 
@@ -120,9 +120,9 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.UserID);
                         Assert.IsNotNull(entity.ContactID);
             
-                          Assert.AreEqual(100007, entity.UserID);
-                            Assert.AreEqual(100006, entity.ContactID);
-                            Assert.AreEqual(true, entity.IsPrimary);
+                          Assert.AreEqual(100004, entity.UserID);
+                            Assert.AreEqual(100020, entity.ContactID);
+                            Assert.AreEqual(false, entity.IsPrimary);
               
         }
 
@@ -137,7 +137,7 @@ namespace Test.PPT.DAL.MSSQL
                 var paramContactID = (System.Int64)objIds[1];
             UserContact entity = dal.Get(paramUserID,paramContactID);
 
-                          entity.IsPrimary = true;              
+                          entity.IsPrimary = false;              
               
             entity = dal.Update(entity);
 
@@ -147,9 +147,9 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.UserID);
                         Assert.IsNotNull(entity.ContactID);
             
-                          Assert.AreEqual(100006, entity.UserID);
-                            Assert.AreEqual(100021, entity.ContactID);
-                            Assert.AreEqual(true, entity.IsPrimary);
+                          Assert.AreEqual(100010, entity.UserID);
+                            Assert.AreEqual(100011, entity.ContactID);
+                            Assert.AreEqual(false, entity.IsPrimary);
               
         }
 
@@ -159,9 +159,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserContactDal("DALInitParams");
 
             var entity = new UserContact();
-                          entity.UserID = 100006;
-                            entity.ContactID = 100021;
-                            entity.IsPrimary = true;              
+                          entity.UserID = 100010;
+                            entity.ContactID = 100011;
+                            entity.IsPrimary = false;              
               
             try
             {

@@ -52,9 +52,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Url 5716fc26e7594ea18e0dbfc47b2c29af", entity.Url);
-                            Assert.AreEqual(350, entity.Order);
-                            Assert.AreEqual(100005, entity.ImageID);
+                          Assert.AreEqual("Url 7869df0429d9437cbb127a2308f13378", entity.Url);
+                            Assert.AreEqual(64, entity.Order);
+                            Assert.AreEqual(100012, entity.ImageID);
                       }
 
         [Test]
@@ -103,9 +103,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageThumbnailDal("DALInitParams");
 
             var entity = new ImageThumbnail();
-                          entity.Url = "Url be64a54522654fc1bfb2326fc425e169";
-                            entity.Order = 292;
-                            entity.ImageID = 100006;
+                          entity.Url = "Url dcc6e4b0b49d4c308b14fa13b01f3454";
+                            entity.Order = 586;
+                            entity.ImageID = 100025;
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +114,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Url be64a54522654fc1bfb2326fc425e169", entity.Url);
-                            Assert.AreEqual(292, entity.Order);
-                            Assert.AreEqual(100006, entity.ImageID);
+                          Assert.AreEqual("Url dcc6e4b0b49d4c308b14fa13b01f3454", entity.Url);
+                            Assert.AreEqual(586, entity.Order);
+                            Assert.AreEqual(100025, entity.ImageID);
               
         }
 
@@ -130,9 +130,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             ImageThumbnail entity = dal.Get(paramID);
 
-                          entity.Url = "Url d2e90ef9eeb445e8bac38ce8bbb38fc1";
-                            entity.Order = 622;
-                            entity.ImageID = 100034;
+                          entity.Url = "Url e7617b77ffc3473cb64c6b3f2cec497d";
+                            entity.Order = 720;
+                            entity.ImageID = 100044;
               
             entity = dal.Update(entity);
 
@@ -141,9 +141,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Url d2e90ef9eeb445e8bac38ce8bbb38fc1", entity.Url);
-                            Assert.AreEqual(622, entity.Order);
-                            Assert.AreEqual(100034, entity.ImageID);
+                          Assert.AreEqual("Url e7617b77ffc3473cb64c6b3f2cec497d", entity.Url);
+                            Assert.AreEqual(720, entity.Order);
+                            Assert.AreEqual(100044, entity.ImageID);
               
         }
 
@@ -153,9 +153,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageThumbnailDal("DALInitParams");
 
             var entity = new ImageThumbnail();
-                          entity.Url = "Url d2e90ef9eeb445e8bac38ce8bbb38fc1";
-                            entity.Order = 622;
-                            entity.ImageID = 100034;
+                          entity.Url = "Url e7617b77ffc3473cb64c6b3f2cec497d";
+                            entity.Order = 720;
+                            entity.ImageID = 100044;
               
             try
             {

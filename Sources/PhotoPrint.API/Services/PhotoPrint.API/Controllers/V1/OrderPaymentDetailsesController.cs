@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetOrderPaymentDetails")]
         public IActionResult Get(System.Int64? id)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byorderid/{orderid}")]
         public IActionResult GetByOrderID(System.Int64 orderid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bypaymentmethodid/{paymentmethodid}")]
         public IActionResult GetByPaymentMethodID(System.Int64 paymentmethodid)
         {
@@ -128,7 +128,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycreatedbyid/{createdbyid}")]
         public IActionResult GetByCreatedByID(System.Int64 createdbyid)
         {
@@ -152,7 +152,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
@@ -177,7 +177,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteOrderPaymentDetails")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -209,7 +209,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertOrderPaymentDetails")]
         public IActionResult Insert(DTO.OrderPaymentDetails dto)
         {
@@ -233,7 +233,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateOrderPaymentDetails")]
         public IActionResult Update(DTO.OrderPaymentDetails dto)
         {

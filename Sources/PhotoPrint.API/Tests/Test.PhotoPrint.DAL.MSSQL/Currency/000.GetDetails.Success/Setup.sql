@@ -1,9 +1,9 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @ISO NVARCHAR(5) = 'ISO 3'
-DECLARE @CurrencyName NVARCHAR(50) = 'CurrencyName 3b72e280df894549a943fa21eed197cb'
-DECLARE @IsDeleted BIT = 0
+DECLARE @ISO NVARCHAR(5) = 'ISO f'
+DECLARE @CurrencyName NVARCHAR(50) = 'CurrencyName fe7eefa7307d4a6497e34aa82f0acdb8'
+DECLARE @IsDeleted BIT = 1
  
 
 

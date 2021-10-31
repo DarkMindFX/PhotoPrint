@@ -1,7 +1,7 @@
 
 
-DECLARE @FromStatusID BIGINT = 8
-DECLARE @ToStatusID BIGINT = 1
+DECLARE @FromStatusID BIGINT = 11
+DECLARE @ToStatusID BIGINT = 8
  
 DECLARE @Fail AS BIT = 0
 

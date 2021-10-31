@@ -1,7 +1,7 @@
 
 
-DECLARE @DeliveryServiceID BIGINT = 100002
-DECLARE @CityID BIGINT = 10
+DECLARE @DeliveryServiceID BIGINT = 100009
+DECLARE @CityID BIGINT = 1
  
 
 

@@ -150,10 +150,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Width, respDto.Width);
                     Assert.Equal(reqDto.Height, respDto.Height);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
 
                     respEntity = SizeConvertor.Convert(respDto);
                 }
@@ -176,10 +173,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Size testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.SizeName = "SizeName fd3487be8c674b98804894178d778d70";
-                    testEntity.Width = 162;
-                    testEntity.Height = 162;
+                    testEntity.SizeName = "SizeName b4681dd9d73c44a287765e3b41b3f4c4";
+                    testEntity.Width = 120;
+                    testEntity.Height = 642;
                     testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
+                    testEntity.CreatedByID = 100007;
+                    testEntity.ModifiedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
+                    testEntity.ModifiedByID = 100001;
 
                     var reqDto = SizeConvertor.Convert(testEntity, null);
 
@@ -196,10 +197,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Width, respDto.Width);
                     Assert.Equal(reqDto.Height, respDto.Height);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
+
 
                 }
                 finally
@@ -222,14 +220,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.SizeName = "SizeName fd3487be8c674b98804894178d778d70";
-                    testEntity.Width = 162;
-                    testEntity.Height = 162;
-                    testEntity.IsDeleted = true;
-                    testEntity.CreatedDate = DateTime.Parse("12/14/2019 1:41:53 AM");
-                    testEntity.CreatedByID = 100006;
-                    testEntity.ModifiedDate = DateTime.Parse("10/24/2022 11:28:53 AM");
-                    testEntity.ModifiedByID = 100009;
+                    testEntity.SizeName = "SizeName b4681dd9d73c44a287765e3b41b3f4c4";
+                    testEntity.Width = 120;
+                    testEntity.Height = 642;
+                    testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
+                    testEntity.CreatedByID = 100007;
+                    testEntity.ModifiedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
+                    testEntity.ModifiedByID = 100001;
 
                     var reqDto = SizeConvertor.Convert(testEntity, null);
 
@@ -267,14 +265,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Size CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Size();
-            entity.SizeName = "SizeName f22c98aa1bdc42ffbf156eb42f1055e6";
-            entity.Width = 639;
-            entity.Height = 639;
-            entity.IsDeleted = true;
-            entity.CreatedDate = DateTime.Parse("7/26/2022 3:54:53 PM");
-            entity.CreatedByID = 100004;
-            entity.ModifiedDate = DateTime.Parse("7/26/2022 3:54:53 PM");
-            entity.ModifiedByID = 100005;
+            entity.SizeName = "SizeName f6b910ecb6554ce2abe1bf6cef753b54";
+            entity.Width = 76;
+            entity.Height = 76;
+            entity.IsDeleted = false;
+            entity.CreatedDate = DateTime.Parse("7/4/2019 9:54:35 AM");
+            entity.CreatedByID = 100002;
+            entity.ModifiedDate = DateTime.Parse("5/14/2022 7:41:35 PM");
+            entity.ModifiedByID = 100004;
 
             return entity;
         }

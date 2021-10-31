@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +49,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramFromStatusID = testEntity.FromStatusID;
-                var paramToStatusID = testEntity.ToStatusID;
+                    var paramFromStatusID = testEntity.FromStatusID;
+                    var paramToStatusID = testEntity.ToStatusID;
                     var respGet = client.GetAsync($"/api/v1/orderstatusflows/{paramFromStatusID}/{paramToStatusID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +95,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramFromStatusID = testEntity.FromStatusID;
-                var paramToStatusID = testEntity.ToStatusID;
+                    var paramFromStatusID = testEntity.FromStatusID;
+                    var paramToStatusID = testEntity.ToStatusID;
 
                     var respDel = client.DeleteAsync($"/api/v1/orderstatusflows/{paramFromStatusID}/{paramToStatusID}");
 
@@ -149,9 +149,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderStatusFlow respDto = ExtractContentJson<OrderStatusFlow>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.FromStatusID);
-                                    Assert.NotNull(respDto.ToStatusID);
-                
+                    Assert.NotNull(respDto.FromStatusID);
+                    Assert.NotNull(respDto.ToStatusID);
+
                     respEntity = OrderStatusFlowConvertor.Convert(respDto);
                 }
                 finally
@@ -173,7 +173,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderStatusFlow testEntity = AddTestEntity();
                 try
                 {
-            
+
                     var reqDto = OrderStatusFlowConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -184,9 +184,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderStatusFlow respDto = ExtractContentJson<OrderStatusFlow>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.FromStatusID);
-                                    Assert.NotNull(respDto.ToStatusID);
-                
+                    Assert.NotNull(respDto.FromStatusID);
+                    Assert.NotNull(respDto.ToStatusID);
+
                 }
                 finally
                 {
@@ -207,9 +207,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderStatusFlow testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.FromStatusID = 5;
-                            testEntity.ToStatusID = 1;
-              
+                    testEntity.FromStatusID = 9;
+                    testEntity.ToStatusID = 2;
+
                     var reqDto = OrderStatusFlowConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -247,9 +247,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderStatusFlow CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderStatusFlow();
-                          entity.FromStatusID = 6;
-                            entity.ToStatusID = 3;
-              
+            entity.FromStatusID = 6;
+            entity.ToStatusID = 1;
+
             return entity;
         }
 

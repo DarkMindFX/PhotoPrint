@@ -52,15 +52,15 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(6, entity.ContactTypeID);
-                            Assert.AreEqual("Title 05698bbe54ef41769b7fa9bf81adb445", entity.Title);
-                            Assert.AreEqual("Comment 05698bbe54ef41769b7fa9bf81adb445", entity.Comment);
-                            Assert.AreEqual("Value 05698bbe54ef41769b7fa9bf81adb445", entity.Value);
-                            Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(100008, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("12/26/2022 7:04:48 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100009, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("11/5/2021 10:13:48 AM"), entity.ModifiedDate);
+                          Assert.AreEqual(2, entity.ContactTypeID);
+                            Assert.AreEqual("Title fe50735305194b718823da3fc5639716", entity.Title);
+                            Assert.AreEqual("Comment fe50735305194b718823da3fc5639716", entity.Comment);
+                            Assert.AreEqual("Value fe50735305194b718823da3fc5639716", entity.Value);
+                            Assert.AreEqual(false, entity.IsDeleted);
+                            Assert.AreEqual(100001, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("1/7/2020 6:48:32 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100001, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("11/16/2022 7:15:32 AM"), entity.ModifiedDate);
                       }
 
         [Test]
@@ -109,15 +109,15 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareContactDal("DALInitParams");
 
             var entity = new Contact();
-                          entity.ContactTypeID = 3;
-                            entity.Title = "Title 2f7b0a1b98fa49768b79088086c58d00";
-                            entity.Comment = "Comment 2f7b0a1b98fa49768b79088086c58d00";
-                            entity.Value = "Value 2f7b0a1b98fa49768b79088086c58d00";
+                          entity.ContactTypeID = 2;
+                            entity.Title = "Title 3ae9b0eefaad41dcaad3d3529a7aa6e5";
+                            entity.Comment = "Comment 3ae9b0eefaad41dcaad3d3529a7aa6e5";
+                            entity.Value = "Value 3ae9b0eefaad41dcaad3d3529a7aa6e5";
                             entity.IsDeleted = true;              
-                            entity.CreatedByID = 100003;
-                            entity.CreatedDate = DateTime.Parse("3/31/2023 3:16:48 PM");
-                            entity.ModifiedByID = 100008;
-                            entity.ModifiedDate = DateTime.Parse("8/19/2020 1:03:48 AM");
+                            entity.CreatedByID = 100001;
+                            entity.CreatedDate = DateTime.Parse("2/14/2023 2:49:32 AM");
+                            entity.ModifiedByID = 100004;
+                            entity.ModifiedDate = DateTime.Parse("2/14/2023 2:49:32 AM");
                           
             entity = dal.Insert(entity);
 
@@ -126,15 +126,15 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(3, entity.ContactTypeID);
-                            Assert.AreEqual("Title 2f7b0a1b98fa49768b79088086c58d00", entity.Title);
-                            Assert.AreEqual("Comment 2f7b0a1b98fa49768b79088086c58d00", entity.Comment);
-                            Assert.AreEqual("Value 2f7b0a1b98fa49768b79088086c58d00", entity.Value);
+                          Assert.AreEqual(2, entity.ContactTypeID);
+                            Assert.AreEqual("Title 3ae9b0eefaad41dcaad3d3529a7aa6e5", entity.Title);
+                            Assert.AreEqual("Comment 3ae9b0eefaad41dcaad3d3529a7aa6e5", entity.Comment);
+                            Assert.AreEqual("Value 3ae9b0eefaad41dcaad3d3529a7aa6e5", entity.Value);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(100003, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("3/31/2023 3:16:48 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100008, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("8/19/2020 1:03:48 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100001, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("2/14/2023 2:49:32 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100004, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("2/14/2023 2:49:32 AM"), entity.ModifiedDate);
               
         }
 
@@ -148,15 +148,15 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Contact entity = dal.Get(paramID);
 
-                          entity.ContactTypeID = 5;
-                            entity.Title = "Title 9f81915be9064f03a027e72b8b51dc29";
-                            entity.Comment = "Comment 9f81915be9064f03a027e72b8b51dc29";
-                            entity.Value = "Value 9f81915be9064f03a027e72b8b51dc29";
-                            entity.IsDeleted = true;              
-                            entity.CreatedByID = 100009;
-                            entity.CreatedDate = DateTime.Parse("9/26/2023 9:03:48 PM");
-                            entity.ModifiedByID = 100004;
-                            entity.ModifiedDate = DateTime.Parse("9/26/2023 9:03:48 PM");
+                          entity.ContactTypeID = 1;
+                            entity.Title = "Title 4e8fb92ad4334e25bf09d781d8af5023";
+                            entity.Comment = "Comment 4e8fb92ad4334e25bf09d781d8af5023";
+                            entity.Value = "Value 4e8fb92ad4334e25bf09d781d8af5023";
+                            entity.IsDeleted = false;              
+                            entity.CreatedByID = 100002;
+                            entity.CreatedDate = DateTime.Parse("5/14/2023 1:03:32 PM");
+                            entity.ModifiedByID = 100003;
+                            entity.ModifiedDate = DateTime.Parse("10/1/2020 10:49:32 PM");
               
             entity = dal.Update(entity);
 
@@ -165,15 +165,15 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(5, entity.ContactTypeID);
-                            Assert.AreEqual("Title 9f81915be9064f03a027e72b8b51dc29", entity.Title);
-                            Assert.AreEqual("Comment 9f81915be9064f03a027e72b8b51dc29", entity.Comment);
-                            Assert.AreEqual("Value 9f81915be9064f03a027e72b8b51dc29", entity.Value);
-                            Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(100009, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("9/26/2023 9:03:48 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100004, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("9/26/2023 9:03:48 PM"), entity.ModifiedDate);
+                          Assert.AreEqual(1, entity.ContactTypeID);
+                            Assert.AreEqual("Title 4e8fb92ad4334e25bf09d781d8af5023", entity.Title);
+                            Assert.AreEqual("Comment 4e8fb92ad4334e25bf09d781d8af5023", entity.Comment);
+                            Assert.AreEqual("Value 4e8fb92ad4334e25bf09d781d8af5023", entity.Value);
+                            Assert.AreEqual(false, entity.IsDeleted);
+                            Assert.AreEqual(100002, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("5/14/2023 1:03:32 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100003, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("10/1/2020 10:49:32 PM"), entity.ModifiedDate);
               
         }
 
@@ -183,15 +183,15 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareContactDal("DALInitParams");
 
             var entity = new Contact();
-                          entity.ContactTypeID = 5;
-                            entity.Title = "Title 9f81915be9064f03a027e72b8b51dc29";
-                            entity.Comment = "Comment 9f81915be9064f03a027e72b8b51dc29";
-                            entity.Value = "Value 9f81915be9064f03a027e72b8b51dc29";
-                            entity.IsDeleted = true;              
-                            entity.CreatedByID = 100009;
-                            entity.CreatedDate = DateTime.Parse("9/26/2023 9:03:48 PM");
-                            entity.ModifiedByID = 100004;
-                            entity.ModifiedDate = DateTime.Parse("9/26/2023 9:03:48 PM");
+                          entity.ContactTypeID = 1;
+                            entity.Title = "Title 4e8fb92ad4334e25bf09d781d8af5023";
+                            entity.Comment = "Comment 4e8fb92ad4334e25bf09d781d8af5023";
+                            entity.Value = "Value 4e8fb92ad4334e25bf09d781d8af5023";
+                            entity.IsDeleted = false;              
+                            entity.CreatedByID = 100002;
+                            entity.CreatedDate = DateTime.Parse("5/14/2023 1:03:32 PM");
+                            entity.ModifiedByID = 100003;
+                            entity.ModifiedDate = DateTime.Parse("10/1/2020 10:49:32 PM");
               
             try
             {

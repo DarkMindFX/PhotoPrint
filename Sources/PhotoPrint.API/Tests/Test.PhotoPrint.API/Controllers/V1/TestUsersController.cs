@@ -136,7 +136,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     var reqDto = UserConvertor.Convert(testEntity, null);
-                    reqDto.Password = "Password1991! 28a2e433081f4289b9caccf286ffc6a9";
 
                     var content = CreateContentJson(reqDto);
 
@@ -148,16 +147,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Assert.NotNull(respDto.ID);
                     Assert.Equal(reqDto.Login, respDto.Login);
-                    Assert.Equal(reqDto.Salt, respDto.Salt);
                     Assert.Equal(reqDto.FirstName, respDto.FirstName);
                     Assert.Equal(reqDto.MiddleName, respDto.MiddleName);
                     Assert.Equal(reqDto.LastName, respDto.LastName);
                     Assert.Equal(reqDto.FriendlyName, respDto.FriendlyName);
                     Assert.Equal(reqDto.UserStatusID, respDto.UserStatusID);
                     Assert.Equal(reqDto.UserTypeID, respDto.UserTypeID);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
 
                     respEntity = UserConvertor.Convert(respDto);
                 }
@@ -180,15 +176,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.User testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Login = "Login 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.PwdHash = "PwdHash 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.Salt = "Salt 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.FirstName = "FirstName 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.MiddleName = "MiddleName 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.LastName = "LastName 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.FriendlyName = "FriendlyName 28a2e433081f4289b9caccf286ffc6a9";
+                    testEntity.Login = "Login f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.FirstName = "FirstName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.MiddleName = "MiddleName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.LastName = "LastName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.FriendlyName = "FriendlyName f6256fcfdd8e41398139ddcb9f648fcc";
                     testEntity.UserStatusID = 3;
-                    testEntity.UserTypeID = 2;
+                    testEntity.UserTypeID = 1;
 
                     var reqDto = UserConvertor.Convert(testEntity, null);
 
@@ -202,16 +196,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Assert.NotNull(respDto.ID);
                     Assert.Equal(reqDto.Login, respDto.Login);
-                    Assert.Equal(reqDto.Salt, respDto.Salt);
                     Assert.Equal(reqDto.FirstName, respDto.FirstName);
                     Assert.Equal(reqDto.MiddleName, respDto.MiddleName);
                     Assert.Equal(reqDto.LastName, respDto.LastName);
                     Assert.Equal(reqDto.FriendlyName, respDto.FriendlyName);
                     Assert.Equal(reqDto.UserStatusID, respDto.UserStatusID);
                     Assert.Equal(reqDto.UserTypeID, respDto.UserTypeID);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
 
                 }
                 finally
@@ -234,18 +224,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.Login = "Login 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.PwdHash = "PwdHash 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.Salt = "Salt 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.FirstName = "FirstName 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.MiddleName = "MiddleName 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.LastName = "LastName 28a2e433081f4289b9caccf286ffc6a9";
-                    testEntity.FriendlyName = "FriendlyName 28a2e433081f4289b9caccf286ffc6a9";
+                    testEntity.Login = "Login f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.FirstName = "FirstName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.MiddleName = "MiddleName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.LastName = "LastName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.FriendlyName = "FriendlyName f6256fcfdd8e41398139ddcb9f648fcc";
                     testEntity.UserStatusID = 3;
-                    testEntity.UserTypeID = 2;
-                    testEntity.CreatedDate = DateTime.Parse("10/9/2020 9:19:53 AM");
-                    testEntity.ModifiedDate = DateTime.Parse("10/9/2020 9:19:53 AM");
-                    testEntity.ModifiedByID = 311798;
+                    testEntity.UserTypeID = 1;
+                    testEntity.CreatedDate = DateTime.Parse("3/17/2022 1:05:35 AM");
+                    testEntity.ModifiedDate = DateTime.Parse("3/17/2022 1:05:35 AM");
+                    testEntity.ModifiedByID = 100004;
 
                     var reqDto = UserConvertor.Convert(testEntity, null);
 
@@ -283,17 +271,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.User CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.User();
-            entity.Login = "Login 54fae047f37b41ac92363a23e7cf7fec";
-            entity.PwdHash = "PwdHash 54fae047f37b41ac92363a23e7cf7fec";
-            entity.Salt = "Salt 54fae047f37b41ac92363a23e7cf7fec";
-            entity.FirstName = "FirstName 54fae047f37b41ac92363a23e7cf7fec";
-            entity.MiddleName = "MiddleName 54fae047f37b41ac92363a23e7cf7fec";
-            entity.LastName = "LastName 54fae047f37b41ac92363a23e7cf7fec";
-            entity.FriendlyName = "FriendlyName 54fae047f37b41ac92363a23e7cf7fec";
-            entity.UserStatusID = 4;
-            entity.UserTypeID = 1;
-            entity.CreatedDate = DateTime.Parse("2/22/2023 1:19:53 PM");
-            entity.ModifiedDate = DateTime.Parse("2/22/2023 1:19:53 PM");
+            entity.Login = "Login 0ea703a12238492ebe51723d5764d15d";
+            entity.PwdHash = "PwdHash 0ea703a12238492ebe51723d5764d15d";
+            entity.Salt = "Salt 0ea703a12238492ebe51723d5764d15d";
+            entity.FirstName = "FirstName 0ea703a12238492ebe51723d5764d15d";
+            entity.MiddleName = "MiddleName 0ea703a12238492ebe51723d5764d15d";
+            entity.LastName = "LastName 0ea703a12238492ebe51723d5764d15d";
+            entity.FriendlyName = "FriendlyName 0ea703a12238492ebe51723d5764d15d";
+            entity.UserStatusID = 3;
+            entity.UserTypeID = 3;
+            entity.CreatedDate = DateTime.Parse("2/7/2019 5:04:35 AM");
+            entity.ModifiedDate = DateTime.Parse("2/7/2019 5:04:35 AM");
             entity.ModifiedByID = 100001;
 
             return entity;

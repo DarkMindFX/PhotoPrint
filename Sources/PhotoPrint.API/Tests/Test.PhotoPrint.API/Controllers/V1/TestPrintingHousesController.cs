@@ -149,10 +149,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Name, respDto.Name);
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+
 
                     respEntity = PrintingHouseConvertor.Convert(respDto);
                 }
@@ -175,9 +172,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PrintingHouse testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Name = "Name ee4e255f51df402ca5ac0ac1afd09897";
-                    testEntity.Description = "Description ee4e255f51df402ca5ac0ac1afd09897";
-                    testEntity.IsDeleted = false;
+                    testEntity.Name = "Name 80c47855c6204d06935297d3b566153b";
+                    testEntity.Description = "Description 80c47855c6204d06935297d3b566153b";
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedDate = DateTime.Parse("9/1/2023 8:29:35 PM");
+                    testEntity.CreatedByID = 100004;
+                    testEntity.ModifiedDate = DateTime.Parse("9/1/2023 8:29:35 PM");
+                    testEntity.ModifiedByID = 100003;
 
                     var reqDto = PrintingHouseConvertor.Convert(testEntity, null);
 
@@ -193,11 +194,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Name, respDto.Name);
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
-
                 }
                 finally
                 {
@@ -219,13 +215,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.Name = "Name ee4e255f51df402ca5ac0ac1afd09897";
-                    testEntity.Description = "Description ee4e255f51df402ca5ac0ac1afd09897";
-                    testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("2/18/2023 12:40:53 AM");
-                    testEntity.CreatedByID = 100064;
-                    testEntity.ModifiedDate = DateTime.Parse("2/18/2023 12:40:53 AM");
-                    testEntity.ModifiedByID = 100008;
+                    testEntity.Name = "Name 80c47855c6204d06935297d3b566153b";
+                    testEntity.Description = "Description 80c47855c6204d06935297d3b566153b";
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedDate = DateTime.Parse("9/1/2023 8:29:35 PM");
+                    testEntity.CreatedByID = 100004;
+                    testEntity.ModifiedDate = DateTime.Parse("9/1/2023 8:29:35 PM");
+                    testEntity.ModifiedByID = 100003;
 
                     var reqDto = PrintingHouseConvertor.Convert(testEntity, null);
 
@@ -263,13 +259,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.PrintingHouse CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.PrintingHouse();
-            entity.Name = "Name 792f08b3cc5e42528e2fb93e0bf22025";
-            entity.Description = "Description 792f08b3cc5e42528e2fb93e0bf22025";
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("11/20/2022 2:27:53 PM");
-            entity.CreatedByID = 100009;
-            entity.ModifiedDate = DateTime.Parse("4/8/2020 2:54:53 PM");
-            entity.ModifiedByID = 100010;
+            entity.Name = "Name 508d41d9ae854b52966df97dfa628265";
+            entity.Description = "Description 508d41d9ae854b52966df97dfa628265";
+            entity.IsDeleted = true;
+            entity.CreatedDate = DateTime.Parse("6/4/2023 10:15:35 AM");
+            entity.CreatedByID = 100006;
+            entity.ModifiedDate = DateTime.Parse("6/4/2023 10:15:35 AM");
+            entity.ModifiedByID = 100003;
 
             return entity;
         }

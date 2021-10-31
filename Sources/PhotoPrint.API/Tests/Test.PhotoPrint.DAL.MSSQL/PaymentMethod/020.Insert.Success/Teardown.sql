@@ -1,9 +1,9 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @Name NVARCHAR(50) = 'Name 9bb3a174b4674cb0bd7e37be5911da7c'
-DECLARE @Description NVARCHAR(1000) = 'Description 9bb3a174b4674cb0bd7e37be5911da7c'
-DECLARE @IsDeleted BIT = 0
+DECLARE @Name NVARCHAR(50) = 'Name 85a460cf6b7044a49aac728e299d8f4a'
+DECLARE @Description NVARCHAR(1000) = 'Description 85a460cf6b7044a49aac728e299d8f4a'
+DECLARE @IsDeleted BIT = 1
  
 DECLARE @Fail AS BIT = 0
 

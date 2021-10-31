@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetContactType")]
         public IActionResult Get(System.Int64? id)
         {
@@ -81,7 +81,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteContactType")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -113,7 +113,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertContactType")]
         public IActionResult Insert(DTO.ContactType dto)
         {
@@ -134,7 +134,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateContactType")]
         public IActionResult Update(DTO.ContactType dto)
         {

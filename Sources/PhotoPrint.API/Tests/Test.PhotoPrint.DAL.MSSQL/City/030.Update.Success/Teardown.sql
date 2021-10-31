@@ -2,15 +2,15 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @CityName NVARCHAR(250) = 'CityName f1ee71f6fdce42668ef45281e29f1838'
-DECLARE @RegionID BIGINT = 8
+DECLARE @CityName NVARCHAR(250) = 'CityName 03aa49710ecd4a62864a5808a135a65c'
+DECLARE @RegionID BIGINT = 5
 DECLARE @IsDeleted BIT = 0
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updCityName NVARCHAR(250) = 'CityName 4758bbfd63fa424ab4f7d91487546a67'
-DECLARE @updRegionID BIGINT = 7
+DECLARE @updCityName NVARCHAR(250) = 'CityName fc311312ecb54a49ad8c6df36471939c'
+DECLARE @updRegionID BIGINT = 2
 DECLARE @updIsDeleted BIT = 0
  
 

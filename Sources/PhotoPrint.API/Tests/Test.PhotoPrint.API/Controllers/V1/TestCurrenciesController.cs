@@ -171,9 +171,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Currency testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.ISO = "ISO 2";
-                            testEntity.CurrencyName = "CurrencyName 288e5f38f7b24fcc810d8fb9ccef6387";
-                            testEntity.IsDeleted = false;              
+                          testEntity.ISO = "ISO b";
+                            testEntity.CurrencyName = "CurrencyName b8a34075e0c24dfcbc01e33e01bb8cad";
+                            testEntity.IsDeleted = true;              
               
                     var reqDto = CurrencyConvertor.Convert(testEntity, null);
 
@@ -211,9 +211,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                              testEntity.ID = Int64.MaxValue;
-                             testEntity.ISO = "ISO 2";
-                            testEntity.CurrencyName = "CurrencyName 288e5f38f7b24fcc810d8fb9ccef6387";
-                            testEntity.IsDeleted = false;              
+                             testEntity.ISO = "ISO b";
+                            testEntity.CurrencyName = "CurrencyName b8a34075e0c24dfcbc01e33e01bb8cad";
+                            testEntity.IsDeleted = true;              
               
                     var reqDto = CurrencyConvertor.Convert(testEntity, null);
 
@@ -251,9 +251,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Currency CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Currency();
-                          entity.ISO = "ISO c";
-                            entity.CurrencyName = "CurrencyName cbb79b9fca4b4e8d82736c594038fff2";
-                            entity.IsDeleted = false;              
+                          entity.ISO = "ISO 9";
+                            entity.CurrencyName = "CurrencyName 9ea98550d43b4f8c8875e6273b896e28";
+                            entity.IsDeleted = true;              
               
             return entity;
         }

@@ -170,8 +170,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.AddressType testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.AddressTypeName = "AddressTypeName 2eb4f674aac64b6388dbbd774d78cdb5";
-                    testEntity.IsDeleted = true;
+                    testEntity.AddressTypeName = "AddressTypeName b52595a88d4949dd95e607bae3cfa80d";
+                    testEntity.IsDeleted = false;
 
                     var reqDto = AddressTypeConvertor.Convert(testEntity, null);
 
@@ -208,8 +208,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.AddressTypeName = "AddressTypeName 2eb4f674aac64b6388dbbd774d78cdb5";
-                    testEntity.IsDeleted = true;
+                    testEntity.AddressTypeName = "AddressTypeName b52595a88d4949dd95e607bae3cfa80d";
+                    testEntity.IsDeleted = false;
 
                     var reqDto = AddressTypeConvertor.Convert(testEntity, null);
 
@@ -247,8 +247,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.AddressType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.AddressType();
-            entity.AddressTypeName = "AddressTypeName 4d87ed8582504852a9d9f8fc67eb8678";
-            entity.IsDeleted = true;
+            entity.AddressTypeName = "AddressTypeName 65f25a4232964f34a6a5ed8a46ecc8de";
+            entity.IsDeleted = false;
 
             return entity;
         }

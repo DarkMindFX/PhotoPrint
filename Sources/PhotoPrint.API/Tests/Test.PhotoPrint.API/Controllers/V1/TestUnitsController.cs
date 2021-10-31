@@ -172,9 +172,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Unit testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.UnitName = "UnitName 03fa071f123b4c079f462d081f4b3d8c";
-                    testEntity.UnitAbbr = "UnitAbbr 03fa071f123b4c079f462d081f4b3d8c";
-                    testEntity.Description = "Description 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.UnitName = "UnitName c1617b40684d48dea448907247f596ab";
+                    testEntity.UnitAbbr = "UnitAbbr c1617b40684d48dea448907247f596ab";
+                    testEntity.Description = "Description c1617b40684d48dea448907247f596ab";
                     testEntity.IsDeleted = true;
 
                     var reqDto = UnitConvertor.Convert(testEntity, null);
@@ -214,9 +214,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.UnitName = "UnitName 03fa071f123b4c079f462d081f4b3d8c";
-                    testEntity.UnitAbbr = "UnitAbbr 03fa071f123b4c079f462d081f4b3d8c";
-                    testEntity.Description = "Description 03fa071f123b4c079f462d081f4b3d8c";
+                    testEntity.UnitName = "UnitName c1617b40684d48dea448907247f596ab";
+                    testEntity.UnitAbbr = "UnitAbbr c1617b40684d48dea448907247f596ab";
+                    testEntity.Description = "Description c1617b40684d48dea448907247f596ab";
                     testEntity.IsDeleted = true;
 
                     var reqDto = UnitConvertor.Convert(testEntity, null);
@@ -255,9 +255,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Unit CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Unit();
-            entity.UnitName = "UnitName b5c3539c1bae4590bce279db59b01cbd";
-            entity.UnitAbbr = "UnitAbbr b5c3539c1bae4590bce279db59b01cbd";
-            entity.Description = "Description b5c3539c1bae4590bce279db59b01cbd";
+            entity.UnitName = "UnitName 5bb6db0922b548d7b29890de00577ec9";
+            entity.UnitAbbr = "UnitAbbr 5bb6db0922b548d7b29890de00577ec9";
+            entity.Description = "Description 5bb6db0922b548d7b29890de00577ec9";
             entity.IsDeleted = true;
 
             return entity;

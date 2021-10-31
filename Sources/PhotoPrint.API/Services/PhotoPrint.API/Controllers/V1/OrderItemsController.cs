@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             _logger = logger;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -56,7 +56,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}"), ActionName("GetOrderItem")]
         public IActionResult Get(System.Int64? id)
         {
@@ -80,7 +80,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("byorderid/{orderid}")]
         public IActionResult GetByOrderID(System.Int64 orderid)
         {
@@ -104,7 +104,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("byimageid/{imageid}")]
         public IActionResult GetByImageID(System.Int64 imageid)
         {
@@ -128,7 +128,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bysizeid/{sizeid}")]
         public IActionResult GetBySizeID(System.Int64? sizeid)
         {
@@ -152,7 +152,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("byframetypeid/{frametypeid}")]
         public IActionResult GetByFrameTypeID(System.Int64 frametypeid)
         {
@@ -176,7 +176,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("byframesizeid/{framesizeid}")]
         public IActionResult GetByFrameSizeID(System.Int64? framesizeid)
         {
@@ -200,7 +200,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymatid/{matid}")]
         public IActionResult GetByMatID(System.Int64 matid)
         {
@@ -224,7 +224,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymaterialtypeid/{materialtypeid}")]
         public IActionResult GetByMaterialTypeID(System.Int64 materialtypeid)
         {
@@ -248,7 +248,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymountingtypeid/{mountingtypeid}")]
         public IActionResult GetByMountingTypeID(System.Int64 mountingtypeid)
         {
@@ -272,7 +272,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bypricecurrencyid/{pricecurrencyid}")]
         public IActionResult GetByPriceCurrencyID(System.Int64 pricecurrencyid)
         {
@@ -296,7 +296,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("byprintinghouseid/{printinghouseid}")]
         public IActionResult GetByPrintingHouseID(System.Int64? printinghouseid)
         {
@@ -320,7 +320,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bycreatedbyid/{createdbyid}")]
         public IActionResult GetByCreatedByID(System.Int64 createdbyid)
         {
@@ -344,7 +344,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet("bymodifiedbyid/{modifiedbyid}")]
         public IActionResult GetByModifiedByID(System.Int64? modifiedbyid)
         {
@@ -369,7 +369,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
         
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteOrderItem")]
         public IActionResult Delete(System.Int64? id)
         {
@@ -401,7 +401,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             return response;
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("InsertOrderItem")]
         public IActionResult Insert(DTO.OrderItem dto)
         {
@@ -425,7 +425,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPut, ActionName("UpdateOrderItem")]
         public IActionResult Update(DTO.OrderItem dto)
         {

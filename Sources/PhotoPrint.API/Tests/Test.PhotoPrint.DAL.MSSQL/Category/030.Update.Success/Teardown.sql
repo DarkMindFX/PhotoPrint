@@ -2,26 +2,26 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @CategoryName NVARCHAR(50) = 'CategoryName acf2adeac67d4267861dec93f7cd940d'
-DECLARE @Description NVARCHAR(1000) = 'Description acf2adeac67d4267861dec93f7cd940d'
+DECLARE @CategoryName NVARCHAR(50) = 'CategoryName 39116a93dc2f453694e6a77c1dff1c6e'
+DECLARE @Description NVARCHAR(1000) = 'Description 39116a93dc2f453694e6a77c1dff1c6e'
 DECLARE @ParentID BIGINT = 100004
-DECLARE @IsDeleted BIT = 1
-DECLARE @CreatedDate DATETIME = '8/18/2023 9:11:47 PM'
-DECLARE @CreatedByID BIGINT = 100009
-DECLARE @ModifiedDate DATETIME = '6/27/2022 2:59:47 PM'
-DECLARE @ModifiedByID BIGINT = 100002
+DECLARE @IsDeleted BIT = 0
+DECLARE @CreatedDate DATETIME = '10/23/2020 1:10:32 PM'
+DECLARE @CreatedByID BIGINT = 100011
+DECLARE @ModifiedDate DATETIME = '9/2/2023 1:37:32 PM'
+DECLARE @ModifiedByID BIGINT = 100004
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updCategoryName NVARCHAR(50) = 'CategoryName 09e9d45105fa402baa5fc3b701337ff0'
-DECLARE @updDescription NVARCHAR(1000) = 'Description 09e9d45105fa402baa5fc3b701337ff0'
+DECLARE @updCategoryName NVARCHAR(50) = 'CategoryName 18bfb2c64d324bb6bbc31d0759ed1f7a'
+DECLARE @updDescription NVARCHAR(1000) = 'Description 18bfb2c64d324bb6bbc31d0759ed1f7a'
 DECLARE @updParentID BIGINT = 100004
 DECLARE @updIsDeleted BIT = 0
-DECLARE @updCreatedDate DATETIME = '8/30/2022 7:34:47 AM'
-DECLARE @updCreatedByID BIGINT = 100003
-DECLARE @updModifiedDate DATETIME = '7/3/2022 12:58:47 PM'
-DECLARE @updModifiedByID BIGINT = 100008
+DECLARE @updCreatedDate DATETIME = '2/29/2024 7:25:32 PM'
+DECLARE @updCreatedByID BIGINT = 100004
+DECLARE @updModifiedDate DATETIME = '7/20/2021 5:11:32 AM'
+DECLARE @updModifiedByID BIGINT = 100002
  
 
 DECLARE @Fail AS BIT = 0

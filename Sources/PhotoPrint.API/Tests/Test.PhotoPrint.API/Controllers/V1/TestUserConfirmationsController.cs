@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +49,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/userconfirmations/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +93,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/userconfirmations/{paramID}");
 
@@ -145,13 +145,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserConfirmation respDto = ExtractContentJson<UserConfirmation>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.UserID, respDto.UserID);
-                                    Assert.Equal(reqDto.ConfirmationCode, respDto.ConfirmationCode);
-                                    Assert.Equal(reqDto.Comfirmed, respDto.Comfirmed);
-                                    Assert.Equal(reqDto.ExpiresDate, respDto.ExpiresDate);
-                                    Assert.Equal(reqDto.ConfirmationDate, respDto.ConfirmationDate);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.UserID, respDto.UserID);
+                    Assert.Equal(reqDto.ConfirmationCode, respDto.ConfirmationCode);
+                    Assert.Equal(reqDto.Comfirmed, respDto.Comfirmed);
+                    Assert.Equal(reqDto.ExpiresDate, respDto.ExpiresDate);
+                    Assert.Equal(reqDto.ConfirmationDate, respDto.ConfirmationDate);
+
                     respEntity = UserConfirmationConvertor.Convert(respDto);
                 }
                 finally
@@ -173,12 +173,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserConfirmation testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.UserID = 100007;
-                            testEntity.ConfirmationCode = "ConfirmationCode fe2b7d04c87645aebd05a8c269a6197d";
-                            testEntity.Comfirmed = true;              
-                            testEntity.ExpiresDate = DateTime.Parse("7/15/2022 4:49:27 AM");
-                            testEntity.ConfirmationDate = DateTime.Parse("7/15/2022 4:49:27 AM");
-              
+                    testEntity.UserID = 100005;
+                    testEntity.ConfirmationCode = "ConfirmationCode 2963b9d34ffd487989e1da4367710379";
+                    testEntity.Comfirmed = false;
+                    testEntity.ExpiresDate = DateTime.Parse("3/3/2024 2:54:35 PM");
+                    testEntity.ConfirmationDate = DateTime.Parse("3/3/2024 2:54:35 PM");
+
                     var reqDto = UserConfirmationConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -189,13 +189,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserConfirmation respDto = ExtractContentJson<UserConfirmation>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.UserID, respDto.UserID);
-                                    Assert.Equal(reqDto.ConfirmationCode, respDto.ConfirmationCode);
-                                    Assert.Equal(reqDto.Comfirmed, respDto.Comfirmed);
-                                    Assert.Equal(reqDto.ExpiresDate, respDto.ExpiresDate);
-                                    Assert.Equal(reqDto.ConfirmationDate, respDto.ConfirmationDate);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.UserID, respDto.UserID);
+                    Assert.Equal(reqDto.ConfirmationCode, respDto.ConfirmationCode);
+                    Assert.Equal(reqDto.Comfirmed, respDto.Comfirmed);
+                    Assert.Equal(reqDto.ExpiresDate, respDto.ExpiresDate);
+                    Assert.Equal(reqDto.ConfirmationDate, respDto.ConfirmationDate);
+
                 }
                 finally
                 {
@@ -216,13 +216,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserConfirmation testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.UserID = 100007;
-                            testEntity.ConfirmationCode = "ConfirmationCode fe2b7d04c87645aebd05a8c269a6197d";
-                            testEntity.Comfirmed = true;              
-                            testEntity.ExpiresDate = DateTime.Parse("7/15/2022 4:49:27 AM");
-                            testEntity.ConfirmationDate = DateTime.Parse("7/15/2022 4:49:27 AM");
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.UserID = 100005;
+                    testEntity.ConfirmationCode = "ConfirmationCode 2963b9d34ffd487989e1da4367710379";
+                    testEntity.Comfirmed = false;
+                    testEntity.ExpiresDate = DateTime.Parse("3/3/2024 2:54:35 PM");
+                    testEntity.ConfirmationDate = DateTime.Parse("3/3/2024 2:54:35 PM");
+
                     var reqDto = UserConfirmationConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -259,12 +259,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserConfirmation CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserConfirmation();
-                          entity.UserID = 100003;
-                            entity.ConfirmationCode = "ConfirmationCode 3a62d29cded14fc6bfbe72e3fedde0f8";
-                            entity.Comfirmed = true;              
-                            entity.ExpiresDate = DateTime.Parse("9/4/2019 7:02:27 PM");
-                            entity.ConfirmationDate = DateTime.Parse("9/4/2019 7:02:27 PM");
-              
+            entity.UserID = 100001;
+            entity.ConfirmationCode = "ConfirmationCode 698081ec88ad4b4bb5fd62f1bccbcfc0";
+            entity.Comfirmed = false;
+            entity.ExpiresDate = DateTime.Parse("12/5/2023 4:40:35 AM");
+            entity.ConfirmationDate = DateTime.Parse("12/5/2023 4:40:35 AM");
+
             return entity;
         }
 

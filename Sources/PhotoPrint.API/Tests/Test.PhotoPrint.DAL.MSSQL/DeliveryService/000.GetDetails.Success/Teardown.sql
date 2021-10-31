@@ -1,13 +1,13 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @DeliveryServiceName NVARCHAR(50) = 'DeliveryServiceName ba22fa1b5e474ea99bb9e4c6d9ab97'
-DECLARE @Description NVARCHAR(1000) = 'Description ba22fa1b5e474ea99bb9e4c6d9ab9742'
+DECLARE @DeliveryServiceName NVARCHAR(50) = 'DeliveryServiceName 3df4f9e7743541b6b00692647acd76'
+DECLARE @Description NVARCHAR(1000) = 'Description 3df4f9e7743541b6b00692647acd76ac'
 DECLARE @IsDeleted BIT = 1
-DECLARE @CreatedDate DATETIME = '7/3/2019 7:30:48 AM'
-DECLARE @CreatedByID BIGINT = 100005
-DECLARE @ModifiedDate DATETIME = '3/16/2022 10:40:48 PM'
-DECLARE @ModifiedByID BIGINT = 100007
+DECLARE @CreatedDate DATETIME = '4/21/2024 8:14:32 AM'
+DECLARE @CreatedByID BIGINT = 100004
+DECLARE @ModifiedDate DATETIME = '5/29/2023 12:17:32 PM'
+DECLARE @ModifiedByID BIGINT = 100003
  
 
 DELETE FROM [DeliveryService]

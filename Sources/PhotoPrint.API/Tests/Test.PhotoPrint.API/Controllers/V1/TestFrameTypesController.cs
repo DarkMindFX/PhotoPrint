@@ -150,10 +150,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
 
                     respEntity = FrameTypeConvertor.Convert(respDto);
                 }
@@ -176,10 +172,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.FrameType testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.FrameTypeName = "FrameTypeName e5894de4ffb6430899525c0e024a135e";
-                    testEntity.Description = "Description e5894de4ffb6430899525c0e024a135e";
-                    testEntity.ThumbnailUrl = "ThumbnailUrl e5894de4ffb6430899525c0e024a135e";
+                    testEntity.FrameTypeName = "FrameTypeName 082dfd8ae6b34fe8ac132b64605183d9";
+                    testEntity.Description = "Description 082dfd8ae6b34fe8ac132b64605183d9";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 082dfd8ae6b34fe8ac132b64605183d9";
                     testEntity.IsDeleted = false;
+                    testEntity.CreatedDate = DateTime.Parse("12/15/2019 4:27:35 PM");
+                    testEntity.CreatedByID = 100007;
+                    testEntity.ModifiedDate = DateTime.Parse("3/15/2020 12:01:35 PM");
+                    testEntity.ModifiedByID = 100008;
 
                     var reqDto = FrameTypeConvertor.Convert(testEntity, null);
 
@@ -196,11 +196,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                    Assert.True(DateTime.UtcNow - TimeSpan.FromMinutes(1) < respDto.ModifiedDate);
-                    Assert.Equal(respLogin.User.ID, respDto.ModifiedByID);
-
                 }
                 finally
                 {
@@ -222,14 +217,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.FrameTypeName = "FrameTypeName e5894de4ffb6430899525c0e024a135e";
-                    testEntity.Description = "Description e5894de4ffb6430899525c0e024a135e";
-                    testEntity.ThumbnailUrl = "ThumbnailUrl e5894de4ffb6430899525c0e024a135e";
+                    testEntity.FrameTypeName = "FrameTypeName 082dfd8ae6b34fe8ac132b64605183d9";
+                    testEntity.Description = "Description 082dfd8ae6b34fe8ac132b64605183d9";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 082dfd8ae6b34fe8ac132b64605183d9";
                     testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("9/5/2020 7:24:52 AM");
-                    testEntity.CreatedByID = 100003;
-                    testEntity.ModifiedDate = DateTime.Parse("9/5/2020 7:24:52 AM");
-                    testEntity.ModifiedByID = 100006;
+                    testEntity.CreatedDate = DateTime.Parse("12/15/2019 4:27:35 PM");
+                    testEntity.CreatedByID = 100007;
+                    testEntity.ModifiedDate = DateTime.Parse("3/15/2020 12:01:35 PM");
+                    testEntity.ModifiedByID = 100008;
 
                     var reqDto = FrameTypeConvertor.Convert(testEntity, null);
 
@@ -267,14 +262,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.FrameType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.FrameType();
-            entity.FrameTypeName = "FrameTypeName 87a8a1273596435db364890d36dd7c93";
-            entity.Description = "Description 87a8a1273596435db364890d36dd7c93";
-            entity.ThumbnailUrl = "ThumbnailUrl 87a8a1273596435db364890d36dd7c93";
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("1/19/2023 11:24:52 AM");
-            entity.CreatedByID = 100008;
-            entity.ModifiedDate = DateTime.Parse("6/7/2020 11:51:52 AM");
-            entity.ModifiedByID = 100006;
+            entity.FrameTypeName = "FrameTypeName 3a82267f0a454e718a878bee690675bb";
+            entity.Description = "Description 3a82267f0a454e718a878bee690675bb";
+            entity.ThumbnailUrl = "ThumbnailUrl 3a82267f0a454e718a878bee690675bb";
+            entity.IsDeleted = true;
+            entity.CreatedDate = DateTime.Parse("4/29/2022 8:27:35 PM");
+            entity.CreatedByID = 100007;
+            entity.ModifiedDate = DateTime.Parse("9/18/2019 6:14:35 AM");
+            entity.ModifiedByID = 100009;
 
             return entity;
         }

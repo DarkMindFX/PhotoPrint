@@ -2,13 +2,13 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @ContactTypeName NVARCHAR(50) = 'ContactTypeName e2439910c0864dec9e88226cece39d02'
+DECLARE @ContactTypeName NVARCHAR(50) = 'ContactTypeName 0d3efd6409364c9995e2487591f1f408'
 DECLARE @IsDeleted BIT = 1
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updContactTypeName NVARCHAR(50) = 'ContactTypeName 7c68532bd17e4567b259161ff24f7b17'
+DECLARE @updContactTypeName NVARCHAR(50) = 'ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9'
 DECLARE @updIsDeleted BIT = 1
  
 

@@ -52,9 +52,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 834a976410274e98973c69b60b685f4c", entity.Name);
-                            Assert.AreEqual("Description 834a976410274e98973c69b60b685f4c", entity.Description);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("Name d36a69e84895410da926c98c5ff23361", entity.Name);
+                            Assert.AreEqual("Description d36a69e84895410da926c98c5ff23361", entity.Description);
+                            Assert.AreEqual(true, entity.IsDeleted);
                       }
 
         [Test]
@@ -103,9 +103,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePaymentMethodDal("DALInitParams");
 
             var entity = new PaymentMethod();
-                          entity.Name = "Name 9bb3a174b4674cb0bd7e37be5911da7c";
-                            entity.Description = "Description 9bb3a174b4674cb0bd7e37be5911da7c";
-                            entity.IsDeleted = false;              
+                          entity.Name = "Name 85a460cf6b7044a49aac728e299d8f4a";
+                            entity.Description = "Description 85a460cf6b7044a49aac728e299d8f4a";
+                            entity.IsDeleted = true;              
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +114,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 9bb3a174b4674cb0bd7e37be5911da7c", entity.Name);
-                            Assert.AreEqual("Description 9bb3a174b4674cb0bd7e37be5911da7c", entity.Description);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("Name 85a460cf6b7044a49aac728e299d8f4a", entity.Name);
+                            Assert.AreEqual("Description 85a460cf6b7044a49aac728e299d8f4a", entity.Description);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -130,9 +130,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             PaymentMethod entity = dal.Get(paramID);
 
-                          entity.Name = "Name 5028d108bdf34393a12bb51e03aa262d";
-                            entity.Description = "Description 5028d108bdf34393a12bb51e03aa262d";
-                            entity.IsDeleted = false;              
+                          entity.Name = "Name ba2e6ac523ac4902a9defa9c2a8e93be";
+                            entity.Description = "Description ba2e6ac523ac4902a9defa9c2a8e93be";
+                            entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
 
@@ -141,9 +141,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 5028d108bdf34393a12bb51e03aa262d", entity.Name);
-                            Assert.AreEqual("Description 5028d108bdf34393a12bb51e03aa262d", entity.Description);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("Name ba2e6ac523ac4902a9defa9c2a8e93be", entity.Name);
+                            Assert.AreEqual("Description ba2e6ac523ac4902a9defa9c2a8e93be", entity.Description);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -153,9 +153,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePaymentMethodDal("DALInitParams");
 
             var entity = new PaymentMethod();
-                          entity.Name = "Name 5028d108bdf34393a12bb51e03aa262d";
-                            entity.Description = "Description 5028d108bdf34393a12bb51e03aa262d";
-                            entity.IsDeleted = false;              
+                          entity.Name = "Name ba2e6ac523ac4902a9defa9c2a8e93be";
+                            entity.Description = "Description ba2e6ac523ac4902a9defa9c2a8e93be";
+                            entity.IsDeleted = true;              
               
             try
             {

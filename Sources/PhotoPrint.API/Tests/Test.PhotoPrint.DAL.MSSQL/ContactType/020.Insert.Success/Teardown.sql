@@ -1,7 +1,7 @@
 
 
 DECLARE @ID BIGINT = NULL
-DECLARE @ContactTypeName NVARCHAR(50) = 'ContactTypeName 1baf378ba82b4961962766f04870c771'
+DECLARE @ContactTypeName NVARCHAR(50) = 'ContactTypeName 29fd051a649c4b3c8bdac493e25b7e3e'
 DECLARE @IsDeleted BIT = 1
  
 DECLARE @Fail AS BIT = 0

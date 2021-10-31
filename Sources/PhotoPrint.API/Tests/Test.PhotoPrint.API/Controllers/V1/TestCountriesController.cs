@@ -171,7 +171,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Country testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.CountryName = "CountryName 8122d0b5ad9a458c8e8a024e46f612bf";
+                          testEntity.CountryName = "CountryName 80ca8e610f3f46238ad3644eae2b226e";
                             testEntity.ISO = "ISO 8";
                             testEntity.IsDeleted = true;              
               
@@ -211,7 +211,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                              testEntity.ID = Int64.MaxValue;
-                             testEntity.CountryName = "CountryName 8122d0b5ad9a458c8e8a024e46f612bf";
+                             testEntity.CountryName = "CountryName 80ca8e610f3f46238ad3644eae2b226e";
                             testEntity.ISO = "ISO 8";
                             testEntity.IsDeleted = true;              
               
@@ -251,8 +251,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Country CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Country();
-                          entity.CountryName = "CountryName 04249beeb09c4257ba3179dcd0eb4ab5";
-                            entity.ISO = "ISO 0";
+                          entity.CountryName = "CountryName b1fc3245a9b54e49a101c173b5c14acd";
+                            entity.ISO = "ISO b";
                             entity.IsDeleted = true;              
               
             return entity;

@@ -28,17 +28,6 @@ namespace Test.E2E.API.Controllers.V1
             }
 
         }
-
-        [Test]
-        public void TestSetCreatedModifiedProperties()
-        {
-            var controller = new BaseControllerTestWrapper();
-            var order = new PPT.Interfaces.Entities.Order();
-
-            controller.SetCreatedModifiedProperties(order, "CreatedDate", "CreatedByID");
-
-            Assert.AreNotEqual(DateTime.MinValue, order.CreatedDate);
-            Assert.AreEqual(controller.CurrentUser.ID, order.CreatedByID);
-        }
+        
     }
 }

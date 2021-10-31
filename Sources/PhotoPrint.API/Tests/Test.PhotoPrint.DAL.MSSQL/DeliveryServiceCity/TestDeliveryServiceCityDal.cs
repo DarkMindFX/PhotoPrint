@@ -54,8 +54,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.DeliveryServiceID);
                         Assert.IsNotNull(entity.CityID);
             
-                          Assert.AreEqual(100008, entity.DeliveryServiceID);
-                            Assert.AreEqual(2, entity.CityID);
+                          Assert.AreEqual(100005, entity.DeliveryServiceID);
+                            Assert.AreEqual(6, entity.CityID);
                       }
 
         [Test]
@@ -107,8 +107,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareDeliveryServiceCityDal("DALInitParams");
 
             var entity = new DeliveryServiceCity();
-                          entity.DeliveryServiceID = 100008;
-                            entity.CityID = 7;
+                          entity.DeliveryServiceID = 100009;
+                            entity.CityID = 1;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +118,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.DeliveryServiceID);
                         Assert.IsNotNull(entity.CityID);
             
-                          Assert.AreEqual(100008, entity.DeliveryServiceID);
-                            Assert.AreEqual(7, entity.CityID);
+                          Assert.AreEqual(100009, entity.DeliveryServiceID);
+                            Assert.AreEqual(1, entity.CityID);
               
         }
 
@@ -143,8 +143,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.DeliveryServiceID);
                         Assert.IsNotNull(entity.CityID);
             
-                          Assert.AreEqual(100002, entity.DeliveryServiceID);
-                            Assert.AreEqual(10, entity.CityID);
+                          Assert.AreEqual(100009, entity.DeliveryServiceID);
+                            Assert.AreEqual(1, entity.CityID);
               
         }
 
@@ -154,8 +154,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareDeliveryServiceCityDal("DALInitParams");
 
             var entity = new DeliveryServiceCity();
-                          entity.DeliveryServiceID = 100002;
-                            entity.CityID = 10;
+                          entity.DeliveryServiceID = 100009;
+                            entity.CityID = 1;
               
             try
             {

@@ -2,34 +2,34 @@
 
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @Title NVARCHAR(50) = 'Title 8a4fce99b43e4df586c7ccce803cdb88'
-DECLARE @Description NVARCHAR(1000) = 'Description 8a4fce99b43e4df586c7ccce803cdb88'
-DECLARE @OriginUrl NVARCHAR(3000) = 'OriginUrl 8a4fce99b43e4df586c7ccce803cdb88'
-DECLARE @MaxWidth INT = 675
-DECLARE @MaxHeight INT = 675
-DECLARE @PriceAmount DECIMAL(18, 2) = 128
-DECLARE @PriceCurrencyID BIGINT = 173
+DECLARE @Title NVARCHAR(50) = 'Title 233c563b4abc4c6d8caaa04095276a98'
+DECLARE @Description NVARCHAR(1000) = 'Description 233c563b4abc4c6d8caaa04095276a98'
+DECLARE @OriginUrl NVARCHAR(3000) = 'OriginUrl 233c563b4abc4c6d8caaa04095276a98'
+DECLARE @MaxWidth INT = 879
+DECLARE @MaxHeight INT = 879
+DECLARE @PriceAmount DECIMAL(18, 2) = 879073.43
+DECLARE @PriceCurrencyID BIGINT = 139
 DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedByID BIGINT = 100008
-DECLARE @CreatedDate DATETIME = '12/31/2022 11:54:48 AM'
-DECLARE @ModifiedByID BIGINT = 100007
-DECLARE @ModifiedDate DATETIME = '12/31/2022 11:54:48 AM'
+DECLARE @CreatedByID BIGINT = 100009
+DECLARE @CreatedDate DATETIME = '5/25/2024 10:09:33 AM'
+DECLARE @ModifiedByID BIGINT = 100010
+DECLARE @ModifiedDate DATETIME = '5/25/2024 10:09:33 AM'
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updTitle NVARCHAR(50) = 'Title 155bb1a73abf471198abdfa4781e190f'
-DECLARE @updDescription NVARCHAR(1000) = 'Description 155bb1a73abf471198abdfa4781e190f'
-DECLARE @updOriginUrl NVARCHAR(3000) = 'OriginUrl 155bb1a73abf471198abdfa4781e190f'
-DECLARE @updMaxWidth INT = 719
-DECLARE @updMaxHeight INT = 719
-DECLARE @updPriceAmount DECIMAL(18, 2) = 129
-DECLARE @updPriceCurrencyID BIGINT = 203
-DECLARE @updIsDeleted BIT = 0
-DECLARE @updCreatedByID BIGINT = 100007
-DECLARE @updCreatedDate DATETIME = '5/19/2020 12:20:48 PM'
-DECLARE @updModifiedByID BIGINT = 100003
-DECLARE @updModifiedDate DATETIME = '5/19/2020 12:20:48 PM'
+DECLARE @updTitle NVARCHAR(50) = 'Title bc07aeca0c44413b99ba1a3af5af3e04'
+DECLARE @updDescription NVARCHAR(1000) = 'Description bc07aeca0c44413b99ba1a3af5af3e04'
+DECLARE @updOriginUrl NVARCHAR(3000) = 'OriginUrl bc07aeca0c44413b99ba1a3af5af3e04'
+DECLARE @updMaxWidth INT = 968
+DECLARE @updMaxHeight INT = 968
+DECLARE @updPriceAmount DECIMAL(18, 2) = 968774.69
+DECLARE @updPriceCurrencyID BIGINT = 151
+DECLARE @updIsDeleted BIT = 1
+DECLARE @updCreatedByID BIGINT = 100011
+DECLARE @updCreatedDate DATETIME = '3/4/2019 5:43:33 AM'
+DECLARE @updModifiedByID BIGINT = 100001
+DECLARE @updModifiedDate DATETIME = '3/4/2019 5:43:33 AM'
  
 
 DECLARE @Fail AS BIT = 0

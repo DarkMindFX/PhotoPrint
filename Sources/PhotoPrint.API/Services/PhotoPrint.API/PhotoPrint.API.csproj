@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="0nf5ky13.4eb~" />
+    <None Remove="Controllers\V1\UsersController.cs~RF21e19996.TMP" />
   </ItemGroup>
 
   <ItemGroup>
