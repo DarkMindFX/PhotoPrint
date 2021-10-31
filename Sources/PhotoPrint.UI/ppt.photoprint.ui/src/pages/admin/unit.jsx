@@ -242,7 +242,7 @@ class UnitPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Unit: { this.state.unit.toString() }</h2>
+                                <h2>Unit: { this.state.unit.UnitName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

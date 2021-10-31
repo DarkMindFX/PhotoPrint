@@ -307,7 +307,7 @@ class SizePage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>Size: { this.state.size.toString() }</h2>
+                                <h2>Size: { this.state.size.SizeName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

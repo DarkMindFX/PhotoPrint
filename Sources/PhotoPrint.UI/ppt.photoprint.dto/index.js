@@ -37,6 +37,7 @@ const RegionDto = require('./src/RegionDto')
 const SizeDto = require('./src/SizeDto')
 const UnitDto = require('./src/UnitDto')
 const UserDto = require('./src/UserDto')
+const UserConfirmationDto = require('./src/UserConfirmationDto')
 const UserAddressDto = require('./src/UserAddressDto')
 const UserContactDto = require('./src/UserContactDto')
 const UserStatusDto = require('./src/UserStatusDto')
@@ -81,6 +82,7 @@ module.exports = {
     SizeDto,
     UnitDto,
     UserDto,
+    UserConfirmationDto,
     UserAddressDto,
     UserContactDto,
     UserStatusDto,

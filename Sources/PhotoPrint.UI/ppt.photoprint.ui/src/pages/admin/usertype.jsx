@@ -216,7 +216,7 @@ class UserTypePage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>UserType: { this.state.usertype.toString() }</h2>
+                                <h2>UserType: { this.state.usertype.UserTypeName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

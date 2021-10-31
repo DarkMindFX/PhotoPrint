@@ -105,7 +105,7 @@ class UserConfirmationsPage extends React.Component {
             let r = {
                 id: cs[c].ID,
                 ID: cs[c].ID,
-                UserID: cs[c].UserID ? this.state.users[ cs[c].UserID ].Name : "",
+                UserID: cs[c].UserID ? this.state.users[ cs[c].UserID ].FirstName + " " + this.state.users[ cs[c].UserID ].LastName : "",
                 ConfirmationCode: cs[c].ConfirmationCode,
                 Comfirmed: cs[c].Comfirmed,
                 ExpiresDate: cs[c].ExpiresDate,

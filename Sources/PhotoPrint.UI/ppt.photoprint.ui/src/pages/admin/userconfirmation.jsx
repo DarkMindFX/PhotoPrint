@@ -252,7 +252,7 @@ class UserConfirmationPage extends React.Component {
             display: this.state.id ? "block" : "none"
         }
 
-        const lstUserIDsFields = ["Name"];
+        const lstUserIDsFields = ["FirstName", "LastName"];
         const lstUserIDs = this._prepareOptionsList( this.state.users 
                                                                     ? Object.values(this.state.users) : null, 
                                                                     lstUserIDsFields,
@@ -263,7 +263,7 @@ class UserConfirmationPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>UserConfirmation: { this.state.userconfirmation.toString() }</h2>
+                                <h2>UserConfirmation: { this.state.userconfirmation.UserID ? this.state.users[this.state.userconfirmation.UserID].FirstName + " " + this.state.users[this.state.userconfirmation.UserID].LastName : "" }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"

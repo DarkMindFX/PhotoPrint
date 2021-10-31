@@ -216,7 +216,7 @@ class UserStatusPage extends React.Component {
                     <tbody>
                         <tr>
                             <td style={{width: 450}}>
-                                <h2>UserStatus: { this.state.userstatus.toString() }</h2>
+                                <h2>UserStatus: { this.state.userstatus.StatusName }</h2>
                             </td>
                             <td>
                                 <Button variant="contained" color="primary"
