@@ -92,37 +92,55 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            // Inserting new user
-            var entityUser = UserConvertor.Convert(dtoRegister.User);
-            entityUser.Salt = Helpers.PasswordHelper.GenerateSalt(12);
-            entityUser.PwdHash = Helpers.PasswordHelper.GenerateHash(dtoRegister.User.Password, entityUser.Salt);
+            if (string.IsNullOrEmpty(dtoRegister.User.Password))
+            {
+                response = StatusCode((int)HttpStatusCode.BadRequest,
+                    new DTO.Error() { Message = $"Password is empty" });
+            }
+            else if (string.IsNullOrEmpty(dtoRegister.User.Login))
+            {
+                response = StatusCode((int)HttpStatusCode.BadRequest,
+                    new DTO.Error() { Message = $"Login is empty" });
+            }
+            else
+            {
 
-            base.SetCreatedModifiedProperties(entityUser,
-                        "CreatedDate",
-                        null);
+                // Inserting new user
+                var entityUser = UserConvertor.Convert(dtoRegister.User);
+                entityUser.Salt = Helpers.PasswordHelper.GenerateSalt(12);
+                entityUser.PwdHash = Helpers.PasswordHelper.GenerateHash(dtoRegister.User.Password, entityUser.Salt);
 
-            User newEntityUser = _dalUser.Insert(entityUser);
+                base.SetCreatedModifiedProperties(entityUser,
+                            "CreatedDate",
+                            null);
 
-            // Inserting user's contact
-            var entityContact = ContactConvertor.Convert(dtoRegister.Contact);
-            Contact newEntityContact = _dalContact.Insert(entityContact);
-            base.SetCreatedModifiedProperties(entityContact,
-                        "CreatedDate",
-                        null);
-            entityContact.CreatedByID = (long)entityUser.ID;
+                User newEntityUser = _dalUser.Insert(entityUser);
 
-            // Connecting user & contact
-            var entityUserContact = new PPT.Interfaces.Entities.UserContact();
-            entityUserContact.UserID = (long)newEntityUser.ID;
-            entityUserContact.ContactID = (long)newEntityContact.ID;
-            entityUserContact.IsPrimary = true;
-            UserContact newEntityUserContact = _dalUserContact.Insert(entityUserContact);
+                // Inserting user's contact
+                var entityContact = ContactConvertor.Convert(dtoRegister.Contact);               
+                base.SetCreatedModifiedProperties(entityContact,
+                            "CreatedDate",
+                            null);
+                entityContact.CreatedByID = (long)newEntityUser.ID;
 
-            // Preparing response
-            response = StatusCode((int)HttpStatusCode.Created,
-                                    new DTO.RegisterResponse() { User = UserConvertor.Convert(newEntityUser, this.Url) });
+                Contact newEntityContact = _dalContact.Insert(entityContact);
 
-            _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+                // Connecting user & contact
+                var entityUserContact = new PPT.Interfaces.Entities.UserContact();
+                entityUserContact.UserID = (long)newEntityUser.ID;
+                entityUserContact.ContactID = (long)newEntityContact.ID;
+                entityUserContact.IsPrimary = true;
+                UserContact newEntityUserContact = _dalUserContact.Insert(entityUserContact);
+
+                // Preparing response
+                response = StatusCode((int)HttpStatusCode.Created,
+                                        new DTO.RegisterResponse() { 
+                                            User = UserConvertor.Convert(newEntityUser, this.Url),
+                                            Contact = ContactConvertor.Convert(newEntityContact, this.Url)
+                                        });
+
+                _logger.LogTrace($"{System.Reflection.MethodInfo.GetCurrentMethod()} Ended");
+            }
 
             return response;
         }

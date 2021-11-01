@@ -24,7 +24,14 @@ namespace PPT.DTO
 
     public class RegisterResponse
     {
+        [JsonPropertyName("User")]
         public User User
+        {
+            get; set;
+        }
+
+        [JsonPropertyName("Contact")]
+        public Contact Contact
         {
             get; set;
         }
