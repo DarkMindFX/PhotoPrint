@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -54,8 +55,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.CategoryID);
             
-                          Assert.AreEqual(100018, entity.ImageID);
-                            Assert.AreEqual(100008, entity.CategoryID);
+                          Assert.AreEqual(100035, entity.ImageID);
+                            Assert.AreEqual(100002, entity.CategoryID);
                       }
 
         [Test]
@@ -107,8 +108,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageCategoryDal("DALInitParams");
 
             var entity = new ImageCategory();
-                          entity.ImageID = 100031;
-                            entity.CategoryID = 100005;
+                          entity.ImageID = 100016;
+                            entity.CategoryID = 100001;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +119,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.CategoryID);
             
-                          Assert.AreEqual(100031, entity.ImageID);
-                            Assert.AreEqual(100005, entity.CategoryID);
+                          Assert.AreEqual(100016, entity.ImageID);
+                            Assert.AreEqual(100001, entity.CategoryID);
               
         }
 
@@ -143,8 +144,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.CategoryID);
             
-                          Assert.AreEqual(100045, entity.ImageID);
-                            Assert.AreEqual(100004, entity.CategoryID);
+                          Assert.AreEqual(100019, entity.ImageID);
+                            Assert.AreEqual(100006, entity.CategoryID);
               
         }
 
@@ -154,8 +155,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageCategoryDal("DALInitParams");
 
             var entity = new ImageCategory();
-                          entity.ImageID = 100045;
-                            entity.CategoryID = 100004;
+                          entity.ImageID = 100019;
+                            entity.CategoryID = 100006;
               
             try
             {
@@ -168,6 +169,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IImageCategoryDal PrepareImageCategoryDal(string configName)
         {

@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,9 +53,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CountryName 5316067ceddd48a6bb79bf97fc5d5960", entity.CountryName);
-                            Assert.AreEqual("ISO 5", entity.ISO);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("CountryName f0cbb5276b2d426b8f8839f55ddce362", entity.CountryName);
+                            Assert.AreEqual("ISO f", entity.ISO);
+                            Assert.AreEqual(true, entity.IsDeleted);
                       }
 
         [Test]
@@ -103,9 +104,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCountryDal("DALInitParams");
 
             var entity = new Country();
-                          entity.CountryName = "CountryName 1e3aaaa0969948e781cfcceb58ea4639";
-                            entity.ISO = "ISO 1";
-                            entity.IsDeleted = false;              
+                          entity.CountryName = "CountryName 5fb93d4ba8b14427975c73a92af8ee7e";
+                            entity.ISO = "ISO 5";
+                            entity.IsDeleted = true;              
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +115,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CountryName 1e3aaaa0969948e781cfcceb58ea4639", entity.CountryName);
-                            Assert.AreEqual("ISO 1", entity.ISO);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("CountryName 5fb93d4ba8b14427975c73a92af8ee7e", entity.CountryName);
+                            Assert.AreEqual("ISO 5", entity.ISO);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -130,9 +131,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Country entity = dal.Get(paramID);
 
-                          entity.CountryName = "CountryName dc9c86a313c64d979fd24e6e57a4c7a6";
-                            entity.ISO = "ISO d";
-                            entity.IsDeleted = false;              
+                          entity.CountryName = "CountryName 5e3ddfd88afb423591f99429c2c59e6d";
+                            entity.ISO = "ISO 5";
+                            entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
 
@@ -141,9 +142,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CountryName dc9c86a313c64d979fd24e6e57a4c7a6", entity.CountryName);
-                            Assert.AreEqual("ISO d", entity.ISO);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("CountryName 5e3ddfd88afb423591f99429c2c59e6d", entity.CountryName);
+                            Assert.AreEqual("ISO 5", entity.ISO);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -153,9 +154,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCountryDal("DALInitParams");
 
             var entity = new Country();
-                          entity.CountryName = "CountryName dc9c86a313c64d979fd24e6e57a4c7a6";
-                            entity.ISO = "ISO d";
-                            entity.IsDeleted = false;              
+                          entity.CountryName = "CountryName 5e3ddfd88afb423591f99429c2c59e6d";
+                            entity.ISO = "ISO 5";
+                            entity.IsDeleted = true;              
               
             try
             {
@@ -167,6 +168,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("Country\\040.Erase.Success")]
+        public void Country_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareCountryDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void Country_Erase_InvalidId()
+        {
+            var dal = PrepareCountryDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected ICountryDal PrepareCountryDal(string configName)

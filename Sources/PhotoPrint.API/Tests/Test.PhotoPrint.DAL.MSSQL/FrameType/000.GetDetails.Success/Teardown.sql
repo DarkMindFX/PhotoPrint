@@ -1,14 +1,15 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @FrameTypeName NVARCHAR(50) = 'FrameTypeName 09dcd3d190ba4ffd9d0402b93410f21c'
-DECLARE @Description NVARCHAR(1000) = 'Description 09dcd3d190ba4ffd9d0402b93410f21c'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 09dcd3d190ba4ffd9d0402b93410f21c'
+DECLARE @FrameTypeName NVARCHAR(50) = 'FrameTypeName d767ac90e7df4e85afcb7de69bc7cc68'
+DECLARE @Description NVARCHAR(1000) = 'Description d767ac90e7df4e85afcb7de69bc7cc68'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl d767ac90e7df4e85afcb7de69bc7cc68'
 DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '4/13/2021 1:30:33 AM'
-DECLARE @CreatedByID BIGINT = 100011
-DECLARE @ModifiedDate DATETIME = '12/31/2022 5:06:33 AM'
-DECLARE @ModifiedByID BIGINT = 100006
+DECLARE @CreatedDate DATETIME = '1/16/2021 7:47:39 AM'
+DECLARE @CreatedByID BIGINT = 100008
+DECLARE @ModifiedDate DATETIME = '11/27/2019 10:55:39 AM'
+DECLARE @ModifiedByID BIGINT = 100002
  
 
 DELETE FROM [FrameType]

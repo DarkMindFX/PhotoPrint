@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/ordertrackings/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/ordertrackings/{paramID}");
 
@@ -145,13 +146,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderTracking respDto = ExtractContentJson<OrderTracking>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
-                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
-                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
-                    Assert.Equal(reqDto.Comment, respDto.Comment);
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
+                                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
+                                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
+                                    Assert.Equal(reqDto.Comment, respDto.Comment);
+                
                     respEntity = OrderTrackingConvertor.Convert(respDto);
                 }
                 finally
@@ -173,12 +174,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderTracking testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.OrderID = 100007;
-                    testEntity.OrderStatusID = 11;
-                    testEntity.SetDate = DateTime.Parse("3/13/2022 12:27:35 PM");
-                    testEntity.SetByID = 100011;
-                    testEntity.Comment = "Comment b03d13c1a3c042cd85a8e32bae444303";
-
+                          testEntity.OrderID = 100009 ;
+                            testEntity.OrderStatusID = 6 ;
+                            testEntity.SetDate = DateTime.Parse("4/6/2023 11:39:38 AM");
+                            testEntity.SetByID = 100010 ;
+                            testEntity.Comment = "Comment f6c4068e45624472946f6de04de820f9";
+              
                     var reqDto = OrderTrackingConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -189,13 +190,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     OrderTracking respDto = ExtractContentJson<OrderTracking>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
-                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
-                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
-                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
-                    Assert.Equal(reqDto.Comment, respDto.Comment);
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.OrderID, respDto.OrderID);
+                                    Assert.Equal(reqDto.OrderStatusID, respDto.OrderStatusID);
+                                    Assert.Equal(reqDto.SetDate, respDto.SetDate);
+                                    Assert.Equal(reqDto.SetByID, respDto.SetByID);
+                                    Assert.Equal(reqDto.Comment, respDto.Comment);
+                
                 }
                 finally
                 {
@@ -216,13 +217,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.OrderTracking testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.OrderID = 100007;
-                    testEntity.OrderStatusID = 11;
-                    testEntity.SetDate = DateTime.Parse("3/13/2022 12:27:35 PM");
-                    testEntity.SetByID = 100011;
-                    testEntity.Comment = "Comment b03d13c1a3c042cd85a8e32bae444303";
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.OrderID = 100009;
+                            testEntity.OrderStatusID = 6;
+                            testEntity.SetDate = DateTime.Parse("4/6/2023 11:39:38 AM");
+                            testEntity.SetByID = 100010;
+                            testEntity.Comment = "Comment f6c4068e45624472946f6de04de820f9";
+              
                     var reqDto = OrderTrackingConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -246,8 +247,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+
+                return dal.Delete(                        entity.ID
                 );
             }
             else
@@ -259,12 +261,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.OrderTracking CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.OrderTracking();
-            entity.OrderID = 100004;
-            entity.OrderStatusID = 1;
-            entity.SetDate = DateTime.Parse("7/24/2024 7:06:35 AM");
-            entity.SetByID = 100008;
-            entity.Comment = "Comment 661c9e8ec84c44d1bf516601fd9fdac2";
-
+                          entity.OrderID = 100001;
+                            entity.OrderStatusID = 6;
+                            entity.SetDate = DateTime.Parse("10/9/2022 5:52:38 AM");
+                            entity.SetByID = 100008;
+                            entity.Comment = "Comment e4674411050b4c119e5287a34e2e62be";
+              
             return entity;
         }
 

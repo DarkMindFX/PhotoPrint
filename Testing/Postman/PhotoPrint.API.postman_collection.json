@@ -1,5 +1,6 @@
 
 
+
 {
 	"info": {
 		"_postman_id": "BC1C4F03-F7A1-4A11-8F35-EDB40AD47891",
@@ -19,7 +20,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeID\": 9999999,\r\n  \"Title\": \"Title 70a2b5b4-f2d1-4c00-8746-6481a0a80fcc\",\r\n  \"CityID\": 9999999,\r\n  \"Street\": \"Street 56e3857d-97b3-46be-95f7-bbbd095e6ad6\",\r\n  \"BuildingNo\": \"BuildingNo eb5ad835-14d8-48f4-9d91-05a491e65086\",\r\n  \"ApartmentNo\": \"ApartmentNo 3238e9c4-ba8b-41fa-bca3-1462a79badd3\",\r\n  \"Comment\": \"Comment 413339dd-cb3f-4448-8760-efe8edd59e66\",\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeID\": 9999999,\r\n  \"Title\": \"Title a389d2a1-7f73-476f-9996-07eee7ca3a5c\",\r\n  \"CityID\": 9999999,\r\n  \"Street\": \"Street e42b7417-ebfa-421f-80fa-f1ca8bb4105b\",\r\n  \"BuildingNo\": \"BuildingNo afe4fe70-0da9-4e79-a94c-7d3862490063\",\r\n  \"ApartmentNo\": \"ApartmentNo 43e300f8-80c0-4131-ad48-f62c59373eb9\",\r\n  \"Comment\": \"Comment e93b0b2f-a010-4087-93d5-f5a294ef1641\",\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,7 +91,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeID\": 9999999,\r\n  \"Title\": \"Title 70a2b5b4-f2d1-4c00-8746-6481a0a80fcc\",\r\n  \"CityID\": 9999999,\r\n  \"Street\": \"Street 56e3857d-97b3-46be-95f7-bbbd095e6ad6\",\r\n  \"BuildingNo\": \"BuildingNo eb5ad835-14d8-48f4-9d91-05a491e65086\",\r\n  \"ApartmentNo\": \"ApartmentNo 3238e9c4-ba8b-41fa-bca3-1462a79badd3\",\r\n  \"Comment\": \"Comment 413339dd-cb3f-4448-8760-efe8edd59e66\",\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeID\": 9999999,\r\n  \"Title\": \"Title a389d2a1-7f73-476f-9996-07eee7ca3a5c\",\r\n  \"CityID\": 9999999,\r\n  \"Street\": \"Street e42b7417-ebfa-421f-80fa-f1ca8bb4105b\",\r\n  \"BuildingNo\": \"BuildingNo afe4fe70-0da9-4e79-a94c-7d3862490063\",\r\n  \"ApartmentNo\": \"ApartmentNo 43e300f8-80c0-4131-ad48-f62c59373eb9\",\r\n  \"Comment\": \"Comment e93b0b2f-a010-4087-93d5-f5a294ef1641\",\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -334,7 +335,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeName\": \"AddressTypeName 6c3cb8e2-e367-4f72-a041-4ffd01a16366\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeName\": \"AddressTypeName be6f74bb-b0e1-40e8-ab4a-2d8620d3a01c\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -405,7 +406,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeName\": \"AddressTypeName 6c3cb8e2-e367-4f72-a041-4ffd01a16366\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"AddressTypeName\": \"AddressTypeName be6f74bb-b0e1-40e8-ab4a-2d8620d3a01c\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -509,7 +510,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CategoryName\": \"CategoryName 8724d19d-e203-40fa-b6ef-2a5428bdb171\",\r\n  \"Description\": \"Description fef7b8de-c3b1-461a-b2e3-811b6e80df71\",\r\n  \"ParentID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CategoryName\": \"CategoryName c8ed14a0-57df-40ad-941b-7544fbc93c8a\",\r\n  \"Description\": \"Description 20c19635-44a0-4521-8393-1a1ccd9ffab9\",\r\n  \"ParentID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -580,7 +581,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CategoryName\": \"CategoryName 8724d19d-e203-40fa-b6ef-2a5428bdb171\",\r\n  \"Description\": \"Description fef7b8de-c3b1-461a-b2e3-811b6e80df71\",\r\n  \"ParentID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CategoryName\": \"CategoryName c8ed14a0-57df-40ad-941b-7544fbc93c8a\",\r\n  \"Description\": \"Description 20c19635-44a0-4521-8393-1a1ccd9ffab9\",\r\n  \"ParentID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -789,7 +790,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CityName\": \"CityName 3c9beac5-c6a7-4533-a0eb-e93b3152ee49\",\r\n  \"RegionID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CityName\": \"CityName ff99e2ff-cf3f-419c-8c78-79319ab375a4\",\r\n  \"RegionID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -860,7 +861,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CityName\": \"CityName 3c9beac5-c6a7-4533-a0eb-e93b3152ee49\",\r\n  \"RegionID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CityName\": \"CityName ff99e2ff-cf3f-419c-8c78-79319ab375a4\",\r\n  \"RegionID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -999,7 +1000,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeID\": 9999999,\r\n  \"Title\": \"Title c01109b6-de2a-4165-ae63-e1cc0a33a4de\",\r\n  \"Comment\": \"Comment bd09991e-56f3-4b30-884d-6941aa85cf98\",\r\n  \"Value\": \"Value f1080cf4-adb4-464f-947b-8938f5a345fa\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeID\": 9999999,\r\n  \"Title\": \"Title ba8b5e01-f483-46b8-b7e1-ceb1c0705834\",\r\n  \"Comment\": \"Comment 628bd9be-95cd-4650-bc42-4f4283ff1f45\",\r\n  \"Value\": \"Value d5c38b71-de82-4b4e-9a84-f9d6aa134a1d\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1070,7 +1071,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeID\": 9999999,\r\n  \"Title\": \"Title c01109b6-de2a-4165-ae63-e1cc0a33a4de\",\r\n  \"Comment\": \"Comment bd09991e-56f3-4b30-884d-6941aa85cf98\",\r\n  \"Value\": \"Value f1080cf4-adb4-464f-947b-8938f5a345fa\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeID\": 9999999,\r\n  \"Title\": \"Title ba8b5e01-f483-46b8-b7e1-ceb1c0705834\",\r\n  \"Comment\": \"Comment 628bd9be-95cd-4650-bc42-4f4283ff1f45\",\r\n  \"Value\": \"Value d5c38b71-de82-4b4e-9a84-f9d6aa134a1d\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1279,7 +1280,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeName\": \"ContactTypeName f6b3db78-304e-4b3f-a1ef-3799bfc1c54d\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeName\": \"ContactTypeName ee9cf638-adac-4614-9455-e3298aed4f68\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1350,7 +1351,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeName\": \"ContactTypeName f6b3db78-304e-4b3f-a1ef-3799bfc1c54d\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ContactTypeName\": \"ContactTypeName ee9cf638-adac-4614-9455-e3298aed4f68\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1454,7 +1455,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CountryName\": \"CountryName 6a424747-9255-41ee-ab5c-2379425cf8e7\",\r\n  \"ISO\": \"ISO 42af5eeb-447b-4af9-b1e1-90cc84643e78\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CountryName\": \"CountryName fb88adf1-47b9-4208-b46f-04f88358b6dc\",\r\n  \"ISO\": \"ISO 349a97e4-a034-4e86-93d1-508582fb2000\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1525,7 +1526,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CountryName\": \"CountryName 6a424747-9255-41ee-ab5c-2379425cf8e7\",\r\n  \"ISO\": \"ISO 42af5eeb-447b-4af9-b1e1-90cc84643e78\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"CountryName\": \"CountryName fb88adf1-47b9-4208-b46f-04f88358b6dc\",\r\n  \"ISO\": \"ISO 349a97e4-a034-4e86-93d1-508582fb2000\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1629,7 +1630,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ISO\": \"ISO 5230d910-f701-4171-884f-b27274a9f16d\",\r\n  \"CurrencyName\": \"CurrencyName aea8018c-1879-4043-bdaf-fd2c224fdbd7\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ISO\": \"ISO 0a16554a-8f76-41e5-afab-66d7a4a3f268\",\r\n  \"CurrencyName\": \"CurrencyName 325b8f0b-bf63-47b8-9f24-9ada39c2c31d\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1700,7 +1701,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ISO\": \"ISO 5230d910-f701-4171-884f-b27274a9f16d\",\r\n  \"CurrencyName\": \"CurrencyName aea8018c-1879-4043-bdaf-fd2c224fdbd7\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ISO\": \"ISO 0a16554a-8f76-41e5-afab-66d7a4a3f268\",\r\n  \"CurrencyName\": \"CurrencyName 325b8f0b-bf63-47b8-9f24-9ada39c2c31d\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1804,7 +1805,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"DeliveryServiceName\": \"DeliveryServiceName 9ea91b64-9c95-4378-a7df-93ce61368ac7\",\r\n  \"Description\": \"Description 08d7cda1-040f-4f71-bfcf-df911e638c6a\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"DeliveryServiceName\": \"DeliveryServiceName 64b85cac-c687-46b6-ab80-d805b913b4ab\",\r\n  \"Description\": \"Description a1f4a65e-c988-4d1e-8187-f9c19cb7be82\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1875,7 +1876,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"DeliveryServiceName\": \"DeliveryServiceName 9ea91b64-9c95-4378-a7df-93ce61368ac7\",\r\n  \"Description\": \"Description 08d7cda1-040f-4f71-bfcf-df911e638c6a\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"DeliveryServiceName\": \"DeliveryServiceName 64b85cac-c687-46b6-ab80-d805b913b4ab\",\r\n  \"Description\": \"Description a1f4a65e-c988-4d1e-8187-f9c19cb7be82\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2298,7 +2299,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"FrameTypeName\": \"FrameTypeName 74b3e262-b805-4bb1-a926-6d144ddc2b7c\",\r\n  \"Description\": \"Description dff1f35b-68aa-45ef-8614-1c5a0b9aa843\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 8c61d633-3a3e-459e-8933-2854885eca06\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"FrameTypeName\": \"FrameTypeName 00b7e531-ec97-4d78-96e6-645cd4fdd1c1\",\r\n  \"Description\": \"Description a8b3624a-2cea-494b-a603-2cbd8e4ae0a5\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 18c4c7a5-9b99-4167-9c39-f24aaed81909\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2369,7 +2370,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"FrameTypeName\": \"FrameTypeName 74b3e262-b805-4bb1-a926-6d144ddc2b7c\",\r\n  \"Description\": \"Description dff1f35b-68aa-45ef-8614-1c5a0b9aa843\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 8c61d633-3a3e-459e-8933-2854885eca06\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"FrameTypeName\": \"FrameTypeName 00b7e531-ec97-4d78-96e6-645cd4fdd1c1\",\r\n  \"Description\": \"Description a8b3624a-2cea-494b-a603-2cbd8e4ae0a5\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 18c4c7a5-9b99-4167-9c39-f24aaed81909\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2543,7 +2544,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title 77bcd849-5a01-496f-a111-fa679432afc5\",\r\n  \"Description\": \"Description 47a41c4a-083e-4ea8-97b5-b4494103d6fe\",\r\n  \"OriginUrl\": \"OriginUrl 4aa55c4f-a213-441a-9893-76994fb1eac2\",\r\n  \"MaxWidth\": 9999999,\r\n  \"MaxHeight\": 9999999,\r\n  \"PriceAmount\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title 5af0636f-56cc-4910-a3e1-36c717b437ce\",\r\n  \"Description\": \"Description 4db8782b-de02-4bb4-8ddb-badd37104d35\",\r\n  \"OriginUrl\": \"OriginUrl 28b7f88b-c5e9-429d-a087-efdc340f6926\",\r\n  \"MaxWidth\": 9999999,\r\n  \"MaxHeight\": 9999999,\r\n  \"PriceAmount\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2614,7 +2615,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title 77bcd849-5a01-496f-a111-fa679432afc5\",\r\n  \"Description\": \"Description 47a41c4a-083e-4ea8-97b5-b4494103d6fe\",\r\n  \"OriginUrl\": \"OriginUrl 4aa55c4f-a213-441a-9893-76994fb1eac2\",\r\n  \"MaxWidth\": 9999999,\r\n  \"MaxHeight\": 9999999,\r\n  \"PriceAmount\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Title\": \"Title 5af0636f-56cc-4910-a3e1-36c717b437ce\",\r\n  \"Description\": \"Description 4db8782b-de02-4bb4-8ddb-badd37104d35\",\r\n  \"OriginUrl\": \"OriginUrl 28b7f88b-c5e9-429d-a087-efdc340f6926\",\r\n  \"MaxWidth\": 9999999,\r\n  \"MaxHeight\": 9999999,\r\n  \"PriceAmount\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedByID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3238,6 +3239,76 @@
 					},
 					"response": []
 				}
+					,
+			{
+					"name": "ImageRelated - Get By ImageID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/imagerelateds/byimageid/:imageid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"imagerelateds",
+								"byimageid",
+								":imageid"
+						
+							]
+						}
+					},
+					"response": []
+				}
+					,
+			{
+					"name": "ImageRelated - Get By RelatedImageID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/imagerelateds/byrelatedimageid/:relatedimageid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"imagerelateds",
+								"byrelatedimageid",
+								":relatedimageid"
+						
+							]
+						}
+					},
+					"response": []
+				}
 					]
 		},
 		
@@ -3251,7 +3322,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Url\": \"Url 77603e04-7968-4bc5-ba3a-6311f645db57\",\r\n  \"Order\": 9999999,\r\n  \"ImageID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Url\": \"Url 24af0721-7117-4a3c-8cf7-6bc9f8fe27e2\",\r\n  \"Order\": 9999999,\r\n  \"ImageID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3322,7 +3393,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Url\": \"Url 77603e04-7968-4bc5-ba3a-6311f645db57\",\r\n  \"Order\": 9999999,\r\n  \"ImageID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Url\": \"Url 24af0721-7117-4a3c-8cf7-6bc9f8fe27e2\",\r\n  \"Order\": 9999999,\r\n  \"ImageID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3461,7 +3532,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MatName\": \"MatName 15913401-fac4-4c73-bbb5-898b2cd9dc8a\",\r\n  \"Description\": \"Description 14e4a022-71e3-401f-80aa-c3d010eeb820\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1f63e892-3be2-403e-8c10-11d4c6dba899\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MatName\": \"MatName 62f5b3e6-a415-4eaf-abb6-6e18a6bce6bf\",\r\n  \"Description\": \"Description 2abf62d5-10c3-4bbf-8a82-9552d55ce97d\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl f1b1b6c0-fc66-4776-a93d-996b7c6ff918\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3532,7 +3603,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MatName\": \"MatName 15913401-fac4-4c73-bbb5-898b2cd9dc8a\",\r\n  \"Description\": \"Description 14e4a022-71e3-401f-80aa-c3d010eeb820\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1f63e892-3be2-403e-8c10-11d4c6dba899\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MatName\": \"MatName 62f5b3e6-a415-4eaf-abb6-6e18a6bce6bf\",\r\n  \"Description\": \"Description 2abf62d5-10c3-4bbf-8a82-9552d55ce97d\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl f1b1b6c0-fc66-4776-a93d-996b7c6ff918\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3706,7 +3777,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MaterialTypeName\": \"MaterialTypeName 2b953ea9-ffd9-4d85-b23d-efaf8884f643\",\r\n  \"Description\": \"Description 328e0b22-eaaa-4649-8e79-3d90dc5c431b\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 3250c0a3-003c-4339-8e46-1945ab6dc023\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MaterialTypeName\": \"MaterialTypeName d4c35867-b0c0-4f00-883d-288cf4489a9f\",\r\n  \"Description\": \"Description 42fe4dfc-e7c3-490c-b74c-3a70085ee217\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 3978d3de-f2f7-4342-bee2-901edaf2fceb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3777,7 +3848,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MaterialTypeName\": \"MaterialTypeName 2b953ea9-ffd9-4d85-b23d-efaf8884f643\",\r\n  \"Description\": \"Description 328e0b22-eaaa-4649-8e79-3d90dc5c431b\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 3250c0a3-003c-4339-8e46-1945ab6dc023\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MaterialTypeName\": \"MaterialTypeName d4c35867-b0c0-4f00-883d-288cf4489a9f\",\r\n  \"Description\": \"Description 42fe4dfc-e7c3-490c-b74c-3a70085ee217\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 3978d3de-f2f7-4342-bee2-901edaf2fceb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3951,7 +4022,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MountingTypeName\": \"MountingTypeName 4702e08c-5152-4470-b7d7-511c0bba070f\",\r\n  \"Description\": \"Description d506c0a7-4c01-4697-928f-0761b2ecaec4\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1480465c-b534-4f17-a3af-aa8815f3fa34\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MountingTypeName\": \"MountingTypeName 142a4c7e-8e47-45c5-a048-18867e56052a\",\r\n  \"Description\": \"Description ad105820-5042-408d-a34b-baebc7b5b60e\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 76723373-0ff6-456a-bbc4-c833243c87e6\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4022,7 +4093,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MountingTypeName\": \"MountingTypeName 4702e08c-5152-4470-b7d7-511c0bba070f\",\r\n  \"Description\": \"Description d506c0a7-4c01-4697-928f-0761b2ecaec4\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 1480465c-b534-4f17-a3af-aa8815f3fa34\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"MountingTypeName\": \"MountingTypeName 142a4c7e-8e47-45c5-a048-18867e56052a\",\r\n  \"Description\": \"Description ad105820-5042-408d-a34b-baebc7b5b60e\",\r\n  \"ThumbnailUrl\": \"ThumbnailUrl 76723373-0ff6-456a-bbc4-c833243c87e6\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4126,7 +4197,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ManagerID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"DeliveryAddressID\": 9999999,\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"Comments\": \"Comments d121e76d-3766-43d9-9c3b-a09a553382eb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ManagerID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"DeliveryAddressID\": 9999999,\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"Comments\": \"Comments ece0ea53-3720-4c27-af7e-04528144dbeb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4197,7 +4268,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ManagerID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"DeliveryAddressID\": 9999999,\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"Comments\": \"Comments d121e76d-3766-43d9-9c3b-a09a553382eb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"ManagerID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ContactID\": 9999999,\r\n  \"DeliveryAddressID\": 9999999,\r\n  \"DeliveryServiceID\": 9999999,\r\n  \"Comments\": \"Comments ece0ea53-3720-4c27-af7e-04528144dbeb\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4546,7 +4617,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"ImageID\": 9999999,\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"SizeID\": 9999999,\r\n  \"FrameTypeID\": 9999999,\r\n  \"FrameSizeID\": 9999999,\r\n  \"MatID\": 9999999,\r\n  \"MaterialTypeID\": 9999999,\r\n  \"MountingTypeID\": 9999999,\r\n  \"ItemCount\": 9999999,\r\n  \"PriceAmountPerItem\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"Comments\": \"Comments f5cab34c-690f-4b12-a80d-817352027fee\",\r\n  \"PrintingHouseID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"ImageID\": 9999999,\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"SizeID\": 9999999,\r\n  \"FrameTypeID\": 9999999,\r\n  \"FrameSizeID\": 9999999,\r\n  \"MatID\": 9999999,\r\n  \"MaterialTypeID\": 9999999,\r\n  \"MountingTypeID\": 9999999,\r\n  \"ItemCount\": 9999999,\r\n  \"PriceAmountPerItem\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"Comments\": \"Comments 2ad7d255-24bd-495d-98bf-ed2b9cc57f4b\",\r\n  \"PrintingHouseID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4617,7 +4688,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"ImageID\": 9999999,\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"SizeID\": 9999999,\r\n  \"FrameTypeID\": 9999999,\r\n  \"FrameSizeID\": 9999999,\r\n  \"MatID\": 9999999,\r\n  \"MaterialTypeID\": 9999999,\r\n  \"MountingTypeID\": 9999999,\r\n  \"ItemCount\": 9999999,\r\n  \"PriceAmountPerItem\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"Comments\": \"Comments f5cab34c-690f-4b12-a80d-817352027fee\",\r\n  \"PrintingHouseID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"ImageID\": 9999999,\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"SizeID\": 9999999,\r\n  \"FrameTypeID\": 9999999,\r\n  \"FrameSizeID\": 9999999,\r\n  \"MatID\": 9999999,\r\n  \"MaterialTypeID\": 9999999,\r\n  \"MountingTypeID\": 9999999,\r\n  \"ItemCount\": 9999999,\r\n  \"PriceAmountPerItem\": 9999999,\r\n  \"PriceCurrencyID\": 9999999,\r\n  \"Comments\": \"Comments 2ad7d255-24bd-495d-98bf-ed2b9cc57f4b\",\r\n  \"PrintingHouseID\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5141,7 +5212,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"PaymentMethodID\": 9999999,\r\n  \"PaymentTransUID\": \"PaymentTransUID b5894e37-11ae-48d1-9e72-fc8247f51e60\",\r\n  \"PaymentDateTime\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"PaymentMethodID\": 9999999,\r\n  \"PaymentTransUID\": \"PaymentTransUID e227dbbd-9be0-49a5-a28d-64e9af4dc523\",\r\n  \"PaymentDateTime\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5212,7 +5283,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"PaymentMethodID\": 9999999,\r\n  \"PaymentTransUID\": \"PaymentTransUID b5894e37-11ae-48d1-9e72-fc8247f51e60\",\r\n  \"PaymentDateTime\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"PaymentMethodID\": 9999999,\r\n  \"PaymentTransUID\": \"PaymentTransUID e227dbbd-9be0-49a5-a28d-64e9af4dc523\",\r\n  \"PaymentDateTime\": \"2021-10-01 21:35:00\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5456,7 +5527,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderStatusName\": \"OrderStatusName 3718da76-c539-44dc-8162-e65d61a28bf2\",\r\n  \"IsDeleted\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderStatusName\": \"OrderStatusName b8b7ee69-b4af-4842-ad9e-08e5855585f7\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5527,7 +5598,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderStatusName\": \"OrderStatusName 3718da76-c539-44dc-8162-e65d61a28bf2\",\r\n  \"IsDeleted\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderStatusName\": \"OrderStatusName b8b7ee69-b4af-4842-ad9e-08e5855585f7\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5880,7 +5951,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"OrderStatusID\": 9999999,\r\n  \"SetDate\": \"2021-10-01 21:35:00\",\r\n  \"SetByID\": 9999999,\r\n  \"Comment\": \"Comment 334417df-201b-49b2-aa4c-09a3ee9ce74d\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"OrderStatusID\": 9999999,\r\n  \"SetDate\": \"2021-10-01 21:35:00\",\r\n  \"SetByID\": 9999999,\r\n  \"Comment\": \"Comment 5985ace0-bb8c-404a-a8ad-8dbe7885c07f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -5951,7 +6022,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"OrderStatusID\": 9999999,\r\n  \"SetDate\": \"2021-10-01 21:35:00\",\r\n  \"SetByID\": 9999999,\r\n  \"Comment\": \"Comment 334417df-201b-49b2-aa4c-09a3ee9ce74d\"\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"OrderID\": 9999999,\r\n  \"OrderStatusID\": 9999999,\r\n  \"SetDate\": \"2021-10-01 21:35:00\",\r\n  \"SetByID\": 9999999,\r\n  \"Comment\": \"Comment 5985ace0-bb8c-404a-a8ad-8dbe7885c07f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6160,7 +6231,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 05ba7c40-525b-42f1-bc67-cf84c8a46441\",\r\n  \"Description\": \"Description 344387aa-93f9-48ad-80eb-8adb0fe97acd\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 1b52cde6-c19b-4227-b48e-8143b298e80c\",\r\n  \"Description\": \"Description c775a3b3-2201-40af-bc24-961068ec4787\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6231,7 +6302,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 05ba7c40-525b-42f1-bc67-cf84c8a46441\",\r\n  \"Description\": \"Description 344387aa-93f9-48ad-80eb-8adb0fe97acd\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name 1b52cde6-c19b-4227-b48e-8143b298e80c\",\r\n  \"Description\": \"Description c775a3b3-2201-40af-bc24-961068ec4787\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6335,7 +6406,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name f9c779f4-f2c7-408d-b285-09d542172e3c\",\r\n  \"Description\": \"Description 7dc1d9b0-649b-4030-9a14-8df53f3b9c3f\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name eecc22d2-ee22-4fb3-95f7-e82004e168d0\",\r\n  \"Description\": \"Description 51ffa639-be78-442b-8061-2932b7179996\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6406,7 +6477,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name f9c779f4-f2c7-408d-b285-09d542172e3c\",\r\n  \"Description\": \"Description 7dc1d9b0-649b-4030-9a14-8df53f3b9c3f\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Name\": \"Name eecc22d2-ee22-4fb3-95f7-e82004e168d0\",\r\n  \"Description\": \"Description 51ffa639-be78-442b-8061-2932b7179996\",\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7078,7 +7149,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"RegionName\": \"RegionName 691454d6-72bb-4e56-a417-ca69b02cbde5\",\r\n  \"CountryID\": 9999999,\r\n  \"IsDeleted\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"RegionName\": \"RegionName a2de8bec-cb73-4e72-bdad-c8b76e85c0f5\",\r\n  \"CountryID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7149,7 +7220,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"RegionName\": \"RegionName 691454d6-72bb-4e56-a417-ca69b02cbde5\",\r\n  \"CountryID\": 9999999,\r\n  \"IsDeleted\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"RegionName\": \"RegionName a2de8bec-cb73-4e72-bdad-c8b76e85c0f5\",\r\n  \"CountryID\": 9999999,\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7288,7 +7359,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"SizeName\": \"SizeName 2833f3ca-de4f-4368-8bc0-7aba23ef8ba4\",\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"SizeName\": \"SizeName 1a8524b4-003b-495b-85da-659aa03919ad\",\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7359,7 +7430,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"SizeName\": \"SizeName 2833f3ca-de4f-4368-8bc0-7aba23ef8ba4\",\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"SizeName\": \"SizeName 1a8524b4-003b-495b-85da-659aa03919ad\",\r\n  \"Width\": 9999999,\r\n  \"Height\": 9999999,\r\n  \"IsDeleted\": false,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"CreatedByID\": 9999999,\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7533,7 +7604,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UnitName\": \"UnitName 25b3d66c-c478-4e3b-a6bd-a6b1c9577e6c\",\r\n  \"UnitAbbr\": \"UnitAbbr fd44cc67-c519-45dc-8200-89c36479cdf2\",\r\n  \"Description\": \"Description 546a0e64-6291-4f86-999f-256cf887f0cc\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UnitName\": \"UnitName c507ab9b-c645-43c8-b1bc-4b2c59508a1c\",\r\n  \"UnitAbbr\": \"UnitAbbr f7514990-0f29-427a-b75b-d7d7428b8973\",\r\n  \"Description\": \"Description 1e9f846a-1efa-4363-ab7b-3973b2207758\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7604,7 +7675,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UnitName\": \"UnitName 25b3d66c-c478-4e3b-a6bd-a6b1c9577e6c\",\r\n  \"UnitAbbr\": \"UnitAbbr fd44cc67-c519-45dc-8200-89c36479cdf2\",\r\n  \"Description\": \"Description 546a0e64-6291-4f86-999f-256cf887f0cc\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UnitName\": \"UnitName c507ab9b-c645-43c8-b1bc-4b2c59508a1c\",\r\n  \"UnitAbbr\": \"UnitAbbr f7514990-0f29-427a-b75b-d7d7428b8973\",\r\n  \"Description\": \"Description 1e9f846a-1efa-4363-ab7b-3973b2207758\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7708,7 +7779,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Login\": \"Login 2c09b628-24c6-459e-b2e1-aed7784ea37c\",\r\n  \"PwdHash\": \"PwdHash 7ffbab95-a33f-4daf-8a5b-edcdebc9010b\",\r\n  \"Salt\": \"Salt f297112c-1071-4ad1-9838-e4e3293ef965\",\r\n  \"FirstName\": \"FirstName ed37dc23-644d-4bf3-86b8-a2be78e9315c\",\r\n  \"MiddleName\": \"MiddleName 3228642d-cb71-45e8-bbc8-72c4bf126f73\",\r\n  \"LastName\": \"LastName 886f8e3a-5388-4273-a2f7-7924facc8716\",\r\n  \"FriendlyName\": \"FriendlyName 54b5cb26-c72e-4444-93ce-8727865063d9\",\r\n  \"UserStatusID\": 9999999,\r\n  \"UserTypeID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Login\": \"Login 3ee69298-1544-4167-94bf-88b9e3235344\",\r\n  \"PwdHash\": \"PwdHash a2da1aab-9411-43de-b8d6-0e98b0e48c62\",\r\n  \"Salt\": \"Salt e0e3715b-290f-4413-9c27-8c7d5fa09585\",\r\n  \"FirstName\": \"FirstName 1479e0fa-dd12-4bca-bd73-b13901816771\",\r\n  \"MiddleName\": \"MiddleName b188bb26-b430-4ac0-8129-1df7e63d408f\",\r\n  \"LastName\": \"LastName 0083ba6b-7008-4f9c-961e-d8a222c53cb2\",\r\n  \"FriendlyName\": \"FriendlyName 18c888b2-254f-4d89-a106-f9976e575be9\",\r\n  \"UserStatusID\": 9999999,\r\n  \"UserTypeID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7779,7 +7850,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Login\": \"Login 2c09b628-24c6-459e-b2e1-aed7784ea37c\",\r\n  \"PwdHash\": \"PwdHash 7ffbab95-a33f-4daf-8a5b-edcdebc9010b\",\r\n  \"Salt\": \"Salt f297112c-1071-4ad1-9838-e4e3293ef965\",\r\n  \"FirstName\": \"FirstName ed37dc23-644d-4bf3-86b8-a2be78e9315c\",\r\n  \"MiddleName\": \"MiddleName 3228642d-cb71-45e8-bbc8-72c4bf126f73\",\r\n  \"LastName\": \"LastName 886f8e3a-5388-4273-a2f7-7924facc8716\",\r\n  \"FriendlyName\": \"FriendlyName 54b5cb26-c72e-4444-93ce-8727865063d9\",\r\n  \"UserStatusID\": 9999999,\r\n  \"UserTypeID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"Login\": \"Login 3ee69298-1544-4167-94bf-88b9e3235344\",\r\n  \"PwdHash\": \"PwdHash a2da1aab-9411-43de-b8d6-0e98b0e48c62\",\r\n  \"Salt\": \"Salt e0e3715b-290f-4413-9c27-8c7d5fa09585\",\r\n  \"FirstName\": \"FirstName 1479e0fa-dd12-4bca-bd73-b13901816771\",\r\n  \"MiddleName\": \"MiddleName b188bb26-b430-4ac0-8129-1df7e63d408f\",\r\n  \"LastName\": \"LastName 0083ba6b-7008-4f9c-961e-d8a222c53cb2\",\r\n  \"FriendlyName\": \"FriendlyName 18c888b2-254f-4d89-a106-f9976e575be9\",\r\n  \"UserStatusID\": 9999999,\r\n  \"UserTypeID\": 9999999,\r\n  \"CreatedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedDate\": \"2021-10-01 21:35:00\",\r\n  \"ModifiedByID\": 9999999\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8228,6 +8299,216 @@
 		},
 		
 	{
+			"name": "UserConfirmation",
+			"item": [
+				{
+					"name": "UserConfirmation - Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ConfirmationCode\": \"ConfirmationCode 65f580d2-8265-4247-90be-59984a44334e\",\r\n  \"Comfirmed\": false,\r\n  \"ExpiresDate\": \"2021-10-01 21:35:00\",\r\n  \"ConfirmationDate\": \"2021-10-01 21:35:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/userconfirmations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"userconfirmations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserConfirmation - Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/userconfirmations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"userconfirmations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserConfirmation - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserID\": 9999999,\r\n  \"ConfirmationCode\": \"ConfirmationCode 65f580d2-8265-4247-90be-59984a44334e\",\r\n  \"Comfirmed\": false,\r\n  \"ExpiresDate\": \"2021-10-01 21:35:00\",\r\n  \"ConfirmationDate\": \"2021-10-01 21:35:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/userconfirmations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"userconfirmations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserConfirmation - Get By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/userconfirmations/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"userconfirmations"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserConfirmation - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/userconfirmations/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"userconfirmations"
+													,
+														
+								":id"
+													]
+						}
+					},
+					"response": []
+				}
+					,
+			{
+					"name": "UserConfirmation - Get By UserID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMDAwMDY3IiwibmJmIjoxNjIyMzEwMDQ1LCJleHAiOjE2MjIzMTM2NDUsImlhdCI6MTYyMjMxMDA0NX0.2tvSqOpEYqOZ7VX0eVoUuaH3xY57-zKQil69oRWoabU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/v1/userconfirmations/byuserid/:userid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"userconfirmations",
+								"byuserid",
+								":userid"
+						
+							]
+						}
+					},
+					"response": []
+				}
+					]
+		},
+		
+	{
 			"name": "UserContact",
 			"item": [
 				{
@@ -8486,7 +8767,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"StatusName\": \"StatusName a3d965d2-4619-4736-9381-1eeeba46c014\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"StatusName\": \"StatusName 8e66f965-b0b6-4c90-9c1b-90fa17912185\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8557,7 +8838,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"StatusName\": \"StatusName a3d965d2-4619-4736-9381-1eeeba46c014\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"StatusName\": \"StatusName 8e66f965-b0b6-4c90-9c1b-90fa17912185\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8661,7 +8942,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserTypeName\": \"UserTypeName 58b6d949-214c-443b-8404-17323cf6d6c0\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserTypeName\": \"UserTypeName 256e09b9-71f3-4732-9034-976e5f0baf47\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8732,7 +9013,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserTypeName\": \"UserTypeName 58b6d949-214c-443b-8404-17323cf6d6c0\",\r\n  \"IsDeleted\": false\r\n}",
+							"raw": "{\r\n  \"ID\": 9999999,\r\n  \"UserTypeName\": \"UserTypeName 256e09b9-71f3-4732-9034-976e5f0baf47\",\r\n  \"IsDeleted\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace PPT.Interfaces
 
         IList<FrameType> GetByCreatedByID(System.Int64 CreatedByID);
         IList<FrameType> GetByModifiedByID(System.Int64? ModifiedByID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

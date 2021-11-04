@@ -1,13 +1,14 @@
 
 
+
 -- original values --
-DECLARE @ImageID BIGINT = 100026
-DECLARE @RelatedImageID BIGINT = 100034
+DECLARE @ImageID BIGINT = 100009
+DECLARE @RelatedImageID BIGINT = 100030
  
 -- updated values --
 
-DECLARE @updImageID BIGINT = 100026
-DECLARE @updRelatedImageID BIGINT = 100034
+DECLARE @updImageID BIGINT = 100009
+DECLARE @updRelatedImageID BIGINT = 100030
  
 
 DECLARE @Fail AS BIT = 0

@@ -1,14 +1,15 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @MaterialTypeName NVARCHAR(50) = 'MaterialTypeName bc880221ddb642c3974fc1c36bfeeca0'
-DECLARE @Description NVARCHAR(1000) = 'Description bc880221ddb642c3974fc1c36bfeeca0'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl bc880221ddb642c3974fc1c36bfeeca0'
-DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '5/20/2019 12:11:33 PM'
+DECLARE @MaterialTypeName NVARCHAR(50) = 'MaterialTypeName b01c754554f04e14a8199f2ff5ac20f4'
+DECLARE @Description NVARCHAR(1000) = 'Description b01c754554f04e14a8199f2ff5ac20f4'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl b01c754554f04e14a8199f2ff5ac20f4'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedDate DATETIME = '3/18/2022 7:25:39 AM'
 DECLARE @CreatedByID BIGINT = 100001
-DECLARE @ModifiedDate DATETIME = '3/30/2022 9:58:33 PM'
-DECLARE @ModifiedByID BIGINT = 100008
+DECLARE @ModifiedDate DATETIME = '3/18/2022 7:25:39 AM'
+DECLARE @ModifiedByID BIGINT = 100004
  
 
 

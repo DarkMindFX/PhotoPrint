@@ -1,21 +1,22 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @UserID BIGINT = 100001
-DECLARE @ConfirmationCode NVARCHAR(50) = 'ConfirmationCode ff10cbdfa6734375991c45bbb40762f7'
+DECLARE @UserID BIGINT = 100004
+DECLARE @ConfirmationCode NVARCHAR(50) = 'ConfirmationCode f63605a005fa45c590afab1298122281'
 DECLARE @Comfirmed BIT = 0
-DECLARE @ExpiresDate DATETIME = '8/21/2021 1:57:34 PM'
-DECLARE @ConfirmationDate DATETIME = '8/21/2021 1:57:34 PM'
+DECLARE @ExpiresDate DATETIME = '9/23/2022 2:29:40 PM'
+DECLARE @ConfirmationDate DATETIME = '9/23/2022 2:29:40 PM'
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updUserID BIGINT = 100003
-DECLARE @updConfirmationCode NVARCHAR(50) = 'ConfirmationCode 9480c4a0802a45fea32c47ad80143fe8'
-DECLARE @updComfirmed BIT = 0
-DECLARE @updExpiresDate DATETIME = '7/8/2019 5:32:34 AM'
-DECLARE @updConfirmationDate DATETIME = '7/8/2019 5:32:34 AM'
+DECLARE @updUserID BIGINT = 100001
+DECLARE @updConfirmationCode NVARCHAR(50) = 'ConfirmationCode 1c8ce7525811444482b52625ca7ac0f7'
+DECLARE @updComfirmed BIT = 1
+DECLARE @updExpiresDate DATETIME = '2/11/2020 12:16:40 AM'
+DECLARE @updConfirmationDate DATETIME = '2/11/2020 12:16:40 AM'
  
 
 DECLARE @Fail AS BIT = 0

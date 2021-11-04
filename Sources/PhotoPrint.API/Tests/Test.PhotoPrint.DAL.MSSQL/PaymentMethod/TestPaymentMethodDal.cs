@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,9 +53,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name d36a69e84895410da926c98c5ff23361", entity.Name);
-                            Assert.AreEqual("Description d36a69e84895410da926c98c5ff23361", entity.Description);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("Name 413a47ae06e442d2b5a78334dae59495", entity.Name);
+                            Assert.AreEqual("Description 413a47ae06e442d2b5a78334dae59495", entity.Description);
+                            Assert.AreEqual(false, entity.IsDeleted);
                       }
 
         [Test]
@@ -103,9 +104,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePaymentMethodDal("DALInitParams");
 
             var entity = new PaymentMethod();
-                          entity.Name = "Name 85a460cf6b7044a49aac728e299d8f4a";
-                            entity.Description = "Description 85a460cf6b7044a49aac728e299d8f4a";
-                            entity.IsDeleted = true;              
+                          entity.Name = "Name 19f14d9ac4b04ca7b74b37d1544bebdd";
+                            entity.Description = "Description 19f14d9ac4b04ca7b74b37d1544bebdd";
+                            entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +115,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name 85a460cf6b7044a49aac728e299d8f4a", entity.Name);
-                            Assert.AreEqual("Description 85a460cf6b7044a49aac728e299d8f4a", entity.Description);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("Name 19f14d9ac4b04ca7b74b37d1544bebdd", entity.Name);
+                            Assert.AreEqual("Description 19f14d9ac4b04ca7b74b37d1544bebdd", entity.Description);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -130,9 +131,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             PaymentMethod entity = dal.Get(paramID);
 
-                          entity.Name = "Name ba2e6ac523ac4902a9defa9c2a8e93be";
-                            entity.Description = "Description ba2e6ac523ac4902a9defa9c2a8e93be";
-                            entity.IsDeleted = true;              
+                          entity.Name = "Name a3bd4052a5d04965a2bac4da9fca3b84";
+                            entity.Description = "Description a3bd4052a5d04965a2bac4da9fca3b84";
+                            entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
 
@@ -141,9 +142,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Name ba2e6ac523ac4902a9defa9c2a8e93be", entity.Name);
-                            Assert.AreEqual("Description ba2e6ac523ac4902a9defa9c2a8e93be", entity.Description);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("Name a3bd4052a5d04965a2bac4da9fca3b84", entity.Name);
+                            Assert.AreEqual("Description a3bd4052a5d04965a2bac4da9fca3b84", entity.Description);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -153,9 +154,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePaymentMethodDal("DALInitParams");
 
             var entity = new PaymentMethod();
-                          entity.Name = "Name ba2e6ac523ac4902a9defa9c2a8e93be";
-                            entity.Description = "Description ba2e6ac523ac4902a9defa9c2a8e93be";
-                            entity.IsDeleted = true;              
+                          entity.Name = "Name a3bd4052a5d04965a2bac4da9fca3b84";
+                            entity.Description = "Description a3bd4052a5d04965a2bac4da9fca3b84";
+                            entity.IsDeleted = false;              
               
             try
             {
@@ -167,6 +168,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("PaymentMethod\\040.Erase.Success")]
+        public void PaymentMethod_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PreparePaymentMethodDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void PaymentMethod_Erase_InvalidId()
+        {
+            var dal = PreparePaymentMethodDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IPaymentMethodDal PreparePaymentMethodDal(string configName)

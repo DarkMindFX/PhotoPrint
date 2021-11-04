@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace PPT.PhotoPrint.API.Dal
 
             IList<ImageCategory> GetByImageID(System.Int64 ImageID);
             IList<ImageCategory> GetByCategoryID(System.Int64 CategoryID);
+    
         }
 }

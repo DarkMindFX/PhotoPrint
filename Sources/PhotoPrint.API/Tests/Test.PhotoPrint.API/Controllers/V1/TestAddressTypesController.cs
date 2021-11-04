@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -170,8 +171,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.AddressType testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.AddressTypeName = "AddressTypeName b52595a88d4949dd95e607bae3cfa80d";
-                    testEntity.IsDeleted = false;
+                    testEntity.AddressTypeName = "AddressTypeName 803c0dae53be4f4e9c115539669091a8";
+                    testEntity.IsDeleted = true;
 
                     var reqDto = AddressTypeConvertor.Convert(testEntity, null);
 
@@ -208,8 +209,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.AddressTypeName = "AddressTypeName b52595a88d4949dd95e607bae3cfa80d";
-                    testEntity.IsDeleted = false;
+                    testEntity.AddressTypeName = "AddressTypeName 803c0dae53be4f4e9c115539669091a8";
+                    testEntity.IsDeleted = true;
 
                     var reqDto = AddressTypeConvertor.Convert(testEntity, null);
 
@@ -234,9 +235,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -247,8 +248,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.AddressType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.AddressType();
-            entity.AddressTypeName = "AddressTypeName 65f25a4232964f34a6a5ed8a46ecc8de";
-            entity.IsDeleted = false;
+            entity.AddressTypeName = "AddressTypeName 5e50b48501944d80927e4afa7a784bac";
+            entity.IsDeleted = true;
 
             return entity;
         }

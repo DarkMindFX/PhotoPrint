@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,9 +53,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("UnitName 9fe6702ac2f64076932cb22f6e914be9", entity.UnitName);
-                            Assert.AreEqual("UnitAbbr 9fe6702ac2f64076932cb22f6e914be9", entity.UnitAbbr);
-                            Assert.AreEqual("Description 9fe6702ac2f64076932cb22f6e914be9", entity.Description);
+                          Assert.AreEqual("UnitName 750a867ec61b4d31a76437c45c1b4158", entity.UnitName);
+                            Assert.AreEqual("UnitAbbr 750a867ec61b4d31a76437c45c1b4158", entity.UnitAbbr);
+                            Assert.AreEqual("Description 750a867ec61b4d31a76437c45c1b4158", entity.Description);
                             Assert.AreEqual(false, entity.IsDeleted);
                       }
 
@@ -104,9 +105,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUnitDal("DALInitParams");
 
             var entity = new Unit();
-                          entity.UnitName = "UnitName 2fbaa4f5ea0a4e5bbe28df5d7093426e";
-                            entity.UnitAbbr = "UnitAbbr 2fbaa4f5ea0a4e5bbe28df5d7093426e";
-                            entity.Description = "Description 2fbaa4f5ea0a4e5bbe28df5d7093426e";
+                          entity.UnitName = "UnitName 9e9a25d9dc3d4549bb58b22495b40a77";
+                            entity.UnitAbbr = "UnitAbbr 9e9a25d9dc3d4549bb58b22495b40a77";
+                            entity.Description = "Description 9e9a25d9dc3d4549bb58b22495b40a77";
                             entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
@@ -116,9 +117,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("UnitName 2fbaa4f5ea0a4e5bbe28df5d7093426e", entity.UnitName);
-                            Assert.AreEqual("UnitAbbr 2fbaa4f5ea0a4e5bbe28df5d7093426e", entity.UnitAbbr);
-                            Assert.AreEqual("Description 2fbaa4f5ea0a4e5bbe28df5d7093426e", entity.Description);
+                          Assert.AreEqual("UnitName 9e9a25d9dc3d4549bb58b22495b40a77", entity.UnitName);
+                            Assert.AreEqual("UnitAbbr 9e9a25d9dc3d4549bb58b22495b40a77", entity.UnitAbbr);
+                            Assert.AreEqual("Description 9e9a25d9dc3d4549bb58b22495b40a77", entity.Description);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -133,9 +134,9 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Unit entity = dal.Get(paramID);
 
-                          entity.UnitName = "UnitName ff0c9d35a0ba46049dfe8fbc84e3ea9c";
-                            entity.UnitAbbr = "UnitAbbr ff0c9d35a0ba46049dfe8fbc84e3ea9c";
-                            entity.Description = "Description ff0c9d35a0ba46049dfe8fbc84e3ea9c";
+                          entity.UnitName = "UnitName 78663a6dedc042c585301831c29347db";
+                            entity.UnitAbbr = "UnitAbbr 78663a6dedc042c585301831c29347db";
+                            entity.Description = "Description 78663a6dedc042c585301831c29347db";
                             entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
@@ -145,9 +146,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("UnitName ff0c9d35a0ba46049dfe8fbc84e3ea9c", entity.UnitName);
-                            Assert.AreEqual("UnitAbbr ff0c9d35a0ba46049dfe8fbc84e3ea9c", entity.UnitAbbr);
-                            Assert.AreEqual("Description ff0c9d35a0ba46049dfe8fbc84e3ea9c", entity.Description);
+                          Assert.AreEqual("UnitName 78663a6dedc042c585301831c29347db", entity.UnitName);
+                            Assert.AreEqual("UnitAbbr 78663a6dedc042c585301831c29347db", entity.UnitAbbr);
+                            Assert.AreEqual("Description 78663a6dedc042c585301831c29347db", entity.Description);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -158,9 +159,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUnitDal("DALInitParams");
 
             var entity = new Unit();
-                          entity.UnitName = "UnitName ff0c9d35a0ba46049dfe8fbc84e3ea9c";
-                            entity.UnitAbbr = "UnitAbbr ff0c9d35a0ba46049dfe8fbc84e3ea9c";
-                            entity.Description = "Description ff0c9d35a0ba46049dfe8fbc84e3ea9c";
+                          entity.UnitName = "UnitName 78663a6dedc042c585301831c29347db";
+                            entity.UnitAbbr = "UnitAbbr 78663a6dedc042c585301831c29347db";
+                            entity.Description = "Description 78663a6dedc042c585301831c29347db";
                             entity.IsDeleted = false;              
               
             try
@@ -173,6 +174,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("Unit\\040.Erase.Success")]
+        public void Unit_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareUnitDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void Unit_Erase_InvalidId()
+        {
+            var dal = PrepareUnitDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IUnitDal PrepareUnitDal(string configName)

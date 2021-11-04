@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,17 +53,17 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Login be029098e11649d9bcdb2a796db12cdc", entity.Login);
-                            Assert.AreEqual("PwdHash be029098e11649d9bcdb2a796db12cdc", entity.PwdHash);
-                            Assert.AreEqual("Salt be029098e11649d9bcdb2a796db12cdc", entity.Salt);
-                            Assert.AreEqual("FirstName be029098e11649d9bcdb2a796db12cdc", entity.FirstName);
-                            Assert.AreEqual("MiddleName be029098e11649d9bcdb2a796db12cdc", entity.MiddleName);
-                            Assert.AreEqual("LastName be029098e11649d9bcdb2a796db12cdc", entity.LastName);
-                            Assert.AreEqual("FriendlyName be029098e11649d9bcdb2a796db12cdc", entity.FriendlyName);
-                            Assert.AreEqual(4, entity.UserStatusID);
-                            Assert.AreEqual(3, entity.UserTypeID);
-                            Assert.AreEqual(DateTime.Parse("6/2/2023 7:54:34 AM"), entity.CreatedDate);
-                            Assert.AreEqual(DateTime.Parse("6/2/2023 7:54:34 AM"), entity.ModifiedDate);
+                          Assert.AreEqual("Login 1256e39b49b545bf9f6077896a843518", entity.Login);
+                            Assert.AreEqual("PwdHash 1256e39b49b545bf9f6077896a843518", entity.PwdHash);
+                            Assert.AreEqual("Salt 1256e39b49b545bf9f6077896a843518", entity.Salt);
+                            Assert.AreEqual("FirstName 1256e39b49b545bf9f6077896a843518", entity.FirstName);
+                            Assert.AreEqual("MiddleName 1256e39b49b545bf9f6077896a843518", entity.MiddleName);
+                            Assert.AreEqual("LastName 1256e39b49b545bf9f6077896a843518", entity.LastName);
+                            Assert.AreEqual("FriendlyName 1256e39b49b545bf9f6077896a843518", entity.FriendlyName);
+                            Assert.AreEqual(1, entity.UserStatusID);
+                            Assert.AreEqual(10036, entity.UserTypeID);
+                            Assert.AreEqual(DateTime.Parse("12/25/2020 9:37:40 AM"), entity.CreatedDate);
+                            Assert.AreEqual(DateTime.Parse("12/25/2020 9:37:40 AM"), entity.ModifiedDate);
                             Assert.AreEqual(100001, entity.ModifiedByID);
                       }
 
@@ -112,18 +113,18 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserDal("DALInitParams");
 
             var entity = new User();
-                          entity.Login = "Login 02b20e11d11647059df5e9117224a66e";
-                            entity.PwdHash = "PwdHash 02b20e11d11647059df5e9117224a66e";
-                            entity.Salt = "Salt 02b20e11d11647059df5e9117224a66e";
-                            entity.FirstName = "FirstName 02b20e11d11647059df5e9117224a66e";
-                            entity.MiddleName = "MiddleName 02b20e11d11647059df5e9117224a66e";
-                            entity.LastName = "LastName 02b20e11d11647059df5e9117224a66e";
-                            entity.FriendlyName = "FriendlyName 02b20e11d11647059df5e9117224a66e";
-                            entity.UserStatusID = 2;
-                            entity.UserTypeID = 2;
-                            entity.CreatedDate = DateTime.Parse("8/30/2023 6:08:34 PM");
-                            entity.ModifiedDate = DateTime.Parse("8/30/2023 6:08:34 PM");
-                            entity.ModifiedByID = 100004;
+                          entity.Login = "Login 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.PwdHash = "PwdHash 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.Salt = "Salt 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.FirstName = "FirstName 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.MiddleName = "MiddleName 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.LastName = "LastName 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.FriendlyName = "FriendlyName 0c772dda60bb4c4f890a8736199e02d6";
+                            entity.UserStatusID = 1;
+                            entity.UserTypeID = 4;
+                            entity.CreatedDate = DateTime.Parse("3/4/2020 2:37:40 PM");
+                            entity.ModifiedDate = DateTime.Parse("3/4/2020 2:37:40 PM");
+                            entity.ModifiedByID = 100010;
                           
             entity = dal.Insert(entity);
 
@@ -132,18 +133,18 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Login 02b20e11d11647059df5e9117224a66e", entity.Login);
-                            Assert.AreEqual("PwdHash 02b20e11d11647059df5e9117224a66e", entity.PwdHash);
-                            Assert.AreEqual("Salt 02b20e11d11647059df5e9117224a66e", entity.Salt);
-                            Assert.AreEqual("FirstName 02b20e11d11647059df5e9117224a66e", entity.FirstName);
-                            Assert.AreEqual("MiddleName 02b20e11d11647059df5e9117224a66e", entity.MiddleName);
-                            Assert.AreEqual("LastName 02b20e11d11647059df5e9117224a66e", entity.LastName);
-                            Assert.AreEqual("FriendlyName 02b20e11d11647059df5e9117224a66e", entity.FriendlyName);
-                            Assert.AreEqual(2, entity.UserStatusID);
-                            Assert.AreEqual(2, entity.UserTypeID);
-                            Assert.AreEqual(DateTime.Parse("8/30/2023 6:08:34 PM"), entity.CreatedDate);
-                            Assert.AreEqual(DateTime.Parse("8/30/2023 6:08:34 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100004, entity.ModifiedByID);
+                          Assert.AreEqual("Login 0c772dda60bb4c4f890a8736199e02d6", entity.Login);
+                            Assert.AreEqual("PwdHash 0c772dda60bb4c4f890a8736199e02d6", entity.PwdHash);
+                            Assert.AreEqual("Salt 0c772dda60bb4c4f890a8736199e02d6", entity.Salt);
+                            Assert.AreEqual("FirstName 0c772dda60bb4c4f890a8736199e02d6", entity.FirstName);
+                            Assert.AreEqual("MiddleName 0c772dda60bb4c4f890a8736199e02d6", entity.MiddleName);
+                            Assert.AreEqual("LastName 0c772dda60bb4c4f890a8736199e02d6", entity.LastName);
+                            Assert.AreEqual("FriendlyName 0c772dda60bb4c4f890a8736199e02d6", entity.FriendlyName);
+                            Assert.AreEqual(1, entity.UserStatusID);
+                            Assert.AreEqual(4, entity.UserTypeID);
+                            Assert.AreEqual(DateTime.Parse("3/4/2020 2:37:40 PM"), entity.CreatedDate);
+                            Assert.AreEqual(DateTime.Parse("3/4/2020 2:37:40 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100010, entity.ModifiedByID);
               
         }
 
@@ -157,18 +158,18 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             User entity = dal.Get(paramID);
 
-                          entity.Login = "Login 31933898fd784a85bc9ac30b93269103";
-                            entity.PwdHash = "PwdHash 31933898fd784a85bc9ac30b93269103";
-                            entity.Salt = "Salt 31933898fd784a85bc9ac30b93269103";
-                            entity.FirstName = "FirstName 31933898fd784a85bc9ac30b93269103";
-                            entity.MiddleName = "MiddleName 31933898fd784a85bc9ac30b93269103";
-                            entity.LastName = "LastName 31933898fd784a85bc9ac30b93269103";
-                            entity.FriendlyName = "FriendlyName 31933898fd784a85bc9ac30b93269103";
-                            entity.UserStatusID = 4;
-                            entity.UserTypeID = 4;
-                            entity.CreatedDate = DateTime.Parse("2/25/2024 11:55:34 PM");
-                            entity.ModifiedDate = DateTime.Parse("2/25/2024 11:55:34 PM");
-                            entity.ModifiedByID = 100005;
+                          entity.Login = "Login 41ccc074dd3843bea7aa3387a488f724";
+                            entity.PwdHash = "PwdHash 41ccc074dd3843bea7aa3387a488f724";
+                            entity.Salt = "Salt 41ccc074dd3843bea7aa3387a488f724";
+                            entity.FirstName = "FirstName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.MiddleName = "MiddleName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.LastName = "LastName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.FriendlyName = "FriendlyName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.UserStatusID = 2;
+                            entity.UserTypeID = 5;
+                            entity.CreatedDate = DateTime.Parse("7/10/2023 8:51:40 PM");
+                            entity.ModifiedDate = DateTime.Parse("7/10/2023 8:51:40 PM");
+                            entity.ModifiedByID = 100010;
               
             entity = dal.Update(entity);
 
@@ -177,18 +178,18 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Login 31933898fd784a85bc9ac30b93269103", entity.Login);
-                            Assert.AreEqual("PwdHash 31933898fd784a85bc9ac30b93269103", entity.PwdHash);
-                            Assert.AreEqual("Salt 31933898fd784a85bc9ac30b93269103", entity.Salt);
-                            Assert.AreEqual("FirstName 31933898fd784a85bc9ac30b93269103", entity.FirstName);
-                            Assert.AreEqual("MiddleName 31933898fd784a85bc9ac30b93269103", entity.MiddleName);
-                            Assert.AreEqual("LastName 31933898fd784a85bc9ac30b93269103", entity.LastName);
-                            Assert.AreEqual("FriendlyName 31933898fd784a85bc9ac30b93269103", entity.FriendlyName);
-                            Assert.AreEqual(4, entity.UserStatusID);
-                            Assert.AreEqual(4, entity.UserTypeID);
-                            Assert.AreEqual(DateTime.Parse("2/25/2024 11:55:34 PM"), entity.CreatedDate);
-                            Assert.AreEqual(DateTime.Parse("2/25/2024 11:55:34 PM"), entity.ModifiedDate);
-                            Assert.AreEqual(100005, entity.ModifiedByID);
+                          Assert.AreEqual("Login 41ccc074dd3843bea7aa3387a488f724", entity.Login);
+                            Assert.AreEqual("PwdHash 41ccc074dd3843bea7aa3387a488f724", entity.PwdHash);
+                            Assert.AreEqual("Salt 41ccc074dd3843bea7aa3387a488f724", entity.Salt);
+                            Assert.AreEqual("FirstName 41ccc074dd3843bea7aa3387a488f724", entity.FirstName);
+                            Assert.AreEqual("MiddleName 41ccc074dd3843bea7aa3387a488f724", entity.MiddleName);
+                            Assert.AreEqual("LastName 41ccc074dd3843bea7aa3387a488f724", entity.LastName);
+                            Assert.AreEqual("FriendlyName 41ccc074dd3843bea7aa3387a488f724", entity.FriendlyName);
+                            Assert.AreEqual(2, entity.UserStatusID);
+                            Assert.AreEqual(5, entity.UserTypeID);
+                            Assert.AreEqual(DateTime.Parse("7/10/2023 8:51:40 PM"), entity.CreatedDate);
+                            Assert.AreEqual(DateTime.Parse("7/10/2023 8:51:40 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100010, entity.ModifiedByID);
               
         }
 
@@ -198,18 +199,18 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserDal("DALInitParams");
 
             var entity = new User();
-                          entity.Login = "Login 31933898fd784a85bc9ac30b93269103";
-                            entity.PwdHash = "PwdHash 31933898fd784a85bc9ac30b93269103";
-                            entity.Salt = "Salt 31933898fd784a85bc9ac30b93269103";
-                            entity.FirstName = "FirstName 31933898fd784a85bc9ac30b93269103";
-                            entity.MiddleName = "MiddleName 31933898fd784a85bc9ac30b93269103";
-                            entity.LastName = "LastName 31933898fd784a85bc9ac30b93269103";
-                            entity.FriendlyName = "FriendlyName 31933898fd784a85bc9ac30b93269103";
-                            entity.UserStatusID = 4;
-                            entity.UserTypeID = 4;
-                            entity.CreatedDate = DateTime.Parse("2/25/2024 11:55:34 PM");
-                            entity.ModifiedDate = DateTime.Parse("2/25/2024 11:55:34 PM");
-                            entity.ModifiedByID = 100005;
+                          entity.Login = "Login 41ccc074dd3843bea7aa3387a488f724";
+                            entity.PwdHash = "PwdHash 41ccc074dd3843bea7aa3387a488f724";
+                            entity.Salt = "Salt 41ccc074dd3843bea7aa3387a488f724";
+                            entity.FirstName = "FirstName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.MiddleName = "MiddleName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.LastName = "LastName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.FriendlyName = "FriendlyName 41ccc074dd3843bea7aa3387a488f724";
+                            entity.UserStatusID = 2;
+                            entity.UserTypeID = 5;
+                            entity.CreatedDate = DateTime.Parse("7/10/2023 8:51:40 PM");
+                            entity.ModifiedDate = DateTime.Parse("7/10/2023 8:51:40 PM");
+                            entity.ModifiedByID = 100010;
               
             try
             {
@@ -222,6 +223,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IUserDal PrepareUserDal(string configName)
         {

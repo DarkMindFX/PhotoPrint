@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +50,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramDeliveryServiceID = testEntity.DeliveryServiceID;
-                var paramCityID = testEntity.CityID;
+                    var paramDeliveryServiceID = testEntity.DeliveryServiceID;
+                    var paramCityID = testEntity.CityID;
                     var respGet = client.GetAsync($"/api/v1/deliveryservicecities/{paramDeliveryServiceID}/{paramCityID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +96,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramDeliveryServiceID = testEntity.DeliveryServiceID;
-                var paramCityID = testEntity.CityID;
+                    var paramDeliveryServiceID = testEntity.DeliveryServiceID;
+                    var paramCityID = testEntity.CityID;
 
                     var respDel = client.DeleteAsync($"/api/v1/deliveryservicecities/{paramDeliveryServiceID}/{paramCityID}");
 
@@ -149,9 +150,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     DeliveryServiceCity respDto = ExtractContentJson<DeliveryServiceCity>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.DeliveryServiceID);
-                                    Assert.NotNull(respDto.CityID);
-                
+                    Assert.NotNull(respDto.DeliveryServiceID);
+                    Assert.NotNull(respDto.CityID);
+
                     respEntity = DeliveryServiceCityConvertor.Convert(respDto);
                 }
                 finally
@@ -173,7 +174,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.DeliveryServiceCity testEntity = AddTestEntity();
                 try
                 {
-            
+
                     var reqDto = DeliveryServiceCityConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -184,9 +185,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     DeliveryServiceCity respDto = ExtractContentJson<DeliveryServiceCity>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.DeliveryServiceID);
-                                    Assert.NotNull(respDto.CityID);
-                
+                    Assert.NotNull(respDto.DeliveryServiceID);
+                    Assert.NotNull(respDto.CityID);
+
                 }
                 finally
                 {
@@ -207,9 +208,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.DeliveryServiceCity testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.DeliveryServiceID = 100003;
-                            testEntity.CityID = 5;
-              
+                    testEntity.DeliveryServiceID = 100003;
+                    testEntity.CityID = 8;
+
                     var reqDto = DeliveryServiceCityConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -233,8 +234,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.DeliveryServiceID,
+
+
+                return dal.Delete(entity.DeliveryServiceID,
                                         entity.CityID
                 );
             }
@@ -247,9 +249,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.DeliveryServiceCity CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.DeliveryServiceCity();
-                          entity.DeliveryServiceID = 100009;
-                            entity.CityID = 9;
-              
+            entity.DeliveryServiceID = 100001;
+            entity.CityID = 8;
+
             return entity;
         }
 

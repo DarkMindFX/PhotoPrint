@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -55,8 +56,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.AddressID);
             
                           Assert.AreEqual(100002, entity.PrintingHouseID);
-                            Assert.AreEqual(100003, entity.AddressID);
-                            Assert.AreEqual(false, entity.IsPrimary);
+                            Assert.AreEqual(100001, entity.AddressID);
+                            Assert.AreEqual(true, entity.IsPrimary);
                       }
 
         [Test]
@@ -109,7 +110,7 @@ namespace Test.PPT.DAL.MSSQL
 
             var entity = new PrintingHouseAddress();
                           entity.PrintingHouseID = 100001;
-                            entity.AddressID = 100011;
+                            entity.AddressID = 100002;
                             entity.IsPrimary = true;              
                           
             entity = dal.Insert(entity);
@@ -121,7 +122,7 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.AddressID);
             
                           Assert.AreEqual(100001, entity.PrintingHouseID);
-                            Assert.AreEqual(100011, entity.AddressID);
+                            Assert.AreEqual(100002, entity.AddressID);
                             Assert.AreEqual(true, entity.IsPrimary);
               
         }
@@ -137,7 +138,7 @@ namespace Test.PPT.DAL.MSSQL
                 var paramAddressID = (System.Int64)objIds[1];
             PrintingHouseAddress entity = dal.Get(paramPrintingHouseID,paramAddressID);
 
-                          entity.IsPrimary = false;              
+                          entity.IsPrimary = true;              
               
             entity = dal.Update(entity);
 
@@ -147,9 +148,9 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.PrintingHouseID);
                         Assert.IsNotNull(entity.AddressID);
             
-                          Assert.AreEqual(100002, entity.PrintingHouseID);
+                          Assert.AreEqual(100001, entity.PrintingHouseID);
                             Assert.AreEqual(100015, entity.AddressID);
-                            Assert.AreEqual(false, entity.IsPrimary);
+                            Assert.AreEqual(true, entity.IsPrimary);
               
         }
 
@@ -159,9 +160,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PreparePrintingHouseAddressDal("DALInitParams");
 
             var entity = new PrintingHouseAddress();
-                          entity.PrintingHouseID = 100002;
+                          entity.PrintingHouseID = 100001;
                             entity.AddressID = 100015;
-                            entity.IsPrimary = false;              
+                            entity.IsPrimary = true;              
               
             try
             {
@@ -174,6 +175,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IPrintingHouseAddressDal PreparePrintingHouseAddressDal(string configName)
         {

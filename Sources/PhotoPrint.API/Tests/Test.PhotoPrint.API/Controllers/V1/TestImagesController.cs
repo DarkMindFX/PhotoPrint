@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -155,7 +156,6 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.PriceCurrencyID, respDto.PriceCurrencyID);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
 
-
                     respEntity = ImageConvertor.Convert(respDto);
                 }
                 finally
@@ -177,18 +177,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Image testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Title = "Title b0500654749842489440e915857ba600";
-                    testEntity.Description = "Description b0500654749842489440e915857ba600";
-                    testEntity.OriginUrl = "OriginUrl b0500654749842489440e915857ba600";
-                    testEntity.MaxWidth = 948;
-                    testEntity.MaxHeight = 948;
-                    testEntity.PriceAmount = 948884.57M;
-                    testEntity.PriceCurrencyID = 229;
-                    testEntity.IsDeleted = false;
-                    testEntity.CreatedByID = 100010;
-                    testEntity.CreatedDate = DateTime.Parse("9/3/2021 8:03:35 PM");
-                    testEntity.ModifiedByID = 100002;
-                    testEntity.ModifiedDate = DateTime.Parse("9/3/2021 8:03:35 PM");
+                    testEntity.Title = "Title 4cc03c10be12483e9bd38d6a2b7c6fa5";
+                    testEntity.Description = "Description 4cc03c10be12483e9bd38d6a2b7c6fa5";
+                    testEntity.OriginUrl = "OriginUrl 4cc03c10be12483e9bd38d6a2b7c6fa5";
+                    testEntity.MaxWidth = 263;
+                    testEntity.MaxHeight = 263;
+                    testEntity.PriceAmount = 262838.97M;
+                    testEntity.PriceCurrencyID = 103;
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedByID = 100005;
+                    testEntity.CreatedDate = DateTime.Parse("2/21/2024 4:30:37 PM");
+                    testEntity.ModifiedByID = 100008;
+                    testEntity.ModifiedDate = DateTime.Parse("5/27/2019 8:31:37 AM");
 
                     var reqDto = ImageConvertor.Convert(testEntity, null);
 
@@ -209,6 +209,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.PriceAmount, respDto.PriceAmount);
                     Assert.Equal(reqDto.PriceCurrencyID, respDto.PriceCurrencyID);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
+
+
+
 
                 }
                 finally
@@ -231,18 +235,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.Title = "Title b0500654749842489440e915857ba600";
-                    testEntity.Description = "Description b0500654749842489440e915857ba600";
-                    testEntity.OriginUrl = "OriginUrl b0500654749842489440e915857ba600";
-                    testEntity.MaxWidth = 948;
-                    testEntity.MaxHeight = 948;
-                    testEntity.PriceAmount = 948884.57M;
-                    testEntity.PriceCurrencyID = 229;
-                    testEntity.IsDeleted = false;
-                    testEntity.CreatedByID = 100010;
-                    testEntity.CreatedDate = DateTime.Parse("9/3/2021 8:03:35 PM");
-                    testEntity.ModifiedByID = 100002;
-                    testEntity.ModifiedDate = DateTime.Parse("9/3/2021 8:03:35 PM");
+                    testEntity.Title = "Title 4cc03c10be12483e9bd38d6a2b7c6fa5";
+                    testEntity.Description = "Description 4cc03c10be12483e9bd38d6a2b7c6fa5";
+                    testEntity.OriginUrl = "OriginUrl 4cc03c10be12483e9bd38d6a2b7c6fa5";
+                    testEntity.MaxWidth = 263;
+                    testEntity.MaxHeight = 263;
+                    testEntity.PriceAmount = 262838.97M;
+                    testEntity.PriceCurrencyID = 103;
+                    testEntity.IsDeleted = true;
+                    testEntity.CreatedByID = 100005;
+                    testEntity.CreatedDate = DateTime.Parse("2/21/2024 4:30:37 PM");
+                    testEntity.ModifiedByID = 100008;
+                    testEntity.ModifiedDate = DateTime.Parse("5/27/2019 8:31:37 AM");
 
                     var reqDto = ImageConvertor.Convert(testEntity, null);
 
@@ -267,9 +271,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -280,18 +284,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Image CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Image();
-            entity.Title = "Title 8f19715485bb4c3f844bdc7bfe33614d";
-            entity.Description = "Description 8f19715485bb4c3f844bdc7bfe33614d";
-            entity.OriginUrl = "OriginUrl 8f19715485bb4c3f844bdc7bfe33614d";
-            entity.MaxWidth = 382;
-            entity.MaxHeight = 382;
-            entity.PriceAmount = 381608.62M;
-            entity.PriceCurrencyID = 39;
-            entity.IsDeleted = false;
-            entity.CreatedByID = 100005;
-            entity.CreatedDate = DateTime.Parse("1/18/2024 12:02:35 AM");
+            entity.Title = "Title a057083398fc4849b8ad07d49f19dd0a";
+            entity.Description = "Description a057083398fc4849b8ad07d49f19dd0a";
+            entity.OriginUrl = "OriginUrl a057083398fc4849b8ad07d49f19dd0a";
+            entity.MaxWidth = 606;
+            entity.MaxHeight = 606;
+            entity.PriceAmount = 605861.77M;
+            entity.PriceCurrencyID = 217;
+            entity.IsDeleted = true;
+            entity.CreatedByID = 100003;
+            entity.CreatedDate = DateTime.Parse("1/20/2020 8:55:37 AM");
             entity.ModifiedByID = 100005;
-            entity.ModifiedDate = DateTime.Parse("1/18/2024 12:02:35 AM");
+            entity.ModifiedDate = DateTime.Parse("1/20/2020 8:55:37 AM");
 
             return entity;
         }

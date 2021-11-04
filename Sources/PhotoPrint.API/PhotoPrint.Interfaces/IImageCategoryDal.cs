@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace PPT.Interfaces
 
         IList<ImageCategory> GetByImageID(System.Int64 ImageID);
         IList<ImageCategory> GetByCategoryID(System.Int64 CategoryID);
+        
             }
 }
 

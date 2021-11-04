@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace PPT.Interfaces
         IList<OrderPaymentDetails> GetByPaymentMethodID(System.Int64 PaymentMethodID);
         IList<OrderPaymentDetails> GetByCreatedByID(System.Int64 CreatedByID);
         IList<OrderPaymentDetails> GetByModifiedByID(System.Int64? ModifiedByID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

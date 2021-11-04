@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/cities/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/cities/{paramID}");
 
@@ -145,11 +146,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     City respDto = ExtractContentJson<City>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.CityName, respDto.CityName);
-                                    Assert.Equal(reqDto.RegionID, respDto.RegionID);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.CityName, respDto.CityName);
+                    Assert.Equal(reqDto.RegionID, respDto.RegionID);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = CityConvertor.Convert(respDto);
                 }
                 finally
@@ -171,10 +172,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.City testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.CityName = "CityName f513f158bc46426e9d435fc41d12bb0c";
-                            testEntity.RegionID = 2 ;
-                            testEntity.IsDeleted = false;              
-              
+                    testEntity.CityName = "CityName d13ea90f5b82486b877f905e66553e3e";
+                    testEntity.RegionID = 6;
+                    testEntity.IsDeleted = true;
+
                     var reqDto = CityConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -185,11 +186,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     City respDto = ExtractContentJson<City>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.CityName, respDto.CityName);
-                                    Assert.Equal(reqDto.RegionID, respDto.RegionID);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.CityName, respDto.CityName);
+                    Assert.Equal(reqDto.RegionID, respDto.RegionID);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -210,11 +211,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.City testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.CityName = "CityName f513f158bc46426e9d435fc41d12bb0c";
-                            testEntity.RegionID = 2;
-                            testEntity.IsDeleted = false;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.CityName = "CityName d13ea90f5b82486b877f905e66553e3e";
+                    testEntity.RegionID = 6;
+                    testEntity.IsDeleted = true;
+
                     var reqDto = CityConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -238,9 +239,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -251,10 +252,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.City CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.City();
-                          entity.CityName = "CityName 4625cba42fff4fdfa2cd5f21f3f9c09f";
-                            entity.RegionID = 8;
-                            entity.IsDeleted = true;              
-              
+            entity.CityName = "CityName 23991e1ea35f4f77be30f47df7664e81";
+            entity.RegionID = 6;
+            entity.IsDeleted = false;
+
             return entity;
         }
 

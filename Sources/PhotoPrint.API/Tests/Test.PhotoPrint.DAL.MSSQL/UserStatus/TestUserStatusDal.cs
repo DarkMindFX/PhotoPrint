@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,8 +53,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("StatusName 939e8969fd4d4c4695ef233cc0cf3e74", entity.StatusName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("StatusName 9bdb178da22445ee9e509dd13cdb4a2a", entity.StatusName);
+                            Assert.AreEqual(true, entity.IsDeleted);
                       }
 
         [Test]
@@ -102,8 +103,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserStatusDal("DALInitParams");
 
             var entity = new UserStatus();
-                          entity.StatusName = "StatusName e57162bd0ba442bba62d10c26cbaf855";
-                            entity.IsDeleted = false;              
+                          entity.StatusName = "StatusName 8e220557793d439f90b93b1ade3f2b07";
+                            entity.IsDeleted = true;              
                           
             entity = dal.Insert(entity);
 
@@ -112,8 +113,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("StatusName e57162bd0ba442bba62d10c26cbaf855", entity.StatusName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("StatusName 8e220557793d439f90b93b1ade3f2b07", entity.StatusName);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -127,8 +128,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             UserStatus entity = dal.Get(paramID);
 
-                          entity.StatusName = "StatusName 5bf5cc07dcad4ba699d2b3750bded99b";
-                            entity.IsDeleted = false;              
+                          entity.StatusName = "StatusName 611cac47669146d99c54ef9e21e86efe";
+                            entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
 
@@ -137,8 +138,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("StatusName 5bf5cc07dcad4ba699d2b3750bded99b", entity.StatusName);
-                            Assert.AreEqual(false, entity.IsDeleted);
+                          Assert.AreEqual("StatusName 611cac47669146d99c54ef9e21e86efe", entity.StatusName);
+                            Assert.AreEqual(true, entity.IsDeleted);
               
         }
 
@@ -148,8 +149,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserStatusDal("DALInitParams");
 
             var entity = new UserStatus();
-                          entity.StatusName = "StatusName 5bf5cc07dcad4ba699d2b3750bded99b";
-                            entity.IsDeleted = false;              
+                          entity.StatusName = "StatusName 611cac47669146d99c54ef9e21e86efe";
+                            entity.IsDeleted = true;              
               
             try
             {
@@ -161,6 +162,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("UserStatus\\040.Erase.Success")]
+        public void UserStatus_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareUserStatusDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void UserStatus_Erase_InvalidId()
+        {
+            var dal = PrepareUserStatusDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IUserStatusDal PrepareUserStatusDal(string configName)

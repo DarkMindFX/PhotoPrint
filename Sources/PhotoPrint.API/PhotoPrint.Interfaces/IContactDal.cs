@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace PPT.Interfaces
         IList<Contact> GetByContactTypeID(System.Int64 ContactTypeID);
         IList<Contact> GetByCreatedByID(System.Int64 CreatedByID);
         IList<Contact> GetByModifiedByID(System.Int64? ModifiedByID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

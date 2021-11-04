@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/countries/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/countries/{paramID}");
 
@@ -145,11 +146,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Country respDto = ExtractContentJson<Country>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.CountryName, respDto.CountryName);
-                                    Assert.Equal(reqDto.ISO, respDto.ISO);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.CountryName, respDto.CountryName);
+                    Assert.Equal(reqDto.ISO, respDto.ISO);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = CountryConvertor.Convert(respDto);
                 }
                 finally
@@ -171,10 +172,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Country testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.CountryName = "CountryName 80ca8e610f3f46238ad3644eae2b226e";
-                            testEntity.ISO = "ISO 8";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.CountryName = "CountryName 8b3f5ef715694065aecb343892d2a3d6";
+                    testEntity.ISO = "ISO 8";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = CountryConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -185,11 +186,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Country respDto = ExtractContentJson<Country>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.CountryName, respDto.CountryName);
-                                    Assert.Equal(reqDto.ISO, respDto.ISO);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.CountryName, respDto.CountryName);
+                    Assert.Equal(reqDto.ISO, respDto.ISO);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -210,11 +211,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Country testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.CountryName = "CountryName 80ca8e610f3f46238ad3644eae2b226e";
-                            testEntity.ISO = "ISO 8";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.CountryName = "CountryName 8b3f5ef715694065aecb343892d2a3d6";
+                    testEntity.ISO = "ISO 8";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = CountryConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -238,9 +239,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -251,10 +252,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Country CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Country();
-                          entity.CountryName = "CountryName b1fc3245a9b54e49a101c173b5c14acd";
-                            entity.ISO = "ISO b";
-                            entity.IsDeleted = true;              
-              
+            entity.CountryName = "CountryName 2625b91b32d74de1a8be4f4f736599a0";
+            entity.ISO = "ISO 2";
+            entity.IsDeleted = true;
+
             return entity;
         }
 

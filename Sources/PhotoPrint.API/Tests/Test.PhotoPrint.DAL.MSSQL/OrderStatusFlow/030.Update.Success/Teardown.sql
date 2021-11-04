@@ -1,13 +1,14 @@
 
 
+
 -- original values --
-DECLARE @FromStatusID BIGINT = 2
-DECLARE @ToStatusID BIGINT = 2
+DECLARE @FromStatusID BIGINT = 8
+DECLARE @ToStatusID BIGINT = 8
  
 -- updated values --
 
-DECLARE @updFromStatusID BIGINT = 2
-DECLARE @updToStatusID BIGINT = 2
+DECLARE @updFromStatusID BIGINT = 8
+DECLARE @updToStatusID BIGINT = 8
  
 
 DECLARE @Fail AS BIT = 0

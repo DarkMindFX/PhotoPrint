@@ -1,14 +1,15 @@
 
 
+
 -- original values --
-DECLARE @UserID BIGINT = 100006
-DECLARE @AddressID BIGINT = 100016
+DECLARE @UserID BIGINT = 100011
+DECLARE @AddressID BIGINT = 100004
 DECLARE @IsPrimary BIT = 1
  
 -- updated values --
 
-DECLARE @updUserID BIGINT = 100006
-DECLARE @updAddressID BIGINT = 100016
+DECLARE @updUserID BIGINT = 100011
+DECLARE @updAddressID BIGINT = 100004
 DECLARE @updIsPrimary BIT = 1
  
 

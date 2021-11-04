@@ -1,18 +1,19 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @UnitName NVARCHAR(50) = 'UnitName 5d956188882f46ffa5cd6a96807ca207'
-DECLARE @UnitAbbr NVARCHAR(50) = 'UnitAbbr 5d956188882f46ffa5cd6a96807ca207'
-DECLARE @Description NVARCHAR(1000) = 'Description 5d956188882f46ffa5cd6a96807ca207'
+DECLARE @UnitName NVARCHAR(50) = 'UnitName 1204aec87d3145a6ad9719516f0dc184'
+DECLARE @UnitAbbr NVARCHAR(50) = 'UnitAbbr 1204aec87d3145a6ad9719516f0dc184'
+DECLARE @Description NVARCHAR(1000) = 'Description 1204aec87d3145a6ad9719516f0dc184'
 DECLARE @IsDeleted BIT = 0
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updUnitName NVARCHAR(50) = 'UnitName ff0c9d35a0ba46049dfe8fbc84e3ea9c'
-DECLARE @updUnitAbbr NVARCHAR(50) = 'UnitAbbr ff0c9d35a0ba46049dfe8fbc84e3ea9c'
-DECLARE @updDescription NVARCHAR(1000) = 'Description ff0c9d35a0ba46049dfe8fbc84e3ea9c'
+DECLARE @updUnitName NVARCHAR(50) = 'UnitName 78663a6dedc042c585301831c29347db'
+DECLARE @updUnitAbbr NVARCHAR(50) = 'UnitAbbr 78663a6dedc042c585301831c29347db'
+DECLARE @updDescription NVARCHAR(1000) = 'Description 78663a6dedc042c585301831c29347db'
 DECLARE @updIsDeleted BIT = 0
  
 

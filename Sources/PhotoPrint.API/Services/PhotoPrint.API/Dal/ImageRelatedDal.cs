@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -25,5 +26,14 @@ namespace PPT.PhotoPrint.API.Dal
             return _dalImpl.Delete(            ImageID,            RelatedImageID);
         }
 
+
+        public IList<ImageRelated> GetByImageID(System.Int64 ImageID)
+        {
+            return _dalImpl.GetByImageID(ImageID);
+        }
+        public IList<ImageRelated> GetByRelatedImageID(System.Int64 RelatedImageID)
+        {
+            return _dalImpl.GetByRelatedImageID(RelatedImageID);
+        }
             }
 }

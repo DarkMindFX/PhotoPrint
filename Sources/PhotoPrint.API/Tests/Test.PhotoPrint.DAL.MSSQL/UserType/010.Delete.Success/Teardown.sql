@@ -1,8 +1,9 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @UserTypeName NVARCHAR(50) = 'UserTypeName 1918f188f91b4eb59fb7cf4c66a5f293'
-DECLARE @IsDeleted BIT = 1
+DECLARE @UserTypeName NVARCHAR(50) = 'UserTypeName deb079862daf4a039fa4c1cf769bd2e8'
+DECLARE @IsDeleted BIT = 0
  
 DECLARE @Fail AS BIT = 0
 
@@ -11,8 +12,9 @@ IF(EXISTS(SELECT 1 FROM
 				WHERE 
 	IsDeleted = 0 AND
 
+	1=1 AND
 	(CASE WHEN @UserTypeName IS NOT NULL THEN (CASE WHEN [UserTypeName] = @UserTypeName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
-	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+	1=1 
  ))
 					
 BEGIN
@@ -22,11 +24,9 @@ END
 DELETE FROM 
 	[dbo].[UserType]
 	WHERE 
-		AND
-	(CASE WHEN @UserTypeName IS NOT NULL THEN (CASE WHEN [UserTypeName] = @UserTypeName THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		AND
-	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		
+	1=1 AND
+	(CASE WHEN @UserTypeName IS NOT NULL THEN (CASE WHEN [UserTypeName] = @UserTypeName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	1=1 
 
 IF(@Fail = 1) 
 BEGIN

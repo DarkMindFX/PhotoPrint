@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace PPT.Interfaces
         IList<Order> GetByDeliveryServiceID(System.Int64 DeliveryServiceID);
         IList<Order> GetByCreatedByID(System.Int64 CreatedByID);
         IList<Order> GetByModifiedByID(System.Int64? ModifiedByID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

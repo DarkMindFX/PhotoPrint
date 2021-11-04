@@ -1,14 +1,15 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @MountingTypeName NVARCHAR(50) = 'MountingTypeName ef97cba037724eeebda16ad2d1466dc9'
-DECLARE @Description NVARCHAR(1000) = 'Description ef97cba037724eeebda16ad2d1466dc9'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl ef97cba037724eeebda16ad2d1466dc9'
+DECLARE @MountingTypeName NVARCHAR(50) = 'MountingTypeName 4a56ba4dd22d47359d2a6fed6b9f3ea0'
+DECLARE @Description NVARCHAR(1000) = 'Description 4a56ba4dd22d47359d2a6fed6b9f3ea0'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 4a56ba4dd22d47359d2a6fed6b9f3ea0'
 DECLARE @IsDeleted BIT = 1
-DECLARE @CreatedDate DATETIME = '7/23/2019 4:46:33 AM'
-DECLARE @CreatedByID BIGINT = 84243
-DECLARE @ModifiedDate DATETIME = '7/23/2019 4:46:33 AM'
-DECLARE @ModifiedByID BIGINT = 84243
+DECLARE @CreatedDate DATETIME = '2/12/2023 6:41:39 AM'
+DECLARE @CreatedByID BIGINT = 732925
+DECLARE @ModifiedDate DATETIME = '2/12/2023 6:41:39 AM'
+DECLARE @ModifiedByID BIGINT = 732925
  
 
 

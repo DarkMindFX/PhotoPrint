@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace PPT.Interfaces
 
         bool Delete(System.Int64? ID);
 
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

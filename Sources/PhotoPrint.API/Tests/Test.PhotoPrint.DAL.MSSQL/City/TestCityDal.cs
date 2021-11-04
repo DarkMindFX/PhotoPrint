@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,9 +53,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CityName 9365a8a4d5a84923a66c96ee7f2e5ba6", entity.CityName);
-                            Assert.AreEqual(7, entity.RegionID);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("CityName 9f6068e2688c442498f1ad79592b1cc4", entity.CityName);
+                            Assert.AreEqual(2, entity.RegionID);
+                            Assert.AreEqual(false, entity.IsDeleted);
                       }
 
         [Test]
@@ -103,9 +104,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCityDal("DALInitParams");
 
             var entity = new City();
-                          entity.CityName = "CityName 3cced70f3f1f4f289ca49a9c68d43e3d";
-                            entity.RegionID = 4;
-                            entity.IsDeleted = true;              
+                          entity.CityName = "CityName 284ab44a21dc4f62b1c7286079568b94";
+                            entity.RegionID = 19;
+                            entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
 
@@ -114,9 +115,9 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CityName 3cced70f3f1f4f289ca49a9c68d43e3d", entity.CityName);
-                            Assert.AreEqual(4, entity.RegionID);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("CityName 284ab44a21dc4f62b1c7286079568b94", entity.CityName);
+                            Assert.AreEqual(19, entity.RegionID);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -130,8 +131,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             City entity = dal.Get(paramID);
 
-                          entity.CityName = "CityName fc311312ecb54a49ad8c6df36471939c";
-                            entity.RegionID = 2;
+                          entity.CityName = "CityName 26b541350a8f4ed891c0b579c88d72ed";
+                            entity.RegionID = 6;
                             entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
@@ -141,8 +142,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CityName fc311312ecb54a49ad8c6df36471939c", entity.CityName);
-                            Assert.AreEqual(2, entity.RegionID);
+                          Assert.AreEqual("CityName 26b541350a8f4ed891c0b579c88d72ed", entity.CityName);
+                            Assert.AreEqual(6, entity.RegionID);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -153,8 +154,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCityDal("DALInitParams");
 
             var entity = new City();
-                          entity.CityName = "CityName fc311312ecb54a49ad8c6df36471939c";
-                            entity.RegionID = 2;
+                          entity.CityName = "CityName 26b541350a8f4ed891c0b579c88d72ed";
+                            entity.RegionID = 6;
                             entity.IsDeleted = false;              
               
             try
@@ -167,6 +168,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("City\\040.Erase.Success")]
+        public void City_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareCityDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void City_Erase_InvalidId()
+        {
+            var dal = PrepareCityDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected ICityDal PrepareCityDal(string configName)

@@ -1,19 +1,20 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @UserID BIGINT = 100011
-DECLARE @ConfirmationCode NVARCHAR(50) = 'ConfirmationCode f8e8ba44f7fa43f491ae5713076fe1f9'
+DECLARE @UserID BIGINT = 100007
+DECLARE @ConfirmationCode NVARCHAR(50) = 'ConfirmationCode d4940b73900e4e75b6e45890d296127c'
 DECLARE @Comfirmed BIT = 0
-DECLARE @ExpiresDate DATETIME = '4/3/2024 1:31:34 PM'
-DECLARE @ConfirmationDate DATETIME = '4/3/2024 1:31:34 PM'
+DECLARE @ExpiresDate DATETIME = '6/26/2022 4:15:40 AM'
+DECLARE @ConfirmationDate DATETIME = '6/26/2022 4:15:40 AM'
  
 DECLARE @Fail AS BIT = 0
 
 IF(EXISTS(SELECT 1 FROM 
 				[dbo].[UserConfirmation]
 				WHERE 
-	IsDeleted = 0 AND
 
+	1=1 AND
 	(CASE WHEN @UserID IS NOT NULL THEN (CASE WHEN [UserID] = @UserID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
 	(CASE WHEN @ConfirmationCode IS NOT NULL THEN (CASE WHEN [ConfirmationCode] = @ConfirmationCode THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
 	(CASE WHEN @Comfirmed IS NOT NULL THEN (CASE WHEN [Comfirmed] = @Comfirmed THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
@@ -28,17 +29,12 @@ END
 DELETE FROM 
 	[dbo].[UserConfirmation]
 	WHERE 
-		AND
-	(CASE WHEN @UserID IS NOT NULL THEN (CASE WHEN [UserID] = @UserID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		AND
-	(CASE WHEN @ConfirmationCode IS NOT NULL THEN (CASE WHEN [ConfirmationCode] = @ConfirmationCode THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		AND
-	(CASE WHEN @Comfirmed IS NOT NULL THEN (CASE WHEN [Comfirmed] = @Comfirmed THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		AND
-	(CASE WHEN @ExpiresDate IS NOT NULL THEN (CASE WHEN [ExpiresDate] = @ExpiresDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		AND
-	(CASE WHEN @ConfirmationDate IS NOT NULL THEN (CASE WHEN [ConfirmationDate] = @ConfirmationDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		
+	1=1 AND
+	(CASE WHEN @UserID IS NOT NULL THEN (CASE WHEN [UserID] = @UserID THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @ConfirmationCode IS NOT NULL THEN (CASE WHEN [ConfirmationCode] = @ConfirmationCode THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @Comfirmed IS NOT NULL THEN (CASE WHEN [Comfirmed] = @Comfirmed THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @ExpiresDate IS NOT NULL THEN (CASE WHEN [ExpiresDate] = @ExpiresDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	(CASE WHEN @ConfirmationDate IS NOT NULL THEN (CASE WHEN [ConfirmationDate] = @ConfirmationDate THEN 1 ELSE 0 END) ELSE 1 END) = 1  
 
 IF(@Fail = 1) 
 BEGIN

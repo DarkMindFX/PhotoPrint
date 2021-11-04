@@ -1,8 +1,9 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @UserTypeName NVARCHAR(50) = 'UserTypeName e03ef0c6ee784e43b2d8c657559dd9a4'
-DECLARE @IsDeleted BIT = 1
+DECLARE @UserTypeName NVARCHAR(50) = 'UserTypeName c2918ef556124085b5f141b65883c758'
+DECLARE @IsDeleted BIT = 0
  
 
 

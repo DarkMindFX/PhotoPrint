@@ -1,27 +1,28 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @MountingTypeName NVARCHAR(50) = 'MountingTypeName 801b2dbf65194475805d38ae0b698cdc'
-DECLARE @Description NVARCHAR(1000) = 'Description 801b2dbf65194475805d38ae0b698cdc'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 801b2dbf65194475805d38ae0b698cdc'
+DECLARE @MountingTypeName NVARCHAR(50) = 'MountingTypeName 1e6120ebc04d4b6eb3d5c5da8824155e'
+DECLARE @Description NVARCHAR(1000) = 'Description 1e6120ebc04d4b6eb3d5c5da8824155e'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 1e6120ebc04d4b6eb3d5c5da8824155e'
 DECLARE @IsDeleted BIT = 1
-DECLARE @CreatedDate DATETIME = '7/23/2019 4:46:33 AM'
-DECLARE @CreatedByID BIGINT = 84243
-DECLARE @ModifiedDate DATETIME = '7/23/2019 4:46:33 AM'
-DECLARE @ModifiedByID BIGINT = 84243
+DECLARE @CreatedDate DATETIME = '2/12/2023 6:41:39 AM'
+DECLARE @CreatedByID BIGINT = 732925
+DECLARE @ModifiedDate DATETIME = '2/12/2023 6:41:39 AM'
+DECLARE @ModifiedByID BIGINT = 732925
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updMountingTypeName NVARCHAR(50) = 'MountingTypeName f73ff7899f2242a3a7e05792545f4ef1'
-DECLARE @updDescription NVARCHAR(1000) = 'Description f73ff7899f2242a3a7e05792545f4ef1'
-DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl f73ff7899f2242a3a7e05792545f4ef1'
+DECLARE @updMountingTypeName NVARCHAR(50) = 'MountingTypeName 86571a37cb084e1cbc52422a3a65e611'
+DECLARE @updDescription NVARCHAR(1000) = 'Description 86571a37cb084e1cbc52422a3a65e611'
+DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 86571a37cb084e1cbc52422a3a65e611'
 DECLARE @updIsDeleted BIT = 1
-DECLARE @updCreatedDate DATETIME = '7/23/2019 4:46:33 AM'
-DECLARE @updCreatedByID BIGINT = 84243
-DECLARE @updModifiedDate DATETIME = '7/23/2019 4:46:33 AM'
-DECLARE @updModifiedByID BIGINT = 84243
+DECLARE @updCreatedDate DATETIME = '2/12/2023 6:41:39 AM'
+DECLARE @updCreatedByID BIGINT = 732925
+DECLARE @updModifiedDate DATETIME = '2/12/2023 6:41:39 AM'
+DECLARE @updModifiedByID BIGINT = 732925
  
 
 DECLARE @Fail AS BIT = 0

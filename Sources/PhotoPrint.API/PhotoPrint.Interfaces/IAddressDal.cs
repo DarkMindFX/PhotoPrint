@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace PPT.Interfaces
         IList<Address> GetByCityID(System.Int64 CityID);
         IList<Address> GetByCreatedByID(System.Int64 CreatedByID);
         IList<Address> GetByModifiedByID(System.Int64? ModifiedByID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

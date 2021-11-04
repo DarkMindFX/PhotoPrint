@@ -1,15 +1,16 @@
 
 
+
 -- original values --
-DECLARE @PrintingHouseID BIGINT = 100002
+DECLARE @PrintingHouseID BIGINT = 100001
 DECLARE @AddressID BIGINT = 100015
-DECLARE @IsPrimary BIT = 0
+DECLARE @IsPrimary BIT = 1
  
 -- updated values --
 
-DECLARE @updPrintingHouseID BIGINT = 100002
+DECLARE @updPrintingHouseID BIGINT = 100001
 DECLARE @updAddressID BIGINT = 100015
-DECLARE @updIsPrimary BIT = 0
+DECLARE @updIsPrimary BIT = 1
  
 
 DECLARE @Fail AS BIT = 0

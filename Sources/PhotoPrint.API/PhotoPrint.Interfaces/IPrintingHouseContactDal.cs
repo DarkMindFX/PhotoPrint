@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace PPT.Interfaces
 
         IList<PrintingHouseContact> GetByPrintingHouseID(System.Int64 PrintingHouseID);
         IList<PrintingHouseContact> GetByContactID(System.Int64 ContactID);
+        
             }
 }
 

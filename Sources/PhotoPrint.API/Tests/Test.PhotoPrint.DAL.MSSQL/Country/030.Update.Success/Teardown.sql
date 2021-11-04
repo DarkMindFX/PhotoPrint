@@ -1,17 +1,18 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @CountryName NVARCHAR(50) = 'CountryName 6d9a79a0da994f5d90a1203382d662c0'
-DECLARE @ISO NVARCHAR(5) = 'ISO 6'
-DECLARE @IsDeleted BIT = 0
+DECLARE @CountryName NVARCHAR(50) = 'CountryName aa097b22ab6c4c9f8beae62e602056eb'
+DECLARE @ISO NVARCHAR(5) = 'ISO a'
+DECLARE @IsDeleted BIT = 1
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updCountryName NVARCHAR(50) = 'CountryName dc9c86a313c64d979fd24e6e57a4c7a6'
-DECLARE @updISO NVARCHAR(5) = 'ISO d'
-DECLARE @updIsDeleted BIT = 0
+DECLARE @updCountryName NVARCHAR(50) = 'CountryName 5e3ddfd88afb423591f99429c2c59e6d'
+DECLARE @updISO NVARCHAR(5) = 'ISO 5'
+DECLARE @updIsDeleted BIT = 1
  
 
 DECLARE @Fail AS BIT = 0

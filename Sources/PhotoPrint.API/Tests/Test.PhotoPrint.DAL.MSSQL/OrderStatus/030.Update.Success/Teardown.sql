@@ -1,14 +1,15 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @OrderStatusName NVARCHAR(50) = 'OrderStatusName 7c8947007dc84ddc80f2c56d0e4e58b5'
+DECLARE @OrderStatusName NVARCHAR(50) = 'OrderStatusName ee41af1a9e3541b78247865885b597e7'
 DECLARE @IsDeleted BIT = 1
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updOrderStatusName NVARCHAR(50) = 'OrderStatusName 753473acdd8241f5b3884d7b88f2b07a'
+DECLARE @updOrderStatusName NVARCHAR(50) = 'OrderStatusName dfad8e522d5d43128a63950c9836b703'
 DECLARE @updIsDeleted BIT = 1
  
 

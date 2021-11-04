@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,7 @@ namespace PPT.PhotoPrint.API.Dal
             IList<OrderPaymentDetails> GetByPaymentMethodID(System.Int64 PaymentMethodID);
             IList<OrderPaymentDetails> GetByCreatedByID(System.Int64 CreatedByID);
             IList<OrderPaymentDetails> GetByModifiedByID(System.Int64? ModifiedByID);
-        }
+    
+            bool Erase(System.Int64? ID);
+            }
 }

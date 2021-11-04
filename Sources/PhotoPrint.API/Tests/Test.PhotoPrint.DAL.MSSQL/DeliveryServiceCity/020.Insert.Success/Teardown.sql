@@ -1,7 +1,8 @@
 
 
-DECLARE @DeliveryServiceID BIGINT = 100009
-DECLARE @CityID BIGINT = 1
+
+DECLARE @DeliveryServiceID BIGINT = 100008
+DECLARE @CityID BIGINT = 23
  
 DECLARE @Fail AS BIT = 0
 

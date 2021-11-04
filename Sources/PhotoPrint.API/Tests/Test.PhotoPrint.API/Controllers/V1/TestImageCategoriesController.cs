@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +50,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramImageID = testEntity.ImageID;
-                var paramCategoryID = testEntity.CategoryID;
+                    var paramImageID = testEntity.ImageID;
+                    var paramCategoryID = testEntity.CategoryID;
                     var respGet = client.GetAsync($"/api/v1/imagecategories/{paramImageID}/{paramCategoryID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +96,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramImageID = testEntity.ImageID;
-                var paramCategoryID = testEntity.CategoryID;
+                    var paramImageID = testEntity.ImageID;
+                    var paramCategoryID = testEntity.CategoryID;
 
                     var respDel = client.DeleteAsync($"/api/v1/imagecategories/{paramImageID}/{paramCategoryID}");
 
@@ -149,9 +150,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ImageCategory respDto = ExtractContentJson<ImageCategory>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ImageID);
-                                    Assert.NotNull(respDto.CategoryID);
-                
+                    Assert.NotNull(respDto.ImageID);
+                    Assert.NotNull(respDto.CategoryID);
+
                     respEntity = ImageCategoryConvertor.Convert(respDto);
                 }
                 finally
@@ -173,7 +174,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageCategory testEntity = AddTestEntity();
                 try
                 {
-            
+
                     var reqDto = ImageCategoryConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -184,9 +185,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ImageCategory respDto = ExtractContentJson<ImageCategory>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ImageID);
-                                    Assert.NotNull(respDto.CategoryID);
-                
+                    Assert.NotNull(respDto.ImageID);
+                    Assert.NotNull(respDto.CategoryID);
+
                 }
                 finally
                 {
@@ -207,9 +208,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageCategory testEntity = CreateTestEntity();
                 try
                 {
-                            testEntity.ImageID = 100046;
-                            testEntity.CategoryID = 100004;
-              
+                    testEntity.ImageID = 100008;
+                    testEntity.CategoryID = 100012;
+
                     var reqDto = ImageCategoryConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -233,8 +234,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ImageID,
+
+
+                return dal.Delete(entity.ImageID,
                                         entity.CategoryID
                 );
             }
@@ -247,9 +249,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ImageCategory CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ImageCategory();
-                          entity.ImageID = 100017;
-                            entity.CategoryID = 100009;
-              
+            entity.ImageID = 100010;
+            entity.CategoryID = 100004;
+
             return entity;
         }
 

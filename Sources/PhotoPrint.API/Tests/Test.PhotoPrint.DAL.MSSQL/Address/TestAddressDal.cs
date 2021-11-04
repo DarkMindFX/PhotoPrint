@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -53,16 +54,16 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ID);
             
                           Assert.AreEqual(2, entity.AddressTypeID);
-                            Assert.AreEqual("Title dc3480a1231d484491e1afb6406bbf69", entity.Title);
-                            Assert.AreEqual(10, entity.CityID);
-                            Assert.AreEqual("Street dc3480a1231d484491e1afb6406bbf69", entity.Street);
-                            Assert.AreEqual("BuildingNo dc3480a1231d484491e1afb6406bbf69", entity.BuildingNo);
-                            Assert.AreEqual("ApartmentNo dc3480a1231d484491e1afb6406bbf69", entity.ApartmentNo);
-                            Assert.AreEqual("Comment dc3480a1231d484491e1afb6406bbf69", entity.Comment);
-                            Assert.AreEqual(100011, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("11/22/2022 10:22:32 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100002, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("11/22/2022 10:22:32 PM"), entity.ModifiedDate);
+                            Assert.AreEqual("Title db5a2f197cad4748bd1b94850f713ddf", entity.Title);
+                            Assert.AreEqual(1, entity.CityID);
+                            Assert.AreEqual("Street db5a2f197cad4748bd1b94850f713ddf", entity.Street);
+                            Assert.AreEqual("BuildingNo db5a2f197cad4748bd1b94850f713ddf", entity.BuildingNo);
+                            Assert.AreEqual("ApartmentNo db5a2f197cad4748bd1b94850f713ddf", entity.ApartmentNo);
+                            Assert.AreEqual("Comment db5a2f197cad4748bd1b94850f713ddf", entity.Comment);
+                            Assert.AreEqual(100008, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("10/28/2021 8:22:38 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100008, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/15/2019 4:22:38 AM"), entity.ModifiedDate);
                             Assert.AreEqual(true, entity.IsDeleted);
                       }
 
@@ -112,17 +113,17 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareAddressDal("DALInitParams");
 
             var entity = new Address();
-                          entity.AddressTypeID = 2;
-                            entity.Title = "Title 5ed1a83072274ffbbbf89b566f79da3d";
-                            entity.CityID = 9;
-                            entity.Street = "Street 5ed1a83072274ffbbbf89b566f79da3d";
-                            entity.BuildingNo = "BuildingNo 5ed1a83072274ffbbbf89b566f79da3d";
-                            entity.ApartmentNo = "ApartmentNo 5ed1a83072274ffbbbf89b566f79da3d";
-                            entity.Comment = "Comment 5ed1a83072274ffbbbf89b566f79da3d";
-                            entity.CreatedByID = 100003;
-                            entity.CreatedDate = DateTime.Parse("7/10/2020 6:22:32 PM");
-                            entity.ModifiedByID = 100006;
-                            entity.ModifiedDate = DateTime.Parse("5/22/2023 4:09:32 AM");
+                          entity.AddressTypeID = 4;
+                            entity.Title = "Title ee918aa1e601486f9d45655af1390a70";
+                            entity.CityID = 4;
+                            entity.Street = "Street ee918aa1e601486f9d45655af1390a70";
+                            entity.BuildingNo = "BuildingNo ee918aa1e601486f9d45655af1390a70";
+                            entity.ApartmentNo = "ApartmentNo ee918aa1e601486f9d45655af1390a70";
+                            entity.Comment = "Comment ee918aa1e601486f9d45655af1390a70";
+                            entity.CreatedByID = 100006;
+                            entity.CreatedDate = DateTime.Parse("4/18/2023 4:24:38 PM");
+                            entity.ModifiedByID = 100007;
+                            entity.ModifiedDate = DateTime.Parse("4/18/2023 4:24:38 PM");
                             entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
@@ -132,17 +133,17 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(2, entity.AddressTypeID);
-                            Assert.AreEqual("Title 5ed1a83072274ffbbbf89b566f79da3d", entity.Title);
-                            Assert.AreEqual(9, entity.CityID);
-                            Assert.AreEqual("Street 5ed1a83072274ffbbbf89b566f79da3d", entity.Street);
-                            Assert.AreEqual("BuildingNo 5ed1a83072274ffbbbf89b566f79da3d", entity.BuildingNo);
-                            Assert.AreEqual("ApartmentNo 5ed1a83072274ffbbbf89b566f79da3d", entity.ApartmentNo);
-                            Assert.AreEqual("Comment 5ed1a83072274ffbbbf89b566f79da3d", entity.Comment);
-                            Assert.AreEqual(100003, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("7/10/2020 6:22:32 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100006, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("5/22/2023 4:09:32 AM"), entity.ModifiedDate);
+                          Assert.AreEqual(4, entity.AddressTypeID);
+                            Assert.AreEqual("Title ee918aa1e601486f9d45655af1390a70", entity.Title);
+                            Assert.AreEqual(4, entity.CityID);
+                            Assert.AreEqual("Street ee918aa1e601486f9d45655af1390a70", entity.Street);
+                            Assert.AreEqual("BuildingNo ee918aa1e601486f9d45655af1390a70", entity.BuildingNo);
+                            Assert.AreEqual("ApartmentNo ee918aa1e601486f9d45655af1390a70", entity.ApartmentNo);
+                            Assert.AreEqual("Comment ee918aa1e601486f9d45655af1390a70", entity.Comment);
+                            Assert.AreEqual(100006, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("4/18/2023 4:24:38 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100007, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("4/18/2023 4:24:38 PM"), entity.ModifiedDate);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -158,16 +159,16 @@ namespace Test.PPT.DAL.MSSQL
             Address entity = dal.Get(paramID);
 
                           entity.AddressTypeID = 5;
-                            entity.Title = "Title 234dadaa56194b089b0c097361f548a0";
-                            entity.CityID = 1;
-                            entity.Street = "Street 234dadaa56194b089b0c097361f548a0";
-                            entity.BuildingNo = "BuildingNo 234dadaa56194b089b0c097361f548a0";
-                            entity.ApartmentNo = "ApartmentNo 234dadaa56194b089b0c097361f548a0";
-                            entity.Comment = "Comment 234dadaa56194b089b0c097361f548a0";
-                            entity.CreatedByID = 100005;
-                            entity.CreatedDate = DateTime.Parse("8/18/2023 2:23:32 PM");
-                            entity.ModifiedByID = 100010;
-                            entity.ModifiedDate = DateTime.Parse("8/18/2023 2:23:32 PM");
+                            entity.Title = "Title a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.CityID = 7;
+                            entity.Street = "Street a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.BuildingNo = "BuildingNo a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.ApartmentNo = "ApartmentNo a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.Comment = "Comment a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.CreatedByID = 100006;
+                            entity.CreatedDate = DateTime.Parse("7/18/2023 11:58:38 AM");
+                            entity.ModifiedByID = 100007;
+                            entity.ModifiedDate = DateTime.Parse("12/4/2020 12:24:38 PM");
                             entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
@@ -178,16 +179,16 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ID);
             
                           Assert.AreEqual(5, entity.AddressTypeID);
-                            Assert.AreEqual("Title 234dadaa56194b089b0c097361f548a0", entity.Title);
-                            Assert.AreEqual(1, entity.CityID);
-                            Assert.AreEqual("Street 234dadaa56194b089b0c097361f548a0", entity.Street);
-                            Assert.AreEqual("BuildingNo 234dadaa56194b089b0c097361f548a0", entity.BuildingNo);
-                            Assert.AreEqual("ApartmentNo 234dadaa56194b089b0c097361f548a0", entity.ApartmentNo);
-                            Assert.AreEqual("Comment 234dadaa56194b089b0c097361f548a0", entity.Comment);
-                            Assert.AreEqual(100005, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("8/18/2023 2:23:32 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100010, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("8/18/2023 2:23:32 PM"), entity.ModifiedDate);
+                            Assert.AreEqual("Title a83d33ef6a2142b7aa70cee52c4794c3", entity.Title);
+                            Assert.AreEqual(7, entity.CityID);
+                            Assert.AreEqual("Street a83d33ef6a2142b7aa70cee52c4794c3", entity.Street);
+                            Assert.AreEqual("BuildingNo a83d33ef6a2142b7aa70cee52c4794c3", entity.BuildingNo);
+                            Assert.AreEqual("ApartmentNo a83d33ef6a2142b7aa70cee52c4794c3", entity.ApartmentNo);
+                            Assert.AreEqual("Comment a83d33ef6a2142b7aa70cee52c4794c3", entity.Comment);
+                            Assert.AreEqual(100006, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("7/18/2023 11:58:38 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100007, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("12/4/2020 12:24:38 PM"), entity.ModifiedDate);
                             Assert.AreEqual(true, entity.IsDeleted);
               
         }
@@ -199,16 +200,16 @@ namespace Test.PPT.DAL.MSSQL
 
             var entity = new Address();
                           entity.AddressTypeID = 5;
-                            entity.Title = "Title 234dadaa56194b089b0c097361f548a0";
-                            entity.CityID = 1;
-                            entity.Street = "Street 234dadaa56194b089b0c097361f548a0";
-                            entity.BuildingNo = "BuildingNo 234dadaa56194b089b0c097361f548a0";
-                            entity.ApartmentNo = "ApartmentNo 234dadaa56194b089b0c097361f548a0";
-                            entity.Comment = "Comment 234dadaa56194b089b0c097361f548a0";
-                            entity.CreatedByID = 100005;
-                            entity.CreatedDate = DateTime.Parse("8/18/2023 2:23:32 PM");
-                            entity.ModifiedByID = 100010;
-                            entity.ModifiedDate = DateTime.Parse("8/18/2023 2:23:32 PM");
+                            entity.Title = "Title a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.CityID = 7;
+                            entity.Street = "Street a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.BuildingNo = "BuildingNo a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.ApartmentNo = "ApartmentNo a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.Comment = "Comment a83d33ef6a2142b7aa70cee52c4794c3";
+                            entity.CreatedByID = 100006;
+                            entity.CreatedDate = DateTime.Parse("7/18/2023 11:58:38 AM");
+                            entity.ModifiedByID = 100007;
+                            entity.ModifiedDate = DateTime.Parse("12/4/2020 12:24:38 PM");
                             entity.IsDeleted = true;              
               
             try
@@ -221,6 +222,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("Address\\040.Erase.Success")]
+        public void Address_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareAddressDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void Address_Erase_InvalidId()
+        {
+            var dal = PrepareAddressDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IAddressDal PrepareAddressDal(string configName)

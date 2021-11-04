@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -176,13 +177,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.User testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Login = "Login f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.FirstName = "FirstName f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.MiddleName = "MiddleName f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.LastName = "LastName f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.FriendlyName = "FriendlyName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.Login = "Login 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.PwdHash = "PwdHash 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.Salt = "Salt 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.FirstName = "FirstName 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.MiddleName = "MiddleName 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.LastName = "LastName 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.FriendlyName = "FriendlyName 6d3dfed7c6874e808ac01e4bf718274a";
                     testEntity.UserStatusID = 3;
-                    testEntity.UserTypeID = 1;
+                    testEntity.UserTypeID = 2;
+                    testEntity.CreatedDate = DateTime.Parse("5/18/2019 7:15:38 AM");
+                    testEntity.ModifiedDate = DateTime.Parse("5/18/2019 7:15:38 AM");
+                    testEntity.ModifiedByID = 100004;
 
                     var reqDto = UserConvertor.Convert(testEntity, null);
 
@@ -202,6 +208,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.FriendlyName, respDto.FriendlyName);
                     Assert.Equal(reqDto.UserStatusID, respDto.UserStatusID);
                     Assert.Equal(reqDto.UserTypeID, respDto.UserTypeID);
+                    
+                    
+                    
 
                 }
                 finally
@@ -224,15 +233,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.Login = "Login f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.FirstName = "FirstName f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.MiddleName = "MiddleName f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.LastName = "LastName f6256fcfdd8e41398139ddcb9f648fcc";
-                    testEntity.FriendlyName = "FriendlyName f6256fcfdd8e41398139ddcb9f648fcc";
+                    testEntity.Login = "Login 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.PwdHash = "PwdHash 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.Salt = "Salt 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.FirstName = "FirstName 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.MiddleName = "MiddleName 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.LastName = "LastName 6d3dfed7c6874e808ac01e4bf718274a";
+                    testEntity.FriendlyName = "FriendlyName 6d3dfed7c6874e808ac01e4bf718274a";
                     testEntity.UserStatusID = 3;
-                    testEntity.UserTypeID = 1;
-                    testEntity.CreatedDate = DateTime.Parse("3/17/2022 1:05:35 AM");
-                    testEntity.ModifiedDate = DateTime.Parse("3/17/2022 1:05:35 AM");
+                    testEntity.UserTypeID = 2;
+                    testEntity.CreatedDate = DateTime.Parse("5/18/2019 7:15:38 AM");
+                    testEntity.ModifiedDate = DateTime.Parse("5/18/2019 7:15:38 AM");
                     testEntity.ModifiedByID = 100004;
 
                     var reqDto = UserConvertor.Convert(testEntity, null);
@@ -258,8 +269,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+
+                return dal.Delete(entity.ID
                 );
             }
             else
@@ -271,18 +283,18 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.User CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.User();
-            entity.Login = "Login 0ea703a12238492ebe51723d5764d15d";
-            entity.PwdHash = "PwdHash 0ea703a12238492ebe51723d5764d15d";
-            entity.Salt = "Salt 0ea703a12238492ebe51723d5764d15d";
-            entity.FirstName = "FirstName 0ea703a12238492ebe51723d5764d15d";
-            entity.MiddleName = "MiddleName 0ea703a12238492ebe51723d5764d15d";
-            entity.LastName = "LastName 0ea703a12238492ebe51723d5764d15d";
-            entity.FriendlyName = "FriendlyName 0ea703a12238492ebe51723d5764d15d";
-            entity.UserStatusID = 3;
-            entity.UserTypeID = 3;
-            entity.CreatedDate = DateTime.Parse("2/7/2019 5:04:35 AM");
-            entity.ModifiedDate = DateTime.Parse("2/7/2019 5:04:35 AM");
-            entity.ModifiedByID = 100001;
+            entity.Login = "Login 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.PwdHash = "PwdHash 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.Salt = "Salt 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.FirstName = "FirstName 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.MiddleName = "MiddleName 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.LastName = "LastName 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.FriendlyName = "FriendlyName 15ec8c1dd9ab44ea9a21f020cbb0b419";
+            entity.UserStatusID = 2;
+            entity.UserTypeID = 4;
+            entity.CreatedDate = DateTime.Parse("5/18/2023 1:53:38 PM");
+            entity.ModifiedDate = DateTime.Parse("5/18/2023 1:53:38 PM");
+            entity.ModifiedByID = 100011;
 
             return entity;
         }

@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,5 +17,7 @@ namespace PPT.PhotoPrint.API.Dal
             IList<Image> GetByPriceCurrencyID(System.Int64? PriceCurrencyID);
             IList<Image> GetByCreatedByID(System.Int64 CreatedByID);
             IList<Image> GetByModifiedByID(System.Int64? ModifiedByID);
-        }
+    
+            bool Erase(System.Int64? ID);
+            }
 }

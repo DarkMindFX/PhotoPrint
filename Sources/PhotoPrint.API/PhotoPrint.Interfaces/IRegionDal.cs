@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace PPT.Interfaces
         bool Delete(System.Int64? ID);
 
         IList<Region> GetByCountryID(System.Int64 CountryID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

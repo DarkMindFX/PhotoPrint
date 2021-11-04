@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,18 +53,18 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Title f09ecde6e1b146b7a15f0bdf1b9b6ccd", entity.Title);
-                            Assert.AreEqual("Description f09ecde6e1b146b7a15f0bdf1b9b6ccd", entity.Description);
-                            Assert.AreEqual("OriginUrl f09ecde6e1b146b7a15f0bdf1b9b6ccd", entity.OriginUrl);
-                            Assert.AreEqual(818, entity.MaxWidth);
-                            Assert.AreEqual(818, entity.MaxHeight);
-                            Assert.AreEqual(818440.58M, entity.PriceAmount);
-                            Assert.AreEqual(221, entity.PriceCurrencyID);
-                            Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(100001, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("3/4/2023 12:21:33 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100003, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("6/2/2023 7:54:33 AM"), entity.ModifiedDate);
+                          Assert.AreEqual("Title 159cf8b0946e4b02b7d89cc5be42dba4", entity.Title);
+                            Assert.AreEqual("Description 159cf8b0946e4b02b7d89cc5be42dba4", entity.Description);
+                            Assert.AreEqual("OriginUrl 159cf8b0946e4b02b7d89cc5be42dba4", entity.OriginUrl);
+                            Assert.AreEqual(133, entity.MaxWidth);
+                            Assert.AreEqual(133, entity.MaxHeight);
+                            Assert.AreEqual(132394.98M, entity.PriceAmount);
+                            Assert.AreEqual(81, entity.PriceCurrencyID);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(100009, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("1/3/2024 7:09:39 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100005, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("4/7/2019 11:10:39 PM"), entity.ModifiedDate);
                       }
 
         [Test]
@@ -112,18 +113,18 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageDal("DALInitParams");
 
             var entity = new Image();
-                          entity.Title = "Title bf617654b3d248c89e62441b901d5a6f";
-                            entity.Description = "Description bf617654b3d248c89e62441b901d5a6f";
-                            entity.OriginUrl = "OriginUrl bf617654b3d248c89e62441b901d5a6f";
-                            entity.MaxWidth = 834;
-                            entity.MaxHeight = 834;
-                            entity.PriceAmount = 834222.8M;
-                            entity.PriceCurrencyID = 55;
+                          entity.Title = "Title 6ab4d7fc44cd430c9406c92bb440acfc";
+                            entity.Description = "Description 6ab4d7fc44cd430c9406c92bb440acfc";
+                            entity.OriginUrl = "OriginUrl 6ab4d7fc44cd430c9406c92bb440acfc";
+                            entity.MaxWidth = 225;
+                            entity.MaxHeight = 225;
+                            entity.PriceAmount = 224592.28M;
+                            entity.PriceCurrencyID = 200;
                             entity.IsDeleted = false;              
-                            entity.CreatedByID = 100007;
-                            entity.CreatedDate = DateTime.Parse("11/29/2023 1:42:33 PM");
-                            entity.ModifiedByID = 100002;
-                            entity.ModifiedDate = DateTime.Parse("11/29/2023 1:42:33 PM");
+                            entity.CreatedByID = 100010;
+                            entity.CreatedDate = DateTime.Parse("4/26/2021 1:56:39 PM");
+                            entity.ModifiedByID = 100004;
+                            entity.ModifiedDate = DateTime.Parse("4/26/2021 1:56:39 PM");
                           
             entity = dal.Insert(entity);
 
@@ -132,18 +133,18 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Title bf617654b3d248c89e62441b901d5a6f", entity.Title);
-                            Assert.AreEqual("Description bf617654b3d248c89e62441b901d5a6f", entity.Description);
-                            Assert.AreEqual("OriginUrl bf617654b3d248c89e62441b901d5a6f", entity.OriginUrl);
-                            Assert.AreEqual(834, entity.MaxWidth);
-                            Assert.AreEqual(834, entity.MaxHeight);
-                            Assert.AreEqual(834222.8M, entity.PriceAmount);
-                            Assert.AreEqual(55, entity.PriceCurrencyID);
+                          Assert.AreEqual("Title 6ab4d7fc44cd430c9406c92bb440acfc", entity.Title);
+                            Assert.AreEqual("Description 6ab4d7fc44cd430c9406c92bb440acfc", entity.Description);
+                            Assert.AreEqual("OriginUrl 6ab4d7fc44cd430c9406c92bb440acfc", entity.OriginUrl);
+                            Assert.AreEqual(225, entity.MaxWidth);
+                            Assert.AreEqual(225, entity.MaxHeight);
+                            Assert.AreEqual(224592.28M, entity.PriceAmount);
+                            Assert.AreEqual(200, entity.PriceCurrencyID);
                             Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(100007, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("11/29/2023 1:42:33 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100002, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("11/29/2023 1:42:33 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100010, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("4/26/2021 1:56:39 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100004, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("4/26/2021 1:56:39 PM"), entity.ModifiedDate);
               
         }
 
@@ -157,18 +158,18 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Image entity = dal.Get(paramID);
 
-                          entity.Title = "Title bc07aeca0c44413b99ba1a3af5af3e04";
-                            entity.Description = "Description bc07aeca0c44413b99ba1a3af5af3e04";
-                            entity.OriginUrl = "OriginUrl bc07aeca0c44413b99ba1a3af5af3e04";
-                            entity.MaxWidth = 968;
-                            entity.MaxHeight = 968;
-                            entity.PriceAmount = 968774.69M;
-                            entity.PriceCurrencyID = 151;
+                          entity.Title = "Title c802267d455d408995722f74a0f7f160";
+                            entity.Description = "Description c802267d455d408995722f74a0f7f160";
+                            entity.OriginUrl = "OriginUrl c802267d455d408995722f74a0f7f160";
+                            entity.MaxWidth = 449;
+                            entity.MaxHeight = 449;
+                            entity.PriceAmount = 448845.43M;
+                            entity.PriceCurrencyID = 97;
                             entity.IsDeleted = true;              
-                            entity.CreatedByID = 100011;
-                            entity.CreatedDate = DateTime.Parse("3/4/2019 5:43:33 AM");
-                            entity.ModifiedByID = 100001;
-                            entity.ModifiedDate = DateTime.Parse("3/4/2019 5:43:33 AM");
+                            entity.CreatedByID = 100001;
+                            entity.CreatedDate = DateTime.Parse("6/4/2024 9:57:39 AM");
+                            entity.ModifiedByID = 100004;
+                            entity.ModifiedDate = DateTime.Parse("6/4/2024 9:57:39 AM");
               
             entity = dal.Update(entity);
 
@@ -177,18 +178,18 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("Title bc07aeca0c44413b99ba1a3af5af3e04", entity.Title);
-                            Assert.AreEqual("Description bc07aeca0c44413b99ba1a3af5af3e04", entity.Description);
-                            Assert.AreEqual("OriginUrl bc07aeca0c44413b99ba1a3af5af3e04", entity.OriginUrl);
-                            Assert.AreEqual(968, entity.MaxWidth);
-                            Assert.AreEqual(968, entity.MaxHeight);
-                            Assert.AreEqual(968774.69M, entity.PriceAmount);
-                            Assert.AreEqual(151, entity.PriceCurrencyID);
+                          Assert.AreEqual("Title c802267d455d408995722f74a0f7f160", entity.Title);
+                            Assert.AreEqual("Description c802267d455d408995722f74a0f7f160", entity.Description);
+                            Assert.AreEqual("OriginUrl c802267d455d408995722f74a0f7f160", entity.OriginUrl);
+                            Assert.AreEqual(449, entity.MaxWidth);
+                            Assert.AreEqual(449, entity.MaxHeight);
+                            Assert.AreEqual(448845.43M, entity.PriceAmount);
+                            Assert.AreEqual(97, entity.PriceCurrencyID);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(100011, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("3/4/2019 5:43:33 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100001, entity.ModifiedByID);
-                            Assert.AreEqual(DateTime.Parse("3/4/2019 5:43:33 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100001, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("6/4/2024 9:57:39 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100004, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/4/2024 9:57:39 AM"), entity.ModifiedDate);
               
         }
 
@@ -198,18 +199,18 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageDal("DALInitParams");
 
             var entity = new Image();
-                          entity.Title = "Title bc07aeca0c44413b99ba1a3af5af3e04";
-                            entity.Description = "Description bc07aeca0c44413b99ba1a3af5af3e04";
-                            entity.OriginUrl = "OriginUrl bc07aeca0c44413b99ba1a3af5af3e04";
-                            entity.MaxWidth = 968;
-                            entity.MaxHeight = 968;
-                            entity.PriceAmount = 968774.69M;
-                            entity.PriceCurrencyID = 151;
+                          entity.Title = "Title c802267d455d408995722f74a0f7f160";
+                            entity.Description = "Description c802267d455d408995722f74a0f7f160";
+                            entity.OriginUrl = "OriginUrl c802267d455d408995722f74a0f7f160";
+                            entity.MaxWidth = 449;
+                            entity.MaxHeight = 449;
+                            entity.PriceAmount = 448845.43M;
+                            entity.PriceCurrencyID = 97;
                             entity.IsDeleted = true;              
-                            entity.CreatedByID = 100011;
-                            entity.CreatedDate = DateTime.Parse("3/4/2019 5:43:33 AM");
-                            entity.ModifiedByID = 100001;
-                            entity.ModifiedDate = DateTime.Parse("3/4/2019 5:43:33 AM");
+                            entity.CreatedByID = 100001;
+                            entity.CreatedDate = DateTime.Parse("6/4/2024 9:57:39 AM");
+                            entity.ModifiedByID = 100004;
+                            entity.ModifiedDate = DateTime.Parse("6/4/2024 9:57:39 AM");
               
             try
             {
@@ -221,6 +222,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("Image\\040.Erase.Success")]
+        public void Image_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareImageDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void Image_Erase_InvalidId()
+        {
+            var dal = PrepareImageDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IImageDal PrepareImageDal(string configName)

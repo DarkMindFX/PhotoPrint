@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -207,8 +208,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageRelated testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ImageID = 100031;
-                    testEntity.RelatedImageID = 100033;
+                    testEntity.ImageID = 100013;
+                    testEntity.RelatedImageID = 100030;
 
                     var reqDto = ImageRelatedConvertor.Convert(testEntity, null);
 
@@ -233,8 +234,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ImageID,
+
+
+                return dal.Delete(entity.ImageID,
                                         entity.RelatedImageID
                 );
             }
@@ -247,8 +249,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ImageRelated CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ImageRelated();
-            entity.ImageID = 100043;
-            entity.RelatedImageID = 100012;
+            entity.ImageID = 100028;
+            entity.RelatedImageID = 100029;
 
             return entity;
         }

@@ -1,27 +1,28 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @MaterialTypeName NVARCHAR(50) = 'MaterialTypeName bc880221ddb642c3974fc1c36bfeeca0'
-DECLARE @Description NVARCHAR(1000) = 'Description bc880221ddb642c3974fc1c36bfeeca0'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl bc880221ddb642c3974fc1c36bfeeca0'
-DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '5/20/2019 12:11:33 PM'
+DECLARE @MaterialTypeName NVARCHAR(50) = 'MaterialTypeName b01c754554f04e14a8199f2ff5ac20f4'
+DECLARE @Description NVARCHAR(1000) = 'Description b01c754554f04e14a8199f2ff5ac20f4'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl b01c754554f04e14a8199f2ff5ac20f4'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedDate DATETIME = '3/18/2022 7:25:39 AM'
 DECLARE @CreatedByID BIGINT = 100001
-DECLARE @ModifiedDate DATETIME = '3/30/2022 9:58:33 PM'
-DECLARE @ModifiedByID BIGINT = 100008
+DECLARE @ModifiedDate DATETIME = '3/18/2022 7:25:39 AM'
+DECLARE @ModifiedByID BIGINT = 100004
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updMaterialTypeName NVARCHAR(50) = 'MaterialTypeName ff2d9853a4d040fdae18acb35bfd1865'
-DECLARE @updDescription NVARCHAR(1000) = 'Description ff2d9853a4d040fdae18acb35bfd1865'
-DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl ff2d9853a4d040fdae18acb35bfd1865'
-DECLARE @updIsDeleted BIT = 0
-DECLARE @updCreatedDate DATETIME = '6/27/2022 8:12:33 AM'
-DECLARE @updCreatedByID BIGINT = 100007
-DECLARE @updModifiedDate DATETIME = '6/27/2022 8:12:33 AM'
-DECLARE @updModifiedByID BIGINT = 100008
+DECLARE @updMaterialTypeName NVARCHAR(50) = 'MaterialTypeName ec14c354d5834b36aa92a129b97f7332'
+DECLARE @updDescription NVARCHAR(1000) = 'Description ec14c354d5834b36aa92a129b97f7332'
+DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl ec14c354d5834b36aa92a129b97f7332'
+DECLARE @updIsDeleted BIT = 1
+DECLARE @updCreatedDate DATETIME = '3/18/2022 7:25:39 AM'
+DECLARE @updCreatedByID BIGINT = 100009
+DECLARE @updModifiedDate DATETIME = '8/5/2019 7:52:39 AM'
+DECLARE @updModifiedByID BIGINT = 100010
  
 
 DECLARE @Fail AS BIT = 0

@@ -1,9 +1,10 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @CountryName NVARCHAR(50) = 'CountryName 1e3aaaa0969948e781cfcceb58ea4639'
-DECLARE @ISO NVARCHAR(5) = 'ISO 1'
-DECLARE @IsDeleted BIT = 0
+DECLARE @CountryName NVARCHAR(50) = 'CountryName 5fb93d4ba8b14427975c73a92af8ee7e'
+DECLARE @ISO NVARCHAR(5) = 'ISO 5'
+DECLARE @IsDeleted BIT = 1
  
 
 

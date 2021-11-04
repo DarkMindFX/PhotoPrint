@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace PPT.Interfaces
 
         bool Delete(System.Int64 ImageID,System.Int64 RelatedImageID);
 
+        IList<ImageRelated> GetByImageID(System.Int64 ImageID);
+        IList<ImageRelated> GetByRelatedImageID(System.Int64 RelatedImageID);
+        
             }
 }
 

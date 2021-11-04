@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -75,6 +76,7 @@ namespace PPT.DAL.MSSQL
 
             return result;
         }
+
 
                 public IList<UserConfirmation> GetByUserID(System.Int64 UserID)
         {

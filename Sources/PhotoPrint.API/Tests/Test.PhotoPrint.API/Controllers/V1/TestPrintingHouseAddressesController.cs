@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +50,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramPrintingHouseID = testEntity.PrintingHouseID;
-                    var paramAddressID = testEntity.AddressID;
+                var paramPrintingHouseID = testEntity.PrintingHouseID;
+                var paramAddressID = testEntity.AddressID;
                     var respGet = client.GetAsync($"/api/v1/printinghouseaddresses/{paramPrintingHouseID}/{paramAddressID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +96,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramPrintingHouseID = testEntity.PrintingHouseID;
-                    var paramAddressID = testEntity.AddressID;
+                var paramPrintingHouseID = testEntity.PrintingHouseID;
+                var paramAddressID = testEntity.AddressID;
 
                     var respDel = client.DeleteAsync($"/api/v1/printinghouseaddresses/{paramPrintingHouseID}/{paramAddressID}");
 
@@ -149,10 +150,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     PrintingHouseAddress respDto = ExtractContentJson<PrintingHouseAddress>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.PrintingHouseID);
-                    Assert.NotNull(respDto.AddressID);
-                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-
+                                    Assert.NotNull(respDto.PrintingHouseID);
+                                    Assert.NotNull(respDto.AddressID);
+                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+                
                     respEntity = PrintingHouseAddressConvertor.Convert(respDto);
                 }
                 finally
@@ -174,8 +175,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PrintingHouseAddress testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.IsPrimary = false;
-
+                          testEntity.IsPrimary = true;              
+              
                     var reqDto = PrintingHouseAddressConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -186,10 +187,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     PrintingHouseAddress respDto = ExtractContentJson<PrintingHouseAddress>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.PrintingHouseID);
-                    Assert.NotNull(respDto.AddressID);
-                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-
+                                     Assert.NotNull(respDto.PrintingHouseID);
+                                    Assert.NotNull(respDto.AddressID);
+                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+                
                 }
                 finally
                 {
@@ -210,10 +211,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PrintingHouseAddress testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.PrintingHouseID = 100005;
-                    testEntity.AddressID = 100010;
-                    testEntity.IsPrimary = false;
-
+                            testEntity.PrintingHouseID = 100002;
+                            testEntity.AddressID = 100009;
+                            testEntity.IsPrimary = true;              
+              
                     var reqDto = PrintingHouseAddressConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -237,8 +238,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.PrintingHouseID,
+
+
+                return dal.Delete(                        entity.PrintingHouseID,
                                         entity.AddressID
                 );
             }
@@ -251,10 +253,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.PrintingHouseAddress CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.PrintingHouseAddress();
-            entity.PrintingHouseID = 100005;
-            entity.AddressID = 100006;
-            entity.IsPrimary = true;
-
+                          entity.PrintingHouseID = 100001;
+                            entity.AddressID = 100005;
+                            entity.IsPrimary = false;              
+              
             return entity;
         }
 

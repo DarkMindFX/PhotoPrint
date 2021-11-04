@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,14 +53,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CategoryName 3e7bd51f8d50463eaa99672a358bfb0f", entity.CategoryName);
-                            Assert.AreEqual("Description 3e7bd51f8d50463eaa99672a358bfb0f", entity.Description);
-                            Assert.AreEqual(100001, entity.ParentID);
+                          Assert.AreEqual("CategoryName fca4bd9392684313b4e7b4a7f694e0ba", entity.CategoryName);
+                            Assert.AreEqual("Description fca4bd9392684313b4e7b4a7f694e0ba", entity.Description);
+                            Assert.AreEqual(100010, entity.ParentID);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("4/27/2020 7:23:32 AM"), entity.CreatedDate);
+                            Assert.AreEqual(DateTime.Parse("7/24/2021 7:01:38 AM"), entity.CreatedDate);
                             Assert.AreEqual(100002, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("4/27/2020 7:23:32 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100006, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/8/2019 1:16:38 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100008, entity.ModifiedByID);
                       }
 
         [Test]
@@ -108,14 +109,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCategoryDal("DALInitParams");
 
             var entity = new Category();
-                          entity.CategoryName = "CategoryName 9b478f504452421e9ef017264e0c7dc5";
-                            entity.Description = "Description 9b478f504452421e9ef017264e0c7dc5";
-                            entity.ParentID = 100005;
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("6/6/2023 3:24:32 AM");
-                            entity.CreatedByID = 100008;
-                            entity.ModifiedDate = DateTime.Parse("6/6/2023 3:24:32 AM");
-                            entity.ModifiedByID = 100011;
+                          entity.CategoryName = "CategoryName 837b98f0a26646bba8c224f35c4e378f";
+                            entity.Description = "Description 837b98f0a26646bba8c224f35c4e378f";
+                            entity.ParentID = 100007;
+                            entity.IsDeleted = false;              
+                            entity.CreatedDate = DateTime.Parse("6/2/2020 12:50:38 AM");
+                            entity.CreatedByID = 100007;
+                            entity.ModifiedDate = DateTime.Parse("4/12/2023 10:37:38 AM");
+                            entity.ModifiedByID = 100001;
                           
             entity = dal.Insert(entity);
 
@@ -124,14 +125,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CategoryName 9b478f504452421e9ef017264e0c7dc5", entity.CategoryName);
-                            Assert.AreEqual("Description 9b478f504452421e9ef017264e0c7dc5", entity.Description);
-                            Assert.AreEqual(100005, entity.ParentID);
-                            Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("6/6/2023 3:24:32 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100008, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("6/6/2023 3:24:32 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100011, entity.ModifiedByID);
+                          Assert.AreEqual("CategoryName 837b98f0a26646bba8c224f35c4e378f", entity.CategoryName);
+                            Assert.AreEqual("Description 837b98f0a26646bba8c224f35c4e378f", entity.Description);
+                            Assert.AreEqual(100007, entity.ParentID);
+                            Assert.AreEqual(false, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("6/2/2020 12:50:38 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100007, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("4/12/2023 10:37:38 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100001, entity.ModifiedByID);
               
         }
 
@@ -145,14 +146,14 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Category entity = dal.Get(paramID);
 
-                          entity.CategoryName = "CategoryName 18bfb2c64d324bb6bbc31d0759ed1f7a";
-                            entity.Description = "Description 18bfb2c64d324bb6bbc31d0759ed1f7a";
-                            entity.ParentID = 100004;
+                          entity.CategoryName = "CategoryName 2be173b81cac48dea5ee5f59bf14f99b";
+                            entity.Description = "Description 2be173b81cac48dea5ee5f59bf14f99b";
+                            entity.ParentID = 100009;
                             entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("2/29/2024 7:25:32 PM");
-                            entity.CreatedByID = 100004;
-                            entity.ModifiedDate = DateTime.Parse("7/20/2021 5:11:32 AM");
-                            entity.ModifiedByID = 100002;
+                            entity.CreatedDate = DateTime.Parse("7/10/2023 8:51:38 PM");
+                            entity.CreatedByID = 100001;
+                            entity.ModifiedDate = DateTime.Parse("7/10/2023 8:51:38 PM");
+                            entity.ModifiedByID = 100004;
               
             entity = dal.Update(entity);
 
@@ -161,14 +162,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("CategoryName 18bfb2c64d324bb6bbc31d0759ed1f7a", entity.CategoryName);
-                            Assert.AreEqual("Description 18bfb2c64d324bb6bbc31d0759ed1f7a", entity.Description);
-                            Assert.AreEqual(100004, entity.ParentID);
+                          Assert.AreEqual("CategoryName 2be173b81cac48dea5ee5f59bf14f99b", entity.CategoryName);
+                            Assert.AreEqual("Description 2be173b81cac48dea5ee5f59bf14f99b", entity.Description);
+                            Assert.AreEqual(100009, entity.ParentID);
                             Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("2/29/2024 7:25:32 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100004, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("7/20/2021 5:11:32 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100002, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("7/10/2023 8:51:38 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100001, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("7/10/2023 8:51:38 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100004, entity.ModifiedByID);
               
         }
 
@@ -178,14 +179,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareCategoryDal("DALInitParams");
 
             var entity = new Category();
-                          entity.CategoryName = "CategoryName 18bfb2c64d324bb6bbc31d0759ed1f7a";
-                            entity.Description = "Description 18bfb2c64d324bb6bbc31d0759ed1f7a";
-                            entity.ParentID = 100004;
+                          entity.CategoryName = "CategoryName 2be173b81cac48dea5ee5f59bf14f99b";
+                            entity.Description = "Description 2be173b81cac48dea5ee5f59bf14f99b";
+                            entity.ParentID = 100009;
                             entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("2/29/2024 7:25:32 PM");
-                            entity.CreatedByID = 100004;
-                            entity.ModifiedDate = DateTime.Parse("7/20/2021 5:11:32 AM");
-                            entity.ModifiedByID = 100002;
+                            entity.CreatedDate = DateTime.Parse("7/10/2023 8:51:38 PM");
+                            entity.CreatedByID = 100001;
+                            entity.ModifiedDate = DateTime.Parse("7/10/2023 8:51:38 PM");
+                            entity.ModifiedByID = 100004;
               
             try
             {
@@ -197,6 +198,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("Category\\040.Erase.Success")]
+        public void Category_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareCategoryDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void Category_Erase_InvalidId()
+        {
+            var dal = PrepareCategoryDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected ICategoryDal PrepareCategoryDal(string configName)

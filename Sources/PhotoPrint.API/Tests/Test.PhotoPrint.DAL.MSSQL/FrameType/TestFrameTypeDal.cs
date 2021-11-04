@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,14 +53,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("FrameTypeName 09dcd3d190ba4ffd9d0402b93410f21c", entity.FrameTypeName);
-                            Assert.AreEqual("Description 09dcd3d190ba4ffd9d0402b93410f21c", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl 09dcd3d190ba4ffd9d0402b93410f21c", entity.ThumbnailUrl);
+                          Assert.AreEqual("FrameTypeName d767ac90e7df4e85afcb7de69bc7cc68", entity.FrameTypeName);
+                            Assert.AreEqual("Description d767ac90e7df4e85afcb7de69bc7cc68", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl d767ac90e7df4e85afcb7de69bc7cc68", entity.ThumbnailUrl);
                             Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("4/13/2021 1:30:33 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100011, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("12/31/2022 5:06:33 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100006, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("1/16/2021 7:47:39 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100008, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("11/27/2019 10:55:39 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100002, entity.ModifiedByID);
                       }
 
         [Test]
@@ -108,14 +109,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareFrameTypeDal("DALInitParams");
 
             var entity = new FrameType();
-                          entity.FrameTypeName = "FrameTypeName f42c56bf99c742079f444d7825822602";
-                            entity.Description = "Description f42c56bf99c742079f444d7825822602";
-                            entity.ThumbnailUrl = "ThumbnailUrl f42c56bf99c742079f444d7825822602";
-                            entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("8/18/2020 1:07:33 AM");
-                            entity.CreatedByID = 100010;
-                            entity.ModifiedDate = DateTime.Parse("6/29/2023 10:53:33 AM");
-                            entity.ModifiedByID = 100009;
+                          entity.FrameTypeName = "FrameTypeName 43cbcc5573c542cb9590857915ab90e7";
+                            entity.Description = "Description 43cbcc5573c542cb9590857915ab90e7";
+                            entity.ThumbnailUrl = "ThumbnailUrl 43cbcc5573c542cb9590857915ab90e7";
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("2/4/2023 10:33:39 PM");
+                            entity.CreatedByID = 100003;
+                            entity.ModifiedDate = DateTime.Parse("2/4/2023 10:33:39 PM");
+                            entity.ModifiedByID = 100006;
                           
             entity = dal.Insert(entity);
 
@@ -124,14 +125,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("FrameTypeName f42c56bf99c742079f444d7825822602", entity.FrameTypeName);
-                            Assert.AreEqual("Description f42c56bf99c742079f444d7825822602", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl f42c56bf99c742079f444d7825822602", entity.ThumbnailUrl);
-                            Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("8/18/2020 1:07:33 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100010, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("6/29/2023 10:53:33 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100009, entity.ModifiedByID);
+                          Assert.AreEqual("FrameTypeName 43cbcc5573c542cb9590857915ab90e7", entity.FrameTypeName);
+                            Assert.AreEqual("Description 43cbcc5573c542cb9590857915ab90e7", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl 43cbcc5573c542cb9590857915ab90e7", entity.ThumbnailUrl);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("2/4/2023 10:33:39 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100003, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("2/4/2023 10:33:39 PM"), entity.ModifiedDate);
+                            Assert.AreEqual(100006, entity.ModifiedByID);
               
         }
 
@@ -145,14 +146,14 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             FrameType entity = dal.Get(paramID);
 
-                          entity.FrameTypeName = "FrameTypeName 217f233dd23d4b2b935c69add0f84f64";
-                            entity.Description = "Description 217f233dd23d4b2b935c69add0f84f64";
-                            entity.ThumbnailUrl = "ThumbnailUrl 217f233dd23d4b2b935c69add0f84f64";
+                          entity.FrameTypeName = "FrameTypeName 4fb71f46467d402bb0a749cd3563f1e9";
+                            entity.Description = "Description 4fb71f46467d402bb0a749cd3563f1e9";
+                            entity.ThumbnailUrl = "ThumbnailUrl 4fb71f46467d402bb0a749cd3563f1e9";
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("11/15/2020 11:20:33 AM");
-                            entity.CreatedByID = 100001;
-                            entity.ModifiedDate = DateTime.Parse("2/13/2021 6:54:33 AM");
-                            entity.ModifiedByID = 100001;
+                            entity.CreatedDate = DateTime.Parse("6/25/2020 8:20:39 AM");
+                            entity.CreatedByID = 100002;
+                            entity.ModifiedDate = DateTime.Parse("6/25/2020 8:20:39 AM");
+                            entity.ModifiedByID = 100008;
               
             entity = dal.Update(entity);
 
@@ -161,14 +162,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("FrameTypeName 217f233dd23d4b2b935c69add0f84f64", entity.FrameTypeName);
-                            Assert.AreEqual("Description 217f233dd23d4b2b935c69add0f84f64", entity.Description);
-                            Assert.AreEqual("ThumbnailUrl 217f233dd23d4b2b935c69add0f84f64", entity.ThumbnailUrl);
+                          Assert.AreEqual("FrameTypeName 4fb71f46467d402bb0a749cd3563f1e9", entity.FrameTypeName);
+                            Assert.AreEqual("Description 4fb71f46467d402bb0a749cd3563f1e9", entity.Description);
+                            Assert.AreEqual("ThumbnailUrl 4fb71f46467d402bb0a749cd3563f1e9", entity.ThumbnailUrl);
                             Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("11/15/2020 11:20:33 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100001, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("2/13/2021 6:54:33 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100001, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("6/25/2020 8:20:39 AM"), entity.CreatedDate);
+                            Assert.AreEqual(100002, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("6/25/2020 8:20:39 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100008, entity.ModifiedByID);
               
         }
 
@@ -178,14 +179,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareFrameTypeDal("DALInitParams");
 
             var entity = new FrameType();
-                          entity.FrameTypeName = "FrameTypeName 217f233dd23d4b2b935c69add0f84f64";
-                            entity.Description = "Description 217f233dd23d4b2b935c69add0f84f64";
-                            entity.ThumbnailUrl = "ThumbnailUrl 217f233dd23d4b2b935c69add0f84f64";
+                          entity.FrameTypeName = "FrameTypeName 4fb71f46467d402bb0a749cd3563f1e9";
+                            entity.Description = "Description 4fb71f46467d402bb0a749cd3563f1e9";
+                            entity.ThumbnailUrl = "ThumbnailUrl 4fb71f46467d402bb0a749cd3563f1e9";
                             entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("11/15/2020 11:20:33 AM");
-                            entity.CreatedByID = 100001;
-                            entity.ModifiedDate = DateTime.Parse("2/13/2021 6:54:33 AM");
-                            entity.ModifiedByID = 100001;
+                            entity.CreatedDate = DateTime.Parse("6/25/2020 8:20:39 AM");
+                            entity.CreatedByID = 100002;
+                            entity.ModifiedDate = DateTime.Parse("6/25/2020 8:20:39 AM");
+                            entity.ModifiedByID = 100008;
               
             try
             {
@@ -197,6 +198,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("FrameType\\040.Erase.Success")]
+        public void FrameType_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareFrameTypeDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void FrameType_Erase_InvalidId()
+        {
+            var dal = PrepareFrameTypeDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IFrameTypeDal PrepareFrameTypeDal(string configName)

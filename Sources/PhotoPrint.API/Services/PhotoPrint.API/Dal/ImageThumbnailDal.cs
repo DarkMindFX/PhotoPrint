@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -24,6 +25,7 @@ namespace PPT.PhotoPrint.API.Dal
         {
             return _dalImpl.Delete(            ID);
         }
+
 
         public IList<ImageThumbnail> GetByImageID(System.Int64 ImageID)
         {

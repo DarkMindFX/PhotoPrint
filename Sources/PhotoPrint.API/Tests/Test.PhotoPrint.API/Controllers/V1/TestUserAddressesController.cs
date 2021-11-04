@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +50,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramUserID = testEntity.UserID;
-                    var paramAddressID = testEntity.AddressID;
+                var paramUserID = testEntity.UserID;
+                var paramAddressID = testEntity.AddressID;
                     var respGet = client.GetAsync($"/api/v1/useraddresses/{paramUserID}/{paramAddressID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +96,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramUserID = testEntity.UserID;
-                    var paramAddressID = testEntity.AddressID;
+                var paramUserID = testEntity.UserID;
+                var paramAddressID = testEntity.AddressID;
 
                     var respDel = client.DeleteAsync($"/api/v1/useraddresses/{paramUserID}/{paramAddressID}");
 
@@ -149,10 +150,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserAddress respDto = ExtractContentJson<UserAddress>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.UserID);
-                    Assert.NotNull(respDto.AddressID);
-                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-
+                                    Assert.NotNull(respDto.UserID);
+                                    Assert.NotNull(respDto.AddressID);
+                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+                
                     respEntity = UserAddressConvertor.Convert(respDto);
                 }
                 finally
@@ -174,8 +175,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserAddress testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.IsPrimary = false;
-
+                          testEntity.IsPrimary = false;              
+              
                     var reqDto = UserAddressConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -186,10 +187,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     UserAddress respDto = ExtractContentJson<UserAddress>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.UserID);
-                    Assert.NotNull(respDto.AddressID);
-                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-
+                                     Assert.NotNull(respDto.UserID);
+                                    Assert.NotNull(respDto.AddressID);
+                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+                
                 }
                 finally
                 {
@@ -210,10 +211,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.UserAddress testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.UserID = 100008;
-                    testEntity.AddressID = 100006;
-                    testEntity.IsPrimary = false;
-
+                            testEntity.UserID = 100008;
+                            testEntity.AddressID = 100008;
+                            testEntity.IsPrimary = false;              
+              
                     var reqDto = UserAddressConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -237,8 +238,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.UserID,
+
+
+                return dal.Delete(                        entity.UserID,
                                         entity.AddressID
                 );
             }
@@ -251,10 +253,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.UserAddress CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.UserAddress();
-            entity.UserID = 100007;
-            entity.AddressID = 100010;
-            entity.IsPrimary = true;
-
+                          entity.UserID = 100003;
+                            entity.AddressID = 100002;
+                            entity.IsPrimary = true;              
+              
             return entity;
         }
 

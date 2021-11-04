@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -171,13 +172,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.DeliveryService testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.DeliveryServiceName = "DeliveryServiceName c593091799b44f32af305ed45b57f3";
-                    testEntity.Description = "Description c593091799b44f32af305ed45b57f3c6";
+                    testEntity.DeliveryServiceName = "DeliveryServiceName 21e918d0349b4a928358d72f28ce11";
+                    testEntity.Description = "Description 21e918d0349b4a928358d72f28ce11e9";
                     testEntity.IsDeleted = true;
-                    testEntity.CreatedDate = DateTime.Parse("12/22/2022 8:51:35 PM");
-                    testEntity.CreatedByID = 100010;
-                    testEntity.ModifiedDate = DateTime.Parse("5/12/2020 6:37:35 AM");
-                    testEntity.ModifiedByID = 100002;
+                    testEntity.CreatedDate = DateTime.Parse("5/12/2019 9:16:37 AM");
+                    testEntity.CreatedByID = 100008;
+                    testEntity.ModifiedDate = DateTime.Parse("11/8/2019 3:04:37 PM");
+                    testEntity.ModifiedByID = 100001;
 
                     var reqDto = DeliveryServiceConvertor.Convert(testEntity, null);
 
@@ -193,6 +194,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.DeliveryServiceName, respDto.DeliveryServiceName);
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
+
+
+
+
                 }
                 finally
                 {
@@ -214,13 +220,13 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.DeliveryServiceName = "DeliveryServiceName c593091799b44f32af305ed45b57f3";
-                    testEntity.Description = "Description c593091799b44f32af305ed45b57f3c6";
+                    testEntity.DeliveryServiceName = "DeliveryServiceName 21e918d0349b4a928358d72f28ce11";
+                    testEntity.Description = "Description 21e918d0349b4a928358d72f28ce11e9";
                     testEntity.IsDeleted = true;
-                    testEntity.CreatedDate = DateTime.Parse("12/22/2022 8:51:35 PM");
-                    testEntity.CreatedByID = 100010;
-                    testEntity.ModifiedDate = DateTime.Parse("5/12/2020 6:37:35 AM");
-                    testEntity.ModifiedByID = 100002;
+                    testEntity.CreatedDate = DateTime.Parse("5/12/2019 9:16:37 AM");
+                    testEntity.CreatedByID = 100008;
+                    testEntity.ModifiedDate = DateTime.Parse("11/8/2019 3:04:37 PM");
+                    testEntity.ModifiedByID = 100001;
 
                     var reqDto = DeliveryServiceConvertor.Convert(testEntity, null);
 
@@ -245,9 +251,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -258,12 +264,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.DeliveryService CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.DeliveryService();
-            entity.DeliveryServiceName = "DeliveryServiceName fc3a32e00e214838bfd7d2e19403db";
-            entity.Description = "Description fc3a32e00e214838bfd7d2e19403db30";
-            entity.IsDeleted = true;
-            entity.CreatedDate = DateTime.Parse("11/15/2019 12:50:35 AM");
-            entity.CreatedByID = 100008;
-            entity.ModifiedDate = DateTime.Parse("9/24/2022 10:37:35 AM");
+            entity.DeliveryServiceName = "DeliveryServiceName ebefd4fae9e7466ab1445cf387bab7";
+            entity.Description = "Description ebefd4fae9e7466ab1445cf387bab71f";
+            entity.IsDeleted = false;
+            entity.CreatedDate = DateTime.Parse("11/9/2023 7:02:37 AM");
+            entity.CreatedByID = 100004;
+            entity.ModifiedDate = DateTime.Parse("2/6/2024 5:15:37 PM");
             entity.ModifiedByID = 100002;
 
             return entity;

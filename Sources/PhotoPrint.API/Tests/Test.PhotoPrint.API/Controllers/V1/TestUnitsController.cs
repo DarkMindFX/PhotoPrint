@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/units/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/units/{paramID}");
 
@@ -145,12 +146,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Unit respDto = ExtractContentJson<Unit>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
-                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
-                    Assert.Equal(reqDto.Description, respDto.Description);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
+                                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
+                                    Assert.Equal(reqDto.Description, respDto.Description);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                
                     respEntity = UnitConvertor.Convert(respDto);
                 }
                 finally
@@ -172,11 +173,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Unit testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.UnitName = "UnitName c1617b40684d48dea448907247f596ab";
-                    testEntity.UnitAbbr = "UnitAbbr c1617b40684d48dea448907247f596ab";
-                    testEntity.Description = "Description c1617b40684d48dea448907247f596ab";
-                    testEntity.IsDeleted = true;
-
+                          testEntity.UnitName = "UnitName e9ce3121f63f43deb953b5fd9fe2cd2b";
+                            testEntity.UnitAbbr = "UnitAbbr e9ce3121f63f43deb953b5fd9fe2cd2b";
+                            testEntity.Description = "Description e9ce3121f63f43deb953b5fd9fe2cd2b";
+                            testEntity.IsDeleted = false;              
+              
                     var reqDto = UnitConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -187,12 +188,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Unit respDto = ExtractContentJson<Unit>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
-                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
-                    Assert.Equal(reqDto.Description, respDto.Description);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.UnitName, respDto.UnitName);
+                                    Assert.Equal(reqDto.UnitAbbr, respDto.UnitAbbr);
+                                    Assert.Equal(reqDto.Description, respDto.Description);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                
                 }
                 finally
                 {
@@ -213,12 +214,12 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Unit testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.UnitName = "UnitName c1617b40684d48dea448907247f596ab";
-                    testEntity.UnitAbbr = "UnitAbbr c1617b40684d48dea448907247f596ab";
-                    testEntity.Description = "Description c1617b40684d48dea448907247f596ab";
-                    testEntity.IsDeleted = true;
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.UnitName = "UnitName e9ce3121f63f43deb953b5fd9fe2cd2b";
+                            testEntity.UnitAbbr = "UnitAbbr e9ce3121f63f43deb953b5fd9fe2cd2b";
+                            testEntity.Description = "Description e9ce3121f63f43deb953b5fd9fe2cd2b";
+                            testEntity.IsDeleted = false;              
+              
                     var reqDto = UnitConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -242,8 +243,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+        return dal.Erase(                        entity.ID
                 );
             }
             else
@@ -255,11 +256,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Unit CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Unit();
-            entity.UnitName = "UnitName 5bb6db0922b548d7b29890de00577ec9";
-            entity.UnitAbbr = "UnitAbbr 5bb6db0922b548d7b29890de00577ec9";
-            entity.Description = "Description 5bb6db0922b548d7b29890de00577ec9";
-            entity.IsDeleted = true;
-
+                          entity.UnitName = "UnitName 12acb3ae81f840cca1a9ca22c27de94f";
+                            entity.UnitAbbr = "UnitAbbr 12acb3ae81f840cca1a9ca22c27de94f";
+                            entity.Description = "Description 12acb3ae81f840cca1a9ca22c27de94f";
+                            entity.IsDeleted = false;              
+              
             return entity;
         }
 

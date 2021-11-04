@@ -15,9 +15,6 @@ namespace PPT.DTO
         [JsonPropertyName("Password")]
         public System.String Password { get; set; }
 
-        [JsonPropertyName("Salt")]
-        public System.String Salt { get; set; }
-
         [JsonPropertyName("FirstName")]
         public System.String FirstName { get; set; }
 

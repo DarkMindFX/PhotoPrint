@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/contacttypes/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/contacttypes/{paramID}");
 
@@ -145,10 +146,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ContactType respDto = ExtractContentJson<ContactType>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.ContactTypeName, respDto.ContactTypeName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.ContactTypeName, respDto.ContactTypeName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = ContactTypeConvertor.Convert(respDto);
                 }
                 finally
@@ -170,9 +171,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ContactType testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.ContactTypeName = "ContactTypeName abe49c5827f143d0894681f23f5d69a1";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ContactTypeName = "ContactTypeName ab9c7eaadf764324a6d755503ad46e47";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = ContactTypeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -183,10 +184,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     ContactType respDto = ExtractContentJson<ContactType>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.ContactTypeName, respDto.ContactTypeName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.ContactTypeName, respDto.ContactTypeName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -207,10 +208,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ContactType testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.ContactTypeName = "ContactTypeName abe49c5827f143d0894681f23f5d69a1";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.ContactTypeName = "ContactTypeName ab9c7eaadf764324a6d755503ad46e47";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = ContactTypeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -234,9 +235,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -247,9 +248,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ContactType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ContactType();
-                          entity.ContactTypeName = "ContactTypeName 76a72950cfea48418ee8fcab0dc4dcb9";
-                            entity.IsDeleted = true;              
-              
+            entity.ContactTypeName = "ContactTypeName 10b88e819b6a4225becd8d129fb92a54";
+            entity.IsDeleted = true;
+
             return entity;
         }
 

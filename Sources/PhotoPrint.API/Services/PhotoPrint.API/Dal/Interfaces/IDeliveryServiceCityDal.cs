@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace PPT.PhotoPrint.API.Dal
 
             IList<DeliveryServiceCity> GetByDeliveryServiceID(System.Int64 DeliveryServiceID);
             IList<DeliveryServiceCity> GetByCityID(System.Int64 CityID);
+    
         }
 }

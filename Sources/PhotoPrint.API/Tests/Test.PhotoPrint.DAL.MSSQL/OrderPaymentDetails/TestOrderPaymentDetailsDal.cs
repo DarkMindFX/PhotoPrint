@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -53,14 +54,14 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ID);
             
                           Assert.AreEqual(100004, entity.OrderID);
-                            Assert.AreEqual(1, entity.PaymentMethodID);
-                            Assert.AreEqual("PaymentTransUID 8e2d84fdcbf646abb9b717a1a41fa0db", entity.PaymentTransUID);
-                            Assert.AreEqual(DateTime.Parse("8/14/2022 8:23:33 AM"), entity.PaymentDateTime);
-                            Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("8/14/2022 8:23:33 AM"), entity.CreatedDate);
+                            Assert.AreEqual(3, entity.PaymentMethodID);
+                            Assert.AreEqual("PaymentTransUID dccd59ae73b04b7887bf7984872a81cc", entity.PaymentTransUID);
+                            Assert.AreEqual(DateTime.Parse("2/27/2019 11:17:39 PM"), entity.PaymentDateTime);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("2/27/2019 11:17:39 PM"), entity.CreatedDate);
                             Assert.AreEqual(100002, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("8/14/2022 8:23:33 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100006, entity.ModifiedByID);
+                            Assert.AreEqual(DateTime.Parse("10/3/2022 1:05:39 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100010, entity.ModifiedByID);
                       }
 
         [Test]
@@ -109,14 +110,14 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderPaymentDetailsDal("DALInitParams");
 
             var entity = new OrderPaymentDetails();
-                          entity.OrderID = 100012;
-                            entity.PaymentMethodID = 4;
-                            entity.PaymentTransUID = "PaymentTransUID fd901386f2994b01ad93fb9105340006";
-                            entity.PaymentDateTime = DateTime.Parse("4/1/2020 4:24:33 AM");
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("4/1/2020 4:24:33 AM");
-                            entity.CreatedByID = 100007;
-                            entity.ModifiedDate = DateTime.Parse("4/1/2020 4:24:33 AM");
+                          entity.OrderID = 100006;
+                            entity.PaymentMethodID = 10025;
+                            entity.PaymentTransUID = "PaymentTransUID 214392caaf304e25b214b93c98074ad9";
+                            entity.PaymentDateTime = DateTime.Parse("9/27/2023 12:40:39 PM");
+                            entity.IsDeleted = false;              
+                            entity.CreatedDate = DateTime.Parse("9/27/2023 12:40:39 PM");
+                            entity.CreatedByID = 100009;
+                            entity.ModifiedDate = DateTime.Parse("9/27/2023 12:40:39 PM");
                             entity.ModifiedByID = 100005;
                           
             entity = dal.Insert(entity);
@@ -126,14 +127,14 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100012, entity.OrderID);
-                            Assert.AreEqual(4, entity.PaymentMethodID);
-                            Assert.AreEqual("PaymentTransUID fd901386f2994b01ad93fb9105340006", entity.PaymentTransUID);
-                            Assert.AreEqual(DateTime.Parse("4/1/2020 4:24:33 AM"), entity.PaymentDateTime);
-                            Assert.AreEqual(true, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("4/1/2020 4:24:33 AM"), entity.CreatedDate);
-                            Assert.AreEqual(100007, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("4/1/2020 4:24:33 AM"), entity.ModifiedDate);
+                          Assert.AreEqual(100006, entity.OrderID);
+                            Assert.AreEqual(10025, entity.PaymentMethodID);
+                            Assert.AreEqual("PaymentTransUID 214392caaf304e25b214b93c98074ad9", entity.PaymentTransUID);
+                            Assert.AreEqual(DateTime.Parse("9/27/2023 12:40:39 PM"), entity.PaymentDateTime);
+                            Assert.AreEqual(false, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("9/27/2023 12:40:39 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100009, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("9/27/2023 12:40:39 PM"), entity.ModifiedDate);
                             Assert.AreEqual(100005, entity.ModifiedByID);
               
         }
@@ -148,15 +149,15 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             OrderPaymentDetails entity = dal.Get(paramID);
 
-                          entity.OrderID = 100008;
-                            entity.PaymentMethodID = 1;
-                            entity.PaymentTransUID = "PaymentTransUID 3de9c5f71bcb42a8bfff42ce8e67143d";
-                            entity.PaymentDateTime = DateTime.Parse("6/28/2020 2:38:33 PM");
-                            entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("6/28/2020 2:38:33 PM");
-                            entity.CreatedByID = 100007;
-                            entity.ModifiedDate = DateTime.Parse("5/10/2023 12:24:33 AM");
-                            entity.ModifiedByID = 100002;
+                          entity.OrderID = 100010;
+                            entity.PaymentMethodID = 5;
+                            entity.PaymentTransUID = "PaymentTransUID 67d5c7bcd549491c940ec50e1535f187";
+                            entity.PaymentDateTime = DateTime.Parse("12/25/2023 10:53:39 PM");
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("12/25/2023 10:53:39 PM");
+                            entity.CreatedByID = 100002;
+                            entity.ModifiedDate = DateTime.Parse("5/15/2021 8:40:39 AM");
+                            entity.ModifiedByID = 100011;
               
             entity = dal.Update(entity);
 
@@ -165,15 +166,15 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual(100008, entity.OrderID);
-                            Assert.AreEqual(1, entity.PaymentMethodID);
-                            Assert.AreEqual("PaymentTransUID 3de9c5f71bcb42a8bfff42ce8e67143d", entity.PaymentTransUID);
-                            Assert.AreEqual(DateTime.Parse("6/28/2020 2:38:33 PM"), entity.PaymentDateTime);
-                            Assert.AreEqual(false, entity.IsDeleted);
-                            Assert.AreEqual(DateTime.Parse("6/28/2020 2:38:33 PM"), entity.CreatedDate);
-                            Assert.AreEqual(100007, entity.CreatedByID);
-                            Assert.AreEqual(DateTime.Parse("5/10/2023 12:24:33 AM"), entity.ModifiedDate);
-                            Assert.AreEqual(100002, entity.ModifiedByID);
+                          Assert.AreEqual(100010, entity.OrderID);
+                            Assert.AreEqual(5, entity.PaymentMethodID);
+                            Assert.AreEqual("PaymentTransUID 67d5c7bcd549491c940ec50e1535f187", entity.PaymentTransUID);
+                            Assert.AreEqual(DateTime.Parse("12/25/2023 10:53:39 PM"), entity.PaymentDateTime);
+                            Assert.AreEqual(true, entity.IsDeleted);
+                            Assert.AreEqual(DateTime.Parse("12/25/2023 10:53:39 PM"), entity.CreatedDate);
+                            Assert.AreEqual(100002, entity.CreatedByID);
+                            Assert.AreEqual(DateTime.Parse("5/15/2021 8:40:39 AM"), entity.ModifiedDate);
+                            Assert.AreEqual(100011, entity.ModifiedByID);
               
         }
 
@@ -183,15 +184,15 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderPaymentDetailsDal("DALInitParams");
 
             var entity = new OrderPaymentDetails();
-                          entity.OrderID = 100008;
-                            entity.PaymentMethodID = 1;
-                            entity.PaymentTransUID = "PaymentTransUID 3de9c5f71bcb42a8bfff42ce8e67143d";
-                            entity.PaymentDateTime = DateTime.Parse("6/28/2020 2:38:33 PM");
-                            entity.IsDeleted = false;              
-                            entity.CreatedDate = DateTime.Parse("6/28/2020 2:38:33 PM");
-                            entity.CreatedByID = 100007;
-                            entity.ModifiedDate = DateTime.Parse("5/10/2023 12:24:33 AM");
-                            entity.ModifiedByID = 100002;
+                          entity.OrderID = 100010;
+                            entity.PaymentMethodID = 5;
+                            entity.PaymentTransUID = "PaymentTransUID 67d5c7bcd549491c940ec50e1535f187";
+                            entity.PaymentDateTime = DateTime.Parse("12/25/2023 10:53:39 PM");
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("12/25/2023 10:53:39 PM");
+                            entity.CreatedByID = 100002;
+                            entity.ModifiedDate = DateTime.Parse("5/15/2021 8:40:39 AM");
+                            entity.ModifiedByID = 100011;
               
             try
             {
@@ -203,6 +204,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("OrderPaymentDetails\\040.Erase.Success")]
+        public void OrderPaymentDetails_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareOrderPaymentDetailsDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void OrderPaymentDetails_Erase_InvalidId()
+        {
+            var dal = PrepareOrderPaymentDetailsDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IOrderPaymentDetailsDal PrepareOrderPaymentDetailsDal(string configName)

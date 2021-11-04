@@ -1,8 +1,9 @@
 
 
+
 DECLARE @PrintingHouseID BIGINT = 100002
-DECLARE @AddressID BIGINT = 100003
-DECLARE @IsPrimary BIT = 0
+DECLARE @AddressID BIGINT = 100001
+DECLARE @IsPrimary BIT = 1
  
 
 DELETE FROM [PrintingHouseAddress]

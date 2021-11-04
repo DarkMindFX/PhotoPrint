@@ -1,7 +1,8 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @AddressTypeName NVARCHAR(50) = 'AddressTypeName d22e605b91194f0f8e33783b3e6af552'
+DECLARE @AddressTypeName NVARCHAR(50) = 'AddressTypeName 98a0d4f312f1434d8c2b1366329982e9'
 DECLARE @IsDeleted BIT = 0
  
 

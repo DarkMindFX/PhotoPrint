@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,7 @@ namespace PPT.PhotoPrint.API.Dal
             IList<OrderItem> GetByPrintingHouseID(System.Int64? PrintingHouseID);
             IList<OrderItem> GetByCreatedByID(System.Int64 CreatedByID);
             IList<OrderItem> GetByModifiedByID(System.Int64? ModifiedByID);
-        }
+    
+            bool Erase(System.Int64? ID);
+            }
 }

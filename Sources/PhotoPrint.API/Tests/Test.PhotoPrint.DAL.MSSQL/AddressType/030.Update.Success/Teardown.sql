@@ -1,14 +1,15 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @AddressTypeName NVARCHAR(50) = 'AddressTypeName d22e605b91194f0f8e33783b3e6af552'
+DECLARE @AddressTypeName NVARCHAR(50) = 'AddressTypeName 98a0d4f312f1434d8c2b1366329982e9'
 DECLARE @IsDeleted BIT = 0
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updAddressTypeName NVARCHAR(50) = 'AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7'
+DECLARE @updAddressTypeName NVARCHAR(50) = 'AddressTypeName cfb49d68fcd344c6a5ca135ea0929f9d'
 DECLARE @updIsDeleted BIT = 0
  
 

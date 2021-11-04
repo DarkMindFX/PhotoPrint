@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -81,6 +82,19 @@ namespace PPT.DAL.MSSQL
             return result;
         }
 
+
+                public IList<ImageRelated> GetByImageID(System.Int64 ImageID)
+        {
+            var entitiesOut = base.GetBy<ImageRelated, System.Int64>("p_ImageRelated_GetByImageID", ImageID, "@ImageID", SqlDbType.BigInt, 0, ImageRelatedFromRow);
+
+            return entitiesOut;
+        }
+                public IList<ImageRelated> GetByRelatedImageID(System.Int64 RelatedImageID)
+        {
+            var entitiesOut = base.GetBy<ImageRelated, System.Int64>("p_ImageRelated_GetByRelatedImageID", RelatedImageID, "@RelatedImageID", SqlDbType.BigInt, 0, ImageRelatedFromRow);
+
+            return entitiesOut;
+        }
         
         public IList<ImageRelated> GetAll()
         {

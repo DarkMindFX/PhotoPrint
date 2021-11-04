@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,8 +53,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("RegionName 673ab202f0ab40d7afba96647acb2ee5", entity.RegionName);
-                            Assert.AreEqual(1, entity.CountryID);
+                          Assert.AreEqual("RegionName ed14b7bc0ab444f5986d7c406040ddcf", entity.RegionName);
+                            Assert.AreEqual(44, entity.CountryID);
                             Assert.AreEqual(false, entity.IsDeleted);
                       }
 
@@ -103,8 +104,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareRegionDal("DALInitParams");
 
             var entity = new Region();
-                          entity.RegionName = "RegionName a742a05e8d324851ae6fbbefe93e0703";
-                            entity.CountryID = 41;
+                          entity.RegionName = "RegionName 2d000cc56c9544bc900a7a5782807483";
+                            entity.CountryID = 8;
                             entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
@@ -114,8 +115,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("RegionName a742a05e8d324851ae6fbbefe93e0703", entity.RegionName);
-                            Assert.AreEqual(41, entity.CountryID);
+                          Assert.AreEqual("RegionName 2d000cc56c9544bc900a7a5782807483", entity.RegionName);
+                            Assert.AreEqual(8, entity.CountryID);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -130,8 +131,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             Region entity = dal.Get(paramID);
 
-                          entity.RegionName = "RegionName 260cba41b5654105a4108351d5facaa9";
-                            entity.CountryID = 33;
+                          entity.RegionName = "RegionName 6aa1e92d35734f6cb45d3d6332f5f2ad";
+                            entity.CountryID = 83;
                             entity.IsDeleted = true;              
               
             entity = dal.Update(entity);
@@ -141,8 +142,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("RegionName 260cba41b5654105a4108351d5facaa9", entity.RegionName);
-                            Assert.AreEqual(33, entity.CountryID);
+                          Assert.AreEqual("RegionName 6aa1e92d35734f6cb45d3d6332f5f2ad", entity.RegionName);
+                            Assert.AreEqual(83, entity.CountryID);
                             Assert.AreEqual(true, entity.IsDeleted);
               
         }
@@ -153,8 +154,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareRegionDal("DALInitParams");
 
             var entity = new Region();
-                          entity.RegionName = "RegionName 260cba41b5654105a4108351d5facaa9";
-                            entity.CountryID = 33;
+                          entity.RegionName = "RegionName 6aa1e92d35734f6cb45d3d6332f5f2ad";
+                            entity.CountryID = 83;
                             entity.IsDeleted = true;              
               
             try
@@ -167,6 +168,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("Region\\040.Erase.Success")]
+        public void Region_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareRegionDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void Region_Erase_InvalidId()
+        {
+            var dal = PrepareRegionDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IRegionDal PrepareRegionDal(string configName)

@@ -1,7 +1,8 @@
 
 
-DECLARE @FromStatusID BIGINT = 9
-DECLARE @ToStatusID BIGINT = 5
+
+DECLARE @FromStatusID BIGINT = 11
+DECLARE @ToStatusID BIGINT = 8
  
 
 

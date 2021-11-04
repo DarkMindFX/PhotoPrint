@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -54,9 +55,9 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.UserID);
                         Assert.IsNotNull(entity.AddressID);
             
-                          Assert.AreEqual(100010, entity.UserID);
-                            Assert.AreEqual(100007, entity.AddressID);
-                            Assert.AreEqual(false, entity.IsPrimary);
+                          Assert.AreEqual(100001, entity.UserID);
+                            Assert.AreEqual(110128, entity.AddressID);
+                            Assert.AreEqual(true, entity.IsPrimary);
                       }
 
         [Test]
@@ -108,9 +109,9 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserAddressDal("DALInitParams");
 
             var entity = new UserAddress();
-                          entity.UserID = 100011;
-                            entity.AddressID = 100005;
-                            entity.IsPrimary = true;              
+                          entity.UserID = 100003;
+                            entity.AddressID = 100004;
+                            entity.IsPrimary = false;              
                           
             entity = dal.Insert(entity);
 
@@ -120,9 +121,9 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.UserID);
                         Assert.IsNotNull(entity.AddressID);
             
-                          Assert.AreEqual(100011, entity.UserID);
-                            Assert.AreEqual(100005, entity.AddressID);
-                            Assert.AreEqual(true, entity.IsPrimary);
+                          Assert.AreEqual(100003, entity.UserID);
+                            Assert.AreEqual(100004, entity.AddressID);
+                            Assert.AreEqual(false, entity.IsPrimary);
               
         }
 
@@ -147,8 +148,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.UserID);
                         Assert.IsNotNull(entity.AddressID);
             
-                          Assert.AreEqual(100006, entity.UserID);
-                            Assert.AreEqual(100016, entity.AddressID);
+                          Assert.AreEqual(100011, entity.UserID);
+                            Assert.AreEqual(100004, entity.AddressID);
                             Assert.AreEqual(true, entity.IsPrimary);
               
         }
@@ -159,8 +160,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareUserAddressDal("DALInitParams");
 
             var entity = new UserAddress();
-                          entity.UserID = 100006;
-                            entity.AddressID = 100016;
+                          entity.UserID = 100011;
+                            entity.AddressID = 100004;
                             entity.IsPrimary = true;              
               
             try
@@ -174,6 +175,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IUserAddressDal PrepareUserAddressDal(string configName)
         {

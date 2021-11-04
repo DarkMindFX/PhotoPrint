@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,8 +53,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ContactTypeName d073f23a20264f4489dbac88a5fcbed8", entity.ContactTypeName);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("ContactTypeName 1f24b4c1afd34d478ce9a094b03cbe60", entity.ContactTypeName);
+                            Assert.AreEqual(false, entity.IsDeleted);
                       }
 
         [Test]
@@ -102,8 +103,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareContactTypeDal("DALInitParams");
 
             var entity = new ContactType();
-                          entity.ContactTypeName = "ContactTypeName 29fd051a649c4b3c8bdac493e25b7e3e";
-                            entity.IsDeleted = true;              
+                          entity.ContactTypeName = "ContactTypeName 5229692723e14ebf816b3426247bb4cf";
+                            entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
 
@@ -112,8 +113,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ContactTypeName 29fd051a649c4b3c8bdac493e25b7e3e", entity.ContactTypeName);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("ContactTypeName 5229692723e14ebf816b3426247bb4cf", entity.ContactTypeName);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -127,8 +128,8 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             ContactType entity = dal.Get(paramID);
 
-                          entity.ContactTypeName = "ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9";
-                            entity.IsDeleted = true;              
+                          entity.ContactTypeName = "ContactTypeName 04a2aa31cafb46a5886f051f7b849dac";
+                            entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
 
@@ -137,8 +138,8 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9", entity.ContactTypeName);
-                            Assert.AreEqual(true, entity.IsDeleted);
+                          Assert.AreEqual("ContactTypeName 04a2aa31cafb46a5886f051f7b849dac", entity.ContactTypeName);
+                            Assert.AreEqual(false, entity.IsDeleted);
               
         }
 
@@ -148,8 +149,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareContactTypeDal("DALInitParams");
 
             var entity = new ContactType();
-                          entity.ContactTypeName = "ContactTypeName 8b50d9fbe5d542519c5ef8f8f4828df9";
-                            entity.IsDeleted = true;              
+                          entity.ContactTypeName = "ContactTypeName 04a2aa31cafb46a5886f051f7b849dac";
+                            entity.IsDeleted = false;              
               
             try
             {
@@ -161,6 +162,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("ContactType\\040.Erase.Success")]
+        public void ContactType_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareContactTypeDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void ContactType_Erase_InvalidId()
+        {
+            var dal = PrepareContactTypeDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IContactTypeDal PrepareContactTypeDal(string configName)

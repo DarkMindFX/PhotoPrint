@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -52,7 +53,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("AddressTypeName d7843c92ee0a497b8758b4b561b92cea", entity.AddressTypeName);
+                          Assert.AreEqual("AddressTypeName c5092e878ee34f1592cb2935104a01c5", entity.AddressTypeName);
                             Assert.AreEqual(false, entity.IsDeleted);
                       }
 
@@ -102,7 +103,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareAddressTypeDal("DALInitParams");
 
             var entity = new AddressType();
-                          entity.AddressTypeName = "AddressTypeName d013910b78ab46ad86a445cfb642c0dc";
+                          entity.AddressTypeName = "AddressTypeName 822c55762f2c4301a9ecb5f4b2a5e3c0";
                             entity.IsDeleted = false;              
                           
             entity = dal.Insert(entity);
@@ -112,7 +113,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("AddressTypeName d013910b78ab46ad86a445cfb642c0dc", entity.AddressTypeName);
+                          Assert.AreEqual("AddressTypeName 822c55762f2c4301a9ecb5f4b2a5e3c0", entity.AddressTypeName);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -127,7 +128,7 @@ namespace Test.PPT.DAL.MSSQL
                 var paramID = (System.Int64?)objIds[0];
             AddressType entity = dal.Get(paramID);
 
-                          entity.AddressTypeName = "AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7";
+                          entity.AddressTypeName = "AddressTypeName cfb49d68fcd344c6a5ca135ea0929f9d";
                             entity.IsDeleted = false;              
               
             entity = dal.Update(entity);
@@ -137,7 +138,7 @@ namespace Test.PPT.DAL.MSSQL
             Assert.IsNotNull(entity);
                         Assert.IsNotNull(entity.ID);
             
-                          Assert.AreEqual("AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7", entity.AddressTypeName);
+                          Assert.AreEqual("AddressTypeName cfb49d68fcd344c6a5ca135ea0929f9d", entity.AddressTypeName);
                             Assert.AreEqual(false, entity.IsDeleted);
               
         }
@@ -148,7 +149,7 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareAddressTypeDal("DALInitParams");
 
             var entity = new AddressType();
-                          entity.AddressTypeName = "AddressTypeName 82c041b383d24ed683db4eb52c7c0ac7";
+                          entity.AddressTypeName = "AddressTypeName cfb49d68fcd344c6a5ca135ea0929f9d";
                             entity.IsDeleted = false;              
               
             try
@@ -161,6 +162,32 @@ namespace Test.PPT.DAL.MSSQL
             {
                 Assert.Pass("Success - exception thrown as expected");
             }
+        }
+
+        [TestCase("AddressType\\040.Erase.Success")]
+        public void AddressType_Erase_Success(string caseName)
+        {
+            SqlConnection conn = OpenConnection("DALInitParams");
+            var dal = PrepareAddressTypeDal("DALInitParams");
+
+            IList<object> objIds = SetupCase(conn, caseName);
+                var paramID = (System.Int64?)objIds[0];
+            bool removed = dal.Erase(paramID);
+
+            TeardownCase(conn, caseName);
+
+            Assert.IsTrue(removed);
+        }
+
+        [Test]
+        public void AddressType_Erase_InvalidId()
+        {
+            var dal = PrepareAddressTypeDal("DALInitParams");
+                var paramID = Int64.MaxValue - 1;
+   
+            bool removed = dal.Erase(paramID);
+            Assert.IsFalse(removed);
+
         }
 
         protected IAddressTypeDal PrepareAddressTypeDal(string configName)

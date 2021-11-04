@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace PPT.Interfaces
         bool Delete(System.Int64? ID);
 
         IList<UserConfirmation> GetByUserID(System.Int64 UserID);
+        
             }
 }
 

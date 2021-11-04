@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -54,8 +55,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.RelatedImageID);
             
-                          Assert.AreEqual(100038, entity.ImageID);
-                            Assert.AreEqual(100036, entity.RelatedImageID);
+                          Assert.AreEqual(100012, entity.ImageID);
+                            Assert.AreEqual(100023, entity.RelatedImageID);
                       }
 
         [Test]
@@ -107,8 +108,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageRelatedDal("DALInitParams");
 
             var entity = new ImageRelated();
-                          entity.ImageID = 100016;
-                            entity.RelatedImageID = 100031;
+                          entity.ImageID = 100036;
+                            entity.RelatedImageID = 100003;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +119,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.RelatedImageID);
             
-                          Assert.AreEqual(100016, entity.ImageID);
-                            Assert.AreEqual(100031, entity.RelatedImageID);
+                          Assert.AreEqual(100036, entity.ImageID);
+                            Assert.AreEqual(100003, entity.RelatedImageID);
               
         }
 
@@ -143,8 +144,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.ImageID);
                         Assert.IsNotNull(entity.RelatedImageID);
             
-                          Assert.AreEqual(100026, entity.ImageID);
-                            Assert.AreEqual(100034, entity.RelatedImageID);
+                          Assert.AreEqual(100009, entity.ImageID);
+                            Assert.AreEqual(100030, entity.RelatedImageID);
               
         }
 
@@ -154,8 +155,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareImageRelatedDal("DALInitParams");
 
             var entity = new ImageRelated();
-                          entity.ImageID = 100026;
-                            entity.RelatedImageID = 100034;
+                          entity.ImageID = 100009;
+                            entity.RelatedImageID = 100030;
               
             try
             {
@@ -168,6 +169,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IImageRelatedDal PrepareImageRelatedDal(string configName)
         {

@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -153,6 +154,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
 
 
+
+
+
                     respEntity = ContactConvertor.Convert(respDto);
                 }
                 finally
@@ -174,15 +178,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Contact testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.ContactTypeID = 4;
-                    testEntity.Title = "Title cafbe206a4634b4e8ae4e7c3f7fbed4e";
-                    testEntity.Comment = "Comment cafbe206a4634b4e8ae4e7c3f7fbed4e";
-                    testEntity.Value = "Value cafbe206a4634b4e8ae4e7c3f7fbed4e";
+                    testEntity.ContactTypeID = 5;
+                    testEntity.Title = "Title 56fc05af366249dc9dc7f9691f4e6ad3";
+                    testEntity.Comment = "Comment 56fc05af366249dc9dc7f9691f4e6ad3";
+                    testEntity.Value = "Value 56fc05af366249dc9dc7f9691f4e6ad3";
                     testEntity.IsDeleted = true;
-                    testEntity.CreatedByID = 100004;
-                    testEntity.CreatedDate = DateTime.Parse("11/27/2021 5:39:35 PM");
-                    testEntity.ModifiedByID = 100001;
-                    testEntity.ModifiedDate = DateTime.Parse("11/27/2021 5:39:35 PM");
+                    testEntity.CreatedByID = 100011;
+                    testEntity.CreatedDate = DateTime.Parse("5/28/2020 11:12:37 AM");
+                    testEntity.ModifiedByID = 100006;
+                    testEntity.ModifiedDate = DateTime.Parse("4/6/2023 11:39:37 AM");
 
                     var reqDto = ContactConvertor.Convert(testEntity, null);
 
@@ -200,6 +204,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Comment, respDto.Comment);
                     Assert.Equal(reqDto.Value, respDto.Value);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -221,15 +226,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.ContactTypeID = 4;
-                    testEntity.Title = "Title cafbe206a4634b4e8ae4e7c3f7fbed4e";
-                    testEntity.Comment = "Comment cafbe206a4634b4e8ae4e7c3f7fbed4e";
-                    testEntity.Value = "Value cafbe206a4634b4e8ae4e7c3f7fbed4e";
+                    testEntity.ContactTypeID = 5;
+                    testEntity.Title = "Title 56fc05af366249dc9dc7f9691f4e6ad3";
+                    testEntity.Comment = "Comment 56fc05af366249dc9dc7f9691f4e6ad3";
+                    testEntity.Value = "Value 56fc05af366249dc9dc7f9691f4e6ad3";
                     testEntity.IsDeleted = true;
-                    testEntity.CreatedByID = 100004;
-                    testEntity.CreatedDate = DateTime.Parse("11/27/2021 5:39:35 PM");
-                    testEntity.ModifiedByID = 100001;
-                    testEntity.ModifiedDate = DateTime.Parse("11/27/2021 5:39:35 PM");
+                    testEntity.CreatedByID = 100011;
+                    testEntity.CreatedDate = DateTime.Parse("5/28/2020 11:12:37 AM");
+                    testEntity.ModifiedByID = 100006;
+                    testEntity.ModifiedDate = DateTime.Parse("4/6/2023 11:39:37 AM");
 
                     var reqDto = ContactConvertor.Convert(testEntity, null);
 
@@ -254,9 +259,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -267,15 +272,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Contact CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Contact();
-            entity.ContactTypeID = 3;
-            entity.Title = "Title 59d7bc634fa141b8a12f7f4be8c46782";
-            entity.Comment = "Comment 59d7bc634fa141b8a12f7f4be8c46782";
-            entity.Value = "Value 59d7bc634fa141b8a12f7f4be8c46782";
+            entity.ContactTypeID = 4;
+            entity.Title = "Title a1f89219cbbe4b268cbaa39ee9cbb251";
+            entity.Comment = "Comment a1f89219cbbe4b268cbaa39ee9cbb251";
+            entity.Value = "Value a1f89219cbbe4b268cbaa39ee9cbb251";
             entity.IsDeleted = false;
-            entity.CreatedByID = 100003;
-            entity.CreatedDate = DateTime.Parse("8/30/2021 7:25:35 AM");
-            entity.ModifiedByID = 100001;
-            entity.ModifiedDate = DateTime.Parse("8/30/2021 7:25:35 AM");
+            entity.CreatedByID = 100001;
+            entity.CreatedDate = DateTime.Parse("5/27/2024 5:50:37 PM");
+            entity.ModifiedByID = 100003;
+            entity.ModifiedDate = DateTime.Parse("10/16/2021 3:37:37 AM");
 
             return entity;
         }

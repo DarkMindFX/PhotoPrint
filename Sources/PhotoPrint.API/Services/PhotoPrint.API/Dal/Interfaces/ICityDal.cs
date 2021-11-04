@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,7 @@ namespace PPT.PhotoPrint.API.Dal
         bool Delete(System.Int64? ID);
 
             IList<City> GetByRegionID(System.Int64 RegionID);
-        }
+    
+            bool Erase(System.Int64? ID);
+            }
 }

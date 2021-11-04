@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit; 
+using Xunit;
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/currencies/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                var paramID = testEntity.ID;
+                    var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/currencies/{paramID}");
 
@@ -145,11 +146,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Currency respDto = ExtractContentJson<Currency>(respInsert.Result.Content);
 
-                                    Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.ISO, respDto.ISO);
-                                    Assert.Equal(reqDto.CurrencyName, respDto.CurrencyName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.ISO, respDto.ISO);
+                    Assert.Equal(reqDto.CurrencyName, respDto.CurrencyName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                     respEntity = CurrencyConvertor.Convert(respDto);
                 }
                 finally
@@ -171,10 +172,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Currency testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.ISO = "ISO b";
-                            testEntity.CurrencyName = "CurrencyName b8a34075e0c24dfcbc01e33e01bb8cad";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ISO = "ISO b";
+                    testEntity.CurrencyName = "CurrencyName b6663bcf4be04d69b209ea4a901e88e3";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = CurrencyConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -185,11 +186,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Currency respDto = ExtractContentJson<Currency>(respUpdate.Result.Content);
 
-                                     Assert.NotNull(respDto.ID);
-                                    Assert.Equal(reqDto.ISO, respDto.ISO);
-                                    Assert.Equal(reqDto.CurrencyName, respDto.CurrencyName);
-                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                
+                    Assert.NotNull(respDto.ID);
+                    Assert.Equal(reqDto.ISO, respDto.ISO);
+                    Assert.Equal(reqDto.CurrencyName, respDto.CurrencyName);
+                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
                 }
                 finally
                 {
@@ -210,11 +211,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Currency testEntity = CreateTestEntity();
                 try
                 {
-                             testEntity.ID = Int64.MaxValue;
-                             testEntity.ISO = "ISO b";
-                            testEntity.CurrencyName = "CurrencyName b8a34075e0c24dfcbc01e33e01bb8cad";
-                            testEntity.IsDeleted = true;              
-              
+                    testEntity.ID = Int64.MaxValue;
+                    testEntity.ISO = "ISO b";
+                    testEntity.CurrencyName = "CurrencyName b6663bcf4be04d69b209ea4a901e88e3";
+                    testEntity.IsDeleted = true;
+
                     var reqDto = CurrencyConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -238,9 +239,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -251,10 +252,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Currency CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Currency();
-                          entity.ISO = "ISO 9";
-                            entity.CurrencyName = "CurrencyName 9ea98550d43b4f8c8875e6273b896e28";
-                            entity.IsDeleted = true;              
-              
+            entity.ISO = "ISO d";
+            entity.CurrencyName = "CurrencyName dfcc7a0b393e477591fa3b367f3409d5";
+            entity.IsDeleted = true;
+
             return entity;
         }
 

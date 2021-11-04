@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -153,10 +154,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                                     Assert.Equal(reqDto.DeliveryServiceID, respDto.DeliveryServiceID);
                                     Assert.Equal(reqDto.Comments, respDto.Comments);
                                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+                                    
+                                    
+                                    
+                                    
                 
                     respEntity = OrderConvertor.Convert(respDto);
                 }
@@ -179,17 +180,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Order testEntity = AddTestEntity();
                 try
                 {
-                          testEntity.ManagerID = 100008 ;
-                            testEntity.UserID = 100010 ;
-                            testEntity.ContactID = 100003 ;
+                          testEntity.ManagerID = 100001 ;
+                            testEntity.UserID = 100007 ;
+                            testEntity.ContactID = 100012 ;
                             testEntity.DeliveryAddressID = 100009 ;
-                            testEntity.DeliveryServiceID = 100009 ;
-                            testEntity.Comments = "Comments 446dc79f4735492aa84ca73657ec171e";
+                            testEntity.DeliveryServiceID = 100008 ;
+                            testEntity.Comments = "Comments 2843fe671d2b4544b345ea5dc5f37592";
                             testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("10/23/2019 10:29:35 AM");
-                            testEntity.CreatedByID = 100011 ;
-                            testEntity.ModifiedDate = DateTime.Parse("9/2/2022 8:16:35 PM");
-                            testEntity.ModifiedByID = 100011 ;
+                            testEntity.CreatedDate = DateTime.Parse("11/27/2021 10:59:38 PM");
+                            testEntity.CreatedByID = 100009 ;
+                            testEntity.ModifiedDate = DateTime.Parse("2/25/2022 9:13:38 AM");
+                            testEntity.ModifiedByID = 100004 ;
               
                     var reqDto = OrderConvertor.Convert(testEntity, null);
 
@@ -209,10 +210,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                                     Assert.Equal(reqDto.DeliveryServiceID, respDto.DeliveryServiceID);
                                     Assert.Equal(reqDto.Comments, respDto.Comments);
                                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-                                    Assert.Equal(reqDto.CreatedDate, respDto.CreatedDate);
-                                    Assert.Equal(reqDto.CreatedByID, respDto.CreatedByID);
-                                    Assert.Equal(reqDto.ModifiedDate, respDto.ModifiedDate);
-                                    Assert.Equal(reqDto.ModifiedByID, respDto.ModifiedByID);
+                                    
+                                    
+                                    
+                                    
                 
                 }
                 finally
@@ -235,17 +236,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                              testEntity.ID = Int64.MaxValue;
-                             testEntity.ManagerID = 100008;
-                            testEntity.UserID = 100010;
-                            testEntity.ContactID = 100003;
+                             testEntity.ManagerID = 100001;
+                            testEntity.UserID = 100007;
+                            testEntity.ContactID = 100012;
                             testEntity.DeliveryAddressID = 100009;
-                            testEntity.DeliveryServiceID = 100009;
-                            testEntity.Comments = "Comments 446dc79f4735492aa84ca73657ec171e";
+                            testEntity.DeliveryServiceID = 100008;
+                            testEntity.Comments = "Comments 2843fe671d2b4544b345ea5dc5f37592";
                             testEntity.IsDeleted = true;              
-                            testEntity.CreatedDate = DateTime.Parse("10/23/2019 10:29:35 AM");
-                            testEntity.CreatedByID = 100011;
-                            testEntity.ModifiedDate = DateTime.Parse("9/2/2022 8:16:35 PM");
-                            testEntity.ModifiedByID = 100011;
+                            testEntity.CreatedDate = DateTime.Parse("11/27/2021 10:59:38 PM");
+                            testEntity.CreatedByID = 100009;
+                            testEntity.ModifiedDate = DateTime.Parse("2/25/2022 9:13:38 AM");
+                            testEntity.ModifiedByID = 100004;
               
                     var reqDto = OrderConvertor.Convert(testEntity, null);
 
@@ -270,8 +271,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+        return dal.Erase(                        entity.ID
                 );
             }
             else
@@ -283,17 +284,17 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Order CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Order();
-                          entity.ManagerID = 100005;
+                          entity.ManagerID = 100008;
                             entity.UserID = 100007;
-                            entity.ContactID = 100016;
-                            entity.DeliveryAddressID = 100016;
-                            entity.DeliveryServiceID = 100002;
-                            entity.Comments = "Comments fe81414b76d74830b8b93b080af24ab1";
-                            entity.IsDeleted = true;              
-                            entity.CreatedDate = DateTime.Parse("7/19/2024 6:28:35 PM");
-                            entity.CreatedByID = 100011;
-                            entity.ModifiedDate = DateTime.Parse("12/8/2021 4:15:35 AM");
-                            entity.ModifiedByID = 100007;
+                            entity.ContactID = 100011;
+                            entity.DeliveryAddressID = 100005;
+                            entity.DeliveryServiceID = 100001;
+                            entity.Comments = "Comments 0137314e9ba34cbfbb1878356f622253";
+                            entity.IsDeleted = false;              
+                            entity.CreatedDate = DateTime.Parse("11/4/2019 7:34:38 PM");
+                            entity.CreatedByID = 100009;
+                            entity.ModifiedDate = DateTime.Parse("2/2/2020 5:48:38 AM");
+                            entity.ModifiedByID = 100011;
               
             return entity;
         }

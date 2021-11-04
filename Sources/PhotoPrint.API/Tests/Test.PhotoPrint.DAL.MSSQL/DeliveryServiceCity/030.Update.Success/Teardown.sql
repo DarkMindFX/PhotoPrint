@@ -1,13 +1,14 @@
 
 
+
 -- original values --
-DECLARE @DeliveryServiceID BIGINT = 100009
-DECLARE @CityID BIGINT = 1
+DECLARE @DeliveryServiceID BIGINT = 100006
+DECLARE @CityID BIGINT = 10
  
 -- updated values --
 
-DECLARE @updDeliveryServiceID BIGINT = 100009
-DECLARE @updCityID BIGINT = 1
+DECLARE @updDeliveryServiceID BIGINT = 100006
+DECLARE @updCityID BIGINT = 10
  
 
 DECLARE @Fail AS BIT = 0

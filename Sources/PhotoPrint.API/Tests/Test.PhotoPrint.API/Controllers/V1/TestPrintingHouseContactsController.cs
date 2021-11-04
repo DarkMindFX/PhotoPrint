@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,8 +50,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramPrintingHouseID = testEntity.PrintingHouseID;
-                    var paramContactID = testEntity.ContactID;
+                var paramPrintingHouseID = testEntity.PrintingHouseID;
+                var paramContactID = testEntity.ContactID;
                     var respGet = client.GetAsync($"/api/v1/printinghousecontacts/{paramPrintingHouseID}/{paramContactID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -95,8 +96,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramPrintingHouseID = testEntity.PrintingHouseID;
-                    var paramContactID = testEntity.ContactID;
+                var paramPrintingHouseID = testEntity.PrintingHouseID;
+                var paramContactID = testEntity.ContactID;
 
                     var respDel = client.DeleteAsync($"/api/v1/printinghousecontacts/{paramPrintingHouseID}/{paramContactID}");
 
@@ -149,10 +150,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     PrintingHouseContact respDto = ExtractContentJson<PrintingHouseContact>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.PrintingHouseID);
-                    Assert.NotNull(respDto.ContactID);
-                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-
+                                    Assert.NotNull(respDto.PrintingHouseID);
+                                    Assert.NotNull(respDto.ContactID);
+                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+                
                     respEntity = PrintingHouseContactConvertor.Convert(respDto);
                 }
                 finally
@@ -174,8 +175,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PrintingHouseContact testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.IsPrimary = false;
-
+                          testEntity.IsPrimary = false;              
+              
                     var reqDto = PrintingHouseContactConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -186,10 +187,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     PrintingHouseContact respDto = ExtractContentJson<PrintingHouseContact>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.PrintingHouseID);
-                    Assert.NotNull(respDto.ContactID);
-                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
-
+                                     Assert.NotNull(respDto.PrintingHouseID);
+                                    Assert.NotNull(respDto.ContactID);
+                                    Assert.Equal(reqDto.IsPrimary, respDto.IsPrimary);
+                
                 }
                 finally
                 {
@@ -210,10 +211,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PrintingHouseContact testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.PrintingHouseID = 100001;
-                    testEntity.ContactID = 100020;
-                    testEntity.IsPrimary = false;
-
+                            testEntity.PrintingHouseID = 100005;
+                            testEntity.ContactID = 100012;
+                            testEntity.IsPrimary = false;              
+              
                     var reqDto = PrintingHouseContactConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -237,8 +238,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.PrintingHouseID,
+
+
+                return dal.Delete(                        entity.PrintingHouseID,
                                         entity.ContactID
                 );
             }
@@ -251,10 +253,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.PrintingHouseContact CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.PrintingHouseContact();
-            entity.PrintingHouseID = 100001;
-            entity.ContactID = 100012;
-            entity.IsPrimary = true;
-
+                          entity.PrintingHouseID = 100005;
+                            entity.ContactID = 100006;
+                            entity.IsPrimary = true;              
+              
             return entity;
         }
 

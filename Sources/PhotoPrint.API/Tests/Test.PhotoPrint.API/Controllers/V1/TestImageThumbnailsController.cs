@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -171,9 +172,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.ImageThumbnail testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Url = "Url 0afade0b870b4a26ba031379eefae862";
-                    testEntity.Order = 577;
-                    testEntity.ImageID = 100019;
+                    testEntity.Url = "Url ec8e9a6fdd374a08b0d33efcc2f29854";
+                    testEntity.Order = 835;
+                    testEntity.ImageID = 100015;
 
                     var reqDto = ImageThumbnailConvertor.Convert(testEntity, null);
 
@@ -211,9 +212,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.Url = "Url 0afade0b870b4a26ba031379eefae862";
-                    testEntity.Order = 577;
-                    testEntity.ImageID = 100019;
+                    testEntity.Url = "Url ec8e9a6fdd374a08b0d33efcc2f29854";
+                    testEntity.Order = 835;
+                    testEntity.ImageID = 100015;
 
                     var reqDto = ImageThumbnailConvertor.Convert(testEntity, null);
 
@@ -238,8 +239,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+
+                return dal.Delete(entity.ID
                 );
             }
             else
@@ -251,9 +253,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.ImageThumbnail CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.ImageThumbnail();
-            entity.Url = "Url 9ebe4ea9d3e240cf981f6c36d620b0cf";
-            entity.Order = 532;
-            entity.ImageID = 100035;
+            entity.Url = "Url a5260e6d9dbe463fa632017c6fb001f5";
+            entity.Order = 387;
+            entity.ImageID = 100034;
 
             return entity;
         }

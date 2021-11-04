@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/sizes/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/sizes/{paramID}");
 
@@ -145,13 +146,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Size respDto = ExtractContentJson<Size>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.SizeName, respDto.SizeName);
-                    Assert.Equal(reqDto.Width, respDto.Width);
-                    Assert.Equal(reqDto.Height, respDto.Height);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.SizeName, respDto.SizeName);
+                                    Assert.Equal(reqDto.Width, respDto.Width);
+                                    Assert.Equal(reqDto.Height, respDto.Height);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                                    
+                                    
+                                    
+                                    
+                
                     respEntity = SizeConvertor.Convert(respDto);
                 }
                 finally
@@ -173,15 +177,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Size testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.SizeName = "SizeName b4681dd9d73c44a287765e3b41b3f4c4";
-                    testEntity.Width = 120;
-                    testEntity.Height = 642;
-                    testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
-                    testEntity.CreatedByID = 100007;
-                    testEntity.ModifiedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
-                    testEntity.ModifiedByID = 100001;
-
+                          testEntity.SizeName = "SizeName fbb7e50be2984d5f9cb5790baad03724";
+                            testEntity.Width = 540 ;
+                            testEntity.Height = 540 ;
+                            testEntity.IsDeleted = false;              
+                            testEntity.CreatedDate = DateTime.Parse("1/24/2022 12:27:38 AM");
+                            testEntity.CreatedByID = 100005 ;
+                            testEntity.ModifiedDate = DateTime.Parse("4/16/2023 10:15:38 PM");
+                            testEntity.ModifiedByID = 100011 ;
+              
                     var reqDto = SizeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -192,13 +196,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     Size respDto = ExtractContentJson<Size>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.SizeName, respDto.SizeName);
-                    Assert.Equal(reqDto.Width, respDto.Width);
-                    Assert.Equal(reqDto.Height, respDto.Height);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.SizeName, respDto.SizeName);
+                                    Assert.Equal(reqDto.Width, respDto.Width);
+                                    Assert.Equal(reqDto.Height, respDto.Height);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                                    
+                                    
+                                    
+                                    
+                
                 }
                 finally
                 {
@@ -219,16 +226,16 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.Size testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.SizeName = "SizeName b4681dd9d73c44a287765e3b41b3f4c4";
-                    testEntity.Width = 120;
-                    testEntity.Height = 642;
-                    testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
-                    testEntity.CreatedByID = 100007;
-                    testEntity.ModifiedDate = DateTime.Parse("8/11/2022 5:55:35 AM");
-                    testEntity.ModifiedByID = 100001;
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.SizeName = "SizeName fbb7e50be2984d5f9cb5790baad03724";
+                            testEntity.Width = 540;
+                            testEntity.Height = 540;
+                            testEntity.IsDeleted = false;              
+                            testEntity.CreatedDate = DateTime.Parse("1/24/2022 12:27:38 AM");
+                            testEntity.CreatedByID = 100005;
+                            testEntity.ModifiedDate = DateTime.Parse("4/16/2023 10:15:38 PM");
+                            testEntity.ModifiedByID = 100011;
+              
                     var reqDto = SizeConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -252,8 +259,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+        return dal.Erase(                        entity.ID
                 );
             }
             else
@@ -265,15 +272,15 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.Size CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.Size();
-            entity.SizeName = "SizeName f6b910ecb6554ce2abe1bf6cef753b54";
-            entity.Width = 76;
-            entity.Height = 76;
-            entity.IsDeleted = false;
-            entity.CreatedDate = DateTime.Parse("7/4/2019 9:54:35 AM");
-            entity.CreatedByID = 100002;
-            entity.ModifiedDate = DateTime.Parse("5/14/2022 7:41:35 PM");
-            entity.ModifiedByID = 100004;
-
+                          entity.SizeName = "SizeName 9e0581979b824da788e718b0aa96acae";
+                            entity.Width = 451;
+                            entity.Height = 451;
+                            entity.IsDeleted = true;              
+                            entity.CreatedDate = DateTime.Parse("7/28/2021 6:40:38 PM");
+                            entity.CreatedByID = 100007;
+                            entity.ModifiedDate = DateTime.Parse("6/7/2024 4:26:38 AM");
+                            entity.ModifiedByID = 100001;
+              
             return entity;
         }
 

@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace PPT.Interfaces
         IList<Image> GetByPriceCurrencyID(System.Int64? PriceCurrencyID);
         IList<Image> GetByCreatedByID(System.Int64 CreatedByID);
         IList<Image> GetByModifiedByID(System.Int64? ModifiedByID);
+        
+                bool Erase(System.Int64? ID);
             }
 }
 

@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -21,6 +22,11 @@ namespace PPT.PhotoPrint.API.Dal
         }
 
         public bool Delete(System.Int64? ID)
+        {
+            return _dalImpl.Delete(            ID);
+        }
+
+        public bool Erase(System.Int64? ID)
         {
             return _dalImpl.Delete(            ID);
         }

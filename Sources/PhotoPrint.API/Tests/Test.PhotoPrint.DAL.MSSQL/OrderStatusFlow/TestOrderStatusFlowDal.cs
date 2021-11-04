@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -54,8 +55,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.FromStatusID);
                         Assert.IsNotNull(entity.ToStatusID);
             
-                          Assert.AreEqual(7, entity.FromStatusID);
-                            Assert.AreEqual(7, entity.ToStatusID);
+                          Assert.AreEqual(11, entity.FromStatusID);
+                            Assert.AreEqual(5, entity.ToStatusID);
                       }
 
         [Test]
@@ -107,8 +108,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderStatusFlowDal("DALInitParams");
 
             var entity = new OrderStatusFlow();
-                          entity.FromStatusID = 11;
-                            entity.ToStatusID = 8;
+                          entity.FromStatusID = 6;
+                            entity.ToStatusID = 5;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +119,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.FromStatusID);
                         Assert.IsNotNull(entity.ToStatusID);
             
-                          Assert.AreEqual(11, entity.FromStatusID);
-                            Assert.AreEqual(8, entity.ToStatusID);
+                          Assert.AreEqual(6, entity.FromStatusID);
+                            Assert.AreEqual(5, entity.ToStatusID);
               
         }
 
@@ -143,8 +144,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.FromStatusID);
                         Assert.IsNotNull(entity.ToStatusID);
             
-                          Assert.AreEqual(2, entity.FromStatusID);
-                            Assert.AreEqual(2, entity.ToStatusID);
+                          Assert.AreEqual(8, entity.FromStatusID);
+                            Assert.AreEqual(8, entity.ToStatusID);
               
         }
 
@@ -154,8 +155,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareOrderStatusFlowDal("DALInitParams");
 
             var entity = new OrderStatusFlow();
-                          entity.FromStatusID = 2;
-                            entity.ToStatusID = 2;
+                          entity.FromStatusID = 8;
+                            entity.ToStatusID = 8;
               
             try
             {
@@ -168,6 +169,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IOrderStatusFlowDal PrepareOrderStatusFlowDal(string configName)
         {

@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -17,12 +18,17 @@ namespace PPT.PhotoPrint.API.Dal
 
         public Order Get(System.Int64? ID)
         {
-            return _dalImpl.Get(ID);
+            return _dalImpl.Get(            ID);
         }
 
         public bool Delete(System.Int64? ID)
         {
-            return _dalImpl.Delete(ID);
+            return _dalImpl.Delete(            ID);
+        }
+
+        public bool Erase(System.Int64? ID)
+        {
+            return _dalImpl.Delete(            ID);
         }
 
         public IList<Order> GetByManagerID(System.Int64? ManagerID)
@@ -53,5 +59,5 @@ namespace PPT.PhotoPrint.API.Dal
         {
             return _dalImpl.GetByModifiedByID(ModifiedByID);
         }
-    }
+            }
 }

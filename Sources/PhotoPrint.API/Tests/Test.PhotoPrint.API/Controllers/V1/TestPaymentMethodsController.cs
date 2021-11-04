@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net;
-using Xunit;
+using Xunit; 
 
 namespace Test.E2E.PhotoPrint.API.Controllers.V1
 {
@@ -49,7 +50,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
                     var respGet = client.GetAsync($"/api/v1/paymentmethods/{paramID}");
 
                     Assert.Equal(HttpStatusCode.OK, respGet.Result.StatusCode);
@@ -93,7 +94,7 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", respLogin.Token);
                 try
                 {
-                    var paramID = testEntity.ID;
+                var paramID = testEntity.ID;
 
                     var respDel = client.DeleteAsync($"/api/v1/paymentmethods/{paramID}");
 
@@ -145,11 +146,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     PaymentMethod respDto = ExtractContentJson<PaymentMethod>(respInsert.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.Name, respDto.Name);
-                    Assert.Equal(reqDto.Description, respDto.Description);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
+                                    Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.Name, respDto.Name);
+                                    Assert.Equal(reqDto.Description, respDto.Description);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                
                     respEntity = PaymentMethodConvertor.Convert(respDto);
                 }
                 finally
@@ -171,10 +172,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PaymentMethod testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.Name = "Name fee79acc848d43b3b1877e5999c03c00";
-                    testEntity.Description = "Description fee79acc848d43b3b1877e5999c03c00";
-                    testEntity.IsDeleted = false;
-
+                          testEntity.Name = "Name ec47bbc6e04446b7a66db6e48cbed254";
+                            testEntity.Description = "Description ec47bbc6e04446b7a66db6e48cbed254";
+                            testEntity.IsDeleted = true;              
+              
                     var reqDto = PaymentMethodConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -185,11 +186,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
 
                     PaymentMethod respDto = ExtractContentJson<PaymentMethod>(respUpdate.Result.Content);
 
-                    Assert.NotNull(respDto.ID);
-                    Assert.Equal(reqDto.Name, respDto.Name);
-                    Assert.Equal(reqDto.Description, respDto.Description);
-                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
-
+                                     Assert.NotNull(respDto.ID);
+                                    Assert.Equal(reqDto.Name, respDto.Name);
+                                    Assert.Equal(reqDto.Description, respDto.Description);
+                                    Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+                
                 }
                 finally
                 {
@@ -210,11 +211,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.PaymentMethod testEntity = CreateTestEntity();
                 try
                 {
-                    testEntity.ID = Int64.MaxValue;
-                    testEntity.Name = "Name fee79acc848d43b3b1877e5999c03c00";
-                    testEntity.Description = "Description fee79acc848d43b3b1877e5999c03c00";
-                    testEntity.IsDeleted = false;
-
+                             testEntity.ID = Int64.MaxValue;
+                             testEntity.Name = "Name ec47bbc6e04446b7a66db6e48cbed254";
+                            testEntity.Description = "Description ec47bbc6e04446b7a66db6e48cbed254";
+                            testEntity.IsDeleted = true;              
+              
                     var reqDto = PaymentMethodConvertor.Convert(testEntity, null);
 
                     var content = CreateContentJson(reqDto);
@@ -238,8 +239,8 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
+
+        return dal.Erase(                        entity.ID
                 );
             }
             else
@@ -251,10 +252,10 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.PaymentMethod CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.PaymentMethod();
-            entity.Name = "Name ca866a7f853a450d8c73c4c519d9aa75";
-            entity.Description = "Description ca866a7f853a450d8c73c4c519d9aa75";
-            entity.IsDeleted = false;
-
+                          entity.Name = "Name 6e4c6593d501471f9c8dbd2a8784e745";
+                            entity.Description = "Description 6e4c6593d501471f9c8dbd2a8784e745";
+                            entity.IsDeleted = true;              
+              
             return entity;
         }
 

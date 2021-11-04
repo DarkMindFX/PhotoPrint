@@ -1,5 +1,6 @@
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace PPT.Interfaces
 
         IList<DeliveryServiceCity> GetByDeliveryServiceID(System.Int64 DeliveryServiceID);
         IList<DeliveryServiceCity> GetByCityID(System.Int64 CityID);
+        
             }
 }
 

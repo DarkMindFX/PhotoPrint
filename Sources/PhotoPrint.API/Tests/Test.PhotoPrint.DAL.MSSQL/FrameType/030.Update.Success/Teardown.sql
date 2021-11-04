@@ -1,27 +1,28 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @FrameTypeName NVARCHAR(50) = 'FrameTypeName e0f863a718624ca2b6de0cb27eeb6c70'
-DECLARE @Description NVARCHAR(1000) = 'Description e0f863a718624ca2b6de0cb27eeb6c70'
-DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl e0f863a718624ca2b6de0cb27eeb6c70'
-DECLARE @IsDeleted BIT = 0
-DECLARE @CreatedDate DATETIME = '6/29/2023 10:53:33 AM'
-DECLARE @CreatedByID BIGINT = 100004
-DECLARE @ModifiedDate DATETIME = '11/15/2020 11:20:33 AM'
-DECLARE @ModifiedByID BIGINT = 100003
+DECLARE @FrameTypeName NVARCHAR(50) = 'FrameTypeName 8ba436e9e75644aa94d14288c69c1bb0'
+DECLARE @Description NVARCHAR(1000) = 'Description 8ba436e9e75644aa94d14288c69c1bb0'
+DECLARE @ThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 8ba436e9e75644aa94d14288c69c1bb0'
+DECLARE @IsDeleted BIT = 1
+DECLARE @CreatedDate DATETIME = '2/4/2023 10:33:39 PM'
+DECLARE @CreatedByID BIGINT = 100007
+DECLARE @ModifiedDate DATETIME = '2/4/2023 10:33:39 PM'
+DECLARE @ModifiedByID BIGINT = 100008
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updFrameTypeName NVARCHAR(50) = 'FrameTypeName 217f233dd23d4b2b935c69add0f84f64'
-DECLARE @updDescription NVARCHAR(1000) = 'Description 217f233dd23d4b2b935c69add0f84f64'
-DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 217f233dd23d4b2b935c69add0f84f64'
+DECLARE @updFrameTypeName NVARCHAR(50) = 'FrameTypeName 4fb71f46467d402bb0a749cd3563f1e9'
+DECLARE @updDescription NVARCHAR(1000) = 'Description 4fb71f46467d402bb0a749cd3563f1e9'
+DECLARE @updThumbnailUrl NVARCHAR(1000) = 'ThumbnailUrl 4fb71f46467d402bb0a749cd3563f1e9'
 DECLARE @updIsDeleted BIT = 1
-DECLARE @updCreatedDate DATETIME = '11/15/2020 11:20:33 AM'
-DECLARE @updCreatedByID BIGINT = 100001
-DECLARE @updModifiedDate DATETIME = '2/13/2021 6:54:33 AM'
-DECLARE @updModifiedByID BIGINT = 100001
+DECLARE @updCreatedDate DATETIME = '6/25/2020 8:20:39 AM'
+DECLARE @updCreatedByID BIGINT = 100002
+DECLARE @updModifiedDate DATETIME = '6/25/2020 8:20:39 AM'
+DECLARE @updModifiedByID BIGINT = 100008
  
 
 DECLARE @Fail AS BIT = 0

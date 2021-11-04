@@ -1,7 +1,8 @@
 
 
+
 DECLARE @ID BIGINT = NULL
-DECLARE @AddressTypeName NVARCHAR(50) = 'AddressTypeName 068a285e4a2d48baa9a991e4ce75fc5b'
+DECLARE @AddressTypeName NVARCHAR(50) = 'AddressTypeName 1fef6abd44af4bb499daa6a7a6e9a0cc'
 DECLARE @IsDeleted BIT = 0
  
 DECLARE @Fail AS BIT = 0
@@ -11,8 +12,9 @@ IF(EXISTS(SELECT 1 FROM
 				WHERE 
 	IsDeleted = 0 AND
 
+	1=1 AND
 	(CASE WHEN @AddressTypeName IS NOT NULL THEN (CASE WHEN [AddressTypeName] = @AddressTypeName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND
-	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
+	1=1 
  ))
 					
 BEGIN
@@ -22,11 +24,9 @@ END
 DELETE FROM 
 	[dbo].[AddressType]
 	WHERE 
-		AND
-	(CASE WHEN @AddressTypeName IS NOT NULL THEN (CASE WHEN [AddressTypeName] = @AddressTypeName THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		AND
-	(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN [IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
-		
+	1=1 AND
+	(CASE WHEN @AddressTypeName IS NOT NULL THEN (CASE WHEN [AddressTypeName] = @AddressTypeName THEN 1 ELSE 0 END) ELSE 1 END) = 1 AND 
+	1=1 
 
 IF(@Fail = 1) 
 BEGIN

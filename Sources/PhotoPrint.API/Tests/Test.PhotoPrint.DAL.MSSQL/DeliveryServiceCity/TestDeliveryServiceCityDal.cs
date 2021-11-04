@@ -1,5 +1,6 @@
 
 
+
 using PPT.DAL.MSSQL;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
@@ -54,8 +55,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.DeliveryServiceID);
                         Assert.IsNotNull(entity.CityID);
             
-                          Assert.AreEqual(100005, entity.DeliveryServiceID);
-                            Assert.AreEqual(6, entity.CityID);
+                          Assert.AreEqual(100007, entity.DeliveryServiceID);
+                            Assert.AreEqual(2, entity.CityID);
                       }
 
         [Test]
@@ -107,8 +108,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareDeliveryServiceCityDal("DALInitParams");
 
             var entity = new DeliveryServiceCity();
-                          entity.DeliveryServiceID = 100009;
-                            entity.CityID = 1;
+                          entity.DeliveryServiceID = 100008;
+                            entity.CityID = 23;
                           
             entity = dal.Insert(entity);
 
@@ -118,8 +119,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.DeliveryServiceID);
                         Assert.IsNotNull(entity.CityID);
             
-                          Assert.AreEqual(100009, entity.DeliveryServiceID);
-                            Assert.AreEqual(1, entity.CityID);
+                          Assert.AreEqual(100008, entity.DeliveryServiceID);
+                            Assert.AreEqual(23, entity.CityID);
               
         }
 
@@ -143,8 +144,8 @@ namespace Test.PPT.DAL.MSSQL
                         Assert.IsNotNull(entity.DeliveryServiceID);
                         Assert.IsNotNull(entity.CityID);
             
-                          Assert.AreEqual(100009, entity.DeliveryServiceID);
-                            Assert.AreEqual(1, entity.CityID);
+                          Assert.AreEqual(100006, entity.DeliveryServiceID);
+                            Assert.AreEqual(10, entity.CityID);
               
         }
 
@@ -154,8 +155,8 @@ namespace Test.PPT.DAL.MSSQL
             var dal = PrepareDeliveryServiceCityDal("DALInitParams");
 
             var entity = new DeliveryServiceCity();
-                          entity.DeliveryServiceID = 100009;
-                            entity.CityID = 1;
+                          entity.DeliveryServiceID = 100006;
+                            entity.CityID = 10;
               
             try
             {
@@ -168,6 +169,7 @@ namespace Test.PPT.DAL.MSSQL
                 Assert.Pass("Success - exception thrown as expected");
             }
         }
+
 
         protected IDeliveryServiceCityDal PrepareDeliveryServiceCityDal(string configName)
         {

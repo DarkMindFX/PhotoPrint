@@ -1,5 +1,6 @@
 
 
+
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using PhotoPrint.Test.E2E.API;
@@ -172,14 +173,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 PPT.Interfaces.Entities.FrameType testEntity = AddTestEntity();
                 try
                 {
-                    testEntity.FrameTypeName = "FrameTypeName 082dfd8ae6b34fe8ac132b64605183d9";
-                    testEntity.Description = "Description 082dfd8ae6b34fe8ac132b64605183d9";
-                    testEntity.ThumbnailUrl = "ThumbnailUrl 082dfd8ae6b34fe8ac132b64605183d9";
+                    testEntity.FrameTypeName = "FrameTypeName 97b427f4373946b1a0d3fd8264048bb8";
+                    testEntity.Description = "Description 97b427f4373946b1a0d3fd8264048bb8";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 97b427f4373946b1a0d3fd8264048bb8";
                     testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("12/15/2019 4:27:35 PM");
-                    testEntity.CreatedByID = 100007;
-                    testEntity.ModifiedDate = DateTime.Parse("3/15/2020 12:01:35 PM");
-                    testEntity.ModifiedByID = 100008;
+                    testEntity.CreatedDate = DateTime.Parse("4/7/2021 6:05:37 PM");
+                    testEntity.CreatedByID = 100004;
+                    testEntity.ModifiedDate = DateTime.Parse("2/17/2024 3:52:37 AM");
+                    testEntity.ModifiedByID = 100004;
 
                     var reqDto = FrameTypeConvertor.Convert(testEntity, null);
 
@@ -196,6 +197,11 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                     Assert.Equal(reqDto.Description, respDto.Description);
                     Assert.Equal(reqDto.ThumbnailUrl, respDto.ThumbnailUrl);
                     Assert.Equal(reqDto.IsDeleted, respDto.IsDeleted);
+
+
+
+
+
                 }
                 finally
                 {
@@ -217,14 +223,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
                 try
                 {
                     testEntity.ID = Int64.MaxValue;
-                    testEntity.FrameTypeName = "FrameTypeName 082dfd8ae6b34fe8ac132b64605183d9";
-                    testEntity.Description = "Description 082dfd8ae6b34fe8ac132b64605183d9";
-                    testEntity.ThumbnailUrl = "ThumbnailUrl 082dfd8ae6b34fe8ac132b64605183d9";
+                    testEntity.FrameTypeName = "FrameTypeName 97b427f4373946b1a0d3fd8264048bb8";
+                    testEntity.Description = "Description 97b427f4373946b1a0d3fd8264048bb8";
+                    testEntity.ThumbnailUrl = "ThumbnailUrl 97b427f4373946b1a0d3fd8264048bb8";
                     testEntity.IsDeleted = false;
-                    testEntity.CreatedDate = DateTime.Parse("12/15/2019 4:27:35 PM");
-                    testEntity.CreatedByID = 100007;
-                    testEntity.ModifiedDate = DateTime.Parse("3/15/2020 12:01:35 PM");
-                    testEntity.ModifiedByID = 100008;
+                    testEntity.CreatedDate = DateTime.Parse("4/7/2021 6:05:37 PM");
+                    testEntity.CreatedByID = 100004;
+                    testEntity.ModifiedDate = DateTime.Parse("2/17/2024 3:52:37 AM");
+                    testEntity.ModifiedByID = 100004;
 
                     var reqDto = FrameTypeConvertor.Convert(testEntity, null);
 
@@ -249,9 +255,9 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
             {
                 var dal = CreateDal();
 
-                return dal.Delete(
-                                        entity.ID
-                );
+
+                return dal.Erase(entity.ID
+                        );
             }
             else
             {
@@ -262,14 +268,14 @@ namespace Test.E2E.PhotoPrint.API.Controllers.V1
         protected PPT.Interfaces.Entities.FrameType CreateTestEntity()
         {
             var entity = new PPT.Interfaces.Entities.FrameType();
-            entity.FrameTypeName = "FrameTypeName 3a82267f0a454e718a878bee690675bb";
-            entity.Description = "Description 3a82267f0a454e718a878bee690675bb";
-            entity.ThumbnailUrl = "ThumbnailUrl 3a82267f0a454e718a878bee690675bb";
-            entity.IsDeleted = true;
-            entity.CreatedDate = DateTime.Parse("4/29/2022 8:27:35 PM");
-            entity.CreatedByID = 100007;
-            entity.ModifiedDate = DateTime.Parse("9/18/2019 6:14:35 AM");
-            entity.ModifiedByID = 100009;
+            entity.FrameTypeName = "FrameTypeName 9f3e93fd7e954f2f89daabdd5d06f5e7";
+            entity.Description = "Description 9f3e93fd7e954f2f89daabdd5d06f5e7";
+            entity.ThumbnailUrl = "ThumbnailUrl 9f3e93fd7e954f2f89daabdd5d06f5e7";
+            entity.IsDeleted = false;
+            entity.CreatedDate = DateTime.Parse("10/18/2019 10:03:37 AM");
+            entity.CreatedByID = 100004;
+            entity.ModifiedDate = DateTime.Parse("8/27/2022 10:30:37 AM");
+            entity.ModifiedByID = 100003;
 
             return entity;
         }

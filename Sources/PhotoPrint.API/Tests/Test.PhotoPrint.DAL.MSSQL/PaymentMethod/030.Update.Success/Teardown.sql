@@ -1,17 +1,18 @@
 
 
+
 -- original values --
 DECLARE @ID BIGINT = NULL
-DECLARE @Name NVARCHAR(50) = 'Name 4554d806bde949108d04c0e0042e94ee'
-DECLARE @Description NVARCHAR(1000) = 'Description 4554d806bde949108d04c0e0042e94ee'
-DECLARE @IsDeleted BIT = 1
+DECLARE @Name NVARCHAR(50) = 'Name b4c3db4b76c24d608aec3a769148c800'
+DECLARE @Description NVARCHAR(1000) = 'Description b4c3db4b76c24d608aec3a769148c800'
+DECLARE @IsDeleted BIT = 0
  
 -- updated values --
 
 DECLARE @updID BIGINT = NULL
-DECLARE @updName NVARCHAR(50) = 'Name ba2e6ac523ac4902a9defa9c2a8e93be'
-DECLARE @updDescription NVARCHAR(1000) = 'Description ba2e6ac523ac4902a9defa9c2a8e93be'
-DECLARE @updIsDeleted BIT = 1
+DECLARE @updName NVARCHAR(50) = 'Name a3bd4052a5d04965a2bac4da9fca3b84'
+DECLARE @updDescription NVARCHAR(1000) = 'Description a3bd4052a5d04965a2bac4da9fca3b84'
+DECLARE @updIsDeleted BIT = 0
  
 
 DECLARE @Fail AS BIT = 0

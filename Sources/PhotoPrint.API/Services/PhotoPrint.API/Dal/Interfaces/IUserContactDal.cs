@@ -1,5 +1,6 @@
 
 
+
 using PPT.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace PPT.PhotoPrint.API.Dal
 
             IList<UserContact> GetByUserID(System.Int64 UserID);
             IList<UserContact> GetByContactID(System.Int64 ContactID);
+    
         }
 }
