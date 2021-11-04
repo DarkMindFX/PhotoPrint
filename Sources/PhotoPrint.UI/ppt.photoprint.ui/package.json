@@ -17,7 +17,7 @@
     "jest": "^26.6.0",
     "material-ui-image": "^3.3.2",
     "perf_hooks": "0.0.1",
-    "ppt.photoprint.dto": "^1.0.3",
+    "ppt.photoprint.dto": "^1.0.4",
     "query-string": "^7.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

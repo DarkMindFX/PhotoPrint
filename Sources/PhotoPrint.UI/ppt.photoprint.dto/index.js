@@ -4,6 +4,7 @@ const Error = require('./src/Error')
 const HateosDto = require('./src/HateosDto')
 const HealthResponse = require('./src/Health')
 const { LoginRequest, LoginResponse } = require('./src/Login')
+const { RegisterRequest, RegisterResponse } = require('./src/Register')
 
 const AddressDto = require('./src/AddressDto')
 const AddressTypeDto = require('./src/AddressTypeDto')
@@ -48,6 +49,8 @@ module.exports = {
     HealthResponse,
     LoginRequest,
     LoginResponse,
+    RegisterRequest,
+    RegisterResponse,
     HateosDto,   
     
     AddressDto,

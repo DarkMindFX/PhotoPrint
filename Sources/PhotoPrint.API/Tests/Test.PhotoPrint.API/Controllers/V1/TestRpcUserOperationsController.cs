@@ -66,12 +66,9 @@ namespace Test.E2E.API.Controllers.V1
                 {
                     var respContactEntity = ContactConvertor.Convert(respDto.Contact);
                     RemoveTestEntity(respContactEntity);
-
-                    // TODO: Need To Implement "hard delete"
-                    /*
+                    
                     var respUserEntity = UserConvertor.Convert(respDto.User);
                     RemoveTestEntity(respUserEntity);
-                    */
                 }
             }
         }
@@ -234,7 +231,7 @@ namespace Test.E2E.API.Controllers.V1
             {
                 var dal = CreateContactDal();
 
-                return dal.Delete(entity.ID);
+                return dal.Erase(entity.ID);
             }
             else
             {

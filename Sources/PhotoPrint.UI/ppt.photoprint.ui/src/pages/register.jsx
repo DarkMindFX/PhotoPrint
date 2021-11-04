@@ -115,59 +115,21 @@ class RegisterPage extends React.Component {
         const dalContacts = new ContactsDal();
         const dalUserContacts = new UserContactsDal();
 
-        dalUsers.insertUser(this.state.user)
+        dalUsers.register(this.state.user, this.state.contact)
         .then( (res) => {
 
             let updatedState = this.state;
             if(res.status == constants.HTTP_Created) {
-
-                updatedState.user.ID = res.data.ID;
-                this.state.contact.CreatedByID = updatedState.user.ID;
-                
-                dalContacts.insertContact(this.state.contact)
-                .then( (res) => {
-
-                    if(res.status == constants.HTTP_Created) {
-                        updatedState.contact.ID = res.data.ID
-                        
-                        let userContactDto = new UserContactDto();
-                        userContactDto.ContactID = updatedState.contact.ID;
-                        userContactDto.UserID = updatedState.user.ID;
-                        userContactDto.IsPrimary = true;
-
-                        dalUserContacts.insertUserContact(userContactDto)
-                        .then( (res) => {
-                            if(res.status == constants.HTTP_Created) {
-                                updatedState.showSuccess = true;
-                                updatedState.showError = false;
-                                updatedState.error = null;
-                            }
-                            else {                
-                                updatedState.showSuccess = false;
-                                updatedState.showError = true;
-                                updatedState.error = res.data.Message;  
-                                             
-                            } 
-                            this.setState(updatedState);
-                        });
-                         
-                    }
-                    else {                
-                        updatedState.showSuccess = false;
-                        updatedState.showError = true;
-                        updatedState.error = res.data.Message;  
-                        this.setState(updatedState);              
-                    }
-
-                });
+                updatedState.showSuccess = true;
+                updatedState.showError = false;
+                updatedState.error = null;
             }
             else {                
                 updatedState.showSuccess = false;
                 updatedState.showError = true;
-                updatedState.error = res.data.Message;
-                this.setState(updatedState);                
-            }
-            
+                updatedState.error = res.data.Message; 
+            } 
+            this.setState(updatedState);
 
         })
         .catch( (err) => {

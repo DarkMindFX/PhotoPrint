@@ -5,7 +5,7 @@ const axios = require('axios');
 const constants = require('../constants');
 
 const DalBase = require('./DalBase');
-const { LoginRequest } = require('ppt.photoprint.dto')
+const { LoginRequest, RegisterRequest, UserDto, ContactDto } = require('ppt.photoprint.dto')
 
 
 class UsersDal extends DalBase {
@@ -33,6 +33,26 @@ class UsersDal extends DalBase {
             return error.response;
         }
 
+    }
+
+    async register(user, contact)
+    {
+        let inst = this.Instance;
+
+        try {
+
+            var reqLogin = new RegisterRequest();
+            reqLogin.User = user;
+            reqLogin.Contact = contact;
+
+            let res = await inst.post(`/users/register`, reqLogin);
+
+            return res;
+        }
+        catch(error) {
+            console.log(error.response);
+            return error.response;
+        }
     }
 
     async insertUser(newUser) {
