@@ -1,0 +1,12 @@
+ID,Login,PwdHash,Salt,FirstName,MiddleName,LastName,FriendlyName,UserStatusID,UserTypeID,CreatedDate,ModifiedDate,ModifiedByID
+100001,System,W3U3lrduCzSdnVIDuZjeBStA60VUe0eZndaG4Fi8nw4=,123SALT123BCD,SystemF,,SystemL,System,2,4,10/1/2021 0:00,,
+100002,Admin,uGojVGGwpb4p4cGQjok7Y3Uh64LcLfuWXJ/PMVisWQQ=,567SALT567WQA,AdminF,,AdminL,Admin,2,3,10/1/2021 0:00,,
+100003,LindonJ,"NFa/uHra5d7rGljnxdg7s6vqw9bLKsQ+6i5MNQ+PmM8=""",567SALT567WQA,Lindon,,Johnson,LindyJ,2,1,10/1/2021 0:00,,
+100004,JohnK,9AGPOr/TqL4YNNnnJv+O8xaPYVIwNsR0f3VhMmTQFms=,ETERTERTR,John,,Kennedy,JohnnyK,2,1,10/1/2021 0:00,,
+100005,FranklinR,ykeToAhJ2c8ARgs3GjWNbPK0+HjA8iehfSlVKrXWfKI=,5656GHRED,Franklin,,Roosevelt,Franklin,2,1,10/1/2021 0:00,,
+100006,ManagerBill,QfGCUT1xsEj9PhUBAuMNFhnm+9mcFcn6mvPVN+i9bms=,567SALT567WQA,Bill,,Murrey,Billy,2,2,10/1/2021 0:00,,
+100007,ManagerTed,u+Bpmj/7vucTtiFLzb+kv4xI35v/ulXHIy3bfg3UZTk=,ETERTERTR,Teddy,,Atlas,Teddy,2,2,10/1/2021 0:00,,
+100008,ManagerSam,Q+Dxk1BmepMu1G0fjK8GySYD5B52aj1EhDFn5Hkoa4o=,5656GHRED,Sammy,,Schields,Sammy,2,2,10/1/2021 0:00,,
+100009,PrinterBill,"593BjI6ESfRZGzRTKxuzV5FkS0NZFLAJ09iDuyfC4+0=""",567SALT567WQA,Billy,,Ayliesh,Billy,2,5,10/1/2021 0:00,,
+100010,PrinterTed,RImSUcf9m6JhRcICyPMVxC1jXkpr9mvs67DjVX5siZo=,ETERTERTR,Ted,,Turner,Teddy,2,5,10/1/2021 0:00,,
+100011,PrinterSam,boON/bZBNRdUqxiFoy5HTSEbE5MWuXY8UXLQb+8n+U0=,5656GHRED123,Sam,,Smith,Sam,2,5,10/1/2021 0:00,,
