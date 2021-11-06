@@ -34,10 +34,4 @@ INNER JOIN dbo.[OrderStatus] status ON status.ID = ot.OrderStatusID
 INNER JOIN dbo.[DeliveryService] ds ON ds.ID = o.DeliveryServiceID
 INNER JOIN dbo.[OrderPaymentDetails] opd ON opd.OrderID = o.ID
 INNER JOIN dbo.[PaymentMethod] pm		ON pm.ID = opd.PaymentMethodID
-
-/*
-SELECT
-*
-FROM
-dbo.v_Orders
-*/
+GO

@@ -1,5 +1,6 @@
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -14,7 +15,7 @@ CREATE PROCEDURE [dbo].[p_Size_Insert]
 			@SizeName NVARCHAR(50),
 			@Width INT,
 			@Height INT,
-			@IsDeleted BIGINT,
+			@IsDeleted BIT,
 			@CreatedDate DATETIME,
 			@CreatedByID BIGINT,
 			@ModifiedDate DATETIME,

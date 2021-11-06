@@ -1,5 +1,9 @@
-docker build -t globus000/mssqlserver .
+docker rm ppt.photoprint.sqldb
 
-docker run --name docker_mssqlserver -it -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Express' -p 1433:1433 globus000/mssqlserver 
+docker rmi globus000/ppt.photoprint.sqldb
 
-docker attach docker_mssqlserver
+docker build -t globus000/ppt.photoprint.sqldb .
+
+docker run --name ppt.photoprint.sqldb -it -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=PhotoPrint2021!SaAccount' -e 'MSSQL_PID=Express' -p 2433:1433 globus000/ppt.photoprint.sqldb 
+
+docker attach ppt.photoprint.sqldb

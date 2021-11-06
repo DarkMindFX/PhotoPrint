@@ -1,5 +1,6 @@
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12,7 +13,7 @@ GO
 CREATE PROCEDURE [dbo].[p_OrderStatus_Insert]
 			@ID BIGINT,
 			@OrderStatusName NVARCHAR(50),
-			@IsDeleted BIGINT
+			@IsDeleted BIT
 	AS
 BEGIN
 

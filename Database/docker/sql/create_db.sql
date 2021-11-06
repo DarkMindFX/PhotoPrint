@@ -1,9 +1,44 @@
+USE [master]
+GO
+
+/* For security reasons the login is created disabled and with a random password. */
+/****** Object:  Login [ppt_svc_api]    Script Date: 11/6/2021 11:17:38 AM ******/
+CREATE LOGIN [ppt_svc_api] WITH PASSWORD=N'PPTServiceApi2021!', DEFAULT_DATABASE=[master], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+
+USE [master]
+GO
+
+/* For security reasons the login is created disabled and with a random password. */
+/****** Object:  Login [ppt_test_account]    Script Date: 11/6/2021 11:18:44 AM ******/
+CREATE LOGIN [ppt_test_account] WITH PASSWORD=N'PPTTestAccount2021', DEFAULT_DATABASE=[master], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+
 USE master
 GO
 
 /**************** Creating DB ****************************/
 CREATE DATABASE PhotoPrint
 GO
+
+/******************* Creating Users ***********************************/
+USE [PhotoPrint]
+GO
+/****** Object:  User [ppt_svc_api]    Script Date: 11/6/2021 11:14:11 AM ******/
+CREATE USER [ppt_svc_api] FOR LOGIN [ppt_svc_api] WITH DEFAULT_SCHEMA=[dbo]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [ppt_svc_api]
+GO
+
+USE [PhotoPrint]
+GO
+/****** Object:  User [ppt_test_account]    Script Date: 11/6/2021 11:14:12 AM ******/
+CREATE USER [ppt_test_account] FOR LOGIN [ppt_test_account] WITH DEFAULT_SCHEMA=[dbo]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [ppt_test_account]
+GO
+
+
 
 /**************** Creating Tables ****************************/
 USE [PhotoPrint]
@@ -1301,7 +1336,63 @@ INNER JOIN dbo.[PaymentMethod] pm		ON pm.ID = opd.PaymentMethodID
 GO
 
 
+/************************ Create Functions ******************************************/
+USE [PhotoPrint]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_GetUserStatusIDByName]    Script Date: 10/16/2021 9:43:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE FUNCTION [dbo].[fn_GetUserStatusIDByName] 
+(
+	@StatusName NVARCHAR(50)
+)
+RETURNS BIGINT
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @Result BIGINT
+
+	
+	SELECT @Result = [ID] FROM dbo.[UserStatus] WHERE StatusName = @StatusName
+
+
+	RETURN @Result
+END
+GO
+USE [PhotoPrint]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_GetUserTypeIDByName]    Script Date: 10/16/2021 9:43:43 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE FUNCTION [dbo].[fn_GetUserTypeIDByName] 
+(
+	@UserTypeName NVARCHAR(50)
+)
+RETURNS BIGINT
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @Result BIGINT
+
+	
+	SELECT @Result = [ID] FROM dbo.[UserType] WHERE UserTypeName = @UserTypeName
+
+
+	RETURN @Result
+END
+GO
+
 /************************ Create StorProcs ******************************************/
+
 
 SET ANSI_NULLS ON
 GO
@@ -1451,9 +1542,7 @@ BEGIN
 	SET NOCOUNT ON;
 END
 GO
-﻿
-SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -2060,63 +2149,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_MountingType_Populate'))
-   DROP PROC dbo.p_MountingType_Populate
-GO
-
-CREATE PROCEDURE dbo.p_TestData_MountingType_Populate 
-	
-AS
-BEGIN
-
-	DECLARE @tblMountingType AS TABLE (
-		[ID] [bigint] NOT NULL,
-		[MountingTypeName] [nvarchar](50) NOT NULL,
-		[Description] [nvarchar](1000) NOT NULL,
-		[ThumbnailUrl] [nvarchar](1000) NOT NULL,
-		[IsDeleted] [bit]
-	)
-
-	INSERT INTO @tblMountingType
-	SELECT 1,	'New' UNION
-	SELECT 2,	'InProduction' UNION
-	SELECT 3,	'Produced' UNION
-	SELECT 4,	'PreparingDelivery' UNION
-	SELECT 5,	'InDelivery' UNION
-	SELECT 6,	'Delivered' UNION
-	SELECT 7,	'Cancelled' UNION
-	SELECT 8,	'Completed' UNION
-	SELECT 9,	'PendingPayment' UNION
-	SELECT 10,	'SentToProduction'
-
-	SET IDENTITY_INSERT dbo.MountingType ON;
-
-	MERGE dbo.MountingType AS t
-	USING @tblMountingType AS s
-	ON (t.ID = s.ID)
-	WHEN MATCHED THEN
-		UPDATE SET 
-			t.[MountingTypeName] = s.[MountingTypeName],
-			t.[Description] = s.[Description],
-			t.[ThumbnailUrl] = s.[ThumbnailUrl],
-			t.[IsDeleted] = s.[IsDeleted]
-	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID],[MountingTypeName], [Description], [ThumbnailUrl], [IsDeleted]) 
-		VALUES (s.[ID], s.[MountingTypeName])
-	WHEN NOT MATCHED BY SOURCE THEN
-		DELETE
-	;
-	SET IDENTITY_INSERT dbo.MountingType OFF;
-	
-	SET NOCOUNT ON;
-END
-GO
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_OrderStatus_Populate'))
    DROP PROC dbo.p_OrderStatus_Populate
 GO
@@ -2370,221 +2402,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_DeliveryService_Populate'))
-   DROP PROC dbo.p_TestData_DeliveryService_Populate
-GO
-
-CREATE PROCEDURE dbo.p_TestData_DeliveryService_Populate 
-	
-AS
-BEGIN
-
-	DECLARE @tblDeliveryService AS TABLE (
-		[ID] [bigint] NOT NULL,
-		[DeliveryServiceName] [nvarchar](50) NOT NULL,
-		[Description] [nvarchar](1000) NULL,
-		[IsEnabled] [bit]
-	)
-
-	INSERT INTO @tblDeliveryService
-	SELECT 100001,	'Self Pickup', NULL, 0	UNION
-	SELECT 100002,	'DHL', NULL, 0	UNION
-	SELECT 100003,	'UPS', NULL, 0	UNION
-	SELECT 100004,	'ͮ⠿ Ϯ÷򠧬 NULL, 1
-
-	
-
-
-	SET IDENTITY_INSERT dbo.DeliveryService ON;
-
-	MERGE dbo.DeliveryService AS t
-	USING @tblDeliveryService AS s
-	ON (t.ID = s.ID)
-	WHEN MATCHED THEN
-		UPDATE SET 
-			t.[DeliveryServiceName] = s.[DeliveryServiceName],
-			t.[Description] = s.[Description],
-			t.[IsEnabled] = s.[IsEnabled]
-	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID],[DeliveryServiceName], [Description], [IsEnabled]) 
-		VALUES (s.[ID], s.[DeliveryServiceName], s.[Description], s.[IsEnabled])
-	WHEN NOT MATCHED BY SOURCE THEN
-		DELETE
-	;
-	SET IDENTITY_INSERT dbo.DeliveryService OFF;
-	
-	SET NOCOUNT ON;
-END
-GO
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_FrameType_Populate'))
-   DROP PROC dbo.p_FrameType_Populate
-GO
-
-CREATE PROCEDURE dbo.p_TestData_FrameType_Populate 
-	
-AS
-BEGIN
-
-	DECLARE @tblFrameType AS TABLE (
-		[ID] [bigint] NOT NULL,
-		[FrameTypeName] [nvarchar](50) NOT NULL,
-		[Description] [nvarchar](1000) NOT NULL,
-		[ThumbnailUrl] [nvarchar](1000) NOT NULL,
-		[IsDeleted] [bit]
-	)
-
-	INSERT INTO @tblFrameType
-	SELECT 100001,	'None', '', 'https://picsum.photos/seed/pprint-frame-none/100/100',  0	UNION
-	SELECT 100002,	'WoodenThin', '', 'https://picsum.photos/seed/pprint-frame-woodenthin/100/100',	 0	UNION
-	SELECT 100003,	'WoodenThick', '', 'https://picsum.photos/seed/pprint-frame-woodenthick/100/100', 0	UNION
-	SELECT 100004,	'Aluminium', '', 'https://picsum.photos/seed/pprint-frame-aluminium/100/100', 0	UNION
-	SELECT 100005,	'RetroGold', '', 'https://picsum.photos/seed/pprint-frame-retrogold/100/100',  0 UNION
-	SELECT 100006,	'RetroSilver', '', 'https://picsum.photos/seed/pprint-frame-retrosilver/100/100',  0 UNION
-	SELECT 100007,	'RetroBronze', '', 'https://picsum.photos/seed/pprint-frame-retrobronze/100/100',  0 UNION
-	SELECT 100008,	'OldCopper', '', 'https://picsum.photos/seed/pprint-frame-oldcopper/100/100',  0 
-
-
-	SET IDENTITY_INSERT dbo.FrameType ON;
-
-	MERGE dbo.FrameType AS t
-	USING @tblFrameType AS s
-	ON (t.ID = s.ID)
-	WHEN MATCHED THEN
-		UPDATE SET 
-			t.[FrameTypeName] = s.[FrameTypeName],
-			t.[Description] = s.[Description],
-			t.[ThumbnailUrl] = s.[ThumbnailUrl],
-			t.[IsDeleted] = s.[IsDeleted]
-	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID],[FrameTypeName], [Description], [ThumbnailUrl], [IsDeleted]) 
-		VALUES (s.[ID], s.[FrameTypeName], s.[Description], s.[ThumbnailUrl], s.[IsDeleted])
-	WHEN NOT MATCHED BY SOURCE THEN
-		DELETE
-	;
-	SET IDENTITY_INSERT dbo.FrameType OFF;
-	
-	SET NOCOUNT ON;
-END
-GO
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_MaterialType_Populate'))
-   DROP PROC dbo.p_MaterialType_Populate
-GO
-
-CREATE PROCEDURE dbo.p_TestData_MaterialType_Populate 
-	
-AS
-BEGIN
-
-	DECLARE @tblMaterialType AS TABLE (
-		[ID] [bigint] NOT NULL,
-		[MaterialTypeName] [nvarchar](50) NOT NULL,
-		[Description] [nvarchar](1000) NOT NULL,
-		[ThumbnailUrl] [nvarchar](1000) NOT NULL,
-		[IsDeleted] [bit]
-	)
-
-	INSERT INTO @tblMaterialType
-	SELECT 100001,	'Paper', '', 'https://picsum.photos/seed/pprint-material-paper/100/100',  0	UNION
-	SELECT 100002,	'Wood', '', 'https://picsum.photos/seed/pprint-material-wood/100/100',	 0	UNION
-	SELECT 100003,	'Plastic', '', 'https://picsum.photos/seed/pprint-material-pastic/100/100', 0	UNION
-	SELECT 100004,	'EcoMaterial', '', 'https://picsum.photos/seed/pprint-material-ecomaterial/100/100', 0	UNION
-	SELECT 100005,	'Metal', '', 'https://picsum.photos/seed/pprint-material-metal/100/100',  0 UNION
-	SELECT 100006,	'Glass', '', 'https://picsum.photos/seed/pprint-material-glass/100/100',  0 
-
-
-	SET IDENTITY_INSERT dbo.MaterialType ON;
-
-	MERGE dbo.MaterialType AS t
-	USING @tblMaterialType AS s
-	ON (t.ID = s.ID)
-	WHEN MATCHED THEN
-		UPDATE SET 
-			t.[MaterialTypeName] = s.[MaterialTypeName],
-			t.[Description] = s.[Description],
-			t.[ThumbnailUrl] = s.[ThumbnailUrl],
-			t.[IsDeleted] = s.[IsDeleted]
-	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID],[MaterialTypeName], [Description], [ThumbnailUrl], [IsDeleted]) 
-		VALUES (s.[ID], s.[MaterialTypeName], s.[Description], s.[ThumbnailUrl], s.[IsDeleted])
-	WHEN NOT MATCHED BY SOURCE THEN
-		DELETE
-	;
-	SET IDENTITY_INSERT dbo.MaterialType OFF;
-	
-	SET NOCOUNT ON;
-END
-GO
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_MountingType_Populate'))
-   DROP PROC dbo.p_MountingType_Populate
-GO
-
-CREATE PROCEDURE dbo.p_TestData_MountingType_Populate 
-	
-AS
-BEGIN
-
-	DECLARE @tblMountingType AS TABLE (
-		[ID] [bigint] NOT NULL,
-		[MountingTypeName] [nvarchar](50) NOT NULL,
-		[Description] [nvarchar](1000) NOT NULL,
-		[ThumbnailUrl] [nvarchar](1000) NOT NULL,
-		[IsDeleted] [bit]
-	)
-
-	INSERT INTO @tblMountingType
-	SELECT 100001,	'None', '', 'https://picsum.photos/seed/pprint-mount-none/100/100',  0	UNION
-	SELECT 100002,	'Nail', '', 'https://picsum.photos/seed/pprint-mount-nail/100/100',	 0	UNION
-	SELECT 100003,	'Screw', '', 'https://picsum.photos/seed/pprint-mount-screw/100/100', 0	UNION
-	SELECT 100004,	'Complex', '', 'https://picsum.photos/seed/pprint-mount-complex/100/100', 0	UNION
-	SELECT 100005,	'Wire', '', 'https://picsum.photos/seed/pprint-mount-wire/100/100',  0
-
-
-	SET IDENTITY_INSERT dbo.MountingType ON;
-
-	MERGE dbo.MountingType AS t
-	USING @tblMountingType AS s
-	ON (t.ID = s.ID)
-	WHEN MATCHED THEN
-		UPDATE SET 
-			t.[MountingTypeName] = s.[MountingTypeName],
-			t.[Description] = s.[Description],
-			t.[ThumbnailUrl] = s.[ThumbnailUrl],
-			t.[IsDeleted] = s.[IsDeleted]
-	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID],[MountingTypeName], [Description], [ThumbnailUrl], [IsDeleted]) 
-		VALUES (s.[ID], s.[MountingTypeName], s.[Description], s.[ThumbnailUrl], s.[IsDeleted])
-	WHEN NOT MATCHED BY SOURCE THEN
-		DELETE
-	;
-	SET IDENTITY_INSERT dbo.MountingType OFF;
-	
-	SET NOCOUNT ON;
-END
-GO
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_Populate'))
    DROP PROC dbo.p_TestData_Populate
 GO
@@ -2675,7 +2492,7 @@ BEGIN
 			KEEPIDENTITY,
 			FIRSTROW = 2,
 			FIELDTERMINATOR = '','',
-			ROWTERMINATOR=''\n'',
+			ROWTERMINATOR=''\r\n'',
 			BATCHSIZE=2500000);'
 
 			PRINT(@sql)
@@ -2710,164 +2527,6 @@ END
 GO
 
 
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND OBJECT_ID = OBJECT_ID('dbo.p_TestData_User_Populate'))
-   DROP PROC dbo.p_TestData_User_Populate
-GO
-
-CREATE PROCEDURE dbo.p_TestData_User_Populate 
-	
-AS
-BEGIN
-
-	DECLARE @tblUser AS TABLE (
-		[ID] [bigint] NOT NULL,
-		[Login] [nvarchar](250) NOT NULL,
-		[PwdHash] [nvarchar](250) NOT NULL,
-		[Salt] [nvarchar](50) NOT NULL,
-		[FirstName] [nvarchar](50) NOT NULL,
-		[MiddleName] [nvarchar](50) NULL,
-		[LastName] [nvarchar](50) NOT NULL,
-		[FriendlyName] [nvarchar](50) NULL,
-		[UserStatusID] [bigint] NOT NULL,
-		[UserTypeID] [bigint] NOT NULL,
-		[CreatedDate] [datetime] NOT NULL,
-		[ModifiedDate] [datetime] NULL,
-		[ModifiedByID] [bigint] NULL
-	)
-
-	INSERT INTO @tblUser
-	-- System user
-	SELECT 100001, 'System', '#System==', '123SALT123BCD', 'SystemF', NULL, 'SystemL', 'System', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('System'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	-- Admin user
-	SELECT 100002, 'Admin', '#Admin==', '567SALT567WQA', 'AdminF', NULL, 'AdminL', 'Admin', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Admin'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	-- Customers user
-	SELECT 100003, 'LondonJ', '#LindonJ==', '567SALT567WQA', 'Lindon', NULL, 'Johnson', 'LindyJ', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Customer'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	SELECT 100004, 'JohnK', '#JohnK==', 'ETERTERTR', 'John', NULL, 'Kennedy', 'JohnnyK', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Customer'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	SELECT 100005, 'FranklinR', '#FranklinR==', '5656GHRED', 'Franklin', NULL, 'Roosevelt', 'Franklin', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Customer'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	-- Manager users
-	SELECT 100006, 'ManagerBill', '#ManagerBill==', '567SALT567WQA', 'Bill', NULL, 'Murrey', 'Billy', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Manager'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	SELECT 100007, 'ManagerTed', '#ManagerTed==', 'ETERTERTR', 'Teddy', NULL, 'Atlas', 'Teddy', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Manager'),  
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	SELECT 100008, 'ManagerSam', '#ManagerSam==', '5656GHRED', 'Sammy', NULL, 'Schields', 'Sammy', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Manager'),  
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION
-
-	-- Partners
-	SELECT 100009, 'PrinterBill', '#PrinterBill==', '567SALT567WQA', 'Billy', NULL, 'Ayliesh', 'Billy', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Partner'), 
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	SELECT 100010, 'PrinterTed', '#PrinterTed==', 'ETERTERTR', 'Ted', NULL, 'Turner', 'Teddy', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Partner'),  
-	'2021-10-01',
-	NULL,
-	NULL
-	UNION 
-
-	SELECT 100011, 'PrinterSam', '#PrinterSam==', '5656GHRED', 'Sam', NULL, 'Smith', 'Sam', 
-	dbo.fn_GetUserStatusIDByName('Activated'), 
-	dbo.fn_GetUserTypeIDByName('Partner'),  
-	'2021-10-01',
-	NULL,
-	NULL
-
-	-- Adding users
-
-	SET IDENTITY_INSERT dbo.[User] ON;
-
-	MERGE dbo.[User] AS t
-	USING @tblUser AS s
-	ON (t.ID = s.ID)
-	WHEN MATCHED THEN
-		UPDATE SET 
-			t.[Login] = s.[Login],
-			t.[PwdHash] = s.[PwdHash],
-			t.[Salt] = s.[Salt],
-			t.[FirstName] = s.[FirstName],
-			t.[MiddleName] = s.[MiddleName],
-			t.[LastName] = s.[LastName],
-			t.[FriendlyName] = s.[FriendlyName],
-			t.[UserStatusID] = s.[UserStatusID],
-			t.[UserTypeID] = s.[UserTypeID],
-			t.[CreatedDate] = s.[CreatedDate],
-			t.[ModifiedDate] = s.[ModifiedDate],
-			t.[ModifiedByID] = s.[ModifiedByID]
-	WHEN NOT MATCHED BY TARGET THEN
-		INSERT ([ID], [Login], [PwdHash], [Salt], [FirstName], [MiddleName], [LastName], [FriendlyName], [UserStatusID], [UserTypeID], [CreatedDate], [ModifiedDate], [ModifiedByID]) 
-		VALUES (s.[ID], s.[Login], s.[PwdHash], s.[Salt], s.[FirstName], s.[MiddleName], s.[LastName], s.[FriendlyName], s.[UserStatusID], s.[UserTypeID], s.[CreatedDate], s.[ModifiedDate], s.[ModifiedByID])
-	WHEN NOT MATCHED BY SOURCE THEN
-		DELETE
-	;
-	SET IDENTITY_INSERT dbo.[User] OFF;
-
-	-- Adding user's addresses
-	
-	SET NOCOUNT ON;
-END
-GO
 
 SET ANSI_NULLS ON
 GO
@@ -3108,6 +2767,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3143,6 +2803,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Address_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Address_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Address_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Address]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Address] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3164,6 +2865,7 @@ BEGIN
 		[dbo].[Address] e
 END
 GO
+
 
 
 
@@ -3210,6 +2912,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3248,6 +2951,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -3294,6 +2998,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3335,6 +3040,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3370,6 +3076,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -3437,6 +3144,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -3520,6 +3228,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3555,6 +3264,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_AddressType_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_AddressType_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_AddressType_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[AddressType]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[AddressType] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3576,6 +3326,7 @@ BEGIN
 		[dbo].[AddressType] e
 END
 GO
+
 
 
 
@@ -3615,6 +3366,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3651,6 +3403,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -3704,6 +3457,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3739,6 +3493,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Category_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Category_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Category_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Category]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Category] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3760,6 +3555,7 @@ BEGIN
 		[dbo].[Category] e
 END
 GO
+
 
 
 
@@ -3806,6 +3602,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3844,6 +3641,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -3889,6 +3687,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3924,6 +3723,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -3979,6 +3779,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4050,6 +3851,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4085,6 +3887,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_City_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_City_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_City_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[City]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[City] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4106,6 +3949,7 @@ BEGIN
 		[dbo].[City] e
 END
 GO
+
 
 
 
@@ -4151,6 +3995,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4186,6 +4031,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4226,6 +4072,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4282,6 +4129,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4317,6 +4165,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Contact_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Contact_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Contact_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Contact]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Contact] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4338,6 +4227,7 @@ BEGIN
 		[dbo].[Contact] e
 END
 GO
+
 
 
 
@@ -4384,6 +4274,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4422,6 +4313,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -4467,6 +4359,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4502,6 +4395,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4560,6 +4454,7 @@ BEGIN
 				(CASE WHEN @ModifiedDate IS NOT NULL THEN (CASE WHEN e.[ModifiedDate] = @ModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4634,6 +4529,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4669,6 +4565,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_ContactType_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_ContactType_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_ContactType_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[ContactType]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[ContactType] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4690,6 +4627,7 @@ BEGIN
 		[dbo].[ContactType] e
 END
 GO
+
 
 
 
@@ -4729,6 +4667,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4765,6 +4704,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4818,6 +4758,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4853,6 +4794,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Country_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Country_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Country_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Country]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Country] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -4874,6 +4856,7 @@ BEGIN
 		[dbo].[Country] e
 END
 GO
+
 
 
 
@@ -4912,6 +4895,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -4952,6 +4936,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -5008,6 +4993,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5043,6 +5029,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Currency_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Currency_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Currency_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Currency]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Currency] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5064,6 +5091,7 @@ BEGIN
 		[dbo].[Currency] e
 END
 GO
+
 
 
 
@@ -5102,6 +5130,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -5142,6 +5171,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -5198,6 +5228,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5233,6 +5264,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_DeliveryService_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_DeliveryService_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_DeliveryService_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[DeliveryService]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[DeliveryService] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5254,6 +5326,7 @@ BEGIN
 		[dbo].[DeliveryService] e
 END
 GO
+
 
 
 
@@ -5300,6 +5373,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5341,6 +5415,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5376,6 +5451,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -5428,6 +5504,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -5496,6 +5573,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5535,6 +5613,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5556,6 +5635,7 @@ BEGIN
 		[dbo].[DeliveryServiceCity] e
 END
 GO
+
 
 
 
@@ -5602,6 +5682,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5640,6 +5721,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -5682,6 +5764,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5716,6 +5799,7 @@ BEGIN
 				(CASE WHEN @CityID IS NOT NULL THEN (CASE WHEN e.[CityID] = @CityID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -5769,6 +5853,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5804,6 +5889,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_FrameType_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_FrameType_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_FrameType_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[FrameType]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[FrameType] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5825,6 +5951,7 @@ BEGIN
 		[dbo].[FrameType] e
 END
 GO
+
 
 
 
@@ -5871,6 +5998,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5912,6 +6040,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5947,6 +6076,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -6002,6 +6132,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -6073,6 +6204,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6108,6 +6240,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Image_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Image_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Image_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Image]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Image] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6129,6 +6302,7 @@ BEGIN
 		[dbo].[Image] e
 END
 GO
+
 
 
 
@@ -6175,6 +6349,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6213,6 +6388,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -6258,6 +6434,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6293,6 +6470,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -6360,6 +6538,7 @@ BEGIN
 				(CASE WHEN @ModifiedDate IS NOT NULL THEN (CASE WHEN e.[ModifiedDate] = @ModifiedDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -6443,6 +6622,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6482,6 +6662,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6503,6 +6684,7 @@ BEGIN
 		[dbo].[ImageCategory] e
 END
 GO
+
 
 
 
@@ -6549,6 +6731,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6587,6 +6770,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -6629,6 +6813,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6663,6 +6848,7 @@ BEGIN
 				(CASE WHEN @CategoryID IS NOT NULL THEN (CASE WHEN e.[CategoryID] = @CategoryID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -6716,6 +6902,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6755,6 +6942,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6776,6 +6964,93 @@ BEGIN
 		[dbo].[ImageRelated] e
 END
 GO
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_ImageRelated_GetByImageID', 'P') IS NOT NULL
+DROP PROC [dbo].[p_ImageRelated_GetByImageID]
+GO
+
+CREATE PROCEDURE [dbo].[p_ImageRelated_GetByImageID]
+
+	@ImageID BIGINT,
+	@Found BIT OUTPUT
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	IF(EXISTS(	SELECT 1 FROM [dbo].[ImageRelated] c 
+				WHERE
+					[ImageID] = @ImageID
+	)) 
+	BEGIN
+		SET @Found = 1; -- notifying that record was found
+		
+		SELECT
+			e.*
+		FROM
+		[dbo].[ImageRelated] e
+		WHERE 
+			[ImageID] = @ImageID	
+
+	END
+	ELSE
+		SET @Found = 0;
+END
+GO
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_ImageRelated_GetByRelatedImageID', 'P') IS NOT NULL
+DROP PROC [dbo].[p_ImageRelated_GetByRelatedImageID]
+GO
+
+CREATE PROCEDURE [dbo].[p_ImageRelated_GetByRelatedImageID]
+
+	@RelatedImageID BIGINT,
+	@Found BIT OUTPUT
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	IF(EXISTS(	SELECT 1 FROM [dbo].[ImageRelated] c 
+				WHERE
+					[RelatedImageID] = @RelatedImageID
+	)) 
+	BEGIN
+		SET @Found = 1; -- notifying that record was found
+		
+		SELECT
+			e.*
+		FROM
+		[dbo].[ImageRelated] e
+		WHERE 
+			[RelatedImageID] = @RelatedImageID	
+
+	END
+	ELSE
+		SET @Found = 0;
+END
+GO
+
 
 
 
@@ -6818,6 +7093,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6852,6 +7128,7 @@ BEGIN
 				(CASE WHEN @RelatedImageID IS NOT NULL THEN (CASE WHEN e.[RelatedImageID] = @RelatedImageID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -6905,6 +7182,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6941,6 +7219,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -6962,6 +7241,7 @@ BEGIN
 		[dbo].[ImageThumbnail] e
 END
 GO
+
 
 
 
@@ -7007,6 +7287,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7042,6 +7323,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7082,6 +7364,7 @@ BEGIN
 				(CASE WHEN @ImageID IS NOT NULL THEN (CASE WHEN e.[ImageID] = @ImageID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7138,6 +7421,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7173,6 +7457,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Mat_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Mat_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Mat_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Mat]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Mat] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7194,6 +7519,7 @@ BEGIN
 		[dbo].[Mat] e
 END
 GO
+
 
 
 
@@ -7240,6 +7566,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7281,6 +7608,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7316,6 +7644,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7371,6 +7700,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7442,6 +7772,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7477,6 +7808,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_MaterialType_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_MaterialType_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_MaterialType_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[MaterialType]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[MaterialType] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7498,6 +7870,7 @@ BEGIN
 		[dbo].[MaterialType] e
 END
 GO
+
 
 
 
@@ -7544,6 +7917,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7585,6 +7959,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7620,6 +7995,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7675,6 +8051,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7746,6 +8123,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7781,6 +8159,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_MountingType_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_MountingType_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_MountingType_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[MountingType]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[MountingType] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7802,6 +8221,7 @@ BEGIN
 		[dbo].[MountingType] e
 END
 GO
+
 
 
 
@@ -7840,6 +8260,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7895,6 +8316,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -7966,6 +8388,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8001,6 +8424,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Order_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Order_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Order_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Order]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Order] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8022,6 +8486,7 @@ BEGIN
 		[dbo].[Order] e
 END
 GO
+
 
 
 
@@ -8068,6 +8533,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8106,6 +8572,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -8152,6 +8619,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8190,6 +8658,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -8236,6 +8705,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8275,47 +8745,6 @@ BEGIN
 END
 GO
 
-
-
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-IF OBJECT_ID('p_Order_GetByStatusID', 'P') IS NOT NULL
-DROP PROC [dbo].[p_Order_GetByStatusID]
-GO
-
-CREATE PROCEDURE [dbo].[p_Order_GetByStatusID]
-
-	@StatusID BIGINT,
-	@Found BIT OUTPUT
-
-AS
-BEGIN
-
-	SET NOCOUNT ON;
-
-	IF(EXISTS(	SELECT 1 FROM [dbo].[Order] c 
-				WHERE
-					[StatusID] = @StatusID
-	)) 
-	BEGIN
-		SET @Found = 1; -- notifying that record was found
-		
-		SELECT
-			e.*
-		FROM
-		[dbo].[Order] e
-		WHERE 
-			[StatusID] = @StatusID	
-
-	END
-	ELSE
-		SET @Found = 0;
-END
-GO
 
 
 
@@ -8361,6 +8790,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8396,6 +8826,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -8460,6 +8891,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -8540,6 +8972,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8575,6 +9008,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_OrderItem_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_OrderItem_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_OrderItem_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[OrderItem]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[OrderItem] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8596,6 +9070,7 @@ BEGIN
 		[dbo].[OrderItem] e
 END
 GO
+
 
 
 
@@ -8642,6 +9117,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8680,6 +9156,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -8726,6 +9203,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8764,6 +9242,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -8810,6 +9289,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8848,6 +9328,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -8894,6 +9375,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8932,6 +9414,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -8978,6 +9461,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9016,6 +9500,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -9062,6 +9547,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9103,6 +9589,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9138,6 +9625,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -9229,6 +9717,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -9336,6 +9825,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9371,6 +9861,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_OrderPaymentDetails_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_OrderPaymentDetails_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_OrderPaymentDetails_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[OrderPaymentDetails]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[OrderPaymentDetails] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9392,6 +9923,7 @@ BEGIN
 		[dbo].[OrderPaymentDetails] e
 END
 GO
+
 
 
 
@@ -9438,6 +9970,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9476,6 +10009,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -9522,6 +10056,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9563,6 +10098,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9598,6 +10134,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -9656,6 +10193,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -9730,6 +10268,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9765,6 +10304,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_OrderStatus_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_OrderStatus_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_OrderStatus_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[OrderStatus]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[OrderStatus] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9786,6 +10366,7 @@ BEGIN
 		[dbo].[OrderStatus] e
 END
 GO
+
 
 
 
@@ -9825,6 +10406,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9837,7 +10419,7 @@ GO
 CREATE PROCEDURE [dbo].[p_OrderStatus_Insert]
 			@ID BIGINT,
 			@OrderStatusName NVARCHAR(50),
-			@IsDeleted BIGINT
+			@IsDeleted BIT
 	AS
 BEGIN
 
@@ -9862,6 +10444,7 @@ BEGIN
 		END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9874,7 +10457,7 @@ GO
 CREATE PROCEDURE [dbo].[p_OrderStatus_Update]
 			@ID BIGINT,
 			@OrderStatusName NVARCHAR(50),
-			@IsDeleted BIGINT
+			@IsDeleted BIT
 	AS
 BEGIN
 
@@ -9912,6 +10495,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 
 SET ANSI_NULLS ON
@@ -9953,6 +10537,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9974,6 +10559,7 @@ BEGIN
 		[dbo].[OrderStatusFlow] e
 END
 GO
+
 
 
 
@@ -10020,6 +10606,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10058,6 +10645,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -10100,6 +10688,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10134,6 +10723,7 @@ BEGIN
 				(CASE WHEN @ToStatusID IS NOT NULL THEN (CASE WHEN e.[ToStatusID] = @ToStatusID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -10187,6 +10777,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10223,6 +10814,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10244,6 +10836,7 @@ BEGIN
 		[dbo].[OrderTracking] e
 END
 GO
+
 
 
 
@@ -10290,6 +10883,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10328,6 +10922,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -10373,6 +10968,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10408,6 +11004,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -10454,6 +11051,7 @@ BEGIN
 				(CASE WHEN @Comment IS NOT NULL THEN (CASE WHEN e.[Comment] = @Comment THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -10516,6 +11114,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10551,6 +11150,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_PaymentMethod_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_PaymentMethod_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_PaymentMethod_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[PaymentMethod]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[PaymentMethod] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10572,6 +11212,7 @@ BEGIN
 		[dbo].[PaymentMethod] e
 END
 GO
+
 
 
 
@@ -10610,6 +11251,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -10650,6 +11292,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -10706,6 +11349,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10741,6 +11385,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_PrintingHouse_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_PrintingHouse_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_PrintingHouse_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[PrintingHouse]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[PrintingHouse] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10762,6 +11447,7 @@ BEGIN
 		[dbo].[PrintingHouse] e
 END
 GO
+
 
 
 
@@ -10808,6 +11494,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10849,6 +11536,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10884,6 +11572,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -10936,6 +11625,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -11004,6 +11694,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11043,6 +11734,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11064,6 +11756,7 @@ BEGIN
 		[dbo].[PrintingHouseAddress] e
 END
 GO
+
 
 
 
@@ -11110,6 +11803,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11148,6 +11842,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -11190,6 +11885,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11227,6 +11923,7 @@ BEGIN
 				(CASE WHEN @IsPrimary IS NOT NULL THEN (CASE WHEN e.[IsPrimary] = @IsPrimary THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -11283,6 +11980,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11322,6 +12020,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11343,6 +12042,7 @@ BEGIN
 		[dbo].[PrintingHouseContact] e
 END
 GO
+
 
 
 
@@ -11389,6 +12089,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11427,6 +12128,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -11469,6 +12171,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11506,6 +12209,7 @@ BEGIN
 				(CASE WHEN @IsPrimary IS NOT NULL THEN (CASE WHEN e.[IsPrimary] = @IsPrimary THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -11562,6 +12266,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11597,6 +12302,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Region_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Region_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Region_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Region]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Region] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11618,6 +12364,7 @@ BEGIN
 		[dbo].[Region] e
 END
 GO
+
 
 
 
@@ -11663,6 +12410,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11698,6 +12446,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -11738,6 +12487,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -11794,6 +12544,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11829,6 +12580,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Size_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Size_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Size_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Size]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Size] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11850,6 +12642,7 @@ BEGIN
 		[dbo].[Size] e
 END
 GO
+
 
 
 
@@ -11896,6 +12689,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11937,6 +12731,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11973,6 +12768,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11987,7 +12783,7 @@ CREATE PROCEDURE [dbo].[p_Size_Insert]
 			@SizeName NVARCHAR(50),
 			@Width INT,
 			@Height INT,
-			@IsDeleted BIGINT,
+			@IsDeleted BIT,
 			@CreatedDate DATETIME,
 			@CreatedByID BIGINT,
 			@ModifiedDate DATETIME,
@@ -12028,6 +12824,7 @@ BEGIN
 		END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12042,7 +12839,7 @@ CREATE PROCEDURE [dbo].[p_Size_Update]
 			@SizeName NVARCHAR(50),
 			@Width INT,
 			@Height INT,
-			@IsDeleted BIGINT,
+			@IsDeleted BIT,
 			@CreatedDate DATETIME,
 			@CreatedByID BIGINT,
 			@ModifiedDate DATETIME,
@@ -12098,6 +12895,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12133,6 +12931,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_Unit_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_Unit_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_Unit_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[Unit]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[Unit] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12154,6 +12993,7 @@ BEGIN
 		[dbo].[Unit] e
 END
 GO
+
 
 
 
@@ -12192,6 +13032,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -12235,6 +13076,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -12294,6 +13136,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12330,6 +13173,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12351,6 +13195,50 @@ BEGIN
 		[dbo].[User] e
 END
 GO
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_User_GetByModifiedByID', 'P') IS NOT NULL
+DROP PROC [dbo].[p_User_GetByModifiedByID]
+GO
+
+CREATE PROCEDURE [dbo].[p_User_GetByModifiedByID]
+
+	@ModifiedByID BIGINT,
+	@Found BIT OUTPUT
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	IF(EXISTS(	SELECT 1 FROM [dbo].[User] c 
+				WHERE
+					[ModifiedByID] = @ModifiedByID
+	)) 
+	BEGIN
+		SET @Found = 1; -- notifying that record was found
+		
+		SELECT
+			e.*
+		FROM
+		[dbo].[User] e
+		WHERE 
+			[ModifiedByID] = @ModifiedByID	
+
+	END
+	ELSE
+		SET @Found = 0;
+END
+GO
+
 
 
 
@@ -12397,6 +13285,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12438,6 +13327,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12473,6 +13363,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -12540,6 +13431,7 @@ BEGIN
 				(CASE WHEN @ModifiedByID IS NOT NULL THEN (CASE WHEN e.[ModifiedByID] = @ModifiedByID THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -12623,6 +13515,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12662,6 +13555,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12683,6 +13577,7 @@ BEGIN
 		[dbo].[UserAddress] e
 END
 GO
+
 
 
 
@@ -12729,6 +13624,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12767,6 +13663,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -12809,6 +13706,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12846,6 +13744,7 @@ BEGIN
 				(CASE WHEN @IsPrimary IS NOT NULL THEN (CASE WHEN e.[IsPrimary] = @IsPrimary THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -12902,6 +13801,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12938,6 +13838,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12959,6 +13860,7 @@ BEGIN
 		[dbo].[UserConfirmation] e
 END
 GO
+
 
 
 
@@ -13004,6 +13906,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13039,6 +13942,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -13085,6 +13989,7 @@ BEGIN
 				(CASE WHEN @ConfirmationDate IS NOT NULL THEN (CASE WHEN e.[ConfirmationDate] = @ConfirmationDate THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -13147,6 +14052,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13186,6 +14092,7 @@ END
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13207,6 +14114,7 @@ BEGIN
 		[dbo].[UserContact] e
 END
 GO
+
 
 
 
@@ -13253,6 +14161,7 @@ GO
 
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13291,6 +14200,7 @@ BEGIN
 		SET @Found = 0;
 END
 GO
+
 
 
 
@@ -13333,6 +14243,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13370,6 +14281,7 @@ BEGIN
 				(CASE WHEN @IsPrimary IS NOT NULL THEN (CASE WHEN e.[IsPrimary] = @IsPrimary THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -13426,6 +14338,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13461,6 +14374,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_UserStatus_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_UserStatus_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_UserStatus_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[UserStatus]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[UserStatus] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13482,6 +14436,7 @@ BEGIN
 		[dbo].[UserStatus] e
 END
 GO
+
 
 
 
@@ -13521,6 +14476,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13557,6 +14513,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -13610,6 +14567,7 @@ BEGIN
 GO
 
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13645,6 +14603,47 @@ END
 GO
 
 
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF OBJECT_ID('p_UserType_Erase', 'P') IS NOT NULL
+DROP PROC [dbo].[p_UserType_Erase]
+GO
+
+CREATE PROCEDURE [dbo].[p_UserType_Erase]
+		@ID BIGINT,	
+		@Removed BIT OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+    
+	IF( EXISTS( SELECT 1 FROM [dbo].[UserType]  
+				WHERE 
+							[ID] = @ID	
+				) )
+	BEGIN
+	
+		DELETE 
+		FROM 
+			[dbo].[UserType] 	
+		WHERE 
+						[ID] = @ID	
+			
+		SET @Removed = 1
+	END
+	ELSE
+		SET @Removed = 0
+END
+GO
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13666,6 +14665,7 @@ BEGIN
 		[dbo].[UserType] e
 END
 GO
+
 
 
 
@@ -13705,6 +14705,7 @@ BEGIN
 END
 GO
 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13741,6 +14742,7 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -13793,57 +14795,29 @@ BEGIN
 		END
 GO
 
-/************************ Create Functions ******************************************/
-USE [PhotoPrint]
-GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetUserStatusIDByName]    Script Date: 10/16/2021 9:43:43 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+/******************** Populating Reference Data **************************/
+PRINT 'Populating reference data'
+EXEC dbo.p_AddressType_Populate
 
+EXEC dbo.p_Country_Populate
 
-CREATE FUNCTION [dbo].[fn_GetUserStatusIDByName] 
-(
-	@StatusName NVARCHAR(50)
-)
-RETURNS BIGINT
-AS
-BEGIN
-	-- Declare the return variable here
-	DECLARE @Result BIGINT
+EXEC dbo.p_Region_Populate
 
-	
-	SELECT @Result = [ID] FROM dbo.[UserStatus] WHERE StatusName = @StatusName
+EXEC dbo.p_City_Populate
 
+EXEC dbo.p_ContactType_Populate
 
-	RETURN @Result
-END
-GO
-USE [PhotoPrint]
-GO
-/****** Object:  UserDefinedFunction [dbo].[fn_GetUserTypeIDByName]    Script Date: 10/16/2021 9:43:43 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+EXEC dbo.p_Currency_Populate
 
+EXEC dbo.p_OrderStatus_Populate
 
+EXEC dbo.p_PaymentMethod_Populate
 
-CREATE FUNCTION [dbo].[fn_GetUserTypeIDByName] 
-(
-	@UserTypeName NVARCHAR(50)
-)
-RETURNS BIGINT
-AS
-BEGIN
-	-- Declare the return variable here
-	DECLARE @Result BIGINT
+EXEC dbo.p_Unit_Populate
 
-	
-	SELECT @Result = [ID] FROM dbo.[UserType] WHERE UserTypeName = @UserTypeName
+EXEC dbo.p_UserStatus_Populate
 
+EXEC dbo.p_UserType_Populate
 
-	RETURN @Result
-END
-GO
+PRINT 'Populating test data'
+EXEC p_TestData_Populate '/sql/testdata/'

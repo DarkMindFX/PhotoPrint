@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/mssql/server:2019-CU8-ubuntu-16.04
 
 USER root
 
-ENV SA_PASSWORD PhotoPrint2021!
+ENV SA_PASSWORD PhotoPrint2021!SaAccount
 ENV ACCEPT_EULA Y
 ENV MSSQL_PID Express
 

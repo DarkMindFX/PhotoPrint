@@ -68,6 +68,7 @@ BEGIN
 	
 	OPEN paramsCursor 
 
+	
 	BEGIN TRY
 
 		BEGIN TRANSACTION
@@ -94,7 +95,7 @@ BEGIN
 			KEEPIDENTITY,
 			FIRSTROW = 2,
 			FIELDTERMINATOR = '','',
-			ROWTERMINATOR=''\n'',
+			ROWTERMINATOR=''\r\n'',
 			BATCHSIZE=2500000);'
 
 			PRINT(@sql)
