@@ -21,5 +21,7 @@ namespace PPT.Interfaces
     public interface IConnectionTestDal : IInitializable
     {
         ConnectionTestResult TestConnection();
+
+        string ConnectionString { get; }
     }
 }

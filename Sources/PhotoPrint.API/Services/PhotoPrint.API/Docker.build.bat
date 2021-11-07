@@ -1,1 +1,0 @@
-docker build -t globus000/hrt.hiringtracker.api -f Dockerfile .

@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  ppt.photoprint.api:
+    image: "globus000/ppt.photoprint.api-test-dockersql"
+    ports: 
+      - 8082:8082
+    depends_on:
+      - ppt.photoprint.sqldb
+    
+  ppt.photoprint.sqldb:
+    image: "globus000/ppt.photoprint.sqldb"
+    ports:
+      - 2433:1433

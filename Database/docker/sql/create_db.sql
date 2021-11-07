@@ -17,6 +17,21 @@ GO
 USE master
 GO
 
+
+
+DECLARE @dbname nvarchar(128)
+SET @dbname = N'PhotoPrint'
+
+IF (EXISTS (SELECT name 
+	FROM master.sys.databases 
+	WHERE ('[' + [name] + ']' = @dbname 
+	OR [name] = @dbname)))
+BEGIN
+	THROW 50001, 'Database exists - exiting' ,1
+END
+GO
+
+
 /**************** Creating DB ****************************/
 CREATE DATABASE PhotoPrint
 GO
@@ -14821,3 +14836,7 @@ EXEC dbo.p_UserType_Populate
 
 PRINT 'Populating test data'
 EXEC p_TestData_Populate '/sql/testdata/'
+
+PRINT('Done')
+
+

@@ -14,6 +14,14 @@ namespace PPT.DAL.MSSQL
     [Export("MSSQL", typeof(IConnectionTestDal))]
     public class ConnectionTestDalImpl : SQLDal, IConnectionTestDal
     {
+        public string ConnectionString
+        {
+            get
+            {
+                return this.connectionString;
+            }
+        }
+
         public IInitParams CreateInitParams()
         {
             return new ConnectionTestDalInitParams();

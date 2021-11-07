@@ -39,6 +39,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             dto.Diagnostics["PPT.PhotoPrint.API"] = "OK";
 
             bool canConnectDal = CanConnectDal();
+            dto.Diagnostics["ConnString"] = _dalConnTest.ConnectionString;
             dto.Diagnostics["DAL"] = canConnectDal ? "OK" : "FAIL";
 
             IActionResult response = StatusCode(canConnectDal ? (int)HttpStatusCode.OK : (int)HttpStatusCode.PreconditionFailed, dto);
