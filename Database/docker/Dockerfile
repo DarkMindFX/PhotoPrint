@@ -12,4 +12,6 @@ RUN chmod +x /sql/import_data.sh
 
 USER mssql
 
+EXPOSE 1433
+
 ENTRYPOINT /bin/bash /sql/entrypoint.sh
