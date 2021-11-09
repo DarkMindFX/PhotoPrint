@@ -18,22 +18,21 @@ USE master
 GO
 
 
-
+/**************** Creating DB ****************************/
 DECLARE @dbname nvarchar(128)
 SET @dbname = N'PhotoPrint'
 
-IF (EXISTS (SELECT name 
+IF (NOT EXISTS (SELECT name 
 	FROM master.sys.databases 
 	WHERE ('[' + [name] + ']' = @dbname 
 	OR [name] = @dbname)))
 BEGIN
-	THROW 50001, 'Database exists - exiting' ,1
+	CREATE DATABASE PhotoPrint
 END
 GO
 
 
-/**************** Creating DB ****************************/
-CREATE DATABASE PhotoPrint
+
 GO
 
 /******************* Creating Users ***********************************/
@@ -14835,7 +14834,14 @@ EXEC dbo.p_UserStatus_Populate
 EXEC dbo.p_UserType_Populate
 
 PRINT 'Populating test data'
-EXEC p_TestData_Populate '/sql/testdata/'
+IF(NOT EXISTS(SELECT COUNT(1) FROM [dbo].[User] ))
+BEGIN
+	EXEC p_TestData_Populate '/sql/testdata/'
+END
+ELSE
+BEGIN
+	PRINT 'Test data present - skipping'
+END
 
 PRINT('Done')
 

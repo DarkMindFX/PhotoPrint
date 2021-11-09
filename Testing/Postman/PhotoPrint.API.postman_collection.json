@@ -1,16 +1,11 @@
-
-
-
 {
 	"info": {
-		"_postman_id": "BC1C4F03-F7A1-4A11-8F35-EDB40AD47891",
+		"_postman_id": "8c2110f5-bae5-44ed-b613-3eb3709ba10a",
 		"name": "PhotoPrint.API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		
-		
-	{
+		{
 			"name": "Address",
 			"item": [
 				{
@@ -139,11 +134,14 @@
 							"path": [
 								"api",
 								"v1",
-								"addresses"
-													,
-														
+								"addresses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -173,17 +171,19 @@
 							"path": [
 								"api",
 								"v1",
-								"addresses"
-													,
-														
+								"addresses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Address - Get By AddressTypeID",
 					"request": {
 						"auth": {
@@ -211,14 +211,17 @@
 								"addresses",
 								"byaddresstypeid",
 								":addresstypeid"
-						
+							],
+							"variable": [
+								{
+									"key": "addresstypeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Address - Get By CityID",
 					"request": {
 						"auth": {
@@ -246,14 +249,17 @@
 								"addresses",
 								"bycityid",
 								":cityid"
-						
+							],
+							"variable": [
+								{
+									"key": "cityid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Address - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -281,14 +287,17 @@
 								"addresses",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Address - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -316,16 +325,19 @@
 								"addresses",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "AddressType",
 			"item": [
 				{
@@ -454,11 +466,14 @@
 							"path": [
 								"api",
 								"v1",
-								"addresstypes"
-													,
-														
+								"addresstypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -488,19 +503,21 @@
 							"path": [
 								"api",
 								"v1",
-								"addresstypes"
-													,
-														
+								"addresstypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Category",
 			"item": [
 				{
@@ -629,11 +646,14 @@
 							"path": [
 								"api",
 								"v1",
-								"categories"
-													,
-														
+								"categories",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -663,17 +683,19 @@
 							"path": [
 								"api",
 								"v1",
-								"categories"
-													,
-														
+								"categories",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Category - Get By ParentID",
 					"request": {
 						"auth": {
@@ -701,14 +723,17 @@
 								"categories",
 								"byparentid",
 								":parentid"
-						
+							],
+							"variable": [
+								{
+									"key": "parentid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Category - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -736,14 +761,17 @@
 								"categories",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Category - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -771,16 +799,19 @@
 								"categories",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "City",
 			"item": [
 				{
@@ -909,11 +940,14 @@
 							"path": [
 								"api",
 								"v1",
-								"cities"
-													,
-														
+								"cities",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -943,17 +977,19 @@
 							"path": [
 								"api",
 								"v1",
-								"cities"
-													,
-														
+								"cities",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "City - Get By RegionID",
 					"request": {
 						"auth": {
@@ -981,16 +1017,19 @@
 								"cities",
 								"byregionid",
 								":regionid"
-						
+							],
+							"variable": [
+								{
+									"key": "regionid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Contact",
 			"item": [
 				{
@@ -1119,11 +1158,14 @@
 							"path": [
 								"api",
 								"v1",
-								"contacts"
-													,
-														
+								"contacts",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -1153,17 +1195,19 @@
 							"path": [
 								"api",
 								"v1",
-								"contacts"
-													,
-														
+								"contacts",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Contact - Get By ContactTypeID",
 					"request": {
 						"auth": {
@@ -1191,14 +1235,17 @@
 								"contacts",
 								"bycontacttypeid",
 								":contacttypeid"
-						
+							],
+							"variable": [
+								{
+									"key": "contacttypeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Contact - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -1226,14 +1273,17 @@
 								"contacts",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Contact - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -1261,16 +1311,19 @@
 								"contacts",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "ContactType",
 			"item": [
 				{
@@ -1399,11 +1452,14 @@
 							"path": [
 								"api",
 								"v1",
-								"contacttypes"
-													,
-														
+								"contacttypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -1433,19 +1489,21 @@
 							"path": [
 								"api",
 								"v1",
-								"contacttypes"
-													,
-														
+								"contacttypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Country",
 			"item": [
 				{
@@ -1574,11 +1632,14 @@
 							"path": [
 								"api",
 								"v1",
-								"countries"
-													,
-														
+								"countries",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -1608,19 +1669,21 @@
 							"path": [
 								"api",
 								"v1",
-								"countries"
-													,
-														
+								"countries",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Currency",
 			"item": [
 				{
@@ -1749,11 +1812,14 @@
 							"path": [
 								"api",
 								"v1",
-								"currencies"
-													,
-														
+								"currencies",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -1783,19 +1849,21 @@
 							"path": [
 								"api",
 								"v1",
-								"currencies"
-													,
-														
+								"currencies",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "DeliveryService",
 			"item": [
 				{
@@ -1924,11 +1992,14 @@
 							"path": [
 								"api",
 								"v1",
-								"deliveryservices"
-													,
-														
+								"deliveryservices",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -1958,17 +2029,19 @@
 							"path": [
 								"api",
 								"v1",
-								"deliveryservices"
-													,
-														
+								"deliveryservices",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "DeliveryService - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -1996,14 +2069,17 @@
 								"deliveryservices",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "DeliveryService - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -2031,16 +2107,19 @@
 								"deliveryservices",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "DeliveryServiceCity",
 			"item": [
 				{
@@ -2169,13 +2248,18 @@
 							"path": [
 								"api",
 								"v1",
-								"deliveryservicecities"
-													,
-														
+								"deliveryservicecities",
 								":deliveryserviceid",
-														
 								":cityid"
-													]
+							],
+							"variable": [
+								{
+									"key": "deliveryserviceid"
+								},
+								{
+									"key": "cityid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -2205,19 +2289,23 @@
 							"path": [
 								"api",
 								"v1",
-								"deliveryservicecities"
-													,
-														
+								"deliveryservicecities",
 								":deliveryserviceid",
-														
 								":cityid"
-													]
+							],
+							"variable": [
+								{
+									"key": "deliveryserviceid"
+								},
+								{
+									"key": "cityid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "DeliveryServiceCity - Get By DeliveryServiceID",
 					"request": {
 						"auth": {
@@ -2245,14 +2333,17 @@
 								"deliveryservicecities",
 								"bydeliveryserviceid",
 								":deliveryserviceid"
-						
+							],
+							"variable": [
+								{
+									"key": "deliveryserviceid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "DeliveryServiceCity - Get By CityID",
 					"request": {
 						"auth": {
@@ -2280,16 +2371,19 @@
 								"deliveryservicecities",
 								"bycityid",
 								":cityid"
-						
+							],
+							"variable": [
+								{
+									"key": "cityid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "FrameType",
 			"item": [
 				{
@@ -2418,11 +2512,14 @@
 							"path": [
 								"api",
 								"v1",
-								"frametypes"
-													,
-														
+								"frametypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -2452,17 +2549,19 @@
 							"path": [
 								"api",
 								"v1",
-								"frametypes"
-													,
-														
+								"frametypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "FrameType - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -2490,14 +2589,17 @@
 								"frametypes",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "FrameType - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -2525,16 +2627,19 @@
 								"frametypes",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Image",
 			"item": [
 				{
@@ -2663,11 +2768,14 @@
 							"path": [
 								"api",
 								"v1",
-								"images"
-													,
-														
+								"images",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -2697,17 +2805,19 @@
 							"path": [
 								"api",
 								"v1",
-								"images"
-													,
-														
+								"images",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Image - Get By PriceCurrencyID",
 					"request": {
 						"auth": {
@@ -2735,14 +2845,17 @@
 								"images",
 								"bypricecurrencyid",
 								":pricecurrencyid"
-						
+							],
+							"variable": [
+								{
+									"key": "pricecurrencyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Image - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -2770,14 +2883,17 @@
 								"images",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Image - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -2805,16 +2921,19 @@
 								"images",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "ImageCategory",
 			"item": [
 				{
@@ -2943,13 +3062,18 @@
 							"path": [
 								"api",
 								"v1",
-								"imagecategories"
-													,
-														
+								"imagecategories",
 								":imageid",
-														
 								":categoryid"
-													]
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								},
+								{
+									"key": "categoryid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -2979,19 +3103,23 @@
 							"path": [
 								"api",
 								"v1",
-								"imagecategories"
-													,
-														
+								"imagecategories",
 								":imageid",
-														
 								":categoryid"
-													]
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								},
+								{
+									"key": "categoryid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "ImageCategory - Get By ImageID",
 					"request": {
 						"auth": {
@@ -3019,14 +3147,17 @@
 								"imagecategories",
 								"byimageid",
 								":imageid"
-						
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "ImageCategory - Get By CategoryID",
 					"request": {
 						"auth": {
@@ -3054,16 +3185,19 @@
 								"imagecategories",
 								"bycategoryid",
 								":categoryid"
-						
+							],
+							"variable": [
+								{
+									"key": "categoryid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "ImageRelated",
 			"item": [
 				{
@@ -3192,13 +3326,18 @@
 							"path": [
 								"api",
 								"v1",
-								"imagerelateds"
-													,
-														
+								"imagerelateds",
 								":imageid",
-														
 								":relatedimageid"
-													]
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								},
+								{
+									"key": "relatedimageid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -3228,19 +3367,23 @@
 							"path": [
 								"api",
 								"v1",
-								"imagerelateds"
-													,
-														
+								"imagerelateds",
 								":imageid",
-														
 								":relatedimageid"
-													]
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								},
+								{
+									"key": "relatedimageid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "ImageRelated - Get By ImageID",
 					"request": {
 						"auth": {
@@ -3268,14 +3411,17 @@
 								"imagerelateds",
 								"byimageid",
 								":imageid"
-						
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "ImageRelated - Get By RelatedImageID",
 					"request": {
 						"auth": {
@@ -3303,16 +3449,19 @@
 								"imagerelateds",
 								"byrelatedimageid",
 								":relatedimageid"
-						
+							],
+							"variable": [
+								{
+									"key": "relatedimageid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "ImageThumbnail",
 			"item": [
 				{
@@ -3441,11 +3590,14 @@
 							"path": [
 								"api",
 								"v1",
-								"imagethumbnails"
-													,
-														
+								"imagethumbnails",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -3475,17 +3627,19 @@
 							"path": [
 								"api",
 								"v1",
-								"imagethumbnails"
-													,
-														
+								"imagethumbnails",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "ImageThumbnail - Get By ImageID",
 					"request": {
 						"auth": {
@@ -3513,16 +3667,19 @@
 								"imagethumbnails",
 								"byimageid",
 								":imageid"
-						
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Mat",
 			"item": [
 				{
@@ -3651,11 +3808,14 @@
 							"path": [
 								"api",
 								"v1",
-								"mats"
-													,
-														
+								"mats",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -3685,17 +3845,19 @@
 							"path": [
 								"api",
 								"v1",
-								"mats"
-													,
-														
+								"mats",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Mat - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -3723,14 +3885,17 @@
 								"mats",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Mat - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -3758,16 +3923,19 @@
 								"mats",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "MaterialType",
 			"item": [
 				{
@@ -3896,11 +4064,14 @@
 							"path": [
 								"api",
 								"v1",
-								"materialtypes"
-													,
-														
+								"materialtypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -3930,17 +4101,19 @@
 							"path": [
 								"api",
 								"v1",
-								"materialtypes"
-													,
-														
+								"materialtypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "MaterialType - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -3968,14 +4141,17 @@
 								"materialtypes",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "MaterialType - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -4003,16 +4179,19 @@
 								"materialtypes",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "MountingType",
 			"item": [
 				{
@@ -4141,11 +4320,14 @@
 							"path": [
 								"api",
 								"v1",
-								"mountingtypes"
-													,
-														
+								"mountingtypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -4175,19 +4357,21 @@
 							"path": [
 								"api",
 								"v1",
-								"mountingtypes"
-													,
-														
+								"mountingtypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Order",
 			"item": [
 				{
@@ -4316,11 +4500,14 @@
 							"path": [
 								"api",
 								"v1",
-								"orders"
-													,
-														
+								"orders",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -4350,17 +4537,19 @@
 							"path": [
 								"api",
 								"v1",
-								"orders"
-													,
-														
+								"orders",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By ManagerID",
 					"request": {
 						"auth": {
@@ -4388,14 +4577,17 @@
 								"orders",
 								"bymanagerid",
 								":managerid"
-						
+							],
+							"variable": [
+								{
+									"key": "managerid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By UserID",
 					"request": {
 						"auth": {
@@ -4423,14 +4615,17 @@
 								"orders",
 								"byuserid",
 								":userid"
-						
+							],
+							"variable": [
+								{
+									"key": "userid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By ContactID",
 					"request": {
 						"auth": {
@@ -4458,14 +4653,17 @@
 								"orders",
 								"bycontactid",
 								":contactid"
-						
+							],
+							"variable": [
+								{
+									"key": "contactid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By DeliveryAddressID",
 					"request": {
 						"auth": {
@@ -4493,14 +4691,17 @@
 								"orders",
 								"bydeliveryaddressid",
 								":deliveryaddressid"
-						
+							],
+							"variable": [
+								{
+									"key": "deliveryaddressid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By DeliveryServiceID",
 					"request": {
 						"auth": {
@@ -4528,14 +4729,17 @@
 								"orders",
 								"bydeliveryserviceid",
 								":deliveryserviceid"
-						
+							],
+							"variable": [
+								{
+									"key": "deliveryserviceid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -4563,14 +4767,17 @@
 								"orders",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Order - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -4598,16 +4805,19 @@
 								"orders",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "OrderItem",
 			"item": [
 				{
@@ -4736,11 +4946,14 @@
 							"path": [
 								"api",
 								"v1",
-								"orderitems"
-													,
-														
+								"orderitems",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -4770,17 +4983,19 @@
 							"path": [
 								"api",
 								"v1",
-								"orderitems"
-													,
-														
+								"orderitems",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By OrderID",
 					"request": {
 						"auth": {
@@ -4808,14 +5023,17 @@
 								"orderitems",
 								"byorderid",
 								":orderid"
-						
+							],
+							"variable": [
+								{
+									"key": "orderid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By ImageID",
 					"request": {
 						"auth": {
@@ -4843,14 +5061,17 @@
 								"orderitems",
 								"byimageid",
 								":imageid"
-						
+							],
+							"variable": [
+								{
+									"key": "imageid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By SizeID",
 					"request": {
 						"auth": {
@@ -4878,14 +5099,17 @@
 								"orderitems",
 								"bysizeid",
 								":sizeid"
-						
+							],
+							"variable": [
+								{
+									"key": "sizeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By FrameTypeID",
 					"request": {
 						"auth": {
@@ -4913,14 +5137,17 @@
 								"orderitems",
 								"byframetypeid",
 								":frametypeid"
-						
+							],
+							"variable": [
+								{
+									"key": "frametypeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By FrameSizeID",
 					"request": {
 						"auth": {
@@ -4948,14 +5175,17 @@
 								"orderitems",
 								"byframesizeid",
 								":framesizeid"
-						
+							],
+							"variable": [
+								{
+									"key": "framesizeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By MatID",
 					"request": {
 						"auth": {
@@ -4983,14 +5213,17 @@
 								"orderitems",
 								"bymatid",
 								":matid"
-						
+							],
+							"variable": [
+								{
+									"key": "matid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By MaterialTypeID",
 					"request": {
 						"auth": {
@@ -5018,14 +5251,17 @@
 								"orderitems",
 								"bymaterialtypeid",
 								":materialtypeid"
-						
+							],
+							"variable": [
+								{
+									"key": "materialtypeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By MountingTypeID",
 					"request": {
 						"auth": {
@@ -5053,14 +5289,17 @@
 								"orderitems",
 								"bymountingtypeid",
 								":mountingtypeid"
-						
+							],
+							"variable": [
+								{
+									"key": "mountingtypeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By PriceCurrencyID",
 					"request": {
 						"auth": {
@@ -5088,14 +5327,17 @@
 								"orderitems",
 								"bypricecurrencyid",
 								":pricecurrencyid"
-						
+							],
+							"variable": [
+								{
+									"key": "pricecurrencyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By PrintingHouseID",
 					"request": {
 						"auth": {
@@ -5123,14 +5365,17 @@
 								"orderitems",
 								"byprintinghouseid",
 								":printinghouseid"
-						
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -5158,14 +5403,17 @@
 								"orderitems",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderItem - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -5193,16 +5441,19 @@
 								"orderitems",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "OrderPaymentDetails",
 			"item": [
 				{
@@ -5331,11 +5582,14 @@
 							"path": [
 								"api",
 								"v1",
-								"orderpaymentdetailses"
-													,
-														
+								"orderpaymentdetailses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -5365,17 +5619,19 @@
 							"path": [
 								"api",
 								"v1",
-								"orderpaymentdetailses"
-													,
-														
+								"orderpaymentdetailses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderPaymentDetails - Get By OrderID",
 					"request": {
 						"auth": {
@@ -5403,14 +5659,17 @@
 								"orderpaymentdetailses",
 								"byorderid",
 								":orderid"
-						
+							],
+							"variable": [
+								{
+									"key": "orderid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderPaymentDetails - Get By PaymentMethodID",
 					"request": {
 						"auth": {
@@ -5438,14 +5697,17 @@
 								"orderpaymentdetailses",
 								"bypaymentmethodid",
 								":paymentmethodid"
-						
+							],
+							"variable": [
+								{
+									"key": "paymentmethodid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderPaymentDetails - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -5473,14 +5735,17 @@
 								"orderpaymentdetailses",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderPaymentDetails - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -5508,16 +5773,19 @@
 								"orderpaymentdetailses",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "OrderStatus",
 			"item": [
 				{
@@ -5646,11 +5914,14 @@
 							"path": [
 								"api",
 								"v1",
-								"orderstatuses"
-													,
-														
+								"orderstatuses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -5680,19 +5951,21 @@
 							"path": [
 								"api",
 								"v1",
-								"orderstatuses"
-													,
-														
+								"orderstatuses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "OrderStatusFlow",
 			"item": [
 				{
@@ -5821,13 +6094,18 @@
 							"path": [
 								"api",
 								"v1",
-								"orderstatusflows"
-													,
-														
+								"orderstatusflows",
 								":fromstatusid",
-														
 								":tostatusid"
-													]
+							],
+							"variable": [
+								{
+									"key": "fromstatusid"
+								},
+								{
+									"key": "tostatusid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -5857,19 +6135,23 @@
 							"path": [
 								"api",
 								"v1",
-								"orderstatusflows"
-													,
-														
+								"orderstatusflows",
 								":fromstatusid",
-														
 								":tostatusid"
-													]
+							],
+							"variable": [
+								{
+									"key": "fromstatusid"
+								},
+								{
+									"key": "tostatusid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderStatusFlow - Get By FromStatusID",
 					"request": {
 						"auth": {
@@ -5897,14 +6179,17 @@
 								"orderstatusflows",
 								"byfromstatusid",
 								":fromstatusid"
-						
+							],
+							"variable": [
+								{
+									"key": "fromstatusid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderStatusFlow - Get By ToStatusID",
 					"request": {
 						"auth": {
@@ -5932,16 +6217,19 @@
 								"orderstatusflows",
 								"bytostatusid",
 								":tostatusid"
-						
+							],
+							"variable": [
+								{
+									"key": "tostatusid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "OrderTracking",
 			"item": [
 				{
@@ -6070,11 +6358,14 @@
 							"path": [
 								"api",
 								"v1",
-								"ordertrackings"
-													,
-														
+								"ordertrackings",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -6104,17 +6395,19 @@
 							"path": [
 								"api",
 								"v1",
-								"ordertrackings"
-													,
-														
+								"ordertrackings",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderTracking - Get By OrderID",
 					"request": {
 						"auth": {
@@ -6142,14 +6435,17 @@
 								"ordertrackings",
 								"byorderid",
 								":orderid"
-						
+							],
+							"variable": [
+								{
+									"key": "orderid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderTracking - Get By OrderStatusID",
 					"request": {
 						"auth": {
@@ -6177,14 +6473,17 @@
 								"ordertrackings",
 								"byorderstatusid",
 								":orderstatusid"
-						
+							],
+							"variable": [
+								{
+									"key": "orderstatusid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "OrderTracking - Get By SetByID",
 					"request": {
 						"auth": {
@@ -6212,16 +6511,19 @@
 								"ordertrackings",
 								"bysetbyid",
 								":setbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "setbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "PaymentMethod",
 			"item": [
 				{
@@ -6350,11 +6652,14 @@
 							"path": [
 								"api",
 								"v1",
-								"paymentmethods"
-													,
-														
+								"paymentmethods",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -6384,19 +6689,21 @@
 							"path": [
 								"api",
 								"v1",
-								"paymentmethods"
-													,
-														
+								"paymentmethods",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "PrintingHouse",
 			"item": [
 				{
@@ -6525,11 +6832,14 @@
 							"path": [
 								"api",
 								"v1",
-								"printinghouses"
-													,
-														
+								"printinghouses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -6559,17 +6869,19 @@
 							"path": [
 								"api",
 								"v1",
-								"printinghouses"
-													,
-														
+								"printinghouses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "PrintingHouse - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -6597,14 +6909,17 @@
 								"printinghouses",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "PrintingHouse - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -6632,16 +6947,19 @@
 								"printinghouses",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "PrintingHouseAddress",
 			"item": [
 				{
@@ -6770,13 +7088,18 @@
 							"path": [
 								"api",
 								"v1",
-								"printinghouseaddresses"
-													,
-														
+								"printinghouseaddresses",
 								":printinghouseid",
-														
 								":addressid"
-													]
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								},
+								{
+									"key": "addressid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -6806,19 +7129,23 @@
 							"path": [
 								"api",
 								"v1",
-								"printinghouseaddresses"
-													,
-														
+								"printinghouseaddresses",
 								":printinghouseid",
-														
 								":addressid"
-													]
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								},
+								{
+									"key": "addressid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "PrintingHouseAddress - Get By PrintingHouseID",
 					"request": {
 						"auth": {
@@ -6846,14 +7173,17 @@
 								"printinghouseaddresses",
 								"byprintinghouseid",
 								":printinghouseid"
-						
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "PrintingHouseAddress - Get By AddressID",
 					"request": {
 						"auth": {
@@ -6881,16 +7211,19 @@
 								"printinghouseaddresses",
 								"byaddressid",
 								":addressid"
-						
+							],
+							"variable": [
+								{
+									"key": "addressid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "PrintingHouseContact",
 			"item": [
 				{
@@ -7019,13 +7352,18 @@
 							"path": [
 								"api",
 								"v1",
-								"printinghousecontacts"
-													,
-														
+								"printinghousecontacts",
 								":printinghouseid",
-														
 								":contactid"
-													]
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								},
+								{
+									"key": "contactid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -7055,19 +7393,23 @@
 							"path": [
 								"api",
 								"v1",
-								"printinghousecontacts"
-													,
-														
+								"printinghousecontacts",
 								":printinghouseid",
-														
 								":contactid"
-													]
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								},
+								{
+									"key": "contactid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "PrintingHouseContact - Get By PrintingHouseID",
 					"request": {
 						"auth": {
@@ -7095,14 +7437,17 @@
 								"printinghousecontacts",
 								"byprintinghouseid",
 								":printinghouseid"
-						
+							],
+							"variable": [
+								{
+									"key": "printinghouseid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "PrintingHouseContact - Get By ContactID",
 					"request": {
 						"auth": {
@@ -7130,16 +7475,19 @@
 								"printinghousecontacts",
 								"bycontactid",
 								":contactid"
-						
+							],
+							"variable": [
+								{
+									"key": "contactid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Region",
 			"item": [
 				{
@@ -7268,11 +7616,14 @@
 							"path": [
 								"api",
 								"v1",
-								"regions"
-													,
-														
+								"regions",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -7302,17 +7653,19 @@
 							"path": [
 								"api",
 								"v1",
-								"regions"
-													,
-														
+								"regions",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Region - Get By CountryID",
 					"request": {
 						"auth": {
@@ -7340,16 +7693,19 @@
 								"regions",
 								"bycountryid",
 								":countryid"
-						
+							],
+							"variable": [
+								{
+									"key": "countryid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Size",
 			"item": [
 				{
@@ -7478,11 +7834,14 @@
 							"path": [
 								"api",
 								"v1",
-								"sizes"
-													,
-														
+								"sizes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -7512,17 +7871,19 @@
 							"path": [
 								"api",
 								"v1",
-								"sizes"
-													,
-														
+								"sizes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Size - Get By CreatedByID",
 					"request": {
 						"auth": {
@@ -7550,14 +7911,17 @@
 								"sizes",
 								"bycreatedbyid",
 								":createdbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "createdbyid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "Size - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -7585,16 +7949,19 @@
 								"sizes",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "Unit",
 			"item": [
 				{
@@ -7723,11 +8090,14 @@
 							"path": [
 								"api",
 								"v1",
-								"units"
-													,
-														
+								"units",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -7757,19 +8127,21 @@
 							"path": [
 								"api",
 								"v1",
-								"units"
-													,
-														
+								"units",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "User",
 			"item": [
 				{
@@ -7898,11 +8270,14 @@
 							"path": [
 								"api",
 								"v1",
-								"users"
-													,
-														
+								"users",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -7932,17 +8307,19 @@
 							"path": [
 								"api",
 								"v1",
-								"users"
-													,
-														
+								"users",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "User - Get By UserStatusID",
 					"request": {
 						"auth": {
@@ -7970,14 +8347,17 @@
 								"users",
 								"byuserstatusid",
 								":userstatusid"
-						
+							],
+							"variable": [
+								{
+									"key": "userstatusid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "User - Get By UserTypeID",
 					"request": {
 						"auth": {
@@ -8005,14 +8385,17 @@
 								"users",
 								"byusertypeid",
 								":usertypeid"
-						
+							],
+							"variable": [
+								{
+									"key": "usertypeid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "User - Get By ModifiedByID",
 					"request": {
 						"auth": {
@@ -8040,16 +8423,19 @@
 								"users",
 								"bymodifiedbyid",
 								":modifiedbyid"
-						
+							],
+							"variable": [
+								{
+									"key": "modifiedbyid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "UserAddress",
 			"item": [
 				{
@@ -8178,13 +8564,18 @@
 							"path": [
 								"api",
 								"v1",
-								"useraddresses"
-													,
-														
+								"useraddresses",
 								":userid",
-														
 								":addressid"
-													]
+							],
+							"variable": [
+								{
+									"key": "userid"
+								},
+								{
+									"key": "addressid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -8214,19 +8605,23 @@
 							"path": [
 								"api",
 								"v1",
-								"useraddresses"
-													,
-														
+								"useraddresses",
 								":userid",
-														
 								":addressid"
-													]
+							],
+							"variable": [
+								{
+									"key": "userid"
+								},
+								{
+									"key": "addressid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "UserAddress - Get By UserID",
 					"request": {
 						"auth": {
@@ -8254,14 +8649,17 @@
 								"useraddresses",
 								"byuserid",
 								":userid"
-						
+							],
+							"variable": [
+								{
+									"key": "userid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "UserAddress - Get By AddressID",
 					"request": {
 						"auth": {
@@ -8289,16 +8687,19 @@
 								"useraddresses",
 								"byaddressid",
 								":addressid"
-						
+							],
+							"variable": [
+								{
+									"key": "addressid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "UserConfirmation",
 			"item": [
 				{
@@ -8427,11 +8828,14 @@
 							"path": [
 								"api",
 								"v1",
-								"userconfirmations"
-													,
-														
+								"userconfirmations",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -8461,17 +8865,19 @@
 							"path": [
 								"api",
 								"v1",
-								"userconfirmations"
-													,
-														
+								"userconfirmations",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "UserConfirmation - Get By UserID",
 					"request": {
 						"auth": {
@@ -8499,16 +8905,19 @@
 								"userconfirmations",
 								"byuserid",
 								":userid"
-						
+							],
+							"variable": [
+								{
+									"key": "userid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "UserContact",
 			"item": [
 				{
@@ -8637,13 +9046,18 @@
 							"path": [
 								"api",
 								"v1",
-								"usercontacts"
-													,
-														
+								"usercontacts",
 								":userid",
-														
 								":contactid"
-													]
+							],
+							"variable": [
+								{
+									"key": "userid"
+								},
+								{
+									"key": "contactid"
+								}
+							]
 						}
 					},
 					"response": []
@@ -8673,19 +9087,23 @@
 							"path": [
 								"api",
 								"v1",
-								"usercontacts"
-													,
-														
+								"usercontacts",
 								":userid",
-														
 								":contactid"
-													]
+							],
+							"variable": [
+								{
+									"key": "userid"
+								},
+								{
+									"key": "contactid"
+								}
+							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "UserContact - Get By UserID",
 					"request": {
 						"auth": {
@@ -8713,14 +9131,17 @@
 								"usercontacts",
 								"byuserid",
 								":userid"
-						
+							],
+							"variable": [
+								{
+									"key": "userid"
+								}
 							]
 						}
 					},
 					"response": []
-				}
-					,
-			{
+				},
+				{
 					"name": "UserContact - Get By ContactID",
 					"request": {
 						"auth": {
@@ -8748,16 +9169,19 @@
 								"usercontacts",
 								"bycontactid",
 								":contactid"
-						
+							],
+							"variable": [
+								{
+									"key": "contactid"
+								}
 							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "UserStatus",
 			"item": [
 				{
@@ -8886,11 +9310,14 @@
 							"path": [
 								"api",
 								"v1",
-								"userstatuses"
-													,
-														
+								"userstatuses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -8920,19 +9347,21 @@
 							"path": [
 								"api",
 								"v1",
-								"userstatuses"
-													,
-														
+								"userstatuses",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
 		},
-		
-	{
+		{
 			"name": "UserType",
 			"item": [
 				{
@@ -9061,11 +9490,14 @@
 							"path": [
 								"api",
 								"v1",
-								"usertypes"
-													,
-														
+								"usertypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
@@ -9095,17 +9527,86 @@
 							"path": [
 								"api",
 								"v1",
-								"usertypes"
-													,
-														
+								"usertypes",
 								":id"
-													]
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
 						}
 					},
 					"response": []
 				}
-					]
+			]
+		},
+		{
+			"name": "RpcUserOperations",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"User\" : {\r\n        \"Login\": \"TestPostman\",\r\n        \"Password\": \"TestPostman2021!\",\r\n        \"FirstName\": \"Adam\",\r\n        \"MiddleName\": null,\r\n        \"LastName\": \"Cohen\",\r\n        \"FriendlyName\": \"Adam\",\r\n        \"UserStatusID\": 1,\r\n        \"UserTypeID\": 1\r\n    },\r\n\r\n    \"Contact\" : {\r\n        \"ContactTypeID\": 1,\r\n        \"Title\": \"TestPostman Main Email\",\r\n        \"Value\": \"adamcohen2021@gmail.com\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Login\": \"TestPostman\",\r\n    \"Password\": \"TestPostman2021!\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/v1/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
-		]
-		
+	]
 }

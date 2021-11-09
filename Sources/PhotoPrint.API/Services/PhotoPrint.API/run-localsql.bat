@@ -1,0 +1,1 @@
+ docker run --name ppt.photoprint.api --add-host=ppt_photoprint_sqldb:192.168.56.1 -it -p 8082:8082 globus000/ppt.photoprint.api-test-dockersql
