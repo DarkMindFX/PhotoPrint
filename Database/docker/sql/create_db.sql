@@ -14834,7 +14834,7 @@ EXEC dbo.p_UserStatus_Populate
 EXEC dbo.p_UserType_Populate
 
 PRINT 'Populating test data'
-IF(NOT EXISTS(SELECT COUNT(1) FROM [dbo].[User] ))
+IF(NOT EXISTS(SELECT ID FROM [dbo].[User] ))
 BEGIN
 	EXEC p_TestData_Populate '/sql/testdata/'
 END
