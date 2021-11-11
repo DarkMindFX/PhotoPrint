@@ -1,15 +1,12 @@
-﻿using PPT.DAL.MSSQL;
-using PPT.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace Test.PPT.DAL.MSSQL
+namespace Test.PPT.Common.DAL
 {
     public class TestBase
     {

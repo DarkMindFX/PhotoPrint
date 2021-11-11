@@ -16,6 +16,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
@@ -23,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\PhotoPrint.Common\PhotoPrint.Common.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.DAL.EF\PhotoPrint.DAL.EF.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj" />
