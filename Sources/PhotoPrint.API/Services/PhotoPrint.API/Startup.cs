@@ -38,6 +38,11 @@ namespace PPT.PhotoPrint.API
             services.AddCors();
             services.AddControllers();
 
+            services.AddSwaggerGen( c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "PhotoPrint.API", Version = "v1" });
+            });
+
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
@@ -69,6 +74,12 @@ namespace PPT.PhotoPrint.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name:"PhotoPrint API v1");
+            }); 
+
             app.UseRouting();
 
             app.UseCors(x => x

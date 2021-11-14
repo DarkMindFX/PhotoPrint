@@ -29,7 +29,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetHealth()
         {
             var dto = new DTO.HealthResponse();
             dto.Timestamp = DateTime.UtcNow;
@@ -48,7 +48,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         #region Support methods
-        public bool CanConnectDal()
+        private bool CanConnectDal()
         {
             var testResult = _dalConnTest.TestConnection();
             return testResult.Success;

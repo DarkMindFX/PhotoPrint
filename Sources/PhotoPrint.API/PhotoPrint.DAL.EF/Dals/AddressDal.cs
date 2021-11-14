@@ -1,12 +1,8 @@
 ﻿using PPT.DAL.EF.Models;
 using PPT.Interfaces;
-using PPT.Interfaces.Entities;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PPT.DAL.EF.Dals
 {
