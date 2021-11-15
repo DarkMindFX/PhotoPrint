@@ -1,21 +1,23 @@
 version: '3.4'
 
 services:
-  ppt_photoprint_api:
-    image: "globus000/ppt.photoprint.api-test-dockersql"
-    ports: 
-      - "8082:8082"
-    networks:
-      - ppt_photoprint_backend
-    depends_on:
-      - ppt_photoprint_sqldb
-    
   ppt_photoprint_sqldb:
     image: "globus000/ppt.photoprint.sqldb"
     ports:
       - "2433:1433"
     networks:
       - ppt_photoprint_backend
+      
+  ppt_photoprint_api:
+    image: "globus000/ppt.photoprint.api"
+    environment:
+      - ServiceConfig__DalInitParams__ConnectionString=Data Source=ppt_photoprint_sqldb; Initial Catalog=PhotoPrint; User ID=ppt_svc_api; Password=PPTServiceApi2021!
+    ports: 
+      - "8082:8082"
+    networks:
+      - ppt_photoprint_backend
+    depends_on:
+      - ppt_photoprint_sqldb
       
 networks:
   ppt_photoprint_backend:

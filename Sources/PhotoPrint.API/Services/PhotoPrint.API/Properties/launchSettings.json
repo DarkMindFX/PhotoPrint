@@ -22,7 +22,8 @@
       "launchBrowser": true,
       "launchUrl": "api/v1/health",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ServiceConfig__DalInitParams__ConnectionString": "Data Source=127.0.0.1; Initial Catalog=PhotoPrint; User ID=ppt_svc_api; Password=PPTServiceApi2021!;"
       },
       "applicationUrl": "http://localhost:8082"
     }
