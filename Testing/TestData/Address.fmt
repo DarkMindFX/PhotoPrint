@@ -1,0 +1,15 @@
+11.0
+13
+1       SQLCHAR             0       21      ","      1     ID                             ""
+2       SQLCHAR             0       21      ","      2     AddressTypeID                  ""
+3       SQLCHAR             0       100     ","      3     Title                          Cyrillic_General_CI_AS
+4       SQLCHAR             0       21      ","      4     CityID                         ""
+5       SQLCHAR             0       100     ","      5     Street                         Cyrillic_General_CI_AS
+6       SQLCHAR             0       100     ","      6     BuildingNo                     Cyrillic_General_CI_AS
+7       SQLCHAR             0       100     ","      7     ApartmentNo                    Cyrillic_General_CI_AS
+8       SQLCHAR             0       2000    ","      8     Comment                        Cyrillic_General_CI_AS
+9       SQLCHAR             0       21      ","      9     CreatedByID                    ""
+10      SQLCHAR             0       24      ","      10    CreatedDate                    ""
+11      SQLCHAR             0       21      ","      11    ModifiedByID                   ""
+12      SQLCHAR             0       24      ","      12    ModifiedDate                   ""
+13      SQLCHAR             0       1       "\r\n"   13    IsDeleted                      ""

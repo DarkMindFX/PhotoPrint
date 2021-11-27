@@ -1,0 +1,15 @@
+11.0
+13
+1       SQLCHAR             0       21      ","      1     ID                                 ""
+2       SQLCHAR             0       100     ","      2     Title                              Cyrillic_General_CI_AS
+3       SQLCHAR             0       2000    ","      3     Description                        Cyrillic_General_CI_AS
+4       SQLCHAR             0       6000    ","      4     OriginUrl                          Cyrillic_General_CI_AS
+5       SQLCHAR             0       12      ","      5     MaxWidth                           ""
+6       SQLCHAR             0       12      ","      6     MaxHeight                          ""
+7       SQLCHAR             0       41      ","      7     PriceAmount                        ""
+8       SQLCHAR             0       21      ","      8     PriceCurrencyID                    ""
+9       SQLCHAR             0       1       ","      9     IsDeleted                          ""
+10      SQLCHAR             0       21      ","      10    CreatedByID                        ""
+11      SQLCHAR             0       24      ","      11    CreatedDate                        ""
+12      SQLCHAR             0       21      ","      12    ModifiedByID                       ""
+13      SQLCHAR             0       24      "\r\n"   13    ModifiedDate                       ""

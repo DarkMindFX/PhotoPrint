@@ -1,0 +1,10 @@
+11.0
+8
+1       SQLCHAR             0       21      ","      1     ID                                         ""
+2       SQLCHAR             0       100     ","      2     DeliveryServiceName                        Cyrillic_General_CI_AS
+3       SQLCHAR             0       2000    ","      3     Description                                Cyrillic_General_CI_AS
+4       SQLCHAR             0       1       ","      4     IsDeleted                                  ""
+5       SQLCHAR             0       24      ","      5     CreatedDate                                ""
+6       SQLCHAR             0       21      ","      6     CreatedByID                                ""
+7       SQLCHAR             0       24      ","      7     ModifiedDate                               ""
+8       SQLCHAR             0       21      "\r\n"   8     ModifiedByID                               ""

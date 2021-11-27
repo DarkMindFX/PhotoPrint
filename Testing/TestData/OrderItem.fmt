@@ -1,0 +1,23 @@
+11.0
+21
+1       SQLCHAR             0       21      ","      1     ID                                       ""
+2       SQLCHAR             0       21      ","      2     OrderID                                  ""
+3       SQLCHAR             0       21      ","      3     ImageID                                  ""
+4       SQLCHAR             0       12      ","      4     Width                                    ""
+5       SQLCHAR             0       12      ","      5     Height                                   ""
+6       SQLCHAR             0       21      ","      6     SizeID                                   ""
+7       SQLCHAR             0       21      ","      7     FrameTypeID                              ""
+8       SQLCHAR             0       21      ","      8     FrameSizeID                              ""
+9       SQLCHAR             0       21      ","      9     MatID                                    ""
+10      SQLCHAR             0       21      ","      10    MaterialTypeID                           ""
+11      SQLCHAR             0       21      ","      11    MountingTypeID                           ""
+12      SQLCHAR             0       12      ","      12    ItemCount                                ""
+13      SQLCHAR             0       41      ","      13    PriceAmountPerItem                       ""
+14      SQLCHAR             0       21      ","      14    PriceCurrencyID                          ""
+15      SQLCHAR             0       2000    ","      15    Comments                                 Cyrillic_General_CI_AS
+16      SQLCHAR             0       21      ","      16    PrintingHouseID                          ""
+17      SQLCHAR             0       1       ","      17    IsDeleted                                ""
+18      SQLCHAR             0       24      ","      18    CreatedDate                              ""
+19      SQLCHAR             0       21      ","      19    CreatedByID                              ""
+20      SQLCHAR             0       24      ","      20    ModifiedDate                             ""
+21      SQLCHAR             0       21      "\r\n"   21    ModifiedByID                             ""

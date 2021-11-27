@@ -1,0 +1,6 @@
+11.0
+4
+1       SQLCHAR             0       21      ","      1     ID                 ""
+2       SQLCHAR             0       2000    ","      2     Url                Cyrillic_General_CI_AS
+3       SQLCHAR             0       12      ","      3     Order              ""
+4       SQLCHAR             0       21      "\r\n"   4     ImageID            ""

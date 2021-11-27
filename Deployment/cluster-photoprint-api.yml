@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: deployment-photoprint-api
+    labels:
+        app: ppt-photoprint-api
+spec:
+    replicas: 5
+    selector:
+        matchLabels:
+            app: ppt-photoprint-api
+    template:
+        metadata:
+            labels:
+                app: ppt-photoprint-api
+        spec:
+            containers:
+            - name: ppt-photoprint-api
+              image: globus000/ppt.photoprint.api
+              ports:
+              - containerPort: 8082
+ 

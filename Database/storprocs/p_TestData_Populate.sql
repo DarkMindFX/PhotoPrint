@@ -13,7 +13,8 @@ Usage:
 EXEC p_TestData_Populate 'D:\Projects\PhotoPrint\Testing\TestData\'
 */
 CREATE PROCEDURE p_TestData_Populate
-	@RootFolder NVARCHAR(100)
+	@RootFolder NVARCHAR(100),
+	@DataSource NVARCHAR(100) = NULL
 AS
 BEGIN
 

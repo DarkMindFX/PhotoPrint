@@ -1,0 +1,11 @@
+11.0
+9
+1       SQLCHAR             0       21      ","      1     ID                           ""
+2       SQLCHAR             0       100     ","      2     CategoryName                 Cyrillic_General_CI_AS
+3       SQLCHAR             0       2000    ","      3     Description                  Cyrillic_General_CI_AS
+4       SQLCHAR             0       21      ","      4     ParentID                     ""
+5       SQLCHAR             0       1       ","      5     IsDeleted                    ""
+6       SQLCHAR             0       24      ","      6     CreatedDate                  ""
+7       SQLCHAR             0       21      ","      7     CreatedByID                  ""
+8       SQLCHAR             0       24      ","      8     ModifiedDate                 ""
+9       SQLCHAR             0       21      "\r\n"   9     ModifiedByID                 ""

@@ -1,0 +1,8 @@
+11.0
+6
+1       SQLCHAR             0       21      ","      1     ID                             ""
+2       SQLCHAR             0       21      ","      2     OrderID                        ""
+3       SQLCHAR             0       21      ","      3     OrderStatusID                  ""
+4       SQLCHAR             0       24      ","      4     SetDate                        ""
+5       SQLCHAR             0       21      ","      5     SetByID                        ""
+6       SQLCHAR             0       2000    "\r\n"   6     Comment                        Cyrillic_General_CI_AS

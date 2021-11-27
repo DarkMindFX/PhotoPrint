@@ -1,0 +1,8 @@
+11.0
+6
+1       SQLCHAR             0       21      ","      1     ID                                   ""
+2       SQLCHAR             0       21      ","      2     UserID                               ""
+3       SQLCHAR             0       100     ","      3     ConfirmationCode                     Cyrillic_General_CI_AS
+4       SQLCHAR             0       1       ","      4     Comfirmed                            ""
+5       SQLCHAR             0       24      ","      5     ExpiresDate                          ""
+6       SQLCHAR             0       24      "\r\n"   6     ConfirmationDate                     ""

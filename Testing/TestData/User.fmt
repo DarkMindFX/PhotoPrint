@@ -1,0 +1,15 @@
+11.0
+13
+1       SQLCHAR             0       21      ","      1     ID                           ""
+2       SQLCHAR             0       500     ","      2     Login                        Cyrillic_General_CI_AS
+3       SQLCHAR             0       500     ","      3     PwdHash                      Cyrillic_General_CI_AS
+4       SQLCHAR             0       100     ","      4     Salt                         Cyrillic_General_CI_AS
+5       SQLCHAR             0       100     ","      5     FirstName                    Cyrillic_General_CI_AS
+6       SQLCHAR             0       100     ","      6     MiddleName                   Cyrillic_General_CI_AS
+7       SQLCHAR             0       100     ","      7     LastName                     Cyrillic_General_CI_AS
+8       SQLCHAR             0       100     ","      8     FriendlyName                 Cyrillic_General_CI_AS
+9       SQLCHAR             0       21      ","      9     UserStatusID                 ""
+10      SQLCHAR             0       21      ","      10    UserTypeID                   ""
+11      SQLCHAR             0       24      ","      11    CreatedDate                  ""
+12      SQLCHAR             0       24      ","      12    ModifiedDate                 ""
+13      SQLCHAR             0       21      "\r\n"   13    ModifiedByID                 ""

@@ -1,0 +1,14 @@
+11.0
+12
+1       SQLCHAR             0       21      ","      1     ID                                     ""
+2       SQLCHAR             0       21      ","      2     ManagerID                              ""
+3       SQLCHAR             0       21      ","      3     UserID                                 ""
+4       SQLCHAR             0       21      ","      4     ContactID                              ""
+5       SQLCHAR             0       21      ","      5     DeliveryAddressID                      ""
+6       SQLCHAR             0       21      ","      6     DeliveryServiceID                      ""
+7       SQLCHAR             0       2000    ","      7     Comments                               Cyrillic_General_CI_AS
+8       SQLCHAR             0       1       ","      8     IsDeleted                              ""
+9       SQLCHAR             0       24      ","      9     CreatedDate                            ""
+10      SQLCHAR             0       21      ","      10    CreatedByID                            ""
+11      SQLCHAR             0       24      ","      11    ModifiedDate                           ""
+12      SQLCHAR             0       21      "\r\n"   12    ModifiedByID                           ""

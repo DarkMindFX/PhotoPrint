@@ -1,0 +1,12 @@
+11.0
+10
+1       SQLCHAR             0       21      ","      1     ID                                 ""
+2       SQLCHAR             0       21      ","      2     OrderID                            ""
+3       SQLCHAR             0       21      ","      3     PaymentMethodID                    ""
+4       SQLCHAR             0       500     ","      4     PaymentTransUID                    Cyrillic_General_CI_AS
+5       SQLCHAR             0       24      ","      5     PaymentDateTime                    ""
+6       SQLCHAR             0       1       ","      6     IsDeleted                          ""
+7       SQLCHAR             0       24      ","      7     CreatedDate                        ""
+8       SQLCHAR             0       21      ","      8     CreatedByID                        ""
+9       SQLCHAR             0       24      ","      9     ModifiedDate                       ""
+10      SQLCHAR             0       21      "\r\n"   10    ModifiedByID                       ""
