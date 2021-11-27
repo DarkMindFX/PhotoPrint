@@ -10,7 +10,32 @@ GO
 
 /*
 Usage:
+1. From local file
 EXEC p_TestData_Populate 'D:\Projects\PhotoPrint\Testing\TestData\'
+
+2. From Azure Blob
+
+CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<Password>'
+
+CREATE DATABASE SCOPED CREDENTIAL UploadPhotoPrintTestData
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+SECRET = '<SAS for blob folder>';
+
+CREATE EXTERNAL DATA SOURCE PhotoPrint_Azure_TestData
+WITH (
+        TYPE = BLOB_STORAGE,
+        LOCATION = 'https://photoprintstorage.blob.core.windows.net',
+        CREDENTIAL = UploadPhotoPrintTestData
+    );
+GO 
+
+EXEC p_TestData_Populate 'photoprintdb-test-data/', 'PhotoPrint_Azure_TestData'
+
+DROP EXTERNAL DATA SOURCE PhotoPrint_Azure_TestData
+
+DROP DATABASE SCOPED CREDENTIAL UploadPhotoPrintTestData
+
+DROP MASTER KEY
 */
 CREATE PROCEDURE p_TestData_Populate
 	@RootFolder NVARCHAR(100),
@@ -92,8 +117,12 @@ BEGIN
 
 			SET @sql = 'BULK INSERT dbo.[' + @table + ']
 			FROM ''' + @Path + '''
-			WITH (
-			KEEPIDENTITY,
+			WITH (' +
+			CASE
+				WHEN @DataSource IS NOT NULL THEN 'DATA_SOURCE=''' + @DataSource + ''',' 
+				ELSE ''
+			END +
+			'KEEPIDENTITY,
 			FIRSTROW = 2,
 			FIELDTERMINATOR = '','',
 			ROWTERMINATOR=''0x0d0a'',
