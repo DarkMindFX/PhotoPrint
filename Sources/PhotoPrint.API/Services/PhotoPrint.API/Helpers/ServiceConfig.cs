@@ -11,6 +11,9 @@ namespace PPT.PhotoPrint.API.Helpers
         [JsonPropertyName("DALType")]
         public string DALType { get; set; }
 
+        [JsonPropertyName("StorageType")]
+        public string StorageType { get; set; }
+
 
         [JsonPropertyName("DALInitParams")]
         public Dictionary<string, string> DALInitParams { get; set; }

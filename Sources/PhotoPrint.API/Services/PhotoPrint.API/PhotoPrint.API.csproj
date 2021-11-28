@@ -32,6 +32,7 @@
     <ProjectReference Include="..\..\PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Storage.Azure\PhotoPrint.Storage.Azure.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.Utils\PhotoPrint.Utils.csproj" />
   </ItemGroup>
 

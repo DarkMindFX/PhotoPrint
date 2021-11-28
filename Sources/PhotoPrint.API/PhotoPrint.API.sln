@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.PhotoPrint.DAL.EF", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.PhotoPrint.Common", "Tests\Test.PhotoPrint.Common\Test.PhotoPrint.Common.csproj", "{1722C31F-A73F-4196-AF03-771C81C34E31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Storage.Azure", "PhotoPrint.Storage.Azure\PhotoPrint.Storage.Azure.csproj", "{2F2FBD78-0DA3-466D-B8C4-F57C80927B7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,10 @@ Global
 		{1722C31F-A73F-4196-AF03-771C81C34E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1722C31F-A73F-4196-AF03-771C81C34E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1722C31F-A73F-4196-AF03-771C81C34E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2FBD78-0DA3-466D-B8C4-F57C80927B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2FBD78-0DA3-466D-B8C4-F57C80927B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2FBD78-0DA3-466D-B8C4-F57C80927B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2FBD78-0DA3-466D-B8C4-F57C80927B7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

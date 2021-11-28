@@ -278,6 +278,9 @@ namespace PPT.PhotoPrint.API
             var dalConnTest = InitDal<IConnectionTestDal>(serviceCfg);
             services.AddSingleton<IConnectionTestDal>(dalConnTest);
 
+            var storage = Container.GetExportedValue<IBinaryStorage>(serviceCfg.StorageType);
+            services.AddSingleton<IBinaryStorage>(storage);
+
         }
 
         private TDal InitDal<TDal>(ServiceConfig serviceCfg) where TDal : IInitializable
