@@ -14,6 +14,7 @@ namespace PPT.Storage.Azure
             Parameters = new Dictionary<string, string>();
             Parameters["StorageConnectionString"] = null;
             Parameters["ContainerName"] = null;
+            Parameters["StorageUrl"] = null;
         }
 
         public Dictionary<string, string> Parameters
@@ -55,9 +56,10 @@ namespace PPT.Storage.Azure
 
             string containerName = _initParams.Parameters["ContainerName"].ToString();
 
-            while (_containerClient == null && containers.GetEnumerator().MoveNext())
+            var enumContainers = containers.GetEnumerator();
+            while (_containerClient == null && enumContainers.MoveNext())
             {
-                if(containers.GetEnumerator().Current.Name.Equals(containerName))
+                if(enumContainers.Current != null && enumContainers.Current.Name.Equals(containerName))
                 {
                     _containerClient = new BlobContainerClient(storageConnString, containerName);
                 }
@@ -74,7 +76,12 @@ namespace PPT.Storage.Azure
         {
             BlobClient blobClient = _containerClient.GetBlobClient(blobName);
             var response = blobClient.Upload(data);
-            return blobName;
+
+            var url = Path.Combine(this._initParams.Parameters["StorageUrl"],
+                                    this._initParams.Parameters["ContainerName"],
+                                    blobName);
+
+            return url;
         }
     }
 }

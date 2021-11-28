@@ -22,8 +22,11 @@
       "launchBrowser": true,
       "launchUrl": "api/v1/health",
       "environmentVariables": {
+        "ServiceConfig__StorageInitParams__ContainerName": "photoprint-images-dev",
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ServiceConfig__DalInitParams__ConnectionString": "Data Source=127.0.0.1; Initial Catalog=PhotoPrint; User ID=ppt_svc_api; Password=PPTServiceApi2021!;"
+        "ServiceConfig__StorageInitParams__StorageConnectionString": "BlobEndpoint=https://photoprintstorage.blob.core.windows.net/;QueueEndpoint=https://photoprintstorage.queue.core.windows.net/;FileEndpoint=https://photoprintstorage.file.core.windows.net/;TableEndpoint=https://photoprintstorage.table.core.windows.net/;SharedAccessSignature=sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2021-11-29T06:07:02Z&st=2021-11-28T22:07:02Z&spr=https,http&sig=93ejX0pSWZo%2FRnvF9CjL4myOK0nCCMrxsFj8T%2FyNI0Q%3D",
+        "ServiceConfig__DalInitParams__ConnectionString": "Data Source=127.0.0.1; Initial Catalog=PhotoPrint; User ID=ppt_svc_api; Password=PPTServiceApi2021!;",
+        "ServiceConfig__StorageInitParams__StorageUrl": "https://photoprintstorage.blob.core.windows.net"
       },
       "applicationUrl": "http://localhost:8082"
     }

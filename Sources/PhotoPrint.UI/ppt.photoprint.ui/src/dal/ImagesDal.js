@@ -79,6 +79,31 @@ class ImagesDal extends DalBase {
             return error.response;
         }
     }
+
+    async uploadThumbnails(id, thumbnails)
+    {
+        let inst = this.Instance;
+
+        const formData = new FormData();
+        for(let i in thumbnails)
+        {
+            if(thumbnails[i] != null)
+            {
+                console.log(thumbnails[i]);
+                formData.append("files", thumbnails[i]);   
+            }         
+        }
+
+        try {
+            console.log(formData);
+            let res = await inst.post(`/thumbnails/images/${id}`, formData);
+
+            return res;
+        }
+        catch(error) {
+            return error.response;
+        }        
+    }
 }
 
 module.exports = ImagesDal;

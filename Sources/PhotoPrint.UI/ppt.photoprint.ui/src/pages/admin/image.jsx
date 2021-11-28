@@ -89,7 +89,7 @@ class ImagePage extends React.Component {
         this.onModifiedByIDChanged = this.onModifiedByIDChanged.bind(this);
         this.onModifiedDateChanged = this.onModifiedDateChanged.bind(this);
 
-
+        this.onThumbnailChange = this.onThumbnailChange.bind(this);
     }
 
     componentDidMount() {
@@ -228,6 +228,21 @@ class ImagePage extends React.Component {
         this.setState(updatedState);
     }
 
+    onThumbnailChange(event, thumbNum) {
+
+        console.log(thumbNum, event.target.files);
+
+        let updatedState = this.state;
+        if(!updatedState.thumbnails)
+        {
+            updatedState.thumbnails = [null, null, null];         
+        }
+
+        updatedState.thumbnails[thumbNum] = event.target.files[0]
+        this.setState(updatedState);
+
+    }
+
 
 
     onSaveClicked() {
@@ -269,6 +284,8 @@ class ImagePage extends React.Component {
                     else {
                         updatedState.success = `Image was updated`;                
                     }
+
+                    dalImages.uploadThumbnails(updatedState.id, obj.state.thumbnails);
 
                     obj.setState(updatedState);
                 }
@@ -581,6 +598,24 @@ class ImagePage extends React.Component {
                                 
                             </td>
                         </tr> 
+                        <tr>
+                            <td>Thumbnails</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" onChange={ (event) => { this.onThumbnailChange(event, 0)} } />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" onChange={ (event) => { this.onThumbnailChange(event, 1)} } />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" onChange={ (event) => { this.onThumbnailChange(event, 2)} } />
+                            </td>
+                        </tr>
                        
 
                     </tbody>

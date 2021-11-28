@@ -278,9 +278,8 @@ namespace PPT.PhotoPrint.API
             var dalConnTest = InitDal<IConnectionTestDal>(serviceCfg);
             services.AddSingleton<IConnectionTestDal>(dalConnTest);
 
-            var storage = Container.GetExportedValue<IBinaryStorage>(serviceCfg.StorageType);
+            var storage = InitBinaryStorage(serviceCfg);
             services.AddSingleton<IBinaryStorage>(storage);
-
         }
 
         private TDal InitDal<TDal>(ServiceConfig serviceCfg) where TDal : IInitializable
@@ -292,6 +291,20 @@ namespace PPT.PhotoPrint.API
             dal.Init(dalInitParams);
 
             return dal;
+        }
+
+        private IBinaryStorage InitBinaryStorage(ServiceConfig serviceCfg)
+        {
+            var s = Container.GetExportedValue<IBinaryStorage>(serviceCfg.StorageType);
+
+            var initParams = s.CreateInitParams();
+            foreach(var k in initParams.Parameters.Keys)
+            {
+                initParams.Parameters[k] = serviceCfg.StorageInitParams[k];
+            }
+            s.Init(initParams);
+
+            return s;
 
         }
     }
