@@ -12,17 +12,17 @@ using System.Threading.Tasks;
 
 namespace PPT.PhotoPrint.API.Controllers.V1
 {
-    [Route("api/v1/images")]
+    [Route("api/v1/thumbnails")]
     [ApiController]
-    public class RpcImageOperationsController : ControllerBase
+    public class RpcThumbnailOperationsController : ControllerBase
     {
         private readonly Dal.IImageDal _dalImage;
-        private readonly ILogger<RpcImageOperationsController> _logger;
+        private readonly ILogger<RpcThumbnailOperationsController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
 
 
-        public RpcImageOperationsController(Dal.IImageDal dalImage,
-                                        ILogger<RpcImageOperationsController> logger,
+        public RpcThumbnailOperationsController(Dal.IImageDal dalImage,
+                                        ILogger<RpcThumbnailOperationsController> logger,
                                         IOptions<AppSettings> appSettings)
         {
             _dalImage = dalImage;
@@ -31,7 +31,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         [Authorize]
-        [HttpPost("{id}/thumbnail"), ActionName("UploadImage")]
+        [HttpPost("images/{id}"), ActionName("UploadImage")]
         public async Task<IActionResult> UploadImageThumbnail(System.Int64 id, List<IFormFile> files)
         {
             IActionResult result = null;
