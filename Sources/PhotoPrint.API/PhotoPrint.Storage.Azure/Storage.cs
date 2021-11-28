@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using PPT.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -75,7 +76,10 @@ namespace PPT.Storage.Azure
         public string Upload(string blobName, Stream data)
         {
             BlobClient blobClient = _containerClient.GetBlobClient(blobName);
-            var response = blobClient.Upload(data);
+
+            var blobHttpHeader = new BlobHttpHeaders { ContentType = GetFileContentType(blobName) };
+
+            var response = blobClient.Upload(data, new BlobUploadOptions { HttpHeaders = blobHttpHeader });
 
             var url = Path.Combine(this._initParams.Parameters["StorageUrl"],
                                     this._initParams.Parameters["ContainerName"],
@@ -83,5 +87,63 @@ namespace PPT.Storage.Azure
 
             return url;
         }
+
+        private static string GetFileContentType(string filePath)
+        {
+            string ContentType = String.Empty;
+            string Extension = Path.GetExtension(filePath).ToLower();
+
+            switch (Extension)
+            {
+                case Constants.FILE_EXTENSION_PDF:
+                    ContentType = "application/pdf";
+                    break;
+                case Constants.FILE_EXTENSION_TXT:
+                    ContentType = "text/plain";
+                    break;
+                case Constants.FILE_EXTENSION_BMP:
+                    ContentType = "image/bmp";
+                    break;
+                case Constants.FILE_EXTENSION_GIF:
+                    ContentType = "image/gif";
+                    break;
+                case Constants.FILE_EXTENSION_PNG:
+                    ContentType = "image/png";
+                    break;
+                case Constants.FILE_EXTENSION_JPG:
+                    ContentType = "image/jpeg";
+                    break;
+                case Constants.FILE_EXTENSION_JPEG:
+                    ContentType = "image/jpeg";
+                    break;
+                case Constants.FILE_EXTENSION_XLS:
+                    ContentType = "application/vnd.ms-excel";
+                    break;
+                case Constants.FILE_EXTENSION_XLSX:
+                    ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    break;
+                case Constants.FILE_EXTENSION_CSV:
+                    ContentType = "text/csv";
+                    break;
+                case Constants.FILE_EXTENSION_HTML:
+                    ContentType = "text/html";
+                    break;
+                case Constants.FILE_EXTENSION_XML:
+                    ContentType = "text/xml";
+                    break;
+                case Constants.FILE_EXTENSION_ZIP:
+                    ContentType = "application/zip";
+                    break;
+                default:
+                    ContentType = "application/octet-stream";
+                    break;
+
+            }
+
+
+            return ContentType;
+        }
+
+
     }
 }
