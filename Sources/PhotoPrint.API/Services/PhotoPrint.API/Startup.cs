@@ -33,6 +33,20 @@ namespace PPT.PhotoPrint.API
         public void ConfigureServices(IServiceCollection services)
         {
             var serviceConfig = Configuration.GetSection("ServiceConfig").Get<ServiceConfig>();
+
+            Console.WriteLine("Starting service with parameters:");
+            Console.WriteLine($"StorageType: {serviceConfig.StorageType}");
+            Console.WriteLine("StorageInitParams");
+            foreach(var k in serviceConfig.StorageInitParams.Keys)
+            {
+                Console.WriteLine($"{k}: {serviceConfig.StorageInitParams[k]}");
+            }
+            Console.WriteLine($"DALType: {serviceConfig.DALType}");
+            foreach (var k in serviceConfig.DALInitParams.Keys)
+            {
+                Console.WriteLine($"{k}: {serviceConfig.DALInitParams[k]}");
+            }
+
             PrepareComposition();
 
             services.AddCors();
