@@ -2,7 +2,7 @@
 
 echo "Execute 'minikube start' to make cluster running"
 
-kubectl apply -f cluster-photoprint-api.yml
+kubectl apply -f cluster-photoprint-api-local.yml
 
 kubectl apply -f loadbalancer-photoprint-api.yml
 
