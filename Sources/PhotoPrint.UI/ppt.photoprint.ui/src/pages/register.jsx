@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom'
-import { TextField } from '@material-ui/core';
-import { Button } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
-import constants from '../constants';
+const React = require('react');
+const { Link, withRouter } = require('react-router-dom');
+const { TextField } = require('@material-ui/core');
+const { Button } = require('@material-ui/core');
+const Alert = require('@material-ui/lab/Alert');
+const constants = require('../constants');
 
 const PageHelper = require("../helpers/PageHelper");
 const UsersDal = require('../dal/UsersDal');

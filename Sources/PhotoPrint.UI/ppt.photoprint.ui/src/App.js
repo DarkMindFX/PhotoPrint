@@ -1,102 +1,102 @@
 import logo from './logo.svg';
 import './App.css';
 
-import {
-  BrowserRouter as Router,
+const {
+  BrowserRouter,
   Route,
   Switch,
   Link,
   Redirect
-} from 'react-router-dom';
+} = require('react-router-dom');
 
-import React from 'react';
+const React = require('react');
 
-import MainPage from './pages';
-import RegisterPage from './pages/register';
-import LogingPage from './pages/login';
-import LogoutPage from './pages/logout';
+const MainPage = require('./pages');
+const RegisterPage = require('./pages/register');
+const LogingPage = require('./pages/login');
+const LogoutPage = require('./pages/logout');
 
-import AddressesPage from './pages/admin/addresses';
-import AddressPage from './pages/admin/address';
-import AddressTypesPage from './pages/admin/addresstypes';
-import AddressTypePage from './pages/admin/addresstype';
-import CategoriesPage from './pages/admin/categories';
-import CategoryPage from './pages/admin/category';
-import CitiesPage from './pages/admin/cities';
-import CityPage from './pages/admin/city';
-import ContactsPage from './pages/admin/contacts';
-import ContactPage from './pages/admin/contact';
-import ContactTypesPage from './pages/admin/contacttypes';
-import ContactTypePage from './pages/admin/contacttype';
-import CountriesPage from './pages/admin/countries';
-import CountryPage from './pages/admin/country';
-import CurrenciesPage from './pages/admin/currencies';
-import CurrencyPage from './pages/admin/currency';
-import DeliveryServicesPage from './pages/admin/deliveryservices';
-import DeliveryServicePage from './pages/admin/deliveryservice';
-import DeliveryServiceCitiesPage from './pages/admin/deliveryservicecities';
-import DeliveryServiceCityPage from './pages/admin/deliveryservicecity';
-import FrameTypesPage from './pages/admin/frametypes';
-import FrameTypePage from './pages/admin/frametype';
-import ImagesPage from './pages/admin/images';
-import ImagePage from './pages/admin/image';
-import ImageCategoriesPage from './pages/admin/imagecategories';
-import ImageCategoryPage from './pages/admin/imagecategory';
-import ImageRelatedsPage from './pages/admin/imagerelateds';
-import ImageRelatedPage from './pages/admin/imagerelated';
-import ImageThumbnailsPage from './pages/admin/imagethumbnails';
-import ImageThumbnailPage from './pages/admin/imagethumbnail';
-import MatsPage from './pages/admin/mats';
-import MatPage from './pages/admin/mat';
-import MaterialTypesPage from './pages/admin/materialtypes';
-import MaterialTypePage from './pages/admin/materialtype';
-import MountingTypesPage from './pages/admin/mountingtypes';
-import MountingTypePage from './pages/admin/mountingtype';
-import OrdersPage from './pages/admin/orders';
-import OrderPage from './pages/admin/order';
-import OrderItemsPage from './pages/admin/orderitems';
-import OrderItemPage from './pages/admin/orderitem';
-import OrderPaymentDetailsesPage from './pages/admin/orderpaymentdetailses';
-import OrderPaymentDetailsPage from './pages/admin/orderpaymentdetails';
-import OrderStatusesPage from './pages/admin/orderstatuses';
-import OrderStatusPage from './pages/admin/orderstatus';
-import OrderStatusFlowsPage from './pages/admin/orderstatusflows';
-import OrderStatusFlowPage from './pages/admin/orderstatusflow';
-import OrderTrackingsPage from './pages/admin/ordertrackings';
-import OrderTrackingPage from './pages/admin/ordertracking';
-import PaymentMethodsPage from './pages/admin/paymentmethods';
-import PaymentMethodPage from './pages/admin/paymentmethod';
-import PrintingHousesPage from './pages/admin/printinghouses';
-import PrintingHousePage from './pages/admin/printinghouse';
-import PrintingHouseAddressesPage from './pages/admin/printinghouseaddresses';
-import PrintingHouseAddressPage from './pages/admin/printinghouseaddress';
-import PrintingHouseContactsPage from './pages/admin/printinghousecontacts';
-import PrintingHouseContactPage from './pages/admin/printinghousecontact';
-import RegionsPage from './pages/admin/regions';
-import RegionPage from './pages/admin/region';
-import SizesPage from './pages/admin/sizes';
-import SizePage from './pages/admin/size';
-import UnitsPage from './pages/admin/units';
-import UnitPage from './pages/admin/unit';
-import UsersPage from './pages/admin/users';
-import UserPage from './pages/admin/user';
-import UserAddressesPage from './pages/admin/useraddresses';
-import UserAddressPage from './pages/admin/useraddress';
-import UserConfirmationsPage from './pages/admin/userconfirmations';
-import UserConfirmationPage from './pages/admin/userconfirmation';
-import UserContactsPage from './pages/admin/usercontacts';
-import UserContactPage from './pages/admin/usercontact';
-import UserStatusesPage from './pages/admin/userstatuses';
-import UserStatusPage from './pages/admin/userstatus';
-import UserTypesPage from './pages/admin/usertypes';
-import UserTypePage from './pages/admin/usertype';
+const AddressesPage = require('./pages/admin/addresses');
+const AddressPage = require('./pages/admin/address');
+const AddressTypesPage = require('./pages/admin/addresstypes');
+const AddressTypePage = require('./pages/admin/addresstype');
+const CategoriesPage = require('./pages/admin/categories');
+const CategoryPage = require('./pages/admin/category');
+const CitiesPage = require('./pages/admin/cities');
+const CityPage = require('./pages/admin/city');
+const ContactsPage = require('./pages/admin/contacts');
+const ContactPage = require('./pages/admin/contact');
+const ContactTypesPage = require('./pages/admin/contacttypes');
+const ContactTypePage = require('./pages/admin/contacttype');
+const CountriesPage = require('./pages/admin/countries');
+const CountryPage = require('./pages/admin/country');
+const CurrenciesPage = require('./pages/admin/currencies');
+const CurrencyPage = require('./pages/admin/currency');
+const DeliveryServicesPage = require('./pages/admin/deliveryservices');
+const DeliveryServicePage = require('./pages/admin/deliveryservice');
+const DeliveryServiceCitiesPage = require('./pages/admin/deliveryservicecities');
+const DeliveryServiceCityPage = require('./pages/admin/deliveryservicecity');
+const FrameTypesPage = require('./pages/admin/frametypes');
+const FrameTypePage = require('./pages/admin/frametype');
+const ImagesPage = require('./pages/admin/images');
+const ImagePage = require('./pages/admin/image');
+const ImageCategoriesPage = require('./pages/admin/imagecategories');
+const ImageCategoryPage = require('./pages/admin/imagecategory');
+const ImageRelatedsPage = require('./pages/admin/imagerelateds');
+const ImageRelatedPage = require('./pages/admin/imagerelated');
+const ImageThumbnailsPage = require('./pages/admin/imagethumbnails');
+const ImageThumbnailPage = require('./pages/admin/imagethumbnail');
+const MatsPage = require('./pages/admin/mats');
+const MatPage = require('./pages/admin/mat');
+const MaterialTypesPage = require('./pages/admin/materialtypes');
+const MaterialTypePage = require('./pages/admin/materialtype');
+const MountingTypesPage = require('./pages/admin/mountingtypes');
+const MountingTypePage = require('./pages/admin/mountingtype');
+const OrdersPage = require('./pages/admin/orders');
+const OrderPage = require('./pages/admin/order');
+const OrderItemsPage = require('./pages/admin/orderitems');
+const OrderItemPage = require('./pages/admin/orderitem');
+const OrderPaymentDetailsesPage = require('./pages/admin/orderpaymentdetailses');
+const OrderPaymentDetailsPage = require('./pages/admin/orderpaymentdetails');
+const OrderStatusesPage = require('./pages/admin/orderstatuses');
+const OrderStatusPage = require('./pages/admin/orderstatus');
+const OrderStatusFlowsPage = require('./pages/admin/orderstatusflows');
+const OrderStatusFlowPage = require('./pages/admin/orderstatusflow');
+const OrderTrackingsPage = require('./pages/admin/ordertrackings');
+const OrderTrackingPage = require('./pages/admin/ordertracking');
+const PaymentMethodsPage = require('./pages/admin/paymentmethods');
+const PaymentMethodPage = require('./pages/admin/paymentmethod');
+const PrintingHousesPage = require('./pages/admin/printinghouses');
+const PrintingHousePage = require('./pages/admin/printinghouse');
+const PrintingHouseAddressesPage = require('./pages/admin/printinghouseaddresses');
+const PrintingHouseAddressPage = require('./pages/admin/printinghouseaddress');
+const PrintingHouseContactsPage = require('./pages/admin/printinghousecontacts');
+const PrintingHouseContactPage = require('./pages/admin/printinghousecontact');
+const RegionsPage = require('./pages/admin/regions');
+const RegionPage = require('./pages/admin/region');
+const SizesPage = require('./pages/admin/sizes');
+const SizePage = require('./pages/admin/size');
+const UnitsPage = require('./pages/admin/units');
+const UnitPage = require('./pages/admin/unit');
+const UsersPage = require('./pages/admin/users');
+const UserPage = require('./pages/admin/user');
+const UserAddressesPage = require('./pages/admin/useraddresses');
+const UserAddressPage = require('./pages/admin/useraddress');
+const UserConfirmationsPage = require('./pages/admin/userconfirmations');
+const UserConfirmationPage = require('./pages/admin/userconfirmation');
+const UserContactsPage = require('./pages/admin/usercontacts');
+const UserContactPage = require('./pages/admin/usercontact');
+const UserStatusesPage = require('./pages/admin/userstatuses');
+const UserStatusPage = require('./pages/admin/userstatus');
+const UserTypesPage = require('./pages/admin/usertypes');
+const UserTypePage = require('./pages/admin/usertype');
 
 
 class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <BrowserRouter>
        {/*All our Routes goes here!*/}
        <Route exact path="/" component={MainPage} />
        <Route exact path="/register" component={RegisterPage} />
@@ -180,7 +180,7 @@ class App extends React.Component {
        <Route exact path="/admin/usertypes" component={UserTypesPage} />
        <Route exact path="/admin/usertype/:operation/:id?" component={UserTypePage} />
       
-      </Router>
+      </BrowserRouter>
     );
   }
 }

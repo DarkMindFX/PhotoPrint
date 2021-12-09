@@ -1,19 +1,17 @@
 
-
-
-import React from 'react';
-import { Link, withRouter  } from 'react-router-dom'
-import { TextField } from '@material-ui/core';
-import { Button } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Checkbox from '@material-ui/core/Checkbox';
+const React = require('react');
+const { Link, withRouter  } = require('react-router-dom');
+const { TextField } = require('@material-ui/core');
+const { Button } = require('@material-ui/core');
+const Alert = require('@material-ui/lab/Alert');
+const Dialog = require('@material-ui/core/Dialog');
+const DialogActions = require('@material-ui/core/DialogActions');
+const DialogContent = require('@material-ui/core/DialogContent');
+const DialogContentText = require('@material-ui/core/DialogContentText');
+const DialogTitle = require('@material-ui/core/DialogTitle');
+const FormControlLabel = require('@material-ui/core/FormControlLabel');
+const FormControl = require('@material-ui/core/FormControl');
+const Checkbox = require('@material-ui/core/Checkbox');
 
 const constants = require('../../constants');
 const { v4: uuidv4 } = require('uuid');
@@ -38,7 +36,7 @@ class AddressPage extends React.Component {
         this._pageHelper = new PageHelper(this.props);
         let paramOperation = this.props.match.params.operation;
         let paramId = this.props.match.params.id;
-        let rooPath = '/admin/'; // set the page hierarchy here
+        let rooPath = '/admin/'); // set the page hierarchy here
 
         this.state = { 
             operation:  paramOperation,

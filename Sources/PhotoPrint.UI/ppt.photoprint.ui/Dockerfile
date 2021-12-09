@@ -1,15 +1,6 @@
-FROM node:16
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-
-# Bundle app source
-COPY . .
-
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+= require(nginx:1.15.2-alpine
+COPY ./build /var/www
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+ENTRYPOINT ["nginx","-g","daemon off;"]

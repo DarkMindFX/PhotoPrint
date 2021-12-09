@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: deployment-photoprint-ui
+    labels:
+        app: ppt-photoprint-ui
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: ppt-photoprint-ui
+    template:
+        metadata:
+            labels:
+                app: ppt-photoprint-ui
+        spec:
+            containers:
+            - name: ppt-photoprint-ui
+              image: globus000/ppt.photoprint.ui
+              env:
+              - name: PPT_API_HOST
+                value: "http://host.minikube.internal:8082"
+              - name: PPT_API_VERSION
+                value: "v1"
+              ports:
+              - containerPort: 3000
+ 
