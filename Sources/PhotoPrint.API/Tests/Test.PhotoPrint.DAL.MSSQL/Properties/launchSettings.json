@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Test.PhotoPrint.DAL.MSSQL": {
-      "commandName": "Project",
-      "remoteDebugEnabled": false
-    }
-  }
-}

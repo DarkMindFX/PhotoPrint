@@ -1,5 +1,5 @@
-const { render, screen } = require('@testing-library/react';
-const App = require('../src/App';
+import { render, screen } from '@testing-library/react';
+import App from '../src/App';
 
 test('renders learn react link', () => {
   render(<App />);

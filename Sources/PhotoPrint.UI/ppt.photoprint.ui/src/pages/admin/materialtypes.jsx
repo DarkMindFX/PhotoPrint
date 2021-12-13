@@ -2,12 +2,12 @@
 
 
 
-const React = require("react";
-const { Link, withRouter } = require('react-router-dom'
-const { DataGrid } = require('@material-ui/data-grid';
-const Alert = require('@material-ui/lab/Alert';
-const { Button } = require('@material-ui/core';
-const constants = require("../../constants";
+import React from "react";
+import { Link, withRouter } from 'react-router-dom'
+import { DataGrid } from '@material-ui/data-grid';
+import Alert from '@material-ui/lab/Alert';
+import { Button } from '@material-ui/core';
+import constants from "../../constants";
 
 const PageHelper = require("../../helpers/PageHelper");
 const MaterialTypesDal = require('../../dal/MaterialTypesDal');

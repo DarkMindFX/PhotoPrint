@@ -1,10 +1,10 @@
-const React = require('react';
-const { TextField } = require('@material-ui/core';
-const { Link, withRouter  } = require('react-router-dom'
-const { Button } = require('@material-ui/core';
-const Alert = require('@material-ui/lab/Alert';
-const constants = require('../constants';
-const queryString = require('query-string'
+import React from 'react';
+import { TextField } from '@material-ui/core';
+import { Link, withRouter  } from 'react-router-dom'
+import { Button } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import constants from '../constants';
+import queryString from 'query-string'
 const UsersDal = require('../dal/UsersDal')
 
 class LoginPage extends React.Component {

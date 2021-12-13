@@ -1,6 +1,6 @@
 
-const React = require('react';
-const { Link, withRouter } = require('react-router-dom'
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom'
 const constants = require('../constants')
 
 class LogoutPage extends React.Component {
