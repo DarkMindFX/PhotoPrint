@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: lb-photoprint-ui
+    labels:
+        run: lb-photoprint-ui
+spec:
+    type: LoadBalancer
+    selector:
+        app: ppt-photoprint-ui
+    ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

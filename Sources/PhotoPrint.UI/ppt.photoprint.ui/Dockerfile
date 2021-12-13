@@ -1,15 +1,20 @@
-FROM node:16
+FROM node:16.13.0-buster as build
 
-WORKDIR /usr/src/app
+WORKDIR /code
 
-COPY package*.json ./
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm ci --production
 
-# Bundle app source
 COPY . .
 
-EXPOSE 3000
+RUN npm run build
 
-CMD [ "npm", "start" ]
+FROM nginx:1.12-alpine as prod
+
+COPY --from=build /code/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
