@@ -9,7 +9,7 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
+import PageHelper from "../../helpers/PageHelper";
 const RegionsDal = require('../../dal/RegionsDal');
 
 const CountriesDal = require('../../dal/CountriesDal');

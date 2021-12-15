@@ -9,10 +9,10 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const UserConfirmationsDal = require('../../dal/UserConfirmationsDal');
+import PageHelper from "../../helpers/PageHelper";
+import UserConfirmationsDal from '../../dal/UserConfirmationsDal';
 
-const UsersDal = require('../../dal/UsersDal');
+import UsersDal from '../../dal/UsersDal';
 
 
 class UserConfirmationsPage extends React.Component {

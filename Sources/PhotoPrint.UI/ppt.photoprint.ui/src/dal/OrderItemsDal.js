@@ -1,10 +1,10 @@
 
 
 
-const axios = require('axios');
-const constants = require('../constants');
+import axios from 'axios';
+import constants from '../constants';
 
-const DalBase = require('./DalBase');
+import DalBase from './DalBase';
 
 
 class OrderItemsDal extends DalBase {
@@ -81,4 +81,4 @@ class OrderItemsDal extends DalBase {
     }
 }
 
-module.exports = OrderItemsDal;
+export default OrderItemsDal;

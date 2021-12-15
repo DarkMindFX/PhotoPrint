@@ -16,13 +16,14 @@ import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 import Image from "material-ui-image";
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const ImageThumbnailsDal = require('../../dal/ImageThumbnailsDal');
+import constants from '../../constants';
 
-const ImagesDal = require('../../dal/ImagesDal');
-const { ImageThumbnailDto } = require('ppt.photoprint.dto')
+import PageHelper from "../../helpers/PageHelper";
+import ImageThumbnailsDal from '../../dal/ImageThumbnailsDal';
+
+import ImagesDal from '../../dal/ImagesDal';
+
+import { ImageThumbnailDto } from 'ppt.photoprint.dto';
 
 
 class ImageThumbnailPage extends React.Component {

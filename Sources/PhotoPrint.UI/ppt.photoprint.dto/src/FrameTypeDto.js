@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class FrameTypeDto extends HateosDto {
 		
@@ -42,4 +42,4 @@ class FrameTypeDto extends HateosDto {
 				
 }
 
-module.exports = FrameTypeDto;
+export default FrameTypeDto;

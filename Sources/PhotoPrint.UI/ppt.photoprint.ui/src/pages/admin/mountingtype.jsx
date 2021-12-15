@@ -16,10 +16,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 import Image from "material-ui-image";
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const MountingTypesDal = require('../../dal/MountingTypesDal');
+import constants from '../../constants';
+
+import PageHelper from "../../helpers/PageHelper";
+import MountingTypesDal from '../../dal/MountingTypesDal';
 const { MountingTypeDto } = require('ppt.photoprint.dto')
 
 

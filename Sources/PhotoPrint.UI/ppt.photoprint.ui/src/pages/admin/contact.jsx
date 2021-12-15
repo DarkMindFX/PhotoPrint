@@ -15,15 +15,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const ContactsDal = require('../../dal/ContactsDal');
+import constants from '../../constants';
 
-const ContactTypesDal = require('../../dal/ContactTypesDal');
+import PageHelper from "../../helpers/PageHelper";
+import ContactsDal from '../../dal/ContactsDal';
 
-const UsersDal = require('../../dal/UsersDal');
-const { ContactDto } = require('ppt.photoprint.dto')
+import ContactTypesDal from '../../dal/ContactTypesDal';
+
+import UsersDal from '../../dal/UsersDal';
+import { ContactDto } from 'ppt.photoprint.dto';
 
 
 class ContactPage extends React.Component {

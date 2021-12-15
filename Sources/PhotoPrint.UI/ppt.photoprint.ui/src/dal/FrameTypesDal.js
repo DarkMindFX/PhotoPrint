@@ -1,10 +1,10 @@
 
 
 
-const axios = require('axios');
-const constants = require('../constants');
+import axios from 'axios';
+import constants from '../constants';
 
-const DalBase = require('./DalBase');
+import DalBase from './DalBase';
 
 
 class FrameTypesDal extends DalBase {
@@ -81,4 +81,4 @@ class FrameTypesDal extends DalBase {
     }
 }
 
-module.exports = FrameTypesDal;
+export default FrameTypesDal;

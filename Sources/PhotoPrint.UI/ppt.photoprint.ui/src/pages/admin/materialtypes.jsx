@@ -9,10 +9,11 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const MaterialTypesDal = require('../../dal/MaterialTypesDal');
+import PageHelper from "../../helpers/PageHelper";
+import MaterialTypesDal from '../../dal/MaterialTypesDal';
 
-const UsersDal = require('../../dal/UsersDal');
+
+import UsersDal from '../../dal/UsersDal';
 
 
 class MaterialTypesPage extends React.Component {

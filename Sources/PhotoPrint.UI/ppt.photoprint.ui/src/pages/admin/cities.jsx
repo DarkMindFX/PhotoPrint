@@ -9,8 +9,8 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const CitiesDal = require('../../dal/CitiesDal');
+import PageHelper from "../../helpers/PageHelper";
+import CitiesDal from '../../dal/CitiesDal';
 
 const RegionsDal = require('../../dal/RegionsDal');
 

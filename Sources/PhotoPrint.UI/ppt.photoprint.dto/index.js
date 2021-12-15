@@ -1,50 +1,51 @@
 
 
-const Error = require('./src/Error')
-const HateosDto = require('./src/HateosDto')
-const HealthResponse = require('./src/Health')
-const { LoginRequest, LoginResponse } = require('./src/Login')
-const { RegisterRequest, RegisterResponse } = require('./src/Register')
 
-const AddressDto = require('./src/AddressDto')
-const AddressTypeDto = require('./src/AddressTypeDto')
-const CategoryDto = require('./src/CategoryDto')
-const CityDto = require('./src/CityDto')
-const ContactDto = require('./src/ContactDto')
-const ContactTypeDto = require('./src/ContactTypeDto')
-const CountryDto = require('./src/CountryDto')
-const CurrencyDto = require('./src/CurrencyDto')
-const DeliveryServiceDto = require('./src/DeliveryServiceDto')
-const DeliveryServiceCityDto = require('./src/DeliveryServiceCityDto')
-const FrameTypeDto = require('./src/FrameTypeDto')
-const ImageDto = require('./src/ImageDto')
-const ImageCategoryDto = require('./src/ImageCategoryDto')
-const ImageRelatedDto = require('./src/ImageRelatedDto')
-const ImageThumbnailDto = require('./src/ImageThumbnailDto')
-const MatDto = require('./src/MatDto')
-const MaterialTypeDto = require('./src/MaterialTypeDto')
-const MountingTypeDto = require('./src/MountingTypeDto')
-const OrderDto = require('./src/OrderDto')
-const OrderItemDto = require('./src/OrderItemDto')
-const OrderPaymentDetailsDto = require('./src/OrderPaymentDetailsDto')
-const OrderStatusDto = require('./src/OrderStatusDto')
-const OrderStatusFlowDto = require('./src/OrderStatusFlowDto')
-const OrderTrackingDto = require('./src/OrderTrackingDto')
-const PaymentMethodDto = require('./src/PaymentMethodDto')
-const PrintingHouseDto = require('./src/PrintingHouseDto')
-const PrintingHouseAddressDto = require('./src/PrintingHouseAddressDto')
-const PrintingHouseContactDto = require('./src/PrintingHouseContactDto')
-const RegionDto = require('./src/RegionDto')
-const SizeDto = require('./src/SizeDto')
-const UnitDto = require('./src/UnitDto')
-const UserDto = require('./src/UserDto')
-const UserConfirmationDto = require('./src/UserConfirmationDto')
-const UserAddressDto = require('./src/UserAddressDto')
-const UserContactDto = require('./src/UserContactDto')
-const UserStatusDto = require('./src/UserStatusDto')
-const UserTypeDto = require('./src/UserTypeDto')
+import Error from './src/Error';
+import HateosDto from './src/HateosDto';
+import HealthResponse from './src/Health';
+import { LoginRequest, LoginResponse } from './src/Login';
+import { RegisterRequest, RegisterResponse } from './src/Register';
 
-module.exports = {
+import AddressDto from './src/AddressDto';
+import AddressTypeDto from './src/AddressTypeDto';
+import CategoryDto from './src/CategoryDto';
+import CityDto from './src/CityDto';
+import ContactDto from './src/ContactDto';
+import ContactTypeDto from './src/ContactTypeDto';
+import CountryDto from './src/CountryDto';
+import CurrencyDto from './src/CurrencyDto';
+import DeliveryServiceDto from './src/DeliveryServiceDto';
+import DeliveryServiceCityDto from './src/DeliveryServiceCityDto';
+import FrameTypeDto from './src/FrameTypeDto';
+import ImageDto from './src/ImageDto';
+import ImageCategoryDto from './src/ImageCategoryDto';
+import ImageRelatedDto from './src/ImageRelatedDto';
+import ImageThumbnailDto from './src/ImageThumbnailDto';
+import MatDto from './src/MatDto';
+import MaterialTypeDto from './src/MaterialTypeDto';
+import MountingTypeDto from './src/MountingTypeDto';
+import OrderDto from './src/OrderDto';
+import OrderItemDto from './src/OrderItemDto';
+import OrderPaymentDetailsDto from './src/OrderPaymentDetailsDto';
+import OrderStatusDto from './src/OrderStatusDto';
+import OrderStatusFlowDto from './src/OrderStatusFlowDto';
+import OrderTrackingDto from './src/OrderTrackingDto';
+import PaymentMethodDto from './src/PaymentMethodDto';
+import PrintingHouseDto from './src/PrintingHouseDto';
+import PrintingHouseAddressDto from './src/PrintingHouseAddressDto';
+import PrintingHouseContactDto from './src/PrintingHouseContactDto';
+import RegionDto from './src/RegionDto';
+import SizeDto from './src/SizeDto';
+import UnitDto from './src/UnitDto';
+import UserDto from './src/UserDto';
+import UserAddressDto from './src/UserAddressDto';
+import UserConfirmationDto from './src/UserConfirmationDto';
+import UserContactDto from './src/UserContactDto';
+import UserStatusDto from './src/UserStatusDto';
+import UserTypeDto from './src/UserTypeDto';
+
+export {
     Error,
     HealthResponse,
     LoginRequest,
@@ -85,8 +86,8 @@ module.exports = {
     SizeDto,
     UnitDto,
     UserDto,
-    UserConfirmationDto,
     UserAddressDto,
+    UserConfirmationDto,
     UserContactDto,
     UserStatusDto,
     UserTypeDto

@@ -1,11 +1,11 @@
 
 
 
-const axios = require('axios');
-const constants = require('../constants');
+import axios from 'axios';
+import constants from '../constants';
 
-const DalBase = require('./DalBase');
-const { LoginRequest, RegisterRequest, UserDto, ContactDto } = require('ppt.photoprint.dto')
+import DalBase from './DalBase';
+import { LoginRequest, RegisterRequest, UserDto, ContactDto } from 'ppt.photoprint.dto';
 
 
 class UsersDal extends DalBase {
@@ -123,4 +123,4 @@ class UsersDal extends DalBase {
     }
 }
 
-module.exports = UsersDal;
+export default UsersDal;

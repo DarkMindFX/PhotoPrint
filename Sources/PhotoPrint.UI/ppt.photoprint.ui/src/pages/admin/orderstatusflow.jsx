@@ -15,12 +15,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const OrderStatusFlowsDal = require('../../dal/OrderStatusFlowsDal');
+import constants from '../../constants';
 
-const OrderStatusesDal = require('../../dal/OrderStatusesDal');
+import PageHelper from "../../helpers/PageHelper";
+import OrderStatusFlowsDal from '../../dal/OrderStatusFlowsDal';
+
+
+import OrderStatusesDal from '../../dal/OrderStatusesDal';
+
+
 const { OrderStatusFlowDto } = require('ppt.photoprint.dto')
 
 

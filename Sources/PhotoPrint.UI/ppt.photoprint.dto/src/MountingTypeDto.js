@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class MountingTypeDto extends HateosDto {
 		
@@ -42,4 +42,4 @@ class MountingTypeDto extends HateosDto {
 				
 }
 
-module.exports = MountingTypeDto;
+export default MountingTypeDto;

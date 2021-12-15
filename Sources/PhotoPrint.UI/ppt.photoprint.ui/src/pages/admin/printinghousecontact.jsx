@@ -15,14 +15,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const PrintingHouseContactsDal = require('../../dal/PrintingHouseContactsDal');
+import constants from '../../constants';
 
-const PrintingHousesDal = require('../../dal/PrintingHousesDal');
+import PageHelper from "../../helpers/PageHelper";
+import PrintingHouseContactsDal from '../../dal/PrintingHouseContactsDal';
 
-const ContactsDal = require('../../dal/ContactsDal');
+import PrintingHousesDal from '../../dal/PrintingHousesDal';
+
+import ContactsDal from '../../dal/ContactsDal';
 const { PrintingHouseContactDto } = require('ppt.photoprint.dto')
 
 

@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class MaterialTypeDto extends HateosDto {
 		
@@ -42,4 +42,4 @@ class MaterialTypeDto extends HateosDto {
 				
 }
 
-module.exports = MaterialTypeDto;
+export default MaterialTypeDto;

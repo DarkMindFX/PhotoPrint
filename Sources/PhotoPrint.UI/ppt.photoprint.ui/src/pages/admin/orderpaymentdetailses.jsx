@@ -9,14 +9,15 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const OrderPaymentDetailsesDal = require('../../dal/OrderPaymentDetailsesDal');
+import PageHelper from "../../helpers/PageHelper";
+import OrderPaymentDetailsesDal from '../../dal/OrderPaymentDetailsesDal';
 
-const OrdersDal = require('../../dal/OrdersDal');
 
-const PaymentMethodsDal = require('../../dal/PaymentMethodsDal');
+import OrdersDal from '../../dal/OrdersDal';
 
-const UsersDal = require('../../dal/UsersDal');
+import PaymentMethodsDal from '../../dal/PaymentMethodsDal';
+
+import UsersDal from '../../dal/UsersDal';
 
 
 class OrderPaymentDetailsesPage extends React.Component {

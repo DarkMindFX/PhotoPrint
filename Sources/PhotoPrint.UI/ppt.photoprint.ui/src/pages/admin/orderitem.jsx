@@ -15,30 +15,35 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const OrderItemsDal = require('../../dal/OrderItemsDal');
+import constants from '../../constants';
 
-const OrdersDal = require('../../dal/OrdersDal');
+import PageHelper from "../../helpers/PageHelper";
+import OrderItemsDal from '../../dal/OrderItemsDal';
 
-const ImagesDal = require('../../dal/ImagesDal');
 
-const SizesDal = require('../../dal/SizesDal');
+import OrdersDal from '../../dal/OrdersDal';
 
-const FrameTypesDal = require('../../dal/FrameTypesDal');
+import ImagesDal from '../../dal/ImagesDal';
 
-const MatsDal = require('../../dal/MatsDal');
 
-const MaterialTypesDal = require('../../dal/MaterialTypesDal');
+import SizesDal from '../../dal/SizesDal';
 
-const MountingTypesDal = require('../../dal/MountingTypesDal');
+import FrameTypesDal from '../../dal/FrameTypesDal';
 
-const CurrenciesDal = require('../../dal/CurrenciesDal');
 
-const PrintingHousesDal = require('../../dal/PrintingHousesDal');
+import MatsDal from '../../dal/MatsDal';
 
-const UsersDal = require('../../dal/UsersDal');
+
+import MaterialTypesDal from '../../dal/MaterialTypesDal';
+
+
+import MountingTypesDal from '../../dal/MountingTypesDal';
+
+import CurrenciesDal from '../../dal/CurrenciesDal';
+
+import PrintingHousesDal from '../../dal/PrintingHousesDal';
+
+import UsersDal from '../../dal/UsersDal';
 const { OrderItemDto } = require('ppt.photoprint.dto')
 
 

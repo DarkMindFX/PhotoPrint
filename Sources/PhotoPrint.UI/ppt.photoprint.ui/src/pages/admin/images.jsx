@@ -9,12 +9,13 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const ImagesDal = require('../../dal/ImagesDal');
+import PageHelper from "../../helpers/PageHelper";
+import ImagesDal from '../../dal/ImagesDal';
 
-const CurrenciesDal = require('../../dal/CurrenciesDal');
 
-const UsersDal = require('../../dal/UsersDal');
+import CurrenciesDal from '../../dal/CurrenciesDal';
+
+import UsersDal from '../../dal/UsersDal';
 
 
 class ImagesPage extends React.Component {

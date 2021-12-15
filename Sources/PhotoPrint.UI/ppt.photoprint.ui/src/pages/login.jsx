@@ -4,8 +4,8 @@ import { Link, withRouter  } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import constants from '../constants';
-import queryString from 'query-string'
-const UsersDal = require('../dal/UsersDal')
+import queryString from 'query-string';
+import UsersDal from '../dal/UsersDal';
 
 class LoginPage extends React.Component {
 
@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
 
             console.log(res);
             let updatedState = this.state;
-            if(res.status == constants.HTTP_OK) {
+            if(res && res.status == constants.HTTP_OK) {
                 console.log('Login SUCCESS', res.data.Token)
                 updatedState.showError = false;
                 updatedState.error = null;
@@ -68,11 +68,11 @@ class LoginPage extends React.Component {
                 obj.props.history.push(this.state.ret);
 
             }
-            else if(res.status == constants.HTTP_NotFound) {
+            else if(res && res.status == constants.HTTP_NotFound) {
                 updatedState.showError = true;
                 updatedState.error = "User with given login not found";
             }
-            else if(res.status == constants.HTTP_Forbidden) {
+            else if(res && res.status == constants.HTTP_Forbidden) {
                 updatedState.showError = true;
                 updatedState.error = "Invalid login/password combination";
             }

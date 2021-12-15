@@ -9,28 +9,28 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const OrderItemsDal = require('../../dal/OrderItemsDal');
+import PageHelper from "../../helpers/PageHelper";
+import OrderItemsDal from '../../dal/OrderItemsDal';
 
-const OrdersDal = require('../../dal/OrdersDal');
+import OrdersDal from '../../dal/OrdersDal';
 
-const ImagesDal = require('../../dal/ImagesDal');
+import ImagesDal from '../../dal/ImagesDal';
 
-const SizesDal = require('../../dal/SizesDal');
+import SizesDal from '../../dal/SizesDal';
 
-const FrameTypesDal = require('../../dal/FrameTypesDal');
+import FrameTypesDal from '../../dal/FrameTypesDal';
 
-const MatsDal = require('../../dal/MatsDal');
+import MatsDal from '../../dal/MatsDal';
 
-const MaterialTypesDal = require('../../dal/MaterialTypesDal');
+import MaterialTypesDal from '../../dal/MaterialTypesDal';
 
-const MountingTypesDal = require('../../dal/MountingTypesDal');
+import MountingTypesDal from '../../dal/MountingTypesDal';
 
-const CurrenciesDal = require('../../dal/CurrenciesDal');
+import CurrenciesDal from '../../dal/CurrenciesDal';
 
-const PrintingHousesDal = require('../../dal/PrintingHousesDal');
+import PrintingHousesDal from '../../dal/PrintingHousesDal';
 
-const UsersDal = require('../../dal/UsersDal');
+import UsersDal from '../../dal/UsersDal';
 
 
 class OrderItemsPage extends React.Component {

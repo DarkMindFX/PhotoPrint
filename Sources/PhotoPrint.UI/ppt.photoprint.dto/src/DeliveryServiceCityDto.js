@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class DeliveryServiceCityDto extends HateosDto {
 		
@@ -14,4 +14,4 @@ class DeliveryServiceCityDto extends HateosDto {
 				
 }
 
-module.exports = DeliveryServiceCityDto;
+export default DeliveryServiceCityDto;

@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class CurrencyDto extends HateosDto {
 		
@@ -22,4 +22,4 @@ class CurrencyDto extends HateosDto {
 				
 }
 
-module.exports = CurrencyDto;
+export default CurrencyDto;

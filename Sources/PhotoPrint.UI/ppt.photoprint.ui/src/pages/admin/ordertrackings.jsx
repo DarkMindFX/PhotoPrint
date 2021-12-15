@@ -9,14 +9,16 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const OrderTrackingsDal = require('../../dal/OrderTrackingsDal');
+import PageHelper from "../../helpers/PageHelper";
+import OrderTrackingsDal from '../../dal/OrderTrackingsDal';
 
-const OrdersDal = require('../../dal/OrdersDal');
+import OrdersDal from '../../dal/OrdersDal';
 
-const OrderStatusesDal = require('../../dal/OrderStatusesDal');
+import OrderStatusesDal from '../../dal/OrderStatusesDal';
 
-const UsersDal = require('../../dal/UsersDal');
+
+
+import UsersDal from '../../dal/UsersDal';
 
 
 class OrderTrackingsPage extends React.Component {

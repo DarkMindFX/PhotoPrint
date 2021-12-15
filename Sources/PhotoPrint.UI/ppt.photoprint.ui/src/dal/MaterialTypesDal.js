@@ -1,10 +1,10 @@
 
 
 
-const axios = require('axios');
-const constants = require('../constants');
+import axios from 'axios';
+import constants from '../constants';
 
-const DalBase = require('./DalBase');
+import DalBase from './DalBase';
 
 
 class MaterialTypesDal extends DalBase {
@@ -81,4 +81,4 @@ class MaterialTypesDal extends DalBase {
     }
 }
 
-module.exports = MaterialTypesDal;
+export default MaterialTypesDal;

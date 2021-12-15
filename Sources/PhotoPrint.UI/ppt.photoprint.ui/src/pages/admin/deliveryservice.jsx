@@ -15,13 +15,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const DeliveryServicesDal = require('../../dal/DeliveryServicesDal');
+import constants from '../../constants';
 
-const UsersDal = require('../../dal/UsersDal');
-const { DeliveryServiceDto } = require('ppt.photoprint.dto')
+import PageHelper from "../../helpers/PageHelper";
+import DeliveryServicesDal from '../../dal/DeliveryServicesDal';
+
+import UsersDal from '../../dal/UsersDal';
+import { DeliveryServiceDto } from 'ppt.photoprint.dto';
 
 
 class DeliveryServicePage extends React.Component {

@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class OrderItemDto extends HateosDto {
 		
@@ -90,4 +90,4 @@ class OrderItemDto extends HateosDto {
 				
 }
 
-module.exports = OrderItemDto;
+export default OrderItemDto;

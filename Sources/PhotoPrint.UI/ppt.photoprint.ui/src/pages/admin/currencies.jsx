@@ -9,8 +9,8 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const CurrenciesDal = require('../../dal/CurrenciesDal');
+import PageHelper from "../../helpers/PageHelper";
+import CurrenciesDal from '../../dal/CurrenciesDal';
 
 
 class CurrenciesPage extends React.Component {

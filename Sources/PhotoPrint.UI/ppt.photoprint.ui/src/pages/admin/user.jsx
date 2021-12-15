@@ -12,16 +12,18 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-const PageHelper = require("../../helpers/PageHelper");
-const UsersDal = require('../../dal/UsersDal');
+import PageHelper from "../../helpers/PageHelper";
+import constants from '../../constants';
 
-const UserStatusesDal = require('../../dal/UserStatusesDal');
+import UsersDal from '../../dal/UsersDal';
 
-const UserTypesDal = require('../../dal/UserTypesDal');
-const { UserDto } = require('ppt.photoprint.dto')
+import UserStatusesDal from '../../dal/UserStatusesDal';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
+import UserTypesDal from '../../dal/UserTypesDal';
+import { UserDto } from 'ppt.photoprint.dto';
+
+
+
 
 class UserPage extends React.Component {
 

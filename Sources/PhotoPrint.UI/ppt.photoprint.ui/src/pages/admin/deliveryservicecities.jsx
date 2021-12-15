@@ -9,12 +9,12 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const DeliveryServiceCitiesDal = require('../../dal/DeliveryServiceCitiesDal');
+import PageHelper from "../../helpers/PageHelper";
+import DeliveryServiceCitiesDal from '../../dal/DeliveryServiceCitiesDal';
 
-const DeliveryServicesDal = require('../../dal/DeliveryServicesDal');
+import DeliveryServicesDal from '../../dal/DeliveryServicesDal';
 
-const CitiesDal = require('../../dal/CitiesDal');
+import CitiesDal from '../../dal/CitiesDal';
 
 
 class DeliveryServiceCitiesPage extends React.Component {

@@ -1,10 +1,10 @@
 
 
 
-const axios = require('axios');
-const constants = require('../constants');
+import axios from 'axios';
+import constants from '../constants';
 
-const DalBase = require('./DalBase');
+import DalBase from './DalBase';
 
 
 class ImageThumbnailsDal extends DalBase {
@@ -81,4 +81,4 @@ class ImageThumbnailsDal extends DalBase {
     }
 }
 
-module.exports = ImageThumbnailsDal;
+export default ImageThumbnailsDal;

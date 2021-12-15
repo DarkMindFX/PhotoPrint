@@ -9,10 +9,11 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const ImageRelatedsDal = require('../../dal/ImageRelatedsDal');
+import PageHelper from "../../helpers/PageHelper";
+import ImageRelatedsDal from '../../dal/ImageRelatedsDal';
 
-const ImagesDal = require('../../dal/ImagesDal');
+import ImagesDal from '../../dal/ImagesDal';
+
 
 
 class ImageRelatedsPage extends React.Component {

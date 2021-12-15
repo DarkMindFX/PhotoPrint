@@ -1,7 +1,5 @@
 
 
-
-
 import React from "react";
 import { Link, withRouter } from 'react-router-dom'
 import { DataGrid } from '@material-ui/data-grid';
@@ -9,12 +7,12 @@ import Alert from '@material-ui/lab/Alert';
 import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
-const PageHelper = require("../../helpers/PageHelper");
-const ContactsDal = require('../../dal/ContactsDal');
+import PageHelper from "../../helpers/PageHelper";
+import ContactsDal from '../../dal/ContactsDal';
 
-const ContactTypesDal = require('../../dal/ContactTypesDal');
+import ContactTypesDal from '../../dal/ContactTypesDal';
 
-const UsersDal = require('../../dal/UsersDal');
+import UsersDal from '../../dal/UsersDal';
 
 
 class ContactsPage extends React.Component {

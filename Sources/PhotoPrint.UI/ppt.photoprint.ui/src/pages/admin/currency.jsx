@@ -15,10 +15,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const CurrenciesDal = require('../../dal/CurrenciesDal');
+import constants from '../../constants';
+
+import PageHelper from "../../helpers/PageHelper";
+import CurrenciesDal from '../../dal/CurrenciesDal';
 const { CurrencyDto } = require('ppt.photoprint.dto')
 
 

@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class AddressTypeDto extends HateosDto {
 		
@@ -18,4 +18,4 @@ class AddressTypeDto extends HateosDto {
 				
 }
 
-module.exports = AddressTypeDto;
+export default AddressTypeDto;

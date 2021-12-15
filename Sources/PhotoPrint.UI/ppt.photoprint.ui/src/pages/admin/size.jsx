@@ -15,13 +15,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const SizesDal = require('../../dal/SizesDal');
+import constants from '../../constants';
 
-const UsersDal = require('../../dal/UsersDal');
-const { SizeDto } = require('ppt.photoprint.dto')
+import PageHelper from "../../helpers/PageHelper";
+import SizesDal from '../../dal/SizesDal';
+
+import UsersDal from '../../dal/UsersDal';
+import { SizeDto } from 'ppt.photoprint.dto';
 
 
 class SizePage extends React.Component {

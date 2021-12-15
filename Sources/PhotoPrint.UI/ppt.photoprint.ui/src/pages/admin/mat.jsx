@@ -16,12 +16,13 @@ import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 import Image from "material-ui-image";
 
-const constants = require('../../constants');
-const { v4: uuidv4 } = require('uuid');
-const PageHelper = require("../../helpers/PageHelper");
-const MatsDal = require('../../dal/MatsDal');
+import constants from '../../constants';
 
-const UsersDal = require('../../dal/UsersDal');
+import PageHelper from "../../helpers/PageHelper";
+import MatsDal from '../../dal/MatsDal';
+
+
+import UsersDal from '../../dal/UsersDal';
 const { MatDto } = require('ppt.photoprint.dto')
 
 

@@ -18,7 +18,7 @@ class RegisterResponse {
     get contact()      { return this.Contact; }
 }
 
-module.exports = {
+export {
     RegisterRequest,
     RegisterResponse
 }

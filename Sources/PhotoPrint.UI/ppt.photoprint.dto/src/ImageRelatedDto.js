@@ -1,6 +1,6 @@
 
 
-const HateosDto = require('./HateosDto')
+import HateosDto from './HateosDto'
 
 class ImageRelatedDto extends HateosDto {
 		
@@ -14,4 +14,4 @@ class ImageRelatedDto extends HateosDto {
 				
 }
 
-module.exports = ImageRelatedDto;
+export default ImageRelatedDto;
