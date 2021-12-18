@@ -6,6 +6,8 @@ GO
 CREATE LOGIN [ppt_svc_api] WITH PASSWORD=N'PPTServiceApi2021!', DEFAULT_DATABASE=[master], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
 GO
 
+
+
 USE [master]
 GO
 
@@ -14,8 +16,9 @@ GO
 CREATE LOGIN [ppt_test_account] WITH PASSWORD=N'PPTTestAccount2021', DEFAULT_DATABASE=[master], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
 GO
 
-USE master
+ALTER LOGIN [ppt_test_account] DISABLE
 GO
+
 
 
 /**************** Creating DB ****************************/
@@ -30,12 +33,6 @@ BEGIN
 	CREATE DATABASE PhotoPrint
 END
 GO
-
-
-
-GO
-
-/******************* Creating Users ***********************************/
 USE [PhotoPrint]
 GO
 /****** Object:  User [ppt_svc_api]    Script Date: 11/6/2021 11:14:11 AM ******/
@@ -43,7 +40,6 @@ CREATE USER [ppt_svc_api] FOR LOGIN [ppt_svc_api] WITH DEFAULT_SCHEMA=[dbo]
 GO
 ALTER ROLE [db_owner] ADD MEMBER [ppt_svc_api]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  User [ppt_test_account]    Script Date: 11/6/2021 11:14:12 AM ******/
@@ -51,10 +47,6 @@ CREATE USER [ppt_test_account] FOR LOGIN [ppt_test_account] WITH DEFAULT_SCHEMA=
 GO
 ALTER ROLE [db_owner] ADD MEMBER [ppt_test_account]
 GO
-
-
-
-/**************** Creating Tables ****************************/
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[UserStatus]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -93,7 +85,6 @@ CREATE TABLE [dbo].[UserType](
 GO
 ALTER TABLE [dbo].[UserType] ADD  CONSTRAINT [DF_UserType_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[OrderStatus]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -113,7 +104,6 @@ CREATE TABLE [dbo].[OrderStatus](
 GO
 ALTER TABLE [dbo].[OrderStatus] ADD  CONSTRAINT [DF_OrderStatus_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Unit]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -135,7 +125,6 @@ CREATE TABLE [dbo].[Unit](
 GO
 ALTER TABLE [dbo].[Unit] ADD  CONSTRAINT [DF_Unit_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[User]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -178,7 +167,6 @@ REFERENCES [dbo].[UserType] ([ID])
 GO
 ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_UserType]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[AddressType]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -198,7 +186,6 @@ CREATE TABLE [dbo].[AddressType](
 GO
 ALTER TABLE [dbo].[AddressType] ADD  CONSTRAINT [DF_AddressType_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Category]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -239,7 +226,6 @@ REFERENCES [dbo].[Category] ([ID])
 GO
 ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_ImageCategory_ImageCategory]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[ContactType]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -259,7 +245,6 @@ CREATE TABLE [dbo].[ContactType](
 GO
 ALTER TABLE [dbo].[ContactType] ADD  CONSTRAINT [DF_ContactType_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Country]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -280,7 +265,6 @@ CREATE TABLE [dbo].[Country](
 GO
 ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Region]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -307,7 +291,6 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Region] CHECK CONSTRAINT [FK_Region_Country]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[City]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -333,7 +316,6 @@ REFERENCES [dbo].[Region] ([ID])
 GO
 ALTER TABLE [dbo].[City] CHECK CONSTRAINT [FK_City_Region]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Address]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -382,7 +364,6 @@ ALTER TABLE [dbo].[Address]  WITH NOCHECK ADD  CONSTRAINT [FK_Address_UserModifi
 REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[Address] CHECK CONSTRAINT [FK_Address_UserModified]
-
 GO
 USE [PhotoPrint]
 GO
@@ -425,7 +406,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[Contact] CHECK CONSTRAINT [FK_Contact_UserModified]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Currency]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -446,7 +426,6 @@ CREATE TABLE [dbo].[Currency](
 GO
 ALTER TABLE [dbo].[Currency] ADD  CONSTRAINT [DF_Currency_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[DeliveryService]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -481,7 +460,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[DeliveryService] CHECK CONSTRAINT [FK_DeliveryService_ModifiedByUser]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[DeliveryServiceCity]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -513,7 +491,6 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[DeliveryServiceCity] CHECK CONSTRAINT [FK_DeliveryServiceCity_DeliveryService]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[FrameType]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -549,7 +526,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[FrameType] CHECK CONSTRAINT [FK_FrameType_ModifiedByUser]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Image]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -594,7 +570,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[Image] CHECK CONSTRAINT [FK_Image_UserModified]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[ImageCategory]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -626,7 +601,6 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[ImageCategory] CHECK CONSTRAINT [FK_ImageCategory_Image]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[ImageRelated]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -655,7 +629,6 @@ REFERENCES [dbo].[Image] ([ID])
 GO
 ALTER TABLE [dbo].[ImageRelated] CHECK CONSTRAINT [FK_ImageRelated_RootImage]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[ImageThumbnail]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -680,7 +653,6 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[ImageThumbnail] CHECK CONSTRAINT [FK_ImageThumbnail_Image]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Mat]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -716,7 +688,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[Mat] CHECK CONSTRAINT [FK_Mat_ModifiedByUser]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[MaterialType]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -752,7 +723,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[MaterialType] CHECK CONSTRAINT [FK_MaterialType_ModifiedByUser]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[MountingType]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -778,7 +748,6 @@ CREATE TABLE [dbo].[MountingType](
 GO
 ALTER TABLE [dbo].[MountingType] ADD  CONSTRAINT [DF_MountingType_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Order]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -842,7 +811,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_Order_UserModified]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[Size]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -878,7 +846,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[Size] CHECK CONSTRAINT [FK_Size_ModifiedByUser]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[PrintingHouse]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -913,7 +880,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[PrintingHouse] CHECK CONSTRAINT [FK_PrintingHouse_ModifiedByUser]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[PaymentMethod]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -934,7 +900,6 @@ CREATE TABLE [dbo].[PaymentMethod](
 GO
 ALTER TABLE [dbo].[PaymentMethod] ADD  CONSTRAINT [DF_PaymentMethod_IsDeleted]  DEFAULT ((0)) FOR [IsDeleted]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[OrderItem]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1033,7 +998,6 @@ REFERENCES [dbo].[Size] ([ID])
 GO
 ALTER TABLE [dbo].[OrderItem] CHECK CONSTRAINT [FK_OrderItem_Size]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[OrderPaymentDetails]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1081,7 +1045,6 @@ REFERENCES [dbo].[PaymentMethod] ([ID])
 GO
 ALTER TABLE [dbo].[OrderPaymentDetails] CHECK CONSTRAINT [FK_OrderPaymentDetails_PaymentMethod]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[OrderStatusFlow]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1110,7 +1073,6 @@ REFERENCES [dbo].[OrderStatus] ([ID])
 GO
 ALTER TABLE [dbo].[OrderStatusFlow] CHECK CONSTRAINT [FK_OrderStatusFlow_StatusTo]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[OrderTracking]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1147,7 +1109,6 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[OrderTracking] CHECK CONSTRAINT [FK_OrderTracking_User]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[PrintingHouseAddress]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1178,7 +1139,6 @@ REFERENCES [dbo].[PrintingHouse] ([ID])
 GO
 ALTER TABLE [dbo].[PrintingHouseAddress] CHECK CONSTRAINT [FK_PrintingHouseAddress_PrintingHouse]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[PrintingHouseContact]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1211,42 +1171,6 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[PrintingHouseContact] CHECK CONSTRAINT [FK_PrintingHouseContact_PrintingHouseContact]
 GO
-
-
-
-
-USE [PhotoPrint]
-GO
-/****** Object:  Table [dbo].[UserAddress]    Script Date: 11/5/2021 11:18:58 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[UserAddress](
-	[UserID] [bigint] NOT NULL,
-	[AddressID] [bigint] NOT NULL,
-	[IsPrimary] [bit] NOT NULL,
- CONSTRAINT [PK_UserAddress] PRIMARY KEY CLUSTERED 
-(
-	[UserID] ASC,
-	[AddressID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[UserAddress] ADD  CONSTRAINT [DF_UserAddress_IsPrimary]  DEFAULT ((0)) FOR [IsPrimary]
-GO
-ALTER TABLE [dbo].[UserAddress]  WITH NOCHECK ADD  CONSTRAINT [FK_UserAddress_Address] FOREIGN KEY([AddressID])
-REFERENCES [dbo].[Address] ([ID])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[UserAddress] CHECK CONSTRAINT [FK_UserAddress_Address]
-GO
-ALTER TABLE [dbo].[UserAddress]  WITH NOCHECK ADD  CONSTRAINT [FK_UserAddress_User] FOREIGN KEY([UserID])
-REFERENCES [dbo].[User] ([ID])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[UserAddress] CHECK CONSTRAINT [FK_UserAddress_User]
-GO
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[UserConfirmation]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1276,7 +1200,6 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[UserConfirmation] CHECK CONSTRAINT [FK_UserConfirmation_User]
 GO
-
 USE [PhotoPrint]
 GO
 /****** Object:  Table [dbo].[UserContact]    Script Date: 11/5/2021 11:18:58 PM ******/
@@ -1309,8 +1232,38 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[UserContact] CHECK CONSTRAINT [FK_UserContact_User]
 GO
-
-/************************ Create Views ******************************************/
+USE [PhotoPrint]
+GO
+/****** Object:  Table [dbo].[UserAddress]    Script Date: 11/5/2021 11:18:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserAddress](
+	[UserID] [bigint] NOT NULL,
+	[AddressID] [bigint] NOT NULL,
+	[IsPrimary] [bit] NOT NULL,
+ CONSTRAINT [PK_UserAddress] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC,
+	[AddressID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[UserAddress] ADD  CONSTRAINT [DF_UserAddress_IsPrimary]  DEFAULT ((0)) FOR [IsPrimary]
+GO
+ALTER TABLE [dbo].[UserAddress]  WITH NOCHECK ADD  CONSTRAINT [FK_UserAddress_Address] FOREIGN KEY([AddressID])
+REFERENCES [dbo].[Address] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[UserAddress] CHECK CONSTRAINT [FK_UserAddress_Address]
+GO
+ALTER TABLE [dbo].[UserAddress]  WITH NOCHECK ADD  CONSTRAINT [FK_UserAddress_User] FOREIGN KEY([UserID])
+REFERENCES [dbo].[User] ([ID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[UserAddress] CHECK CONSTRAINT [FK_UserAddress_User]
+GO
 
 if exists(select 1 from sys.views where name='v_Orders' and type='v')
 drop view dbo.v_Orders;
@@ -1348,9 +1301,6 @@ INNER JOIN dbo.[DeliveryService] ds ON ds.ID = o.DeliveryServiceID
 INNER JOIN dbo.[OrderPaymentDetails] opd ON opd.OrderID = o.ID
 INNER JOIN dbo.[PaymentMethod] pm		ON pm.ID = opd.PaymentMethodID
 GO
-
-
-/************************ Create Functions ******************************************/
 USE [PhotoPrint]
 GO
 /****** Object:  UserDefinedFunction [dbo].[fn_GetUserStatusIDByName]    Script Date: 10/16/2021 9:43:43 PM ******/
@@ -1404,9 +1354,6 @@ BEGIN
 	RETURN @Result
 END
 GO
-
-/************************ Create StorProcs ******************************************/
-
 
 SET ANSI_NULLS ON
 GO
@@ -1557,6 +1504,8 @@ BEGIN
 END
 GO
 
+﻿SET ANSI_NULLS ON
+GO
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -2106,7 +2055,7 @@ BEGIN
 	SELECT 235, 'USD', 'US Dollar' UNION 
 	SELECT 236, 'XOF', 'CFA Franc BCEAO' UNION 
 	SELECT 237, 'NZD', 'New Zealand Dollar' UNION 
-	SELECT 238, 'TOP', 'Paanga' UNION 
+	SELECT 238, 'TOP', 'Pa�anga' UNION 
 	SELECT 239, 'TTD', 'Trinidad and Tobago Dollar' UNION 
 	SELECT 240, 'TND', 'Tunisian Dinar' UNION 
 	SELECT 241, 'TRY', 'Turkish Lira' UNION 
@@ -2422,10 +2371,36 @@ GO
 
 /*
 Usage:
+1. From local file
 EXEC p_TestData_Populate 'D:\Projects\PhotoPrint\Testing\TestData\'
+
+2. From Azure Blob
+
+CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<Password>'
+
+CREATE DATABASE SCOPED CREDENTIAL UploadPhotoPrintTestData
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+SECRET = '<SAS for blob folder>';
+
+CREATE EXTERNAL DATA SOURCE PhotoPrint_Azure_TestData
+WITH (
+        TYPE = BLOB_STORAGE,
+        LOCATION = 'https://photoprintstorage.blob.core.windows.net',
+        CREDENTIAL = UploadPhotoPrintTestData
+    );
+GO 
+
+EXEC p_TestData_Populate 'photoprintdb-test-data/', 'PhotoPrint_Azure_TestData'
+
+DROP EXTERNAL DATA SOURCE PhotoPrint_Azure_TestData
+
+DROP DATABASE SCOPED CREDENTIAL UploadPhotoPrintTestData
+
+DROP MASTER KEY
 */
 CREATE PROCEDURE p_TestData_Populate
-	@RootFolder NVARCHAR(100)
+	@RootFolder NVARCHAR(100),
+	@DataSource NVARCHAR(100) = NULL
 AS
 BEGIN
 
@@ -2480,6 +2455,7 @@ BEGIN
 	
 	OPEN paramsCursor 
 
+	
 	BEGIN TRY
 
 		BEGIN TRANSACTION
@@ -2502,8 +2478,12 @@ BEGIN
 
 			SET @sql = 'BULK INSERT dbo.[' + @table + ']
 			FROM ''' + @Path + '''
-			WITH (
-			KEEPIDENTITY,
+			WITH (' +
+			CASE
+				WHEN @DataSource IS NOT NULL THEN 'DATA_SOURCE=''' + @DataSource + ''',' 
+				ELSE ''
+			END +
+			'KEEPIDENTITY,
 			FIRSTROW = 2,
 			FIELDTERMINATOR = '','',
 			ROWTERMINATOR=''0x0d0a'',
@@ -14808,7 +14788,6 @@ BEGIN
 				(CASE WHEN @IsDeleted IS NOT NULL THEN (CASE WHEN e.[IsDeleted] = @IsDeleted THEN 1 ELSE 0 END) ELSE 1 END) = 1 
 		END
 GO
-
 /******************** Populating Reference Data **************************/
 PRINT 'Populating reference data'
 EXEC dbo.p_AddressType_Populate
@@ -14844,5 +14823,3 @@ BEGIN
 END
 
 PRINT('Done')
-
-
