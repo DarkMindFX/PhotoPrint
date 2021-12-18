@@ -95,6 +95,10 @@ import UserTypePage from './pages/admin/usertype';
 class App extends React.Component {
 
   render() {
+
+    console.log('PPT_API_HOST:', process.env.REACT_APP_PPT_API_HOST);
+    console.log('PPT_API_VERSION:', process.env.REACT_APP_PPT_API_VERSION);
+
     return (
       <Router>
        {/*All our Routes goes here!*/}

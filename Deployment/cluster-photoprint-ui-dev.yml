@@ -19,7 +19,7 @@ spec:
               image: globus000/ppt.photoprint.ui
               env:
               - name: PPT_API_HOST
-                value: "http://host.minikube.internal:8082"
+                value: "http://20.79.213.223:8088"
               - name: PPT_API_VERSION
                 value: "v1"
               ports:

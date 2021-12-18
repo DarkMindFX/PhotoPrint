@@ -1,7 +1,9 @@
 
+import config from "./config.json"
+
 const constants = {
-    PPT_API_HOST: process.env.PPT_API_HOST || "http://localhost:8082",
-    PPT_API_VERSION: process.env.PPT_API_VERSION || "v1",
+    PPT_API_HOST: config.PPT_API_HOST || "http://localhost:8082",
+    PPT_API_VERSION: config.PPT_API_VERSION || "v1",
 
     SESSION_TOKEN_KEY: "PPT.API-SessionToken",
 
