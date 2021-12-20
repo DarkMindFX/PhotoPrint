@@ -29,6 +29,10 @@
         "ServiceConfig__StorageInitParams__StorageUrl": "http://127.0.0.1:10000/devstoreaccount1"
       },
       "applicationUrl": "http://localhost:8082"
+    },
+    "Bridge to Kubernetes": {
+      "commandName": "AzureDevSpacesLocal",
+      "launchBrowser": true
     }
   }
 }
