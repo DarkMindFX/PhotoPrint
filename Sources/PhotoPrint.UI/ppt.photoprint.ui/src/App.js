@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 
 import React from 'react';
+import constants from './constants';
 
 import MainPage from './pages';
 import RegisterPage from './pages/register';
@@ -96,8 +97,8 @@ class App extends React.Component {
 
   render() {
 
-    console.log('PPT_API_HOST:', process.env.REACT_APP_PPT_API_HOST);
-    console.log('PPT_API_VERSION:', process.env.REACT_APP_PPT_API_VERSION);
+    console.log('PPT_API_HOST:', constants.PPT_API_HOST);
+    console.log('PPT_API_VERSION:', constants.PPT_API_VERSION);
 
     return (
       <Router>

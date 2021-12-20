@@ -5,12 +5,11 @@ import { Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import constants from '../constants';
 
-const PageHelper = require("../helpers/PageHelper");
-const UsersDal = require('../dal/UsersDal');
-const ContactsDal = require('../dal/ContactsDal');
-const UserContactsDal = require('../dal/UserContactsDal');
+import UsersDal from '../dal/UsersDal';
+import ContactsDal from '../dal/ContactsDal';
+import UserContactsDal from '../dal/UserContactsDal';
 
-const { UserDto, ContactDto, UserContactDto } = require('ppt.photoprint.dto')
+import { UserDto, ContactDto, UserContactDto } from 'ppt.photoprint.dto';
 
 class RegisterPage extends React.Component {
 
@@ -111,9 +110,11 @@ class RegisterPage extends React.Component {
         console.log('Registering user: ', this.state.user);
         console.log('User\'s contact: ', this.state.contact);
 
+        console.log("before new UsersDal()");
+
         const dalUsers = new UsersDal();
-        const dalContacts = new ContactsDal();
-        const dalUserContacts = new UserContactsDal();
+
+        console.log("new UsersDal()");
 
         dalUsers.register(this.state.user, this.state.contact)
         .then( (res) => {
@@ -149,6 +150,7 @@ class RegisterPage extends React.Component {
 
         return (
             <div>
+                <h1>Register New User</h1>
                 <table>
                     <tbody>
                         <tr>
