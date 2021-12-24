@@ -21,7 +21,7 @@ import PageHelper from "../../helpers/PageHelper";
 import OrderStatusesDal from '../../dal/OrderStatusesDal';
 
 
-const { OrderStatusDto } = require('ppt.photoprint.dto')
+import { OrderStatusDto } from 'ppt.photoprint.dto';
 
 
 class OrderStatusPage extends React.Component {

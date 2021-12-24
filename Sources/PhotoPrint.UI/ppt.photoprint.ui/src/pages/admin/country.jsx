@@ -18,8 +18,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
-const CountriesDal = require('../../dal/CountriesDal');
-const { CountryDto } = require('ppt.photoprint.dto')
+import CountriesDal from '../../dal/CountriesDal';
+import { CountryDto } from 'ppt.photoprint.dto';
 
 
 class CountryPage extends React.Component {

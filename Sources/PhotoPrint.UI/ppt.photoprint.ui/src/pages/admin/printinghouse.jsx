@@ -21,7 +21,7 @@ import PageHelper from "../../helpers/PageHelper";
 import PrintingHousesDal from '../../dal/PrintingHousesDal';
 
 import UsersDal from '../../dal/UsersDal';
-const { PrintingHouseDto } = require('ppt.photoprint.dto')
+import { PrintingHouseDto } from 'ppt.photoprint.dto';
 
 
 class PrintingHousePage extends React.Component {

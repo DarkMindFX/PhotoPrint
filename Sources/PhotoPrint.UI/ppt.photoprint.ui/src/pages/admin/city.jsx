@@ -20,8 +20,8 @@ import constants from '../../constants';
 import PageHelper from "../../helpers/PageHelper";
 import CitiesDal from '../../dal/CitiesDal';
 
-const RegionsDal = require('../../dal/RegionsDal');
-const { CityDto } = require('ppt.photoprint.dto')
+import RegionsDal from '../../dal/RegionsDal';
+import { CityDto } from 'ppt.photoprint.dto';
 
 
 class CityPage extends React.Component {

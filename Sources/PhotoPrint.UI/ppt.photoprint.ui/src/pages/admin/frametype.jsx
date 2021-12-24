@@ -23,7 +23,7 @@ import FrameTypesDal from '../../dal/FrameTypesDal';
 
 
 import UsersDal from '../../dal/UsersDal';
-const { FrameTypeDto } = require('ppt.photoprint.dto')
+import { FrameTypeDto } from 'ppt.photoprint.dto';
 
 
 class FrameTypePage extends React.Component {

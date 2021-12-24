@@ -19,7 +19,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import  AddressTypesDal from '../../dal/AddressTypesDal';
-const { AddressTypeDto } = require('ppt.photoprint.dto')
+import { AddressTypeDto } from 'ppt.photoprint.dto';
 
 
 class AddressTypePage extends React.Component {

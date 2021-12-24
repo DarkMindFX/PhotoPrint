@@ -23,7 +23,7 @@ import DeliveryServiceCitiesDal from '../../dal/DeliveryServiceCitiesDal';
 import DeliveryServicesDal from '../../dal/DeliveryServicesDal';
 
 import CitiesDal from '../../dal/CitiesDal';
-const { DeliveryServiceCityDto } = require('ppt.photoprint.dto')
+import { DeliveryServiceCityDto } from 'ppt.photoprint.dto';
 
 
 class DeliveryServiceCityPage extends React.Component {

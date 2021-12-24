@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 import {
@@ -96,6 +96,8 @@ import UserTypePage from './pages/admin/usertype';
 class App extends React.Component {
 
   render() {
+
+
 
     console.log('PPT_API_HOST:', constants.PPT_API_HOST);
     console.log('PPT_API_VERSION:', constants.PPT_API_VERSION);

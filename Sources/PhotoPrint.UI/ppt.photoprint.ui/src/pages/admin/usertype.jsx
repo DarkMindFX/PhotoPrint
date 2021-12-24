@@ -19,7 +19,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import UserTypesDal from '../../dal/UserTypesDal';
-const { UserTypeDto } = require('ppt.photoprint.dto')
+import { UserTypeDto } from 'ppt.photoprint.dto';
 
 
 class UserTypePage extends React.Component {

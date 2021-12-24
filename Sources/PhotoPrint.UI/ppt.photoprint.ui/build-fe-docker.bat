@@ -1,1 +1,1 @@
-docker build -t globus000/ppt.photoprint.ui -f "Dockerfile" .
+docker build --no-cache -t globus000/ppt.photoprint.ui -f "Dockerfile" .

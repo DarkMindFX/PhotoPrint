@@ -23,7 +23,7 @@ import MatsDal from '../../dal/MatsDal';
 
 
 import UsersDal from '../../dal/UsersDal';
-const { MatDto } = require('ppt.photoprint.dto')
+import { MatDto } from 'ppt.photoprint.dto';
 
 
 class MatPage extends React.Component {

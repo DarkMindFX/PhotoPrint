@@ -23,7 +23,7 @@ import PrintingHouseContactsDal from '../../dal/PrintingHouseContactsDal';
 import PrintingHousesDal from '../../dal/PrintingHousesDal';
 
 import ContactsDal from '../../dal/ContactsDal';
-const { PrintingHouseContactDto } = require('ppt.photoprint.dto')
+import { PrintingHouseContactDto } from 'ppt.photoprint.dto';
 
 
 class PrintingHouseContactPage extends React.Component {

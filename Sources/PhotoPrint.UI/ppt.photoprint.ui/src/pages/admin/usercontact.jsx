@@ -23,7 +23,7 @@ import UserContactsDal from '../../dal/UserContactsDal';
 import UsersDal from '../../dal/UsersDal';
 
 import ContactsDal from '../../dal/ContactsDal';
-const { UserContactDto } = require('ppt.photoprint.dto')
+import { UserContactDto } from 'ppt.photoprint.dto';
 
 
 class UserContactPage extends React.Component {

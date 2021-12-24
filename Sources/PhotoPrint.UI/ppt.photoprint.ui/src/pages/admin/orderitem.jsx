@@ -44,7 +44,7 @@ import CurrenciesDal from '../../dal/CurrenciesDal';
 import PrintingHousesDal from '../../dal/PrintingHousesDal';
 
 import UsersDal from '../../dal/UsersDal';
-const { OrderItemDto } = require('ppt.photoprint.dto')
+import { OrderItemDto } from 'ppt.photoprint.dto';
 
 
 class OrderItemPage extends React.Component {

@@ -22,7 +22,7 @@ import ImageRelatedsDal from '../../dal/ImageRelatedsDal';
 
 import ImagesDal from '../../dal/ImagesDal';
 
-const { ImageRelatedDto } = require('ppt.photoprint.dto')
+import { ImageRelatedDto } from 'ppt.photoprint.dto';
 
 
 class ImageRelatedPage extends React.Component {

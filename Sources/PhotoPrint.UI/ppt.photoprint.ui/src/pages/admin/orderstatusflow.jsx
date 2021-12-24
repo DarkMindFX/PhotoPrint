@@ -24,7 +24,7 @@ import OrderStatusFlowsDal from '../../dal/OrderStatusFlowsDal';
 import OrderStatusesDal from '../../dal/OrderStatusesDal';
 
 
-const { OrderStatusFlowDto } = require('ppt.photoprint.dto')
+import { OrderStatusFlowDto } from 'ppt.photoprint.dto';
 
 
 class OrderStatusFlowPage extends React.Component {

@@ -1,8 +1,7 @@
-import config from "./config.json"
 
 const constants = {
-    PPT_API_HOST: process.env.REACT_APP_PPT_API_HOST || "http://localhost:8082",
-    PPT_API_VERSION: process.env.REACT_APP_PPT_API_VERSION || "v1",
+    PPT_API_HOST: window.env.REACT_APP_PPT_API_HOST,
+    PPT_API_VERSION: window.env.REACT_APP_PPT_API_VERSION,
 
     SESSION_TOKEN_KEY: "PPT.API-SessionToken",
 

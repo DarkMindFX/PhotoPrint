@@ -21,7 +21,7 @@ import PageHelper from "../../helpers/PageHelper";
 import UserConfirmationsDal from '../../dal/UserConfirmationsDal';
 
 import UsersDal from '../../dal/UsersDal';
-const { UserConfirmationDto } = require('ppt.photoprint.dto')
+import { UserConfirmationDto } from 'ppt.photoprint.dto';
 
 
 class UserConfirmationPage extends React.Component {

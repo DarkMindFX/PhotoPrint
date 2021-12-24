@@ -23,7 +23,7 @@ import MaterialTypesDal from '../../dal/MaterialTypesDal';
 
 
 import UsersDal from '../../dal/UsersDal';
-const { MaterialTypeDto } = require('ppt.photoprint.dto')
+import { MaterialTypeDto } from 'ppt.photoprint.dto';
 
 
 class MaterialTypePage extends React.Component {

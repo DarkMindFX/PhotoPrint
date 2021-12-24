@@ -12,7 +12,7 @@ import constants from "../../constants";
 import PageHelper from "../../helpers/PageHelper";
 import CitiesDal from '../../dal/CitiesDal';
 
-const RegionsDal = require('../../dal/RegionsDal');
+import RegionsDal from '../../dal/RegionsDal';
 
 
 class CitiesPage extends React.Component {

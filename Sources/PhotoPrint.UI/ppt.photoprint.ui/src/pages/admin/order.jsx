@@ -27,7 +27,7 @@ import ContactsDal from '../../dal/ContactsDal';
 import AddressesDal from '../../dal/AddressesDal';
 
 import DeliveryServicesDal from '../../dal/DeliveryServicesDal';
-const { OrderDto } = require('ppt.photoprint.dto')
+import { OrderDto } from 'ppt.photoprint.dto';
 
 
 class OrderPage extends React.Component {

@@ -10,7 +10,7 @@ import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
 import PageHelper from "../../helpers/PageHelper";
-const UnitsDal = require('../../dal/UnitsDal');
+import UnitsDal from '../../dal/UnitsDal';
 
 
 class UnitsPage extends React.Component {

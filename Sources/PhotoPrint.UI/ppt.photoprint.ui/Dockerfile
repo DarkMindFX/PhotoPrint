@@ -27,7 +27,7 @@ RUN apk add --no-cache bash
 
 WORKDIR /usr/share/nginx/html
 
-COPY .env.* ./
+COPY env.* ./
 
 EXPOSE 80
 

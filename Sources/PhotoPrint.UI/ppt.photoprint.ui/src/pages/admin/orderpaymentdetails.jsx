@@ -26,7 +26,7 @@ import OrdersDal from '../../dal/OrdersDal';
 import PaymentMethodsDal from '../../dal/PaymentMethodsDal';
 
 import UsersDal from '../../dal/UsersDal';
-const { OrderPaymentDetailsDto } = require('ppt.photoprint.dto')
+import { OrderPaymentDetailsDto } from 'ppt.photoprint.dto';
 
 
 class OrderPaymentDetailsPage extends React.Component {

@@ -19,7 +19,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import PaymentMethodsDal from '../../dal/PaymentMethodsDal';
-const { PaymentMethodDto } = require('ppt.photoprint.dto')
+import { PaymentMethodDto } from 'ppt.photoprint.dto';
 
 
 class PaymentMethodPage extends React.Component {

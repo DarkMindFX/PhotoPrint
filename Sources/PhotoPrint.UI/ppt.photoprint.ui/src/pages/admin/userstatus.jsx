@@ -19,7 +19,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import UserStatusesDal from '../../dal/UserStatusesDal';
-const { UserStatusDto } = require('ppt.photoprint.dto')
+import { UserStatusDto } from 'ppt.photoprint.dto';
 
 
 class UserStatusPage extends React.Component {

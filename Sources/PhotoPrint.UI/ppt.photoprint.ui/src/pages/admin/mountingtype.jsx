@@ -20,7 +20,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import MountingTypesDal from '../../dal/MountingTypesDal';
-const { MountingTypeDto } = require('ppt.photoprint.dto')
+import { MountingTypeDto } from 'ppt.photoprint.dto';
 
 
 class MountingTypePage extends React.Component {

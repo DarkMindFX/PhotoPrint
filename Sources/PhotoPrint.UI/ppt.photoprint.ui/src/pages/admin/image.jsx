@@ -25,7 +25,7 @@ import ImagesDal from '../../dal/ImagesDal';
 import CurrenciesDal from '../../dal/CurrenciesDal';
 
 import UsersDal from '../../dal/UsersDal';
-const { ImageDto } = require('ppt.photoprint.dto')
+import { ImageDto } from 'ppt.photoprint.dto';
 
 
 class ImagePage extends React.Component {

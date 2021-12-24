@@ -18,8 +18,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
-const UnitsDal = require('../../dal/UnitsDal');
-const { UnitDto } = require('ppt.photoprint.dto')
+import UnitsDal from '../../dal/UnitsDal';
+import { UnitDto } from 'ppt.photoprint.dto';
 
 
 class UnitPage extends React.Component {

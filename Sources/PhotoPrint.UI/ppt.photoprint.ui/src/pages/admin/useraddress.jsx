@@ -23,7 +23,7 @@ import UserAddressesDal from '../../dal/UserAddressesDal';
 import UsersDal from '../../dal/UsersDal';
 
 import AddressesDal from '../../dal/AddressesDal';
-const { UserAddressDto } = require('ppt.photoprint.dto')
+import { UserAddressDto } from 'ppt.photoprint.dto';
 
 
 class UserAddressPage extends React.Component {

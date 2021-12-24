@@ -19,7 +19,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import ContactTypesDal from '../../dal/ContactTypesDal';
-const { ContactTypeDto } = require('ppt.photoprint.dto')
+import { ContactTypeDto } from 'ppt.photoprint.dto';
 
 
 class ContactTypePage extends React.Component {

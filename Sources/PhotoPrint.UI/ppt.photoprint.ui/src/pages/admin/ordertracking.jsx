@@ -27,7 +27,7 @@ import OrderStatusesDal from '../../dal/OrderStatusesDal';
 
 
 import UsersDal from '../../dal/UsersDal';
-const { OrderTrackingDto } = require('ppt.photoprint.dto')
+import { OrderTrackingDto } from 'ppt.photoprint.dto';
 
 
 class OrderTrackingPage extends React.Component {

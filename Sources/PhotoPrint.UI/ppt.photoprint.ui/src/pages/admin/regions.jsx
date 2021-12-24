@@ -10,9 +10,9 @@ import { Button } from '@material-ui/core';
 import constants from "../../constants";
 
 import PageHelper from "../../helpers/PageHelper";
-const RegionsDal = require('../../dal/RegionsDal');
+import RegionsDal from '../../dal/RegionsDal';
 
-const CountriesDal = require('../../dal/CountriesDal');
+import CountriesDal from '../../dal/CountriesDal';
 
 
 class RegionsPage extends React.Component {

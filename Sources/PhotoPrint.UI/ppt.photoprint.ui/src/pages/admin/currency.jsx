@@ -19,7 +19,7 @@ import constants from '../../constants';
 
 import PageHelper from "../../helpers/PageHelper";
 import CurrenciesDal from '../../dal/CurrenciesDal';
-const { CurrencyDto } = require('ppt.photoprint.dto')
+import { CurrencyDto } from 'ppt.photoprint.dto';
 
 
 class CurrencyPage extends React.Component {
