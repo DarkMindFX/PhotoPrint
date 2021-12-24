@@ -18,10 +18,8 @@ spec:
             - name: ppt-photoprint-ui
               image: globus000/ppt.photoprint.ui
               env:
-              - name: PPT_API_HOST
-                value: "http://20.79.213.223:8088"
-              - name: PPT_API_VERSION
-                value: "v1"
+              - name: ENVIRONMENT
+                value: "dev"
               ports:
               - containerPort: 80
  
