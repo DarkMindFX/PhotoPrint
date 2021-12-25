@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Functions.Common", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Services.Common", "PhotoPrint.Services.Common\PhotoPrint.Services.Common.csproj", "{B9696691-C6C9-4BD5-8380-805397989EB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Functions.Address", "Functions\PPT.Functions.Address\PhotoPrint.Functions.Address.csproj", "{B94912CB-77AF-4C7E-956E-F6593F3C209A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +128,10 @@ Global
 		{B9696691-C6C9-4BD5-8380-805397989EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9696691-C6C9-4BD5-8380-805397989EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9696691-C6C9-4BD5-8380-805397989EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{30703841-128D-4ACD-AA29-EC8CC7B4C35E} = {790EEF80-988B-45AC-AFCC-C7F97A622DA7}
 		{CFA08F49-A2DE-41B0-A091-88111AE1E27E} = {2820586E-CE98-444F-AD08-12F2E4CA835B}
 		{441E69BC-0FCF-40A6-B6C9-2177B69659E0} = {2820586E-CE98-444F-AD08-12F2E4CA835B}
+		{B94912CB-77AF-4C7E-956E-F6593F3C209A} = {790EEF80-988B-45AC-AFCC-C7F97A622DA7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCC25D44-E0EE-4AA8-BD23-47C384963292}
