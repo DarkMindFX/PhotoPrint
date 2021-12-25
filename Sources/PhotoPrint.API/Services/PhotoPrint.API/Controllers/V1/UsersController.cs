@@ -17,6 +17,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using PPT.Services.Common.Helpers;
 
 namespace PPT.PhotoPrint.API.Controllers.V1
 {
@@ -202,8 +203,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             IActionResult response = null;
 
             var entity = UserConvertor.Convert(dto);
-            entity.Salt = Helpers.PasswordHelper.GenerateSalt(12);
-            entity.PwdHash = Helpers.PasswordHelper.GenerateHash(dto.Password, entity.Salt);
+            entity.Salt = PasswordHelper.GenerateSalt(12);
+            entity.PwdHash = PasswordHelper.GenerateHash(dto.Password, entity.Salt);
 
             base.SetCreatedModifiedProperties(entity,
                         "CreatedDate",
@@ -235,7 +236,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             {
                 if (!string.IsNullOrEmpty(dto.Password))
                 {
-                    newEntity.PwdHash = Helpers.PasswordHelper.GenerateHash(dto.Password, existingEntity.Salt);
+                    newEntity.PwdHash = PasswordHelper.GenerateHash(dto.Password, existingEntity.Salt);
                 }
 
                 newEntity.CreatedDate = existingEntity.CreatedDate;

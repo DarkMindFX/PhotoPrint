@@ -14,6 +14,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using PPT.Services.Common.Helpers;
 
 namespace PPT.PhotoPrint.API.Controllers.V1
 {
@@ -54,7 +55,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
             var existingEntity = _dalUser.GetAll().FirstOrDefault(u => u.Login.ToLower() == dtoLogin.Login.ToLower());
             if (existingEntity != null)
             {
-                string pwdHash = Helpers.PasswordHelper.GenerateHash(dtoLogin.Password, existingEntity.Salt);
+                string pwdHash = PasswordHelper.GenerateHash(dtoLogin.Password, existingEntity.Salt);
                 if (pwdHash.Equals(existingEntity.PwdHash))
                 {
                     var dtExpires = DateTime.Now.AddSeconds(_appSettings.Value.SessionTimeout);
@@ -107,8 +108,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
                 // Inserting new user
                 var entityUser = UserConvertor.Convert(dtoRegister.User);
-                entityUser.Salt = Helpers.PasswordHelper.GenerateSalt(12);
-                entityUser.PwdHash = Helpers.PasswordHelper.GenerateHash(dtoRegister.User.Password, entityUser.Salt);
+                entityUser.Salt = PasswordHelper.GenerateSalt(12);
+                entityUser.PwdHash = PasswordHelper.GenerateHash(dtoRegister.User.Password, entityUser.Salt);
 
                 base.SetCreatedModifiedProperties(entityUser,
                             "CreatedDate",

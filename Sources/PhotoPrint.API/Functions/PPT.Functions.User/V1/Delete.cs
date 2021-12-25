@@ -10,13 +10,13 @@ using Newtonsoft.Json;
 using PPT.Interfaces;
 using System.Net;
 
-namespace PhotoPrint.Functions.User
+namespace PhotoPrint.Functions.User.V1
 {
     public static class Delete
     {
         [FunctionName("UsersDelete")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "UsersDelete/{id}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "v1/users/{id}")] HttpRequest req,
             long id,
             ILogger log)
         {

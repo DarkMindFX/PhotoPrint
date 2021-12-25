@@ -9,13 +9,13 @@ using System.Collections.Generic;
 using PPT.Utils.Convertors;
 using System;
 
-namespace PPT.Functions.User
+namespace PPT.Functions.User.V1
 {
     public class GetAll
     {
         [FunctionName("UsersGetAll")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users")] HttpRequest req,
             ILogger log)
         {
             IActionResult result = null;

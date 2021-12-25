@@ -33,6 +33,20 @@ namespace PPT.Functions.Common
             return dal;
         }
 
+        public void SetCreatedModifiedProperties(object obj, string propNameDate, string propNameID, PPT.Interfaces.Entities.User currentUser = null)
+        {
+            if (propNameDate != null && obj.GetType().GetProperty(propNameDate) != null)
+            {
+                obj.GetType().GetProperty(propNameDate,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.Instance).SetValue(obj, DateTime.UtcNow, null);
+            }
+            if (propNameID != null && obj.GetType().GetProperty(propNameID) != null && currentUser != null)
+            {
+                obj.GetType().GetProperty(propNameID,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.Instance).SetValue(obj, currentUser.ID, null);
+            }
+        }
+
         private void PrepareComposition()
         {
             AggregateCatalog catalog = new AggregateCatalog();
