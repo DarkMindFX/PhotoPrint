@@ -1,8 +1,10 @@
-﻿using PPT.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using PPT.Interfaces;
 using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Text.Json;
 
@@ -47,6 +49,37 @@ namespace PPT.Functions.Common
             }
         }
 
+        public string ToJosn(object obj)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(obj, options);
+
+            return jsonString;
+        }
+
+        public ObjectResult CreateResult(HttpStatusCode code, object resultDto = null, string errorMessage = null)
+        {
+            ObjectResult result = null;
+
+            if (resultDto != null)
+            {
+                result = new ObjectResult(ToJosn(resultDto));
+            }
+            else if (errorMessage != null)
+            {
+                result = new ObjectResult(ToJosn(new PPT.DTO.Error()
+                {
+                    Code = (int)code,
+                    Message = errorMessage
+                }));
+            }
+
+            result.StatusCode = (int)code;
+            return result;
+        }
+
+        #region Support methods
+
         private void PrepareComposition()
         {
             AggregateCatalog catalog = new AggregateCatalog();
@@ -66,13 +99,9 @@ namespace PPT.Functions.Common
                 return Path.GetDirectoryName(path);
             }
         }
-        
-        public string ToJosn(object obj)
-        {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            string jsonString = JsonSerializer.Serialize(obj, options);
 
-            return jsonString;
-        }
+        #endregion
+
+
     }
 }
