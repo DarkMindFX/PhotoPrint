@@ -15,6 +15,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using PPT.Services.Common.Helpers;
+using PhotoPrint.Services.Common.Helpers;
 
 namespace PPT.PhotoPrint.API.Controllers.V1
 {
@@ -58,8 +59,9 @@ namespace PPT.PhotoPrint.API.Controllers.V1
                 string pwdHash = PasswordHelper.GenerateHash(dtoLogin.Password, existingEntity.Salt);
                 if (pwdHash.Equals(existingEntity.PwdHash))
                 {
+                    var jwtHelper = new JWTHelper();
                     var dtExpires = DateTime.Now.AddSeconds(_appSettings.Value.SessionTimeout);
-                    var sToken = GenerateToken(existingEntity, dtExpires);
+                    var sToken = jwtHelper.GenerateToken(existingEntity, dtExpires, _appSettings.Value.Secret);
 
                     var dtoResponse = new DTO.LoginResponse()
                     {
@@ -147,27 +149,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
         }
 
         #region Support methods
-        private string GenerateToken(Interfaces.Entities.User user, DateTime expires)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Value.Secret);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                    {
-                            new Claim("id", user.ID.ToString())
-                    }
-                ),
-                Expires = expires,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            string sToken = tokenHandler.WriteToken(token);
-
-            return sToken;
-        }
+        
 
         #endregion
     }

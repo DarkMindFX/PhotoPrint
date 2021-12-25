@@ -43,11 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.Common
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E.Functions.User", "Tests\Test.E2E.Functions.User\Test.E2E.Functions.User.csproj", "{CFA08F49-A2DE-41B0-A091-88111AE1E27E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Functions.Common", "Test.Functions.Common\Test.Functions.Common.csproj", "{441E69BC-0FCF-40A6-B6C9-2177B69659E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Functions.Common", "Test.Functions.Common\Test.Functions.Common.csproj", "{441E69BC-0FCF-40A6-B6C9-2177B69659E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Services.Common", "PhotoPrint.Services.Common\PhotoPrint.Services.Common.csproj", "{B9696691-C6C9-4BD5-8380-805397989EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Services.Common", "PhotoPrint.Services.Common\PhotoPrint.Services.Common.csproj", "{B9696691-C6C9-4BD5-8380-805397989EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Functions.Address", "Functions\PPT.Functions.Address\PhotoPrint.Functions.Address.csproj", "{B94912CB-77AF-4C7E-956E-F6593F3C209A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.Address", "Functions\PPT.Functions.Address\PhotoPrint.Functions.Address.csproj", "{B94912CB-77AF-4C7E-956E-F6593F3C209A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

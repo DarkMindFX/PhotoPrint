@@ -24,15 +24,23 @@ namespace PPT.Functions.Common
 
         public TDal CreateDal<TDal>() where TDal : IInitializable
         {
-            var dal = Container.GetExportedValue<TDal>(System.Environment.GetEnvironmentVariable(Constants.ENV_DAL_TYPE));
+            var dal = Container.GetExportedValue<TDal>(this.GetEnvironmentVariable<string>(Constants.ENV_DAL_TYPE));
             var dalInitParams = dal.CreateInitParams();
 
-            dalInitParams.Parameters["ConnectionString"] = System.Environment.GetEnvironmentVariable(Constants.ENV_SQL_CONNECTION_STRING);
+            dalInitParams.Parameters["ConnectionString"] = this.GetEnvironmentVariable<string>(Constants.ENV_SQL_CONNECTION_STRING);
 
             dalInitParams.Parameters = dalInitParams.Parameters;
             dal.Init(dalInitParams);
 
             return dal;
+        }
+
+        public T GetEnvironmentVariable<T>(string name)
+        {
+            string sValue = System.Environment.GetEnvironmentVariable(name);
+            T result = (T)Convert.ChangeType(sValue, typeof(T));
+
+            return result;
         }
 
         public void SetCreatedModifiedProperties(object obj, string propNameDate, string propNameID, PPT.Interfaces.Entities.User currentUser = null)
