@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Primitives;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 namespace Test.Functions.Common
 {
@@ -30,6 +32,14 @@ namespace Test.Functions.Common
             var context = new DefaultHttpContext();
             var request = context.Request;
             request.Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue));
+            return request;
+        }
+
+        public static HttpRequest CreateHttpRequest(object body)
+        {
+            var context = new DefaultHttpContext();
+            var request = context.Request;
+            request.Body = new MemoryStream(JsonSerializer.SerializeToUtf8Bytes(body));
             return request;
         }
 

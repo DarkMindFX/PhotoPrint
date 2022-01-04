@@ -13,7 +13,7 @@ using PPT.Interfaces;
 using PPT.Interfaces.Entities;
 using System.Net;
 
-namespace PhotoPrint.Functions.User.V1
+namespace PPT.Functions.User.V1
 {
     public static class Register
     {

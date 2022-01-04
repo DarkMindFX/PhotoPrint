@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using PPT.Utils.Convertors;
 using System.Net;
 
-namespace PhotoPrint.Functions.User.V1
+namespace PPT.Functions.User.V1
 {
     public class GetDetails
     {

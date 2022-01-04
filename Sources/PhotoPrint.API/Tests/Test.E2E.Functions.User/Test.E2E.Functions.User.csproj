@@ -20,4 +20,10 @@
     <ProjectReference Include="..\..\Test.Functions.Common\Test.Functions.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
