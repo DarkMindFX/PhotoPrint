@@ -51,7 +51,10 @@ namespace PPT.Functions.User.V1
                                             "ModifiedByID");
                     PPT.Interfaces.Entities.User entity = dal.Update(newEntity);
 
-                    result = new ObjectResult(funHelper.ToJosn(UserConvertor.Convert(newEntity, null)));
+                    result = new ObjectResult(funHelper.ToJosn(UserConvertor.Convert(newEntity, null)))
+                    {
+                        StatusCode = (int)HttpStatusCode.OK
+                    };
                 }
                 else
                 {

@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.User",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.Common", "Functions\PPT.Functions.Common\PhotoPrint.Functions.Common.csproj", "{30703841-128D-4ACD-AA29-EC8CC7B4C35E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E.Functions.User", "Tests\Test.E2E.Functions.User\Test.E2E.Functions.User.csproj", "{CFA08F49-A2DE-41B0-A091-88111AE1E27E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E.Functions", "Tests\Test.E2E.Functions.User\Test.E2E.Functions.csproj", "{CFA08F49-A2DE-41B0-A091-88111AE1E27E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Functions.Common", "Test.Functions.Common\Test.Functions.Common.csproj", "{441E69BC-0FCF-40A6-B6C9-2177B69659E0}"
 EndProject
