@@ -81,6 +81,10 @@ namespace PPT.Functions.Common
                     Message = errorMessage
                 }));
             }
+            else
+            {
+                result = new ObjectResult(null);
+            }
 
             result.StatusCode = (int)code;
             return result;

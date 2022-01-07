@@ -26,8 +26,10 @@ namespace Test.E2E.Functions.User
             var initParams = GetTestParams("DALInitParams");
 
             // Function replies on env vars for config
-            Environment.SetEnvironmentVariable("ServiceConfig__DALType", _testParams.Settings["DALType"].ToString());
-            Environment.SetEnvironmentVariable("ServiceConfig__DalInitParams__ConnectionString", (string)initParams.Settings["ConnectionString"]);
+            Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_DAL_TYPE, _testParams.Settings["DALType"].ToString());
+            Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_SQL_CONNECTION_STRING, (string)initParams.Settings["ConnectionString"]);
+            Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_JWT_SECRET, (string)_testParams.Settings["JWTSecret"]);
+            Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_SESSION_TIMEOUT, (string)_testParams.Settings["JWTSessionTimeout"]);
         }
 
         [Test]
@@ -203,6 +205,63 @@ namespace Test.E2E.Functions.User
             {
                 RemoveTestEntity(testEntity);
             }
+        }
+
+        [Test]
+        public async Task UsersLogin_Success()
+        {
+            var dtoReq = new PPT.DTO.LoginRequest()
+            {
+                Login = _testParams.Settings["test_user_login"].ToString(),
+                Password = _testParams.Settings["test_user_pwd"].ToString()
+            };
+
+            var request = TestFactory.CreateHttpRequest(dtoReq);
+            var response = (ObjectResult)await PPT.Functions.User.V1.Login.Run(request, logger);
+
+            Assert.NotNull(response);
+            Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
+
+            var dtoResp = JsonSerializer.Deserialize<PPT.DTO.LoginResponse>(response.Value.ToString());
+
+            Assert.IsNotNull(dtoResp.Token);
+            Assert.IsNotEmpty(dtoResp.Token);
+            Assert.AreNotEqual(DateTime.MinValue, dtoResp.Expires);
+            Assert.IsNotNull(dtoResp.User);
+            Assert.IsNotNull(dtoResp.User.ID);
+
+        }
+
+        [Test]
+        public async Task UsersLogin_InvalidLogin()
+        {
+            var dtoReq = new PPT.DTO.LoginRequest()
+            {
+                Login = _testParams.Settings["test_invalid_login"].ToString(),
+                Password = _testParams.Settings["test_user_pwd"].ToString()
+            };
+
+            var request = TestFactory.CreateHttpRequest(dtoReq);
+            var response = (ObjectResult)await PPT.Functions.User.V1.Login.Run(request, logger);
+
+            Assert.NotNull(response);
+            Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
+        }
+
+        [Test]
+        public async Task UsersLogin_InvalidPassword()
+        {
+            var dtoReq = new PPT.DTO.LoginRequest()
+            {
+                Login = _testParams.Settings["test_user_login"].ToString(),
+                Password = _testParams.Settings["test_invalid_pwd"].ToString()
+            };
+
+            var request = TestFactory.CreateHttpRequest(dtoReq);
+            var response = (ObjectResult)await PPT.Functions.User.V1.Login.Run(request, logger);
+
+            Assert.NotNull(response);
+            Assert.AreEqual((int)HttpStatusCode.Forbidden, response.StatusCode);
         }
 
         #region Support methods

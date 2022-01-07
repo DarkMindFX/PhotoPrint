@@ -41,13 +41,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.User",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.Common", "Functions\PPT.Functions.Common\PhotoPrint.Functions.Common.csproj", "{30703841-128D-4ACD-AA29-EC8CC7B4C35E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E.Functions", "Tests\Test.E2E.Functions.User\Test.E2E.Functions.csproj", "{CFA08F49-A2DE-41B0-A091-88111AE1E27E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Functions.Common", "Test.Functions.Common\Test.Functions.Common.csproj", "{441E69BC-0FCF-40A6-B6C9-2177B69659E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Services.Common", "PhotoPrint.Services.Common\PhotoPrint.Services.Common.csproj", "{B9696691-C6C9-4BD5-8380-805397989EB7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.Address", "Functions\PPT.Functions.Address\PhotoPrint.Functions.Address.csproj", "{B94912CB-77AF-4C7E-956E-F6593F3C209A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E.Functions", "Tests\Test.E2E.Functions\Test.E2E.Functions.csproj", "{3407C379-BBF3-488D-AF5D-38009F5FF9C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -116,10 +116,6 @@ Global
 		{30703841-128D-4ACD-AA29-EC8CC7B4C35E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30703841-128D-4ACD-AA29-EC8CC7B4C35E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30703841-128D-4ACD-AA29-EC8CC7B4C35E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFA08F49-A2DE-41B0-A091-88111AE1E27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFA08F49-A2DE-41B0-A091-88111AE1E27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFA08F49-A2DE-41B0-A091-88111AE1E27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFA08F49-A2DE-41B0-A091-88111AE1E27E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{441E69BC-0FCF-40A6-B6C9-2177B69659E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{441E69BC-0FCF-40A6-B6C9-2177B69659E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{441E69BC-0FCF-40A6-B6C9-2177B69659E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -132,6 +128,10 @@ Global
 		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B94912CB-77AF-4C7E-956E-F6593F3C209A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,9 +145,9 @@ Global
 		{1722C31F-A73F-4196-AF03-771C81C34E31} = {2820586E-CE98-444F-AD08-12F2E4CA835B}
 		{5C1CAB9A-DB45-4258-BE91-A140F8D5E110} = {790EEF80-988B-45AC-AFCC-C7F97A622DA7}
 		{30703841-128D-4ACD-AA29-EC8CC7B4C35E} = {790EEF80-988B-45AC-AFCC-C7F97A622DA7}
-		{CFA08F49-A2DE-41B0-A091-88111AE1E27E} = {2820586E-CE98-444F-AD08-12F2E4CA835B}
 		{441E69BC-0FCF-40A6-B6C9-2177B69659E0} = {2820586E-CE98-444F-AD08-12F2E4CA835B}
 		{B94912CB-77AF-4C7E-956E-F6593F3C209A} = {790EEF80-988B-45AC-AFCC-C7F97A622DA7}
+		{3407C379-BBF3-488D-AF5D-38009F5FF9C2} = {2820586E-CE98-444F-AD08-12F2E4CA835B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCC25D44-E0EE-4AA8-BD23-47C384963292}

@@ -43,8 +43,8 @@ namespace PPT.Functions.User.V1
                     {
                         // Creating token
                         var jwtHelper = new JWTHelper();
-                        var dtExpires = DateTime.Now.AddSeconds(funHelper.GetEnvironmentVariable<int>(PPT.Functions.Common.Constants.ENV_JWT_SECRET));
-                        var sToken = jwtHelper.GenerateToken(existingEntity, dtExpires, funHelper.GetEnvironmentVariable<string>(PPT.Functions.Common.Constants.ENV_SESSION_TIMEOUT));
+                        var dtExpires = DateTime.Now.AddSeconds(funHelper.GetEnvironmentVariable<int>(PPT.Functions.Common.Constants.ENV_SESSION_TIMEOUT));
+                        var sToken = jwtHelper.GenerateToken(existingEntity, dtExpires, funHelper.GetEnvironmentVariable<string>(PPT.Functions.Common.Constants.ENV_JWT_SECRET));
 
                         // Creating response object
                         var dtoResponse = new PPT.DTO.LoginResponse()
