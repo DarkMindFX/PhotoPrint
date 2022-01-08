@@ -36,7 +36,7 @@ namespace Test.E2E.Functions.User
         public async Task UsersGetAll_Success()
         {
             var request = TestFactory.CreateHttpRequest();
-            var response = (ObjectResult)await PPT.Functions.User.V1.GetAll.Run(request, logger);
+            var response = (ObjectResult)await(new PPT.Functions.User.V1.GetAll()).Run(request, logger);
 
             Assert.IsNotNull(response);
             Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -55,7 +55,7 @@ namespace Test.E2E.Functions.User
             try
             {
                 var request = TestFactory.CreateHttpRequest();
-                var response = (ObjectResult)await PPT.Functions.User.V1.GetDetails.Run(request, (long)testEntity.ID, logger);
+                var response = (ObjectResult)await(new PPT.Functions.User.V1.GetDetails()).Run(request, (long)testEntity.ID, logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -77,7 +77,7 @@ namespace Test.E2E.Functions.User
         {
             long id = Int64.MaxValue - 1;
             var request = TestFactory.CreateHttpRequest();
-            var response = (ObjectResult)await PPT.Functions.User.V1.GetDetails.Run(request, id, logger);
+            var response = (ObjectResult)await(new PPT.Functions.User.V1.GetDetails()).Run(request, id, logger);
 
             Assert.IsNotNull(response);
             Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -91,7 +91,7 @@ namespace Test.E2E.Functions.User
             try
             {
                 var request = TestFactory.CreateHttpRequest();
-                var response = (StatusCodeResult)await PPT.Functions.User.V1.Delete.Run(request, (long)testEntity.ID, logger);
+                var response = (StatusCodeResult)await(new PPT.Functions.User.V1.Delete()).Run(request, (long)testEntity.ID, logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -107,7 +107,7 @@ namespace Test.E2E.Functions.User
         {
             long id = Int64.MaxValue - 1;
             var request = TestFactory.CreateHttpRequest();
-            var response = (ObjectResult)await PPT.Functions.User.V1.Delete.Run(request, id, logger);
+            var response = (ObjectResult)await(new PPT.Functions.User.V1.Delete()).Run(request, id, logger);
 
             Assert.IsNotNull(response);
             Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -123,7 +123,7 @@ namespace Test.E2E.Functions.User
                 var dtoReq = PPT.Utils.Convertors.UserConvertor.Convert(testEntity, null);
                 dtoReq.Password = Guid.NewGuid().ToString();
                 var request = TestFactory.CreateHttpRequest(dtoReq);
-                var response = (ObjectResult)await PPT.Functions.User.V1.Insert.Run(request, logger);
+                var response = (ObjectResult)await(new PPT.Functions.User.V1.Insert()).Run(request, logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.Created, response.StatusCode);
@@ -163,7 +163,7 @@ namespace Test.E2E.Functions.User
                 var reqDto = UserConvertor.Convert(testEntity, null);
 
                 var request = TestFactory.CreateHttpRequest(reqDto);
-                var response = (ObjectResult)await PPT.Functions.User.V1.Update.Run(request, logger);
+                var response = (ObjectResult)await(new PPT.Functions.User.V1.Update()).Run(request, logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -196,7 +196,7 @@ namespace Test.E2E.Functions.User
                 var reqDto = UserConvertor.Convert(testEntity, null);
 
                 var request = TestFactory.CreateHttpRequest(reqDto);
-                var response = (ObjectResult)await PPT.Functions.User.V1.Update.Run(request, logger);
+                var response = (ObjectResult)await(new PPT.Functions.User.V1.Update()).Run(request, logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -217,7 +217,7 @@ namespace Test.E2E.Functions.User
             };
 
             var request = TestFactory.CreateHttpRequest(dtoReq);
-            var response = (ObjectResult)await PPT.Functions.User.V1.Login.Run(request, logger);
+            var response = (ObjectResult)await(new PPT.Functions.User.V1.Login()).Run(request, logger);
 
             Assert.NotNull(response);
             Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -242,7 +242,7 @@ namespace Test.E2E.Functions.User
             };
 
             var request = TestFactory.CreateHttpRequest(dtoReq);
-            var response = (ObjectResult)await PPT.Functions.User.V1.Login.Run(request, logger);
+            var response = (ObjectResult)await(new PPT.Functions.User.V1.Login()).Run(request, logger);
 
             Assert.NotNull(response);
             Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -258,7 +258,7 @@ namespace Test.E2E.Functions.User
             };
 
             var request = TestFactory.CreateHttpRequest(dtoReq);
-            var response = (ObjectResult)await PPT.Functions.User.V1.Login.Run(request, logger);
+            var response = (ObjectResult)await( new PPT.Functions.User.V1.Login()).Run(request, logger);
 
             Assert.NotNull(response);
             Assert.AreEqual((int)HttpStatusCode.Forbidden, response.StatusCode);

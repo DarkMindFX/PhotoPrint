@@ -49,6 +49,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoPrint.Functions.Addres
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E.Functions", "Tests\Test.E2E.Functions\Test.E2E.Functions.csproj", "{3407C379-BBF3-488D-AF5D-38009F5FF9C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoPrint.Services.DAL", "PhotoPrint.Services.DAL\PhotoPrint.Services.DAL.csproj", "{C97A8BC9-F268-431D-8713-214FAA99F5EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -132,6 +134,10 @@ Global
 		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3407C379-BBF3-488D-AF5D-38009F5FF9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97A8BC9-F268-431D-8713-214FAA99F5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97A8BC9-F268-431D-8713-214FAA99F5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97A8BC9-F268-431D-8713-214FAA99F5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97A8BC9-F268-431D-8713-214FAA99F5EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

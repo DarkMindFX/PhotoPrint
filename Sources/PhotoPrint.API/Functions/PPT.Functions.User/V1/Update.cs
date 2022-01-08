@@ -14,10 +14,10 @@ using PPT.Services.Common.Helpers;
 
 namespace PPT.Functions.User.V1
 {
-    public static class Update
+    public class Update
     {
         [FunctionName("UsersUpdate")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "v1/users")] HttpRequest req,
             ILogger log)
         {

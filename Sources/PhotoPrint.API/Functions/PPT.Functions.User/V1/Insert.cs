@@ -14,10 +14,10 @@ using System.Net;
 
 namespace PPT.Functions.User.V1
 {
-    public static class Insert
+    public class Insert
     {
         [FunctionName("UsersInsert")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/users")] HttpRequest req,
             ILogger log)
         {

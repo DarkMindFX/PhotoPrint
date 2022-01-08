@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class CountriesController : BaseController
     {
-        private readonly Dal.ICountryDal _dalCountry;
+        private readonly PPT.Services.Dal.ICountryDal _dalCountry;
         private readonly ILogger<CountriesController> _logger;
 
 
-        public CountriesController( Dal.ICountryDal dalCountry,
+        public CountriesController( PPT.Services.Dal.ICountryDal dalCountry,
                                     ILogger<CountriesController> logger)
         {
             _dalCountry = dalCountry; 

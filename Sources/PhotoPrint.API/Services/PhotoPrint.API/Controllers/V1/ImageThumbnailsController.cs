@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class ImageThumbnailsController : BaseController
     {
-        private readonly Dal.IImageThumbnailDal _dalImageThumbnail;
+        private readonly PPT.Services.Dal.IImageThumbnailDal _dalImageThumbnail;
         private readonly ILogger<ImageThumbnailsController> _logger;
 
 
-        public ImageThumbnailsController( Dal.IImageThumbnailDal dalImageThumbnail,
+        public ImageThumbnailsController( PPT.Services.Dal.IImageThumbnailDal dalImageThumbnail,
                                     ILogger<ImageThumbnailsController> logger)
         {
             _dalImageThumbnail = dalImageThumbnail; 

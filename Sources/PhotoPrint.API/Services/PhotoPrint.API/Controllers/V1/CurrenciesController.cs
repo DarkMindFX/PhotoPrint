@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class CurrenciesController : BaseController
     {
-        private readonly Dal.ICurrencyDal _dalCurrency;
+        private readonly PPT.Services.Dal.ICurrencyDal _dalCurrency;
         private readonly ILogger<CurrenciesController> _logger;
 
 
-        public CurrenciesController( Dal.ICurrencyDal dalCurrency,
+        public CurrenciesController( PPT.Services.Dal.ICurrencyDal dalCurrency,
                                     ILogger<CurrenciesController> logger)
         {
             _dalCurrency = dalCurrency; 

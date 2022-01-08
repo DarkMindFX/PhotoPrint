@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using PhotoPrint.Test.E2E.API;
+using PPT.Test.E2E.API;
 using PPT.DTO;
 using PPT.Utils.Convertors;
 using System;

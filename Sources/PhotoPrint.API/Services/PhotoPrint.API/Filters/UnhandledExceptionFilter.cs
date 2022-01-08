@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using PhotoPrint.API.Exceptions;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Net;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace PPT.PhotoPrint.API.Filters
 {
@@ -25,7 +20,7 @@ namespace PPT.PhotoPrint.API.Filters
                 statusCode = HttpStatusCode.BadRequest;
                 error.Message = exception.Message;
             }
-            else if(context.Exception is UnauthorizedException)
+            else if(context.Exception is PPT.Services.Common.Exceptions.UnauthorizedException)
             {
                 statusCode = HttpStatusCode.Unauthorized;
                 error.Message = $"Access Denied: {context.Exception.Message}";

@@ -3,7 +3,7 @@
 
 using PPT.DTO;
 using PPT.Utils.Convertors;
-using PhotoPrint.Test.E2E.API;
+using PPT.Test.E2E.API;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System;
 using System.Collections.Generic;

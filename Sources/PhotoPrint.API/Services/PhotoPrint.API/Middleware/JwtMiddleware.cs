@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PPT.PhotoPrint.API.Helpers;
-using PPT.PhotoPrint.API.Dal;
+using PPT.Services.Dal;
+using PPT.Services.Common.Helpers;
 
 namespace PPT.PhotoPrint.API.MiddleWare
 {
@@ -37,32 +38,9 @@ namespace PPT.PhotoPrint.API.MiddleWare
         }
 
         private void setUserContext(HttpContext context, string token, IUserDal dalUser)
-        {
-            Interfaces.Entities.User currentUser = null;
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-                tokenHandler.ValidateToken(token, new TokenValidationParameters
-                {
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuerSigningKey = true,                    
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ClockSkew = TimeSpan.Zero
-                }, out SecurityToken validatedToken);
-
-                var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
-                var expClaim = jwtToken.Claims.First(x => x.Type == "exp").Value;
-
-                currentUser = dalUser.Get(userId);
-            }
-            catch
-            {
-                currentUser = null;
-            }
-
+        { 
+            Interfaces.Entities.User currentUser = JWTHelper.GetUserFromToken(token, _appSettings.Secret, dalUser);
+            
             context.Items["User"] = currentUser;
         }
     }

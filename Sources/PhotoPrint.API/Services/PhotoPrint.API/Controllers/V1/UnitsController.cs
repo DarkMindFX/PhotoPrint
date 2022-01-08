@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class UnitsController : BaseController
     {
-        private readonly Dal.IUnitDal _dalUnit;
+        private readonly PPT.Services.Dal.IUnitDal _dalUnit;
         private readonly ILogger<UnitsController> _logger;
 
 
-        public UnitsController( Dal.IUnitDal dalUnit,
+        public UnitsController( PPT.Services.Dal.IUnitDal dalUnit,
                                     ILogger<UnitsController> logger)
         {
             _dalUnit = dalUnit; 

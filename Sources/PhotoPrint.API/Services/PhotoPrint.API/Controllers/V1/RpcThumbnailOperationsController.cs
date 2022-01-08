@@ -18,15 +18,15 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [ApiController]
     public class RpcThumbnailOperationsController : ControllerBase
     {
-        private readonly Dal.IImageDal _dalImage;
-        private readonly Dal.IImageThumbnailDal _dalImageThumbnail;
+        private readonly PPT.Services.Dal.IImageDal _dalImage;
+        private readonly PPT.Services.Dal.IImageThumbnailDal _dalImageThumbnail;
         private readonly ILogger<RpcThumbnailOperationsController> _logger;
         private readonly IBinaryStorage _storage;
         private readonly IOptions<AppSettings> _appSettings;
 
 
-        public RpcThumbnailOperationsController(Dal.IImageDal dalImage,
-                                        Dal.IImageThumbnailDal dalImageThumbnail,
+        public RpcThumbnailOperationsController(PPT.Services.Dal.IImageDal dalImage,
+                                        PPT.Services.Dal.IImageThumbnailDal dalImageThumbnail,
                                         ILogger<RpcThumbnailOperationsController> logger,
                                         IBinaryStorage storage,
                                         IOptions<AppSettings> appSettings)

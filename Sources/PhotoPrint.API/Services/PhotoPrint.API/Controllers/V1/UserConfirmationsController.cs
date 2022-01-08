@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class UserConfirmationsController : BaseController
     {
-        private readonly Dal.IUserConfirmationDal _dalUserConfirmation;
+        private readonly PPT.Services.Dal.IUserConfirmationDal _dalUserConfirmation;
         private readonly ILogger<UserConfirmationsController> _logger;
 
 
-        public UserConfirmationsController( Dal.IUserConfirmationDal dalUserConfirmation,
+        public UserConfirmationsController( PPT.Services.Dal.IUserConfirmationDal dalUserConfirmation,
                                     ILogger<UserConfirmationsController> logger)
         {
             _dalUserConfirmation = dalUserConfirmation; 

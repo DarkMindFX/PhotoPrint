@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class FrameTypesController : BaseController
     {
-        private readonly Dal.IFrameTypeDal _dalFrameType;
+        private readonly PPT.Services.Dal.IFrameTypeDal _dalFrameType;
         private readonly ILogger<FrameTypesController> _logger;
 
 
-        public FrameTypesController( Dal.IFrameTypeDal dalFrameType,
+        public FrameTypesController( PPT.Services.Dal.IFrameTypeDal dalFrameType,
                                     ILogger<FrameTypesController> logger)
         {
             _dalFrameType = dalFrameType; 

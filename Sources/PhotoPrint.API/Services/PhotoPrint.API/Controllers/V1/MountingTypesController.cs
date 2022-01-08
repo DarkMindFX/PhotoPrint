@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class MountingTypesController : BaseController
     {
-        private readonly Dal.IMountingTypeDal _dalMountingType;
+        private readonly PPT.Services.Dal.IMountingTypeDal _dalMountingType;
         private readonly ILogger<MountingTypesController> _logger;
 
 
-        public MountingTypesController( Dal.IMountingTypeDal dalMountingType,
+        public MountingTypesController( PPT.Services.Dal.IMountingTypeDal dalMountingType,
                                     ILogger<MountingTypesController> logger)
         {
             _dalMountingType = dalMountingType; 

@@ -15,7 +15,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using PPT.Services.Common.Helpers;
-using PhotoPrint.Services.Common.Helpers;
+using PPT.Services.Common.Helpers;
 
 namespace PPT.PhotoPrint.API.Controllers.V1
 {
@@ -25,16 +25,16 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     public class RpcUserOperationsController : BaseController
     {
 
-        private readonly Dal.IUserDal _dalUser;
-        private readonly Dal.IContactDal _dalContact;
-        private readonly Dal.IUserContactDal _dalUserContact;
+        private readonly PPT.Services.Dal.IUserDal _dalUser;
+        private readonly PPT.Services.Dal.IContactDal _dalContact;
+        private readonly PPT.Services.Dal.IUserContactDal _dalUserContact;
         private readonly ILogger<UsersController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
 
 
-        public RpcUserOperationsController(Dal.IUserDal dalUser,
-                                        Dal.IContactDal dalContact,
-                                        Dal.IUserContactDal dalUserContact,
+        public RpcUserOperationsController(PPT.Services.Dal.IUserDal dalUser,
+                                        PPT.Services.Dal.IContactDal dalContact,
+                                        PPT.Services.Dal.IUserContactDal dalUserContact,
                                         ILogger<UsersController> logger,
                                         IOptions<AppSettings> appSettings)
         {
@@ -59,9 +59,8 @@ namespace PPT.PhotoPrint.API.Controllers.V1
                 string pwdHash = PasswordHelper.GenerateHash(dtoLogin.Password, existingEntity.Salt);
                 if (pwdHash.Equals(existingEntity.PwdHash))
                 {
-                    var jwtHelper = new JWTHelper();
                     var dtExpires = DateTime.Now.AddSeconds(_appSettings.Value.SessionTimeout);
-                    var sToken = jwtHelper.GenerateToken(existingEntity, dtExpires, _appSettings.Value.Secret);
+                    var sToken = JWTHelper.GenerateToken(existingEntity, dtExpires, _appSettings.Value.Secret);
 
                     var dtoResponse = new DTO.LoginResponse()
                     {

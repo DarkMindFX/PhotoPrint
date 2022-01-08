@@ -12,7 +12,7 @@ using System.Net;
 using PPT.Interfaces;
 using PPT.Services.Common.Helpers;
 
-namespace PhotoPrint.Functions.Address.V1
+namespace PPT.Functions.Address.V1
 {
     public static class Update
     {

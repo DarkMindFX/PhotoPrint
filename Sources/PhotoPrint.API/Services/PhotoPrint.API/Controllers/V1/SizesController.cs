@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class SizesController : BaseController
     {
-        private readonly Dal.ISizeDal _dalSize;
+        private readonly PPT.Services.Dal.ISizeDal _dalSize;
         private readonly ILogger<SizesController> _logger;
 
 
-        public SizesController( Dal.ISizeDal dalSize,
+        public SizesController( PPT.Services.Dal.ISizeDal dalSize,
                                     ILogger<SizesController> logger)
         {
             _dalSize = dalSize; 

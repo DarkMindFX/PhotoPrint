@@ -17,7 +17,7 @@ namespace PPT.Functions.User.V1
     public class GetDetails
     {
         [FunctionName("UsersGetDetails")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users/{id}")] HttpRequest req,
             long id,
             ILogger log)

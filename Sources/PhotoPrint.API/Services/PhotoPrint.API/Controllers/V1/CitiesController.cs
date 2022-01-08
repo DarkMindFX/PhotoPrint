@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class CitiesController : BaseController
     {
-        private readonly Dal.ICityDal _dalCity;
+        private readonly PPT.Services.Dal.ICityDal _dalCity;
         private readonly ILogger<CitiesController> _logger;
 
 
-        public CitiesController( Dal.ICityDal dalCity,
+        public CitiesController( PPT.Services.Dal.ICityDal dalCity,
                                     ILogger<CitiesController> logger)
         {
             _dalCity = dalCity; 

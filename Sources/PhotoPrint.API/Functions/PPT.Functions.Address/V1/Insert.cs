@@ -12,7 +12,7 @@ using PPT.Services.Common.Helpers;
 using PPT.Interfaces;
 using System.Net;
 
-namespace PhotoPrint.Functions.Address.V1
+namespace PPT.Functions.Address.V1
 {
     public static class Insert
     {

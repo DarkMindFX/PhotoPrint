@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class AddressTypesController : BaseController
     {
-        private readonly Dal.IAddressTypeDal _dalAddressType;
+        private readonly PPT.Services.Dal.IAddressTypeDal _dalAddressType;
         private readonly ILogger<AddressTypesController> _logger;
 
 
-        public AddressTypesController( Dal.IAddressTypeDal dalAddressType,
+        public AddressTypesController( PPT.Services.Dal.IAddressTypeDal dalAddressType,
                                     ILogger<AddressTypesController> logger)
         {
             _dalAddressType = dalAddressType; 

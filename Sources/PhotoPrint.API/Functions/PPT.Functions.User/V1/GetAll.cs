@@ -8,13 +8,15 @@ using PPT.Interfaces;
 using System.Collections.Generic;
 using PPT.Utils.Convertors;
 using System;
+using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
     public class GetAll
     {
+        [Authorize]
         [FunctionName("UsersGetAll")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users")] HttpRequest req,
             ILogger log)
         {

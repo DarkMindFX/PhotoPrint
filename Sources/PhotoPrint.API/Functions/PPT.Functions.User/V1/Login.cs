@@ -10,16 +10,16 @@ using Newtonsoft.Json;
 using PPT.Interfaces;
 using System.Linq;
 using PPT.Services.Common.Helpers;
-using PhotoPrint.Services.Common.Helpers;
+using PPT.Services.Common.Helpers;
 using PPT.Utils.Convertors;
 using System.Net;
 
 namespace PPT.Functions.User.V1
 {
-    public static class Login
+    public class Login
     {
         [FunctionName("Login")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/users/login")] HttpRequest req,
             ILogger log)
         {
@@ -42,9 +42,8 @@ namespace PPT.Functions.User.V1
                     if (pwdHash.Equals(existingEntity.PwdHash))
                     {
                         // Creating token
-                        var jwtHelper = new JWTHelper();
                         var dtExpires = DateTime.Now.AddSeconds(funHelper.GetEnvironmentVariable<int>(PPT.Functions.Common.Constants.ENV_SESSION_TIMEOUT));
-                        var sToken = jwtHelper.GenerateToken(existingEntity, dtExpires, funHelper.GetEnvironmentVariable<string>(PPT.Functions.Common.Constants.ENV_JWT_SECRET));
+                        var sToken = JWTHelper.GenerateToken(existingEntity, dtExpires, funHelper.GetEnvironmentVariable<string>(PPT.Functions.Common.Constants.ENV_JWT_SECRET));
 
                         // Creating response object
                         var dtoResponse = new PPT.DTO.LoginResponse()

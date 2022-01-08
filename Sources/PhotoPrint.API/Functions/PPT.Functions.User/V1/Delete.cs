@@ -12,10 +12,10 @@ using System.Net;
 
 namespace PPT.Functions.User.V1
 {
-    public static class Delete
+    public class Delete
     {
         [FunctionName("UsersDelete")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "v1/users/{id}")] HttpRequest req,
             long id,
             ILogger log)

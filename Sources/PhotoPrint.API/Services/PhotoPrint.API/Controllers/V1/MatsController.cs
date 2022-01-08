@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class MatsController : BaseController
     {
-        private readonly Dal.IMatDal _dalMat;
+        private readonly PPT.Services.Dal.IMatDal _dalMat;
         private readonly ILogger<MatsController> _logger;
 
 
-        public MatsController( Dal.IMatDal dalMat,
+        public MatsController( PPT.Services.Dal.IMatDal dalMat,
                                     ILogger<MatsController> logger)
         {
             _dalMat = dalMat; 

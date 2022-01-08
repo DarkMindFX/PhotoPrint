@@ -15,10 +15,10 @@ using System.Net;
 
 namespace PPT.Functions.User.V1
 {
-    public static class Register
+    public class Register
     {
         [FunctionName("UsersRegister")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/users/register")] HttpRequest req,
             ILogger log)
         {

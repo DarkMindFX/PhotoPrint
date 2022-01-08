@@ -6,12 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.30" />
     <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.Interfaces\PhotoPrint.Interfaces.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Services.Common\PhotoPrint.Services.Common.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Services.DAL\PhotoPrint.Services.DAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -14,7 +14,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
-namespace PhotoPrint.Test.E2E.API
+namespace PPT.Test.E2E.API
 {
     public abstract class E2ETestBase
     {

@@ -20,11 +20,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class MaterialTypesController : BaseController
     {
-        private readonly Dal.IMaterialTypeDal _dalMaterialType;
+        private readonly PPT.Services.Dal.IMaterialTypeDal _dalMaterialType;
         private readonly ILogger<MaterialTypesController> _logger;
 
 
-        public MaterialTypesController( Dal.IMaterialTypeDal dalMaterialType,
+        public MaterialTypesController( PPT.Services.Dal.IMaterialTypeDal dalMaterialType,
                                     ILogger<MaterialTypesController> logger)
         {
             _dalMaterialType = dalMaterialType; 
