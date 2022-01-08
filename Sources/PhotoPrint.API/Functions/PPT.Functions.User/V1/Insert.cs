@@ -11,11 +11,17 @@ using PPT.Utils.Convertors;
 using PPT.Services.Common.Helpers;
 using PPT.Interfaces;
 using System.Net;
+using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
-    public class Insert
+    public class Insert : FunctionBase
     {
+        public Insert(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
+
+        [Authorize]
         [FunctionName("UsersInsert")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/users")] HttpRequest req,

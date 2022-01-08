@@ -12,8 +12,12 @@ using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
-    public class GetAll
+    public class GetAll : FunctionBase
     {
+        public GetAll(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
+
         [Authorize]
         [FunctionName("UsersGetAll")]
         public async Task<IActionResult> Run(

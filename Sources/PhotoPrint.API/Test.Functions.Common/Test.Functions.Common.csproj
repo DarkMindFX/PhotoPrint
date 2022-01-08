@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Functions\PPT.Functions.Common\PhotoPrint.Functions.Common.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using PPT.Functions.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +45,14 @@ namespace Test.Functions.Common
                 .Build();
 
             return config;
+        }
+
+        protected TFunc GetFunction<TFunc>() where TFunc : FunctionBase
+        {
+            TFunc fun = (TFunc)Activator.CreateInstance(typeof(TFunc), new object[] {  new HttpContextAccessor() });
+
+            return fun;
+
         }
     }
 }

@@ -9,11 +9,17 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using PPT.Interfaces;
 using System.Net;
+using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
-    public class Delete
+    public class Delete : FunctionBase
     {
+        public Delete(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
+
+        [Authorize]
         [FunctionName("UsersDelete")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "v1/users/{id}")] HttpRequest req,

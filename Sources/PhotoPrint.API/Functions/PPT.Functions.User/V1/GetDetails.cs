@@ -11,11 +11,17 @@ using PPT.Interfaces;
 using System.Collections.Generic;
 using PPT.Utils.Convertors;
 using System.Net;
+using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
-    public class GetDetails
+    public class GetDetails : FunctionBase
     {
+        public GetDetails(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
+
+        [Authorize]    
         [FunctionName("UsersGetDetails")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users/{id}")] HttpRequest req,

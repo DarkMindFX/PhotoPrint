@@ -13,11 +13,16 @@ using PPT.Services.Common.Helpers;
 using PPT.Services.Common.Helpers;
 using PPT.Utils.Convertors;
 using System.Net;
+using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
-    public class Login
+    public class Login : FunctionBase
     {
+        public Login(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
+
         [FunctionName("Login")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/users/login")] HttpRequest req,

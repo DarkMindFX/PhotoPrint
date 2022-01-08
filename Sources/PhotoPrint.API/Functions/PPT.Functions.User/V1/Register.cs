@@ -12,11 +12,16 @@ using PPT.Services.Common.Helpers;
 using PPT.Interfaces;
 using PPT.Interfaces.Entities;
 using System.Net;
+using PPT.Functions.Common;
 
 namespace PPT.Functions.User.V1
 {
-    public class Register
+    public class Register : FunctionBase
     {
+        public Register(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
+
         [FunctionName("UsersRegister")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/users/register")] HttpRequest req,
