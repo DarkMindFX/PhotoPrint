@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Test.Functions.Common
+namespace PPT.Test.Functions.Common
 {
     public class NullScope : IDisposable
     {

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using PPT.Utils.Convertors;
 using PPT.Services.Common.Helpers;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using PPT.Interfaces.Entities;
 using System.Net;
 using PPT.Functions.Common;
@@ -18,8 +18,18 @@ namespace PPT.Functions.User.V1
 {
     public class Register : FunctionBase
     {
-        public Register(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+        private readonly IContactDal _dalContact;
+        private readonly IUserContactDal _dalUserContact;
+
+        public Register(IHttpContextAccessor httpContextAccessor,
+            IUserDal dalUser,
+            IContactDal dalContact,
+            IUserContactDal dalUserContact) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
+            _dalContact = dalContact;
+            _dalUserContact = dalUserContact;
         }
 
         [FunctionName("UsersRegister")]
@@ -33,9 +43,6 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dalUsers = funHelper.CreateDal<IUserDal>();
-                var dalContacts = funHelper.CreateDal<IContactDal>();
-                var dalUserContacts = funHelper.CreateDal<IUserContactDal>();
 
                 var content = await new StreamReader(req.Body).ReadToEndAsync();
 
@@ -61,7 +68,7 @@ namespace PPT.Functions.User.V1
                                 "CreatedDate",
                                 null);
 
-                    PPT.Interfaces.Entities.User newEntityUser = dalUsers.Insert(entityUser);
+                    PPT.Interfaces.Entities.User newEntityUser = _dalUser.Insert(entityUser);
 
                     // Inserting user's contact
                     var entityContact = ContactConvertor.Convert(dtoRegister.Contact);
@@ -70,14 +77,14 @@ namespace PPT.Functions.User.V1
                                 null);
                     entityContact.CreatedByID = (long)newEntityUser.ID;
 
-                    PPT.Interfaces.Entities.Contact newEntityContact = dalContacts.Insert(entityContact);
+                    PPT.Interfaces.Entities.Contact newEntityContact = _dalContact.Insert(entityContact);
 
                     // Connecting user & contact
                     var entityUserContact = new PPT.Interfaces.Entities.UserContact();
                     entityUserContact.UserID = (long)newEntityUser.ID;
                     entityUserContact.ContactID = (long)newEntityContact.ID;
                     entityUserContact.IsPrimary = true;
-                    UserContact newEntityUserContact = dalUserContacts.Insert(entityUserContact);
+                    UserContact newEntityUserContact = _dalUserContact.Insert(entityUserContact);
 
                     // Preparing response
                     result = funHelper.CreateResult(HttpStatusCode.Created,

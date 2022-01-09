@@ -16,14 +16,14 @@ namespace PPT.Services.Dal
         {
         }
 
-        public UserContact Get(System.Int64 UserID,System.Int64 ContactID)
+        public UserContact Get(System.Int64 UserID, System.Int64 ContactID)
         {
-            return _dalImpl.Get(            UserID,            ContactID);
+            return _dalImpl.Get(UserID, ContactID);
         }
 
-        public bool Delete(System.Int64 UserID,System.Int64 ContactID)
+        public bool Delete(System.Int64 UserID, System.Int64 ContactID)
         {
-            return _dalImpl.Delete(            UserID,            ContactID);
+            return _dalImpl.Delete(UserID, ContactID);
         }
 
 
@@ -35,5 +35,5 @@ namespace PPT.Services.Dal
         {
             return _dalImpl.GetByContactID(ContactID);
         }
-            }
+    }
 }

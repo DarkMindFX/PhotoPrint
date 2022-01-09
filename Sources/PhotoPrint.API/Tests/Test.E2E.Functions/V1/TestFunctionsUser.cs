@@ -8,13 +8,18 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Test.Functions.Common;
+using PPT.Test.Functions.Common;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Test.E2E.Functions.User
+namespace PPT.Test.E2E.Functions
 {
     public class TestUserFunctions : FunctionTestBase
     {
-        private readonly ILogger logger = TestFactory.CreateLogger();
+        private readonly ILogger _logger = TestFactory.CreateLogger();
+        private PPT.Functions.User.Startup _startup;
+        private IHost _host;
+
 
         public TestUserFunctions()
         {
@@ -31,16 +36,44 @@ namespace Test.E2E.Functions.User
             Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_SQL_CONNECTION_STRING, (string)initParams.Settings["ConnectionString"]);
             Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_JWT_SECRET, (string)_testParams.Settings["JWTSecret"]);
             Environment.SetEnvironmentVariable(PPT.Functions.Common.Constants.ENV_SESSION_TIMEOUT, (string)_testParams.Settings["JWTSessionTimeout"]);
+
+            _startup = new PPT.Functions.User.Startup();
+            _host = new HostBuilder()
+                .ConfigureWebJobs(_startup.Configure)                
+                .Build();
         }
 
         [Test]
         public async Task UsersGetAll_Success()
         {
-            var request = TestFactory.CreateHttpRequest();
-            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.GetAll>()).Run(request, logger);
+            var respLogin = await Login((string)_testParams.Settings["test_user_login"], 
+                                        (string)_testParams.Settings["test_user_pwd"], 
+                                        _host, 
+                                        _logger);
+
+            var request = TestFactory.CreateHttpRequest(respLogin.Token);
+
+            var function = GetFunction<PPT.Functions.User.V1.GetAll>(_host);
+
+            var response = (ObjectResult)await function.Run(request, _logger);
 
             Assert.IsNotNull(response);
             Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
+
+            var dtos = JsonSerializer.Deserialize<List<PPT.DTO.User>>(response.Value.ToString());
+
+            Assert.NotNull(dtos);
+            Assert.IsNotEmpty(dtos);
+        }
+
+        [Test]
+        public async Task UsersGetAll_Unauthorized()
+        {
+            var request = TestFactory.CreateHttpRequest(null);
+            var response = (ObjectResult)await (GetFunction<PPT.Functions.User.V1.GetAll>(_host)).Run(request, _logger);
+
+            Assert.IsNotNull(response);
+            Assert.AreEqual((int)HttpStatusCode.Unauthorized, response.StatusCode);
 
             var dtos = JsonSerializer.Deserialize<List<PPT.DTO.User>>(response.Value.ToString());
 
@@ -56,7 +89,7 @@ namespace Test.E2E.Functions.User
             try
             {
                 var request = TestFactory.CreateHttpRequest();
-                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.GetDetails>()).Run(request, (long)testEntity.ID, logger);
+                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.GetDetails>(_host)).Run(request, (long)testEntity.ID, _logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -78,7 +111,7 @@ namespace Test.E2E.Functions.User
         {
             long id = Int64.MaxValue - 1;
             var request = TestFactory.CreateHttpRequest();
-            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.GetDetails>()).Run(request, id, logger);
+            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.GetDetails>(_host)).Run(request, id, _logger);
 
             Assert.IsNotNull(response);
             Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -92,7 +125,7 @@ namespace Test.E2E.Functions.User
             try
             {
                 var request = TestFactory.CreateHttpRequest();
-                var response = (StatusCodeResult)await(GetFunction<PPT.Functions.User.V1.Delete>()).Run(request, (long)testEntity.ID, logger);
+                var response = (StatusCodeResult)await(GetFunction<PPT.Functions.User.V1.Delete>(_host)).Run(request, (long)testEntity.ID, _logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -108,7 +141,7 @@ namespace Test.E2E.Functions.User
         {
             long id = Int64.MaxValue - 1;
             var request = TestFactory.CreateHttpRequest();
-            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Delete>()).Run(request, id, logger);
+            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Delete>(_host)).Run(request, id, _logger);
 
             Assert.IsNotNull(response);
             Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -124,7 +157,7 @@ namespace Test.E2E.Functions.User
                 var dtoReq = PPT.Utils.Convertors.UserConvertor.Convert(testEntity, null);
                 dtoReq.Password = Guid.NewGuid().ToString();
                 var request = TestFactory.CreateHttpRequest(dtoReq);
-                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Insert>()).Run(request, logger);
+                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Insert>(_host)).Run(request, _logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.Created, response.StatusCode);
@@ -164,7 +197,7 @@ namespace Test.E2E.Functions.User
                 var reqDto = UserConvertor.Convert(testEntity, null);
 
                 var request = TestFactory.CreateHttpRequest(reqDto);
-                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Update>()).Run(request, logger);
+                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Update>(_host)).Run(request, _logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -197,7 +230,7 @@ namespace Test.E2E.Functions.User
                 var reqDto = UserConvertor.Convert(testEntity, null);
 
                 var request = TestFactory.CreateHttpRequest(reqDto);
-                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Update>()).Run(request, logger);
+                var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Update>(_host)).Run(request, _logger);
 
                 Assert.IsNotNull(response);
                 Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -218,7 +251,7 @@ namespace Test.E2E.Functions.User
             };
 
             var request = TestFactory.CreateHttpRequest(dtoReq);
-            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Login>()).Run(request, logger);
+            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Login>(_host)).Run(request, _logger);
 
             Assert.NotNull(response);
             Assert.AreEqual((int)HttpStatusCode.OK, response.StatusCode);
@@ -243,7 +276,7 @@ namespace Test.E2E.Functions.User
             };
 
             var request = TestFactory.CreateHttpRequest(dtoReq);
-            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Login>()).Run(request, logger);
+            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Login>(_host)).Run(request, _logger);
 
             Assert.NotNull(response);
             Assert.AreEqual((int)HttpStatusCode.NotFound, response.StatusCode);
@@ -259,7 +292,7 @@ namespace Test.E2E.Functions.User
             };
 
             var request = TestFactory.CreateHttpRequest(dtoReq);
-            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Login>()).Run(request, logger);
+            var response = (ObjectResult)await(GetFunction<PPT.Functions.User.V1.Login>(_host)).Run(request, _logger);
 
             Assert.NotNull(response);
             Assert.AreEqual((int)HttpStatusCode.Forbidden, response.StatusCode);

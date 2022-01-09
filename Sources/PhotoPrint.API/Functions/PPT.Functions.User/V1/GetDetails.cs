@@ -7,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using System.Collections.Generic;
 using PPT.Utils.Convertors;
 using System.Net;
@@ -17,8 +17,11 @@ namespace PPT.Functions.User.V1
 {
     public class GetDetails : FunctionBase
     {
-        public GetDetails(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+
+        public GetDetails(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
         }
 
         [Authorize]    
@@ -34,9 +37,7 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dal = funHelper.CreateDal<IUserDal>();
-
-                var user = dal.Get(id);
+                var user = _dalUser.Get(id);
                 if (user != null)
                 {
                     var dtos = UserConvertor.Convert(user, null);

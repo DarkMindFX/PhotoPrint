@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using PPT.Utils.Convertors;
 using System.Net;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using PPT.Services.Common.Helpers;
 using PPT.Functions.Common;
 
@@ -17,8 +17,12 @@ namespace PPT.Functions.User.V1
 {
     public class Update : FunctionBase
     {
-        public Update(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+
+        public Update(IHttpContextAccessor httpContextAccessor,
+            IUserDal dalUser) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
         }
 
         [Authorize]
@@ -33,15 +37,13 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dal = funHelper.CreateDal<IUserDal>();
-
                 var content = await new StreamReader(req.Body).ReadToEndAsync();
 
                 var dto = JsonConvert.DeserializeObject<PPT.DTO.User>(content);
 
                 var newEntity = UserConvertor.Convert(dto);
 
-                var existingEntity = dal.Get(newEntity.ID);
+                var existingEntity = _dalUser.Get(newEntity.ID);
 
                 if (existingEntity != null)
                 {
@@ -55,7 +57,7 @@ namespace PPT.Functions.User.V1
                     funHelper.SetCreatedModifiedProperties(newEntity,
                                             "ModifiedDate",
                                             "ModifiedByID");
-                    PPT.Interfaces.Entities.User entity = dal.Update(newEntity);
+                    PPT.Interfaces.Entities.User entity = _dalUser.Update(newEntity);
 
                     result = new ObjectResult(funHelper.ToJosn(UserConvertor.Convert(newEntity, null)))
                     {

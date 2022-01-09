@@ -12,29 +12,7 @@ namespace PPT.Functions.Common
 {
     public class FunctionHelper
     {
-        public FunctionHelper()
-        {
-            PrepareComposition();
-        }
-        public CompositionContainer Container
-        {
-            get;
-            set;
-        }          
-
-        public TDal CreateDal<TDal>() where TDal : IInitializable
-        {
-            var dal = Container.GetExportedValue<TDal>(this.GetEnvironmentVariable<string>(Constants.ENV_DAL_TYPE));
-            var dalInitParams = dal.CreateInitParams();
-
-            dalInitParams.Parameters["ConnectionString"] = this.GetEnvironmentVariable<string>(Constants.ENV_SQL_CONNECTION_STRING);
-
-            dalInitParams.Parameters = dalInitParams.Parameters;
-            dal.Init(dalInitParams);
-
-            return dal;
-        }
-
+        
         public T GetEnvironmentVariable<T>(string name)
         {
             string sValue = System.Environment.GetEnvironmentVariable(name);
@@ -89,31 +67,5 @@ namespace PPT.Functions.Common
             result.StatusCode = (int)code;
             return result;
         }
-
-        #region Support methods
-
-        private void PrepareComposition()
-        {
-            AggregateCatalog catalog = new AggregateCatalog();
-            DirectoryCatalog directoryCatalog = new DirectoryCatalog(AssemblyDirectory);
-            catalog.Catalogs.Add(directoryCatalog);
-            Container = new CompositionContainer(catalog);
-            Container.ComposeParts(this);
-        }
-
-        private string AssemblyDirectory
-        {
-            get
-            {
-                string codeBase = Assembly.GetExecutingAssembly().Location;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetDirectoryName(path);
-            }
-        }
-
-        #endregion
-
-
     }
 }

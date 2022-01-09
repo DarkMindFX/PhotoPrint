@@ -2,6 +2,7 @@
   "profiles": {
     "PhotoPrint.Functions.User": {
       "commandName": "Project",
+      "commandLineArgs": "--port 8082",
       "environmentVariables": {
         "ServiceConfig__DALType": "MSSQL",
         "ASPNETCORE_ENVIRONMENT": "Development",

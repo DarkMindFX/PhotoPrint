@@ -7,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using System.Net;
 using PPT.Functions.Common;
 
@@ -15,8 +15,10 @@ namespace PPT.Functions.User.V1
 {
     public class Delete : FunctionBase
     {
-        public Delete(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+        public Delete(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
         }
 
         [Authorize]
@@ -32,12 +34,10 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dal = funHelper.CreateDal<IUserDal>();
-
-                var user = dal.Get(id);
+                var user = _dalUser.Get(id);
                 if (user != null)
                 {
-                    bool isRemoved = dal.Delete(id);
+                    bool isRemoved = _dalUser.Delete(id);
 
                     if (isRemoved)
                     {

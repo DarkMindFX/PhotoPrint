@@ -4,6 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>PPT.Test.E2E.Functions</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +19,7 @@
     <ProjectReference Include="..\..\Functions\PPT.Functions.User\PhotoPrint.Functions.User.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
+    <ProjectReference Include="..\..\PhotoPrint.Services.DAL\PhotoPrint.Services.DAL.csproj" />
     <ProjectReference Include="..\..\Test.Functions.Common\Test.Functions.Common.csproj" />
   </ItemGroup>
 

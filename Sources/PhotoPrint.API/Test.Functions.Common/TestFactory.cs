@@ -7,10 +7,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Test.Functions.Common
+namespace PPT.Test.Functions.Common
 {
     public class TestFactory
     {
+        private const string AuthenticationHeaderName = "Authorization";
+        private const string BearerPrefix = "Bearer";
+
         private static Dictionary<string, StringValues> CreateDictionary(string key, string value)
         {
             var qs = new Dictionary<string, StringValues>
@@ -20,25 +23,28 @@ namespace Test.Functions.Common
             return qs;
         }
 
-        public static HttpRequest CreateHttpRequest()
+        public static HttpRequest CreateHttpRequest(string authToken = null)
         {
             var context = new DefaultHttpContext();
             var request = context.Request;
+            AddAuthToken(request, authToken);
             return request;
         }
 
-        public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue, string authToken = null)
         {
             var context = new DefaultHttpContext();
             var request = context.Request;
+            AddAuthToken(request, authToken);
             request.Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue));
             return request;
         }
 
-        public static HttpRequest CreateHttpRequest(object body)
+        public static HttpRequest CreateHttpRequest(object body, string authToken = null)
         {
             var context = new DefaultHttpContext();
             var request = context.Request;
+            AddAuthToken(request, authToken);
             request.Body = new MemoryStream(JsonSerializer.SerializeToUtf8Bytes(body));
             return request;
         }
@@ -57,6 +63,14 @@ namespace Test.Functions.Common
             }
 
             return logger;
+        }
+
+        public static void AddAuthToken(HttpRequest request, string token)
+        {
+            if(!string.IsNullOrEmpty(token))
+            {
+                request.Headers.Add(AuthenticationHeaderName, $"{BearerPrefix} {token}");
+            }
         }
     }
 }

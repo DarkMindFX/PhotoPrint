@@ -7,9 +7,8 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using System.Linq;
-using PPT.Services.Common.Helpers;
 using PPT.Services.Common.Helpers;
 using PPT.Utils.Convertors;
 using System.Net;
@@ -19,11 +18,14 @@ namespace PPT.Functions.User.V1
 {
     public class Login : FunctionBase
     {
-        public Login(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+
+        public Login(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
         }
 
-        [FunctionName("Login")]
+        [FunctionName("UsersLogin")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "v1/users/login")] HttpRequest req,
             ILogger log)
@@ -34,13 +36,11 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dalUsers = funHelper.CreateDal<IUserDal>();                
-
                 var content = await new StreamReader(req.Body).ReadToEndAsync();
 
                 var dtoLogin = JsonConvert.DeserializeObject<PPT.DTO.LoginRequest>(content);
 
-                var existingEntity = dalUsers.GetAll().FirstOrDefault(u => u.Login.ToLower() == dtoLogin.Login.ToLower());
+                var existingEntity = _dalUser.GetAll().FirstOrDefault(u => u.Login.ToLower() == dtoLogin.Login.ToLower());
                 if (existingEntity != null)
                 {
                     string pwdHash = PasswordHelper.GenerateHash(dtoLogin.Password, existingEntity.Salt);

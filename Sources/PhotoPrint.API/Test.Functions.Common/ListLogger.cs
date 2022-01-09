@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Test.Functions.Common;
+using PPT.Test.Functions.Common;
 
-namespace Test.Functions.Common
+namespace PPT.Test.Functions.Common
 {
     public class ListLogger : ILogger
     {

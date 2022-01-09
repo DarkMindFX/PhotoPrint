@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using PPT.Utils.Convertors;
 using PPT.Services.Common.Helpers;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using System.Net;
 using PPT.Functions.Common;
 
@@ -17,8 +17,11 @@ namespace PPT.Functions.User.V1
 {
     public class Insert : FunctionBase
     {
-        public Insert(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+
+        public Insert(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
         }
 
         [Authorize]
@@ -33,8 +36,6 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dal = funHelper.CreateDal<IUserDal>();
-
                 var content = await new StreamReader(req.Body).ReadToEndAsync();
 
                 var dto = JsonConvert.DeserializeObject<PPT.DTO.User>(content);
@@ -47,7 +48,7 @@ namespace PPT.Functions.User.V1
                             "CreatedDate",
                             null);
 
-                PPT.Interfaces.Entities.User newEntity = dal.Insert(entity);
+                PPT.Interfaces.Entities.User newEntity = _dalUser.Insert(entity);
 
                 if (newEntity != null)
                 {

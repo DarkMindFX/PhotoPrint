@@ -4,7 +4,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using PPT.Interfaces;
+using PPT.Services.Dal;
 using System.Collections.Generic;
 using PPT.Utils.Convertors;
 using System;
@@ -14,8 +14,10 @@ namespace PPT.Functions.User.V1
 {
     public class GetAll : FunctionBase
     {
-        public GetAll(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        private readonly IUserDal _dalUser;
+        public GetAll(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
         {
+            _dalUser = dalUser;
         }
 
         [Authorize]
@@ -30,9 +32,7 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var dal = funHelper.CreateDal<IUserDal>();
-
-                var users = dal.GetAll();
+                var users = _dalUser.GetAll();
                 var dtos = new List<PPT.DTO.User>();
                 foreach (var user in users)
                 {
