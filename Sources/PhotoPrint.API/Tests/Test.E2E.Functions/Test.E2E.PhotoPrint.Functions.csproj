@@ -20,7 +20,7 @@
     <ProjectReference Include="..\..\PhotoPrint.DAL.MSSQL\PhotoPrint.DAL.MSSQL.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.DTO\PhotoPrint.DTO.csproj" />
     <ProjectReference Include="..\..\PhotoPrint.Services.DAL\PhotoPrint.Services.DAL.csproj" />
-    <ProjectReference Include="..\..\Test.Functions.Common\Test.Functions.Common.csproj" />
+    <ProjectReference Include="..\Test.Functions.Common\Test.Functions.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

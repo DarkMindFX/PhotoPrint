@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Functions\PPT.Functions.Common\PhotoPrint.Functions.Common.csproj" />
+    <ProjectReference Include="..\..\Functions\PPT.Functions.Common\PhotoPrint.Functions.Common.csproj" />
   </ItemGroup>
 
 </Project>

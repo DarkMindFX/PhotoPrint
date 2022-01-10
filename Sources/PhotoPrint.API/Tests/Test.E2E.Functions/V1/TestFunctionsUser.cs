@@ -67,21 +67,6 @@ namespace PPT.Test.E2E.Functions
         }
 
         [Test]
-        public async Task UsersGetAll_Unauthorized()
-        {
-            var request = TestFactory.CreateHttpRequest(null);
-            var response = (ObjectResult)await (GetFunction<PPT.Functions.User.V1.GetAll>(_host)).Run(request, _logger);
-
-            Assert.IsNotNull(response);
-            Assert.AreEqual((int)HttpStatusCode.Unauthorized, response.StatusCode);
-
-            var dtos = JsonSerializer.Deserialize<List<PPT.DTO.User>>(response.Value.ToString());
-
-            Assert.NotNull(dtos);
-            Assert.IsNotEmpty(dtos);
-        }
-
-        [Test]
         public async Task UsersGetDetails_Success()
         {
             PPT.Interfaces.Entities.User testEntity = AddTestEntity();
