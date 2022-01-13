@@ -1,3 +1,7 @@
+
+
+
+
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,22 +17,22 @@ using PPT.Services.Dal;
 using PPT.Services.Common.Helpers;
 using PPT.Functions.Common;
 
-namespace PPT.Functions.User.V1
+namespace PPT.Functions.Address.V1
 {
     public class Update : FunctionBase
     {
-        private readonly IUserDal _dalUser;
+        private readonly IAddressDal _dalAddress;
 
         public Update(IHttpContextAccessor httpContextAccessor,
-            IUserDal dalUser) : base(httpContextAccessor)
+            IAddressDal dalAddress) : base(httpContextAccessor)
         {
-            _dalUser = dalUser;
+            _dalAddress = dalAddress;
         }
 
         [Authorize]
-        [FunctionName("UsersUpdate")]
+        [FunctionName("AddressesUpdate")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "put", Route = "v1/users")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "put", Route = "v1/addresses")] HttpRequest req,
             ILogger log)
         {
             IActionResult result = null;
@@ -39,28 +43,25 @@ namespace PPT.Functions.User.V1
             {
                 var content = await new StreamReader(req.Body).ReadToEndAsync();
 
-                var dto = JsonConvert.DeserializeObject<PPT.DTO.User>(content);
+                var dto = JsonConvert.DeserializeObject<PPT.DTO.Address>(content);
 
-                var newEntity = UserConvertor.Convert(dto);
+                var newEntity = AddressConvertor.Convert(dto);
 
-                var existingEntity = _dalUser.Get(newEntity.ID);
+                var existingEntity = _dalAddress.Get(newEntity.ID);
 
                 if (existingEntity != null)
                 {
-                    if (!string.IsNullOrEmpty(dto.Password))
-                    {
-                        newEntity.PwdHash = PasswordHelper.GenerateHash(dto.Password, existingEntity.Salt);
-                    }
-
                     newEntity.CreatedDate = existingEntity.CreatedDate;
+                    newEntity.CreatedByID = existingEntity.CreatedByID;
 
                     funHelper.SetCreatedModifiedProperties(newEntity,
                                             "ModifiedDate",
                                             "ModifiedByID",
                                             (PPT.Interfaces.Entities.User)req.HttpContext.Items["User"]);
-                    PPT.Interfaces.Entities.User entity = _dalUser.Update(newEntity);
 
-                    result = new ObjectResult(funHelper.ToJosn(UserConvertor.Convert(newEntity, null)))
+                    PPT.Interfaces.Entities.Address entity = _dalAddress.Update(newEntity);
+
+                    result = new ObjectResult(funHelper.ToJosn(AddressConvertor.Convert(newEntity, null)))
                     {
                         StatusCode = (int)HttpStatusCode.OK
                     };
@@ -70,12 +71,14 @@ namespace PPT.Functions.User.V1
                     result = new ObjectResult(funHelper.ToJosn(new PPT.DTO.Error()
                     {
                         Code = (int)HttpStatusCode.NotFound,
-                        Message = $"User was not found [ids:{newEntity.ID}]"
+                        Message = $"Address was not found [ids:{newEntity.ID}]"
                     }))
                     {
                         StatusCode = (int)HttpStatusCode.NotFound
                     };
                 }
+
+
             }
             catch (Exception ex)
             {

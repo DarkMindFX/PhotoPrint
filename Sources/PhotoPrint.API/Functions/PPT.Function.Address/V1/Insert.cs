@@ -1,3 +1,6 @@
+
+
+
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,21 +16,21 @@ using PPT.Services.Dal;
 using System.Net;
 using PPT.Functions.Common;
 
-namespace PPT.Functions.User.V1
+namespace PPT.Functions.Address.V1
 {
     public class Insert : FunctionBase
     {
-        private readonly IUserDal _dalUser;
+        private readonly IAddressDal _dalAddress;
 
-        public Insert(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
+        public Insert(IHttpContextAccessor httpContextAccessor, IAddressDal dalAddress) : base(httpContextAccessor)
         {
-            _dalUser = dalUser;
+            _dalAddress = dalAddress;
         }
 
         [Authorize]
-        [FunctionName("UsersInsert")]
+        [FunctionName("AddressesInsert")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/users")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v1/addresses")] HttpRequest req,
             ILogger log)
         {
             IActionResult result = null;
@@ -38,22 +41,20 @@ namespace PPT.Functions.User.V1
             {
                 var content = await new StreamReader(req.Body).ReadToEndAsync();
 
-                var dto = JsonConvert.DeserializeObject<PPT.DTO.User>(content);
+                var dto = JsonConvert.DeserializeObject<PPT.DTO.Address>(content);
 
-                var entity = UserConvertor.Convert(dto);
-                entity.Salt = PasswordHelper.GenerateSalt(12);
-                entity.PwdHash = PasswordHelper.GenerateHash(dto.Password, entity.Salt);
+                var entity = AddressConvertor.Convert(dto);
 
-                funHelper.SetCreatedModifiedProperties(entity,
-                            "CreatedDate",
-                            null,
-                            (PPT.Interfaces.Entities.User)req.HttpContext.Items["User"]);
-
-                PPT.Interfaces.Entities.User newEntity = _dalUser.Insert(entity);
+								funHelper.SetCreatedModifiedProperties(entity, 
+										"CreatedDate", 
+										"CreatedByID",
+										(PPT.Interfaces.Entities.User)req.HttpContext.Items["User"]); 
+				
+                PPT.Interfaces.Entities.Address newEntity = _dalAddress.Insert(entity);
 
                 if (newEntity != null)
                 {
-                    result = new ObjectResult(funHelper.ToJosn(UserConvertor.Convert(newEntity, null)))
+                    result = new ObjectResult(funHelper.ToJosn(AddressConvertor.Convert(newEntity, null)))
                     {
                         StatusCode = (int)HttpStatusCode.Created
                     };
@@ -63,13 +64,12 @@ namespace PPT.Functions.User.V1
                     result = new ObjectResult(funHelper.ToJosn(new PPT.DTO.Error()
                     {
                         Code = (int)HttpStatusCode.InternalServerError,
-                        Message = $"Something went wrong. User was not inserted."
+                        Message = $"Something went wrong. Address was not inserted."
                     }))
                     {
                         StatusCode = (int)HttpStatusCode.InternalServerError
                     };
                 }
-
             }
             catch (Exception ex)
             {

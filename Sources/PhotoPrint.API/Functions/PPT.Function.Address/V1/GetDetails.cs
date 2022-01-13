@@ -1,3 +1,6 @@
+
+
+
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,22 +13,22 @@ using PPT.Utils.Convertors;
 using System.Net;
 using PPT.Functions.Common;
 
-namespace PPT.Functions.User.V1
+namespace PPT.Functions.Address.V1
 {
     public class GetDetails : FunctionBase
     {
-        private readonly IUserDal _dalUser;
+        private readonly IAddressDal _dalAddress;
 
-        public GetDetails(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
+        public GetDetails(IHttpContextAccessor httpContextAccessor, IAddressDal dalAddress) : base(httpContextAccessor)
         {
-            _dalUser = dalUser;
+            _dalAddress = dalAddress;
         }
 
         [Authorize]    
-        [FunctionName("UsersGetDetails")]
+        [FunctionName("AddressesGetDetails")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users/{id}")] HttpRequest req,
-            long id,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/addresses/{id}")] HttpRequest req,
+            System.Int64? id,
             ILogger log)
         {
             IActionResult result = null;
@@ -34,10 +37,10 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var user = _dalUser.Get(id);
-                if (user != null)
+                var e = _dalAddress.Get(id);
+                if (e != null)
                 {
-                    var dtos = UserConvertor.Convert(user, null);
+                    var dtos = AddressConvertor.Convert(e, null);
 
                     result = new OkObjectResult(funHelper.ToJosn(dtos));
                 }
@@ -46,7 +49,7 @@ namespace PPT.Functions.User.V1
                     result = new ObjectResult(funHelper.ToJosn(new PPT.DTO.Error()
                     {
                         Code = (int)HttpStatusCode.NotFound,
-                        Message = $"User was not found [ids:{id}]"
+                        Message = $"Address was found, but item was not deleted [ids:{id}]"
                     }))
                     {
                         StatusCode = (int)HttpStatusCode.NotFound

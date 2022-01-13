@@ -1,3 +1,6 @@
+
+
+
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -6,26 +9,25 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using PPT.Services.Dal;
-using PPT.Utils.Convertors;
 using System.Net;
 using PPT.Functions.Common;
 
-namespace PPT.Functions.User.V1
+namespace PPT.Functions.Address.V1
 {
-    public class GetDetails : FunctionBase
+    public class Delete : FunctionBase
     {
-        private readonly IUserDal _dalUser;
+        private readonly IAddressDal _dalAddress;
 
-        public GetDetails(IHttpContextAccessor httpContextAccessor, IUserDal dalUser) : base(httpContextAccessor)
+        public Delete(IHttpContextAccessor httpContextAccessor, IAddressDal dalAddress) : base(httpContextAccessor)
         {
-            _dalUser = dalUser;
+            _dalAddress = dalAddress;
         }
 
-        [Authorize]    
-        [FunctionName("UsersGetDetails")]
+        [Authorize]
+        [FunctionName("AddressesDelete")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users/{id}")] HttpRequest req,
-            long id,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "v1/addresses/{id}")] HttpRequest req,
+            System.Int64? id,
             ILogger log)
         {
             IActionResult result = null;
@@ -34,19 +36,33 @@ namespace PPT.Functions.User.V1
 
             try
             {
-                var user = _dalUser.Get(id);
+                var user = _dalAddress.Get(id);
                 if (user != null)
                 {
-                    var dtos = UserConvertor.Convert(user, null);
+                    bool isRemoved = _dalAddress.Delete(id);
 
-                    result = new OkObjectResult(funHelper.ToJosn(dtos));
+                    if (isRemoved)
+                    {
+                        result = new OkResult();
+                    }
+                    else
+                    {
+                        result = new ObjectResult(funHelper.ToJosn(new PPT.DTO.Error()
+                        {
+                            Code = (int)HttpStatusCode.InternalServerError,
+                            Message = $"Address was found, but item was not deleted [ids:{id}]"
+                        }))
+                        {
+                            StatusCode = (int)HttpStatusCode.InternalServerError
+                        };
+                    }
                 }
                 else
                 {
                     result = new ObjectResult(funHelper.ToJosn(new PPT.DTO.Error()
                     {
                         Code = (int)HttpStatusCode.NotFound,
-                        Message = $"User was not found [ids:{id}]"
+                        Message = $"Address was not found [ids:{id}]"
                     }))
                     {
                         StatusCode = (int)HttpStatusCode.NotFound
