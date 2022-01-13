@@ -17,8 +17,8 @@ namespace PPT.Functions.Address.V1
 {
     public class GetAll : FunctionBase
     {
-        private readonly IUserDal _dalAddress;
-        public GetAll(IHttpContextAccessor httpContextAccessor, IUserDal dalAddress) : base(httpContextAccessor)
+        private readonly IAddressDal _dalAddress;
+        public GetAll(IHttpContextAccessor httpContextAccessor, IAddressDal dalAddress) : base(httpContextAccessor)
         {
             _dalAddress = dalAddress;
         }

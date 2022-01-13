@@ -51,14 +51,14 @@ namespace PPT.Functions.Address.V1
 
                 if (existingEntity != null)
                 {
-                    newEntity.CreatedDate = existingEntity.CreatedDate;
-                    newEntity.CreatedByID = existingEntity.CreatedByID;
-
-                    funHelper.SetCreatedModifiedProperties(newEntity,
-                                            "ModifiedDate",
-                                            "ModifiedByID",
-                                            (PPT.Interfaces.Entities.User)req.HttpContext.Items["User"]);
-
+                    					newEntity.CreatedDate = existingEntity.CreatedDate; 
+															newEntity.CreatedByID = existingEntity.CreatedByID; 
+										
+					funHelper.SetCreatedModifiedProperties(newEntity, 
+											"ModifiedDate", 
+											"ModifiedByID",
+											(PPT.Interfaces.Entities.User)req.HttpContext.Items["User"]); 
+					                   
                     PPT.Interfaces.Entities.Address entity = _dalAddress.Update(newEntity);
 
                     result = new ObjectResult(funHelper.ToJosn(AddressConvertor.Convert(newEntity, null)))
