@@ -16,6 +16,7 @@ import MainPage from './pages';
 import RegisterPage from './pages/register';
 import LogingPage from './pages/login';
 import LogoutPage from './pages/logout';
+import PictureFitPage from './pages/picturefit';
 
 import AddressesPage from './pages/admin/addresses';
 import AddressPage from './pages/admin/address';
@@ -109,6 +110,7 @@ class App extends React.Component {
        <Route exact path="/register" component={RegisterPage} />
        <Route exact path="/login" component={LogingPage} />
        <Route exact path="/logout" component={LogoutPage} />
+       <Route exact path="/picturefit" component={PictureFitPage} />
        
 
        {/*Admin pages*/}
