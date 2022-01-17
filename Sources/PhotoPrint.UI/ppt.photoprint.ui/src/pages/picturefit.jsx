@@ -19,6 +19,8 @@ import constants from '../constants';
 
 import ImagesDal from '../dal/ImagesDal';
 import FrameTypesDal from '../dal/FrameTypesDal';
+import MaterialTypesDal from '../dal/MaterialTypesDal';
+import MountingTypesDal from '../dal/MountingTypesDal';
 import OrdersDal from '../dal/OrdersDal';
 
 
@@ -60,6 +62,8 @@ class PictureFitPage extends React.Component {
 
         this.onImageIDChanged = this.onImageIDChanged.bind(this);
         this.onFrameTypeChanged = this.onFrameTypeChanged.bind(this);
+        this.onMaterialTypeChanged = this.onMaterialTypeChanged.bind(this);
+        this.onMountingTypeChanged = this.onMountingTypeChanged.bind(this);
         this.onRoomHeightChanged = this.onRoomHeightChanged.bind(this);
         this.onPictureHeightChanged = this.onPictureHeightChanged.bind(this);
         this.onPictureWidthChanged = this.onPictureWidthChanged.bind(this);
@@ -72,7 +76,11 @@ class PictureFitPage extends React.Component {
             let obj = this;
             obj._getImages().then( () => {
                 obj._getFrameTypes().then( () => { 
-                    obj._recalcPicSize();               
+                    obj._getMaterialTypes().then( () => { 
+                        obj._getMountingTypes().then( () => { 
+                            obj._recalcPicSize();
+                        } );          
+                    } );                
                 } );
             } );
         }
@@ -104,6 +112,26 @@ class PictureFitPage extends React.Component {
         this.setState(updatedState);
 
         this._recalcPicSize();
+    }
+
+    onMaterialTypeChanged(event) {
+
+        let updatedState = this.state;
+        let newVal = null;
+        newVal = parseInt(event.target.value);
+        updatedState.MaterialTypeID = newVal;
+
+        this.setState(updatedState);
+    }
+
+    onMountingTypeChanged(event) {
+
+        let updatedState = this.state;
+        let newVal = null;
+        newVal = parseInt(event.target.value);
+        updatedState.MountingTypeID = newVal;
+
+        this.setState(updatedState);
     }
 
     onRoomHeightChanged(event) {
@@ -213,6 +241,56 @@ class PictureFitPage extends React.Component {
         this.setState(updatedState);
     }
 
+    async _getMaterialTypes() {
+        let updatedState = this.state;
+        updatedState.materialTypes = {};
+        let dalMaterialTypes = new MaterialTypesDal();
+        let response = await dalMaterialTypes.getMaterialTypes();
+
+        if(response.status == constants.HTTP_OK)
+        {
+            for(let s in response.data)
+            {
+                updatedState.materialTypes[response.data[s].ID] = response.data[s];             
+            }
+
+            updatedState.MaterialTypeID = response.data[0].ID;
+        }
+        else if(response.status == constants.HTTP_Unauthorized) {
+            this._redirectToLogin();            
+        }
+        else {
+            this._showError(updatedState, response);                        
+        }
+
+        this.setState(updatedState);
+    }
+
+    async _getMountingTypes() {
+        let updatedState = this.state;
+        updatedState.mountingTypes = {};
+        let dalMountingTypes = new MountingTypesDal();
+        let response = await dalMountingTypes.getMountingTypes();
+
+        if(response.status == constants.HTTP_OK)
+        {
+            for(let s in response.data)
+            {
+                updatedState.mountingTypes[response.data[s].ID] = response.data[s];             
+            }
+
+            updatedState.MountingTypeID = response.data[0].ID;
+        }
+        else if(response.status == constants.HTTP_Unauthorized) {
+            this._redirectToLogin();            
+        }
+        else {
+            this._showError(updatedState, response);                        
+        }
+
+        this.setState(updatedState);
+    }
+
     _prepareOptionsList(objs, fields, hasEmptyVal) 
     {
         var lst = [];
@@ -268,10 +346,22 @@ class PictureFitPage extends React.Component {
                                                        lstImageIDsFields,
                                                        false );
 
-        const lstFrammeTypesFields = ["FrameTypeName"];
+        const lstFrameTypesFields = ["FrameTypeName"];
         const lstFrameTypes = this._prepareOptionsList( this.state.frameTypes 
                                                         ? Object.values(this.state.frameTypes) : null, 
-                                                        lstFrammeTypesFields,
+                                                        lstFrameTypesFields,
+                                                        false );
+
+        const lstMaterialTypesFields = ["MaterialTypeName"];
+        const lstMaterialTypes = this._prepareOptionsList( this.state.materialTypes 
+                                                        ? Object.values(this.state.materialTypes) : null, 
+                                                        lstMaterialTypesFields,
+                                                        false );
+
+        const lstMountingTypesFields = ["MountingTypeName"];
+        const lstMountingTypes = this._prepareOptionsList( this.state.mountingTypes 
+                                                        ? Object.values(this.state.mountingTypes) : null, 
+                                                        lstMountingTypesFields,
                                                         false );
 
         const roomPicUrl = "/img/room_default.jpg";
@@ -285,7 +375,7 @@ class PictureFitPage extends React.Component {
             <div>
                 <table>
                     <tr>
-                        <td colSpan={2}>
+                        <td>
                                 <TextField  key="cbImageID" 
                                             select 
                                             label="Images: " 
@@ -306,6 +396,30 @@ class PictureFitPage extends React.Component {
                                             onChange={ (event) => this.onFrameTypeChanged(event) }>
                                         {
                                             lstFrameTypes 
+                                        }
+                                </TextField>
+                        </td>
+                        <td>
+                                <TextField  key="cbMaterialTypeID" 
+                                            select 
+                                            label="Materials: " 
+                                            value={ (this.state.MaterialTypeID) ? 
+                                                        this.state.MaterialTypeID : '-1' }
+                                            onChange={ (event) => this.onMaterialTypeChanged(event) }>
+                                        {
+                                            lstMaterialTypes 
+                                        }
+                                </TextField>
+                        </td>
+                        <td>
+                                <TextField  key="cbMountingTypeID" 
+                                            select 
+                                            label="Mountings: " 
+                                            value={ (this.state.MountingTypeID) ? 
+                                                        this.state.MountingTypeID : '-1' }
+                                            onChange={ (event) => this.onMountingTypeChanged(event) }>
+                                        {
+                                            lstMountingTypes 
                                         }
                                 </TextField>
                         </td>
@@ -334,7 +448,7 @@ class PictureFitPage extends React.Component {
                         </td>
                     </tr> 
                     <tr>
-                        <td colSpan={3}>
+                        <td colSpan={4}>
                             <div>
                                 <img src={roomPicUrl} style={styleRoomPhoto}/>
                                 <Draggable bounds="parent"
