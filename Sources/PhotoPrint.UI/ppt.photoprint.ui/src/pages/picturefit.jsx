@@ -8,6 +8,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Box from '@material-ui/core/Box';
+
+import Draggable from 'react-draggable';
 
 import PictureFit from "../components/PcitureFit"
 
@@ -15,7 +18,9 @@ import PageHelper from "../helpers/PageHelper";
 import constants from '../constants';
 
 import ImagesDal from '../dal/ImagesDal';
+import FrameTypesDal from '../dal/FrameTypesDal';
 import OrdersDal from '../dal/OrdersDal';
+
 
 class PictureFitPage extends React.Component {
 
@@ -39,6 +44,14 @@ class PictureFitPage extends React.Component {
             picHeight: 100,
             roomPicHeight: 750,
 
+            activeDrags: 0,
+            deltaPosition: {
+                x: 0, y: 0
+            },
+            controlledPosition: {
+                x: -400, y: 200
+            },
+
             urlThis: `/picturefit`
         };
 
@@ -46,6 +59,7 @@ class PictureFitPage extends React.Component {
         this._recalcPicSize = this._recalcPicSize.bind(this);
 
         this.onImageIDChanged = this.onImageIDChanged.bind(this);
+        this.onFrameTypeChanged = this.onFrameTypeChanged.bind(this);
         this.onRoomHeightChanged = this.onRoomHeightChanged.bind(this);
         this.onPictureHeightChanged = this.onPictureHeightChanged.bind(this);
         this.onPictureWidthChanged = this.onPictureWidthChanged.bind(this);
@@ -57,7 +71,9 @@ class PictureFitPage extends React.Component {
         if(token != null) {
             let obj = this;
             obj._getImages().then( () => {
-
+                obj._getFrameTypes().then( () => { 
+                    obj._recalcPicSize();               
+                } );
             } );
         }
         else {
@@ -66,102 +82,24 @@ class PictureFitPage extends React.Component {
         }
     }
 
-    render() {
-
-        const styleFitArea = {
-            position: "relative",
-            left: "0",
-            top: "0"
-        };
-
-        const styleRoomPhoto = {
-            position: "relative",
-            left: "0",
-            top: "0",
-            height: this.state.roomPicHeight + "px"
-        };
-
-        const stylePicture = {
-            position: "absolute",
-            left: "400px",
-            top: "150px"
-        };
-
-        const lstImageIDsFields = ["Title"];
-        const lstImageIDs = this._prepareOptionsList( this.state.images 
-                                                       ? Object.values(this.state.images) : null, 
-                                                       lstImageIDsFields,
-                                                       false );
-
-        const roomPicUrl = "/img/room_default.jpg";
-        const picUrl = this.state.images && this.state.ImageID ? this.state.images[this.state.ImageID].OriginUrl : null; 
-
-        console.log("Picture: ", picUrl);
-
-        return (
-            <div>
-                <table>
-                    <tr>
-                        <td colSpan={3}>
-                                <TextField  key="cbImageID" 
-                                            select 
-                                            label="Images: " 
-                                            value={ (this.state.ImageID) ? 
-                                                        this.state.ImageID : '-1' }
-                                            onChange={ (event) => this.onImageIDChanged(event) }>
-                                        {
-                                            lstImageIDs 
-                                        }
-                                </TextField>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <TextField  key="txtRoomHeight"
-                                        label="Room Height (cm):"
-                                        value={this.state.RoomHeight}
-                                        onChange={ (e) => this.onRoomHeightChanged(e) }>
-                            </TextField>
-                        </td>
-                        <td>
-                            <TextField  key="txtPcitureWidth"
-                                        label="Picture Width (cm):"
-                                        value={this.state.PictureWidth}
-                                        onChange={ (e) => this.onPictureWidthChanged(e) }>
-                            </TextField>
-                        </td>
-                        <td>
-                            <TextField  key="txtPcitureHeight"
-                                        label="Picture Height (cm):"
-                                        value={this.state.PictureHeight}
-                                        onChange={ (e) => this.onPictureHeightChanged(e) }>
-                            </TextField>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td colSpan={3}>
-                            <div style={styleFitArea}>
-                                <img src={roomPicUrl} style={styleRoomPhoto}/>
-                                <div style={stylePicture}>
-                                    <PictureFit picUrl={picUrl}
-                                                picWidth={this.state.picWidth}
-                                                picHeight={this.state.picHeight}
-                                                 />
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        );
-    }
-
     onImageIDChanged(event) {
 
         let updatedState = this.state;
         let newVal = null;
         newVal = parseInt(event.target.value);
         updatedState.ImageID = newVal;
+
+        this.setState(updatedState);
+
+        this._recalcPicSize();
+    }
+
+    onFrameTypeChanged(event) {
+
+        let updatedState = this.state;
+        let newVal = null;
+        newVal = parseInt(event.target.value);
+        updatedState.FrameTypeID = newVal;
 
         this.setState(updatedState);
 
@@ -237,6 +175,33 @@ class PictureFitPage extends React.Component {
             {
                 updatedState.images[response.data[s].ID] = response.data[s];             
             }
+
+            updatedState.ImageID = response.data[0].ID;
+        }
+        else if(response.status == constants.HTTP_Unauthorized) {
+            this._redirectToLogin();            
+        }
+        else {
+            this._showError(updatedState, response);                        
+        }
+
+        this.setState(updatedState);
+    }
+
+    async _getFrameTypes() {
+        let updatedState = this.state;
+        updatedState.frameTypes = {};
+        let dalFrameTypes = new FrameTypesDal();
+        let response = await dalFrameTypes.getFrameTypes();
+
+        if(response.status == constants.HTTP_OK)
+        {
+            for(let s in response.data)
+            {
+                updatedState.frameTypes[response.data[s].ID] = response.data[s];             
+            }
+
+            updatedState.FrameTypeID = response.data[0].ID;
         }
         else if(response.status == constants.HTTP_Unauthorized) {
             this._redirectToLogin();            
@@ -275,6 +240,123 @@ class PictureFitPage extends React.Component {
         }
 
         return lst;
+    }
+
+    render() {
+
+        const styleFitArea = {
+            position: "relative",
+            left: "0",
+            top: "0"
+        };
+
+        const styleRoomPhoto = {
+            position: "relative",
+            left: "0",
+            top: "0",
+            height: this.state.roomPicHeight + "px"
+        };
+
+        const stylePicture = {
+            position: "absolute",
+            transform: `translate(${(1000 - this.state.picWidth)/2}px, ${(this.roomPicHeight - this.state.picHeight)/2}px);`
+        };
+
+        const lstImageIDsFields = ["Title"];
+        const lstImageIDs = this._prepareOptionsList( this.state.images 
+                                                       ? Object.values(this.state.images) : null, 
+                                                       lstImageIDsFields,
+                                                       false );
+
+        const lstFrammeTypesFields = ["FrameTypeName"];
+        const lstFrameTypes = this._prepareOptionsList( this.state.frameTypes 
+                                                        ? Object.values(this.state.frameTypes) : null, 
+                                                        lstFrammeTypesFields,
+                                                        false );
+
+        const roomPicUrl = "/img/room_default.jpg";
+        const picUrl = this.state.images && this.state.ImageID ? this.state.images[this.state.ImageID].OriginUrl : null; 
+        const picFrame = this.state.frameTypes && this.state.FrameTypeID ? this.state.frameTypes[this.state.FrameTypeID].ThumbnailUrl : null;
+        
+
+        console.log("Picture: ", picUrl);
+
+        return (
+            <div>
+                <table>
+                    <tr>
+                        <td colSpan={2}>
+                                <TextField  key="cbImageID" 
+                                            select 
+                                            label="Images: " 
+                                            value={ (this.state.ImageID) ? 
+                                                        this.state.ImageID : '-1' }
+                                            onChange={ (event) => this.onImageIDChanged(event) }>
+                                        {
+                                            lstImageIDs 
+                                        }
+                                </TextField>
+                        </td>
+                        <td>
+                                <TextField  key="cbFrameTypeID" 
+                                            select 
+                                            label="Frames: " 
+                                            value={ (this.state.FrameTypeID) ? 
+                                                        this.state.FrameTypeID : '-1' }
+                                            onChange={ (event) => this.onFrameTypeChanged(event) }>
+                                        {
+                                            lstFrameTypes 
+                                        }
+                                </TextField>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <TextField  key="txtRoomHeight"
+                                        label="Room Height (cm):"
+                                        value={this.state.RoomHeight}
+                                        onChange={ (e) => this.onRoomHeightChanged(e) }>
+                            </TextField>
+                        </td>
+                        <td>
+                            <TextField  key="txtPcitureWidth"
+                                        label="Picture Width (cm):"
+                                        value={this.state.PictureWidth}
+                                        onChange={ (e) => this.onPictureWidthChanged(e) }>
+                            </TextField>
+                        </td>
+                        <td>
+                            <TextField  key="txtPcitureHeight"
+                                        label="Picture Height (cm):"
+                                        value={this.state.PictureHeight}
+                                        onChange={ (e) => this.onPictureHeightChanged(e) }>
+                            </TextField>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td colSpan={3}>
+                            <div>
+                                <img src={roomPicUrl} style={styleRoomPhoto}/>
+                                <Draggable bounds="parent"
+                                            style={stylePicture}>
+                                <Box    width={this.state.picWidth}
+                                        sx={{ top: -500, left: -500 }}
+                                        boxShadow={3}>
+                                        <PictureFit 
+                                            picUrl={picUrl}
+                                            picFrame={picFrame}
+                                            picWidth={this.state.picWidth}
+                                            picHeight={this.state.picHeight} 
+                                        />
+                                </Box>
+                                    
+                                </Draggable>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        );
     }
 
 }
