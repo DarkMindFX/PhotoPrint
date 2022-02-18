@@ -272,6 +272,10 @@ namespace PPT.PhotoPrint.API
             services.AddSingleton<IUserConfirmationDal>(dalUserConfirmationDal);
             services.AddSingleton<PPT.Services.Dal.IUserConfirmationDal, PPT.Services.Dal.UserConfirmationDal>();
 
+            var dalUserInteriorThumbnailDal = InitDal<IUserInteriorThumbnailDal>(serviceCfg);
+            services.AddSingleton<IUserInteriorThumbnailDal>(dalUserInteriorThumbnailDal);
+            services.AddSingleton<PPT.Services.Dal.IUserInteriorThumbnailDal, PPT.Services.Dal.UserInteriorThumbnailDal>();
+
             var dalUserAddressDal = InitDal<IUserAddressDal>(serviceCfg);
             services.AddSingleton<IUserAddressDal>(dalUserAddressDal);
             services.AddSingleton<PPT.Services.Dal.IUserAddressDal, PPT.Services.Dal.UserAddressDal>();

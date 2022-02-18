@@ -30,7 +30,11 @@ namespace PPT.Storage.Azure
         StorageInitParams _initParams = null;
         BlobServiceClient _blobServiceClient;
         BlobContainerClient _containerClient;
- 
+
+        string _storageConnString;
+        string _containerName;
+
+
         public IInitParams CreateInitParams()
         {
             return new StorageInitParams();
@@ -38,6 +42,8 @@ namespace PPT.Storage.Azure
 
         public bool Delete(string blobName)
         {
+            EnsureConnected();
+
             BlobClient blobClient = _containerClient.GetBlobClient(blobName);
             return blobClient.DeleteIfExists();
         }
@@ -50,31 +56,16 @@ namespace PPT.Storage.Azure
             }
             _initParams = initParams as StorageInitParams;
 
-            var storageConnString = _initParams.Parameters["StorageConnectionString"].ToString();
+            _storageConnString = _initParams.Parameters["StorageConnectionString"].ToString();
 
-            _blobServiceClient = new BlobServiceClient(storageConnString);
-            var containers = _blobServiceClient.GetBlobContainers();
-
-            string containerName = _initParams.Parameters["ContainerName"].ToString();
-
-            var enumContainers = containers.GetEnumerator();
-            while (_containerClient == null && enumContainers.MoveNext())
-            {
-                if(enumContainers.Current != null && enumContainers.Current.Name.Equals(containerName))
-                {
-                    _containerClient = new BlobContainerClient(storageConnString, containerName);
-                }
-            }
-
-            if(_containerClient == null)
-            {
-                _containerClient = _blobServiceClient.CreateBlobContainer(containerName);
-            }
+            _containerName = _initParams.Parameters["ContainerName"].ToString();          
 
         }
 
         public string Upload(string blobName, Stream data)
         {
+            EnsureConnected();
+
             BlobClient blobClient = _containerClient.GetBlobClient(blobName);
 
             var blobHttpHeader = new BlobHttpHeaders { ContentType = GetFileContentType(blobName) };
@@ -86,6 +77,29 @@ namespace PPT.Storage.Azure
                                     blobName);
 
             return url;
+        }
+
+        private void EnsureConnected()
+        {
+            if (_blobServiceClient == null)
+            {
+                _blobServiceClient = new BlobServiceClient(_storageConnString);
+            }
+            var containers = _blobServiceClient.GetBlobContainers();
+
+            var enumContainers = containers.GetEnumerator();
+            while (_containerClient == null && enumContainers.MoveNext())
+            {
+                if (enumContainers.Current != null && enumContainers.Current.Name.Equals(_containerName))
+                {
+                    _containerClient = new BlobContainerClient(_storageConnString, _containerName);
+                }
+            }
+
+            if (_containerClient == null)
+            {
+                _containerClient = _blobServiceClient.CreateBlobContainer(_containerName);
+            }
         }
 
         private static string GetFileContentType(string filePath)
