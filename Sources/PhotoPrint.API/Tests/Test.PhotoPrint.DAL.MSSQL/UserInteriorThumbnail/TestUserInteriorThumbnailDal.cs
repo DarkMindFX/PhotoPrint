@@ -9,7 +9,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-
+using Test.PPT.Common.DAL;
 
 namespace Test.PPT.DAL.MSSQL
 {

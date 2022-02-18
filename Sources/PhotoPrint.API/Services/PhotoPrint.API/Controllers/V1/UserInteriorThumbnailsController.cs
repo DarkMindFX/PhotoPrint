@@ -23,16 +23,16 @@ namespace PPT.PhotoPrint.API.Controllers.V1
     [UnhandledExceptionFilter]
     public class UserInteriorThumbnailsController : BaseController
     {
-        private readonly Dal.IUserInteriorThumbnailDal _dalUserInteriorThumbnail;
+        private readonly PPT.Services.Dal.IUserInteriorThumbnailDal _dalUserInteriorThumbnail;
         private readonly ILogger<UserInteriorThumbnailsController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
 
 
-        public UserInteriorThumbnailsController( Dal.IUserInteriorThumbnailDal dalUserInteriorThumbnail,
+        public UserInteriorThumbnailsController(PPT.Services.Dal.IUserInteriorThumbnailDal dalUserInteriorThumbnail,
                                     ILogger<UserInteriorThumbnailsController> logger,
                                     IOptions<AppSettings> appSettings)
         {
-            _dalUserInteriorThumbnail = dalUserInteriorThumbnail; 
+            _dalUserInteriorThumbnail = dalUserInteriorThumbnail;
             _logger = logger;
             _appSettings = appSettings;
         }
@@ -110,7 +110,7 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             return response;
         }
-        
+
         [Authorize]
         [HttpDelete("{id}"), ActionName("DeleteUserInteriorThumbnail")]
         public IActionResult Delete(System.Int64? id)
@@ -151,9 +151,9 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             IActionResult response = null;
 
-            var entity = UserInteriorThumbnailConvertor.Convert(dto);           
+            var entity = UserInteriorThumbnailConvertor.Convert(dto);
 
-            
+
             UserInteriorThumbnail newEntity = _dalUserInteriorThumbnail.Insert(entity);
 
             response = StatusCode((int)HttpStatusCode.Created, UserInteriorThumbnailConvertor.Convert(newEntity, this.Url));
@@ -174,11 +174,11 @@ namespace PPT.PhotoPrint.API.Controllers.V1
 
             var newEntity = UserInteriorThumbnailConvertor.Convert(dto);
 
-            var existingEntity = _dalUserInteriorThumbnail.Get(newEntity.ID);           
+            var existingEntity = _dalUserInteriorThumbnail.Get(newEntity.ID);
 
             if (existingEntity != null)
             {
-                                                    UserInteriorThumbnail entity = _dalUserInteriorThumbnail.Update(newEntity);
+                UserInteriorThumbnail entity = _dalUserInteriorThumbnail.Update(newEntity);
 
                 response = Ok(UserInteriorThumbnailConvertor.Convert(entity, this.Url));
             }
