@@ -29,7 +29,7 @@ BEGIN
 
 	INSERT INTO @tblParams	
 	
-
+	
 	SELECT -1, 'OrderStatusFlow', 'OrderStatusFlow.csv'	UNION
 	SELECT -1, 'OrderPaymentDetails', 'OrderPaymentDetails.csv'				UNION
 	SELECT -1, 'OrderItem', 'OrderItem.csv'				UNION
@@ -55,6 +55,7 @@ BEGIN
 	SELECT 17, 'ImageThumbnail', 'ImageThumbnail.csv'	UNION
 	SELECT 18, 'Image', 'Image.csv'						UNION
 	SELECT 19, 'UserConfirmation', 'UserConfirmation.csv'	UNION
+	SELECT 20, 'UserInteriorThumbnail', 'UserInteriorThumbnail.csv'	UNION
 	SELECT 99, 'User', 'User.csv'						
 
 	DECLARE paramsCursor CURSOR FOR

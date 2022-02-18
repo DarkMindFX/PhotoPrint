@@ -21,7 +21,9 @@ import ImagesDal from '../dal/ImagesDal';
 import FrameTypesDal from '../dal/FrameTypesDal';
 import MaterialTypesDal from '../dal/MaterialTypesDal';
 import MountingTypesDal from '../dal/MountingTypesDal';
+import CurrenciesDal from '../dal/CurrenciesDal';
 import OrdersDal from '../dal/OrdersDal';
+import OrderItemsDal from '../dal/OrderItemsDal';
 
 
 class PictureFitPage extends React.Component {
@@ -74,13 +76,15 @@ class PictureFitPage extends React.Component {
         console.log('Token: ', token);
         if(token != null) {
             let obj = this;
-            obj._getImages().then( () => {
-                obj._getFrameTypes().then( () => { 
-                    obj._getMaterialTypes().then( () => { 
-                        obj._getMountingTypes().then( () => { 
-                            obj._recalcPicSize();
-                        } );          
-                    } );                
+            obj._getCurrencies().then( () => {
+                obj._getImages().then( () => {
+                    obj._getFrameTypes().then( () => { 
+                        obj._getMaterialTypes().then( () => { 
+                            obj._getMountingTypes().then( () => { 
+                                obj._recalcPicSize();
+                            } );          
+                        } );                
+                    } );
                 } );
             } );
         }
@@ -205,6 +209,29 @@ class PictureFitPage extends React.Component {
             }
 
             updatedState.ImageID = response.data[0].ID;
+        }
+        else if(response.status == constants.HTTP_Unauthorized) {
+            this._redirectToLogin();            
+        }
+        else {
+            this._showError(updatedState, response);                        
+        }
+
+        this.setState(updatedState);
+    }
+
+    async _getCurrencies() {
+        let updatedState = this.state;
+        updatedState.currencies = {};
+        let dalCurrenies= new CurrenciesDal();
+        let response = await dalCurrenies.getCurrencies();
+
+        if(response.status == constants.HTTP_OK)
+        {
+            for(let s in response.data)
+            {
+                updatedState.currencies[response.data[s].ID] = response.data[s];             
+            }
         }
         else if(response.status == constants.HTTP_Unauthorized) {
             this._redirectToLogin();            
@@ -447,6 +474,12 @@ class PictureFitPage extends React.Component {
                             </TextField>
                         </td>
                     </tr> 
+                    <tr>
+                        <td>
+                            Price Per Item: { this.state.images && this.state.ImageID ? (this.state.images[this.state.ImageID].PriceAmount ? this.state.images[this.state.ImageID].PriceAmount : " ") + " " +
+                                                                                        (this.state.images[this.state.ImageID].PriceCurrencyID ? this.state.currencies[this.state.images[this.state.ImageID].PriceCurrencyID].ISO : "") : 0}
+                        </td>
+                    </tr>
                     <tr>
                         <td colSpan={4}>
                             <div>

@@ -83,7 +83,9 @@ BEGIN
 	SELECT 22, 'OrderPaymentDetails', 'OrderPaymentDetails.csv', 1	UNION
 	SELECT 23, 'OrderStatusFlow', 'OrderStatusFlow.csv', 0			UNION
 	SELECT 24, 'OrderTracking', 'OrderTracking.csv', 1				UNION
-	SELECT 25, 'UserConfirmation', 'UserConfirmation.csv', 1
+	SELECT 25, 'UserConfirmation', 'UserConfirmation.csv', 1		UNION
+	SELECT 26, 'UserInteriorThumbnail', 'UserInteriorThumbnail.csv', 1		
+
 
 
 	DECLARE paramsCursor CURSOR FOR
